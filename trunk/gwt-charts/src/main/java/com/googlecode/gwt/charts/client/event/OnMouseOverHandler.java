@@ -21,6 +21,11 @@ public abstract class OnMouseOverHandler implements EventHandler {
 		onMouseOver(new OnMouseOverEvent(properties));
 	}
 
+	@Override
+	public String getEventName() {
+		return OnMouseOverEvent.NAME;
+	}
+
 	public abstract void onMouseOver(OnMouseOverEvent event);
 
 }

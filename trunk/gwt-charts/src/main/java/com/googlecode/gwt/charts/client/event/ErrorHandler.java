@@ -21,6 +21,11 @@ public abstract class ErrorHandler implements EventHandler {
 		onError(new ErrorEvent(properties));
 	}
 
+	@Override
+	public String getEventName() {
+		return ErrorEvent.NAME;
+	}
+
 	public abstract void onError(ErrorEvent event);
 
 }

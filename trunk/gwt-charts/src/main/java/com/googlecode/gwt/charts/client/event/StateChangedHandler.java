@@ -21,6 +21,11 @@ public abstract class StateChangedHandler implements EventHandler {
 		onStateChanged(new StateChangedEvent(properties));
 	}
 
+	@Override
+	public String getEventName() {
+		return StateChangedEvent.NAME;
+	}
+
 	public abstract void onStateChanged(StateChangedEvent event);
 
 }

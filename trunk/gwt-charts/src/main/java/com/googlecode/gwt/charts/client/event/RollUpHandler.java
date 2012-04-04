@@ -21,6 +21,11 @@ public abstract class RollUpHandler implements EventHandler {
 		onRollUp(new RollUpEvent(properties));
 	}
 
+	@Override
+	public String getEventName() {
+		return RollUpEvent.NAME;
+	}
+
 	public abstract void onRollUp(RollUpEvent event);
 
 }

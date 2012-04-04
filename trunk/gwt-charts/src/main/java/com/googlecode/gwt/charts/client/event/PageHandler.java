@@ -21,6 +21,11 @@ public abstract class PageHandler implements EventHandler {
 		onPage(new PageEvent(properties));
 	}
 
+	@Override
+	public String getEventName() {
+		return PageEvent.NAME;
+	}
+
 	public abstract void onPage(PageEvent event);
 
 }

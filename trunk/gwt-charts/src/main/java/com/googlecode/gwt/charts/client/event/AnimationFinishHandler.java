@@ -21,6 +21,11 @@ public abstract class AnimationFinishHandler implements EventHandler {
 		onAnimationFinish(new AnimationFinishEvent(properties));
 	}
 
+	@Override
+	public String getEventName() {
+		return AnimationFinishEvent.NAME;
+	}
+
 	public abstract void onAnimationFinish(AnimationFinishEvent event);
 
 }

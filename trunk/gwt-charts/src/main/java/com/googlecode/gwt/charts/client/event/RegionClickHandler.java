@@ -21,6 +21,11 @@ public abstract class RegionClickHandler implements EventHandler {
 		onRegionClick(new RegionClickEvent(properties));
 	}
 
+	@Override
+	public String getEventName() {
+		return RegionClickEvent.NAME;
+	}
+
 	public abstract void onRegionClick(RegionClickEvent event);
 
 }

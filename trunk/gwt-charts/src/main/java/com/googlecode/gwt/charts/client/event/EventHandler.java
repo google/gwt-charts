@@ -17,4 +17,7 @@ import com.googlecode.gwt.charts.client.Properties;
 public interface EventHandler {
 
 	void dispatch(Properties properties);
+
+	String getEventName();
+
 }
