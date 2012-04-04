@@ -21,6 +21,11 @@ public abstract class OnMouseOutHandler implements EventHandler {
 		onMouseOutEvent(new OnMouseOutEvent(properties));
 	}
 
+	@Override
+	public String getEventName() {
+		return OnMouseOutEvent.NAME;
+	}
+
 	public abstract void onMouseOutEvent(OnMouseOutEvent event);
 
 }

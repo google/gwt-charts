@@ -21,6 +21,11 @@ public abstract class ReadyHandler implements EventHandler {
 		onReady(new ReadyEvent(properties));
 	}
 
+	@Override
+	public String getEventName() {
+		return ReadyEvent.NAME;
+	}
+
 	public abstract void onReady(ReadyEvent event);
 
 }

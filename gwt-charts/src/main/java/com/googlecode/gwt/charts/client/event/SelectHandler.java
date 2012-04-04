@@ -21,6 +21,11 @@ public abstract class SelectHandler implements EventHandler {
 		onSelect(new SelectEvent(properties));
 	}
 
+	@Override
+	public String getEventName() {
+		return SelectEvent.NAME;
+	}
+
 	public abstract void onSelect(SelectEvent event);
 
 }

@@ -21,6 +21,11 @@ public abstract class SortHandler implements EventHandler {
 		onSort(new SortEvent(properties));
 	}
 
+	@Override
+	public String getEventName() {
+		return SortEvent.NAME;
+	}
+
 	public abstract void onSort(SortEvent event);
 
 }
