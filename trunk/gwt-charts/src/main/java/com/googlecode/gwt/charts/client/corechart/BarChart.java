@@ -15,16 +15,11 @@ package com.googlecode.gwt.charts.client.corechart;
 import com.google.gwt.dom.client.Element;
 
 import com.googlecode.gwt.charts.client.ChartObject;
-import com.googlecode.gwt.charts.client.DataSource;
 
-public class BarChart extends CoreChart {
+public class BarChart extends CoreChartWidget<BarChartOptions> {
 
 	public BarChart() {
 		super();
-	}
-
-	public final void draw(DataSource data, BarChartOptions options) {
-		chartObject.draw(data, options);
 	}
 
 	@Override

@@ -15,16 +15,11 @@ package com.googlecode.gwt.charts.client.corechart;
 import com.google.gwt.dom.client.Element;
 
 import com.googlecode.gwt.charts.client.ChartObject;
-import com.googlecode.gwt.charts.client.DataSource;
 
-public class LineChart extends CoreChart {
+public class LineChart extends CoreChartWidget<LineChartOptions> {
 
 	public LineChart() {
 		super();
-	}
-
-	public final void draw(DataSource data, LineChartOptions options) {
-		chartObject.draw(data, options);
 	}
 
 	@Override

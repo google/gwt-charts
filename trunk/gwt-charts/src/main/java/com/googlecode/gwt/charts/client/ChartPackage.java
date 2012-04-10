@@ -35,7 +35,7 @@ public enum ChartPackage {
 	/**
 	 * Exclusive use for treemap charts
 	 */
-	TREEMAP("gauge"),
+	TREEMAP("treemap"),
 	/**
 	 * Used for controls and dashboards
 	 */

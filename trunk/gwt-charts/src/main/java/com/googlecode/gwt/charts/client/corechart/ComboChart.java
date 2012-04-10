@@ -15,16 +15,11 @@ package com.googlecode.gwt.charts.client.corechart;
 import com.google.gwt.dom.client.Element;
 
 import com.googlecode.gwt.charts.client.ChartObject;
-import com.googlecode.gwt.charts.client.DataSource;
 
-public class ComboChart extends CoreChart {
+public class ComboChart extends CoreChartWidget<ComboChartOptions> {
 
 	public ComboChart() {
 		super();
-	}
-
-	public final void draw(DataSource data, ComboChartOptions options) {
-		chartObject.draw(data, options);
 	}
 
 	@Override

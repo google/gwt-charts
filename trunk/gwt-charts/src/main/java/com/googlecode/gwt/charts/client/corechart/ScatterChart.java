@@ -15,16 +15,11 @@ package com.googlecode.gwt.charts.client.corechart;
 import com.google.gwt.dom.client.Element;
 
 import com.googlecode.gwt.charts.client.ChartObject;
-import com.googlecode.gwt.charts.client.DataSource;
 
-public class ScatterChart extends CoreChart {
+public class ScatterChart extends CoreChartWidget<ScatterChartOptions> {
 
 	public ScatterChart() {
 		super();
-	}
-
-	public final void draw(DataSource data, ScatterChartOptions options) {
-		chartObject.draw(data, options);
 	}
 
 	@Override

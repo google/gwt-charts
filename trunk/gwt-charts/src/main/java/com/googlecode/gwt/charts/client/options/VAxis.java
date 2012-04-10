@@ -17,6 +17,12 @@ public class VAxis extends Axis {
 		return createObject().cast();
 	}
 
+	public static VAxis create(String title) {
+		VAxis vAxis = createObject().cast();
+		vAxis.setTitle(title);
+		return vAxis;
+	}
+
 	protected VAxis() {
 	}
 

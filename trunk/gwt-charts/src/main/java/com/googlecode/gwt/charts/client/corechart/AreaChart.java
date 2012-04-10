@@ -15,16 +15,11 @@ package com.googlecode.gwt.charts.client.corechart;
 import com.google.gwt.dom.client.Element;
 
 import com.googlecode.gwt.charts.client.ChartObject;
-import com.googlecode.gwt.charts.client.DataSource;
 
-public class AreaChart extends CoreChart {
+public class AreaChart extends CoreChartWidget<AreaChartOptions> {
 
 	public AreaChart() {
 		super();
-	}
-
-	public final void draw(DataSource data, AreaChartOptions options) {
-		chartObject.draw(data, options);
 	}
 
 	@Override

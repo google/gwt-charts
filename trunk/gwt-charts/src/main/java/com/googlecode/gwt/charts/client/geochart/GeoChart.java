@@ -14,59 +14,36 @@ package com.googlecode.gwt.charts.client.geochart;
 
 import com.google.gwt.core.client.JsArray;
 import com.google.gwt.dom.client.Element;
-import com.google.gwt.user.client.DOM;
-import com.google.gwt.user.client.ui.Widget;
 
 import com.googlecode.gwt.charts.client.ChartObject;
-import com.googlecode.gwt.charts.client.DataSource;
+import com.googlecode.gwt.charts.client.ChartWidget;
 import com.googlecode.gwt.charts.client.Selection;
-import com.googlecode.gwt.charts.client.event.ErrorEvent;
 import com.googlecode.gwt.charts.client.event.ErrorHandler;
-import com.googlecode.gwt.charts.client.event.EventHandler;
 import com.googlecode.gwt.charts.client.event.HandlerRef;
-import com.googlecode.gwt.charts.client.event.ReadyEvent;
 import com.googlecode.gwt.charts.client.event.ReadyHandler;
-import com.googlecode.gwt.charts.client.event.RegionClickEvent;
 import com.googlecode.gwt.charts.client.event.RegionClickHandler;
-import com.googlecode.gwt.charts.client.event.SelectEvent;
 import com.googlecode.gwt.charts.client.event.SelectHandler;
 
-public class GeoChart extends Widget {
-	protected ChartObject chartObject;
+public class GeoChart extends ChartWidget<GeoChartOptions> {
 
 	public GeoChart() {
 		super();
-		Element chartDiv = DOM.createDiv();
-		chartObject = createChartObject(chartDiv);
-		setElement(chartDiv);
 	}
 
 	public final HandlerRef addErrorHandler(ErrorHandler handler) {
-		return addHandler(handler, ErrorEvent.NAME);
+		return addHandler(handler);
 	}
 
 	public final HandlerRef addReadyHandler(ReadyHandler handler) {
-		return addHandler(handler, ReadyEvent.NAME);
+		return addHandler(handler);
 	}
 
 	public final HandlerRef addRegionClickHandler(RegionClickHandler handler) {
-		return addHandler(handler, RegionClickEvent.NAME);
+		return addHandler(handler);
 	}
 
 	public final HandlerRef addSelectHandler(SelectHandler handler) {
-		return addHandler(handler, SelectEvent.NAME);
-	}
-
-	public final void clearChart() {
-		chartObject.clearChart();
-	}
-
-	public final void draw(DataSource data) {
-		chartObject.draw(data);
-	}
-
-	public final void draw(DataSource data, GeoChartOptions options) {
-		chartObject.draw(data, options);
+		return addHandler(handler);
 	}
 
 	public final JsArray<Selection> getSelection() {
@@ -77,10 +54,7 @@ public class GeoChart extends Widget {
 		chartObject.setSelection(selection);
 	}
 
-	protected final <H extends EventHandler> HandlerRef addHandler(H handler, String eventName) {
-		return chartObject.addListener(eventName, handler);
-	}
-
+	@Override
 	protected native ChartObject createChartObject(Element container) /*-{
 		return new $wnd.google.visualization.GeoChart(container);
 	}-*/;

@@ -10,26 +10,34 @@
  * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
  * specific language governing permissions and limitations under the License.
  */
-package com.googlecode.gwt.charts.client.treemap;
+package com.googlecode.gwt.charts.client.corechart;
 
 import com.google.gwt.core.client.JsArray;
-import com.google.gwt.dom.client.Element;
 
-import com.googlecode.gwt.charts.client.ChartObject;
 import com.googlecode.gwt.charts.client.ChartWidget;
 import com.googlecode.gwt.charts.client.Selection;
+import com.googlecode.gwt.charts.client.event.AnimationFinishHandler;
+import com.googlecode.gwt.charts.client.event.ErrorHandler;
 import com.googlecode.gwt.charts.client.event.HandlerRef;
 import com.googlecode.gwt.charts.client.event.OnMouseOutHandler;
 import com.googlecode.gwt.charts.client.event.OnMouseOverHandler;
 import com.googlecode.gwt.charts.client.event.ReadyHandler;
-import com.googlecode.gwt.charts.client.event.RollUpHandler;
 import com.googlecode.gwt.charts.client.event.SelectHandler;
+import com.googlecode.gwt.charts.client.options.Options;
 
-public class TreeMap extends ChartWidget<TreeMapOptions> {
-	protected ChartObject chartObject;
+public abstract class CoreChartWidget<T extends Options> extends ChartWidget<T> {
+	private JsArray<Selection> selection;
 
-	public TreeMap() {
+	public CoreChartWidget() {
 		super();
+	}
+
+	public final HandlerRef addAnimationFinishHandler(AnimationFinishHandler handler) {
+		return addHandler(handler);
+	}
+
+	public final HandlerRef addErrorHandler(ErrorHandler handler) {
+		return addHandler(handler);
 	}
 
 	public final HandlerRef addOnMouseOutHandler(OnMouseOutHandler handler) {
@@ -44,33 +52,25 @@ public class TreeMap extends ChartWidget<TreeMapOptions> {
 		return addHandler(handler);
 	}
 
-	public final HandlerRef addRollUpHandler(RollUpHandler handler) {
-		return addHandler(handler);
-	}
-
 	public final HandlerRef addSelectHandler(SelectHandler handler) {
 		return addHandler(handler);
-	}
-
-	public final void getMaxPossibleDepth() {
-		chartObject.getMaxPossibleDepth();
 	}
 
 	public final JsArray<Selection> getSelection() {
 		return chartObject.getSelection();
 	}
 
-	public final void goUpAndDraw() {
-		chartObject.goUpAndDraw();
-	}
-
 	public final void setSelection(JsArray<Selection> selection) {
+		this.selection = selection;
 		chartObject.setSelection(selection);
 	}
 
 	@Override
-	protected native ChartObject createChartObject(Element container) /*-{
-		return new $wnd.google.visualization.TreeMap(container);
-	}-*/;
+	protected void recreate() {
+		super.recreate();
+		if (selection != null) {
+			chartObject.setSelection(selection);
+		}
+	}
 
 }

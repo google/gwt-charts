@@ -18,6 +18,9 @@ import com.google.gwt.core.client.JavaScriptObject;
  */
 
 public class Bubble extends JavaScriptObject {
+	public static Bubble create() {
+		return createObject().cast();
+	}
 
 	protected Bubble() {
 	}

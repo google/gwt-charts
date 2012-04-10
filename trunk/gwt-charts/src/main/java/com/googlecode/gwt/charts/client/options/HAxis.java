@@ -17,6 +17,12 @@ public class HAxis extends Axis {
 		return createObject().cast();
 	}
 
+	public static HAxis create(String title) {
+		HAxis hAxis = createObject().cast();
+		hAxis.setTitle(title);
+		return hAxis;
+	}
+
 	protected HAxis() {
 	}
 
