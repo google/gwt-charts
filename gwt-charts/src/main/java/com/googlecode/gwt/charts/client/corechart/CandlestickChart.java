@@ -15,16 +15,11 @@ package com.googlecode.gwt.charts.client.corechart;
 import com.google.gwt.dom.client.Element;
 
 import com.googlecode.gwt.charts.client.ChartObject;
-import com.googlecode.gwt.charts.client.DataSource;
 
-public class CandlestickChart extends CoreChart {
+public class CandlestickChart extends CoreChartWidget<CandlestickChartOptions> {
 
 	public CandlestickChart() {
 		super();
-	}
-
-	public final void draw(DataSource data, CandlestickChartOptions options) {
-		chartObject.draw(data, options);
 	}
 
 	@Override

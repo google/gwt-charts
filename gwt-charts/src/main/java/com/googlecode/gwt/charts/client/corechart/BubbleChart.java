@@ -15,16 +15,11 @@ package com.googlecode.gwt.charts.client.corechart;
 import com.google.gwt.dom.client.Element;
 
 import com.googlecode.gwt.charts.client.ChartObject;
-import com.googlecode.gwt.charts.client.DataSource;
 
-public class BubbleChart extends CoreChart {
+public class BubbleChart extends CoreChartWidget<BubbleChartOptions> {
 
 	public BubbleChart() {
 		super();
-	}
-
-	public final void draw(DataSource data, BubbleChartOptions options) {
-		chartObject.draw(data, options);
 	}
 
 	@Override

@@ -10,90 +10,34 @@
  * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
  * specific language governing permissions and limitations under the License.
  */
-package com.googlecode.gwt.charts.client.corechart;
+package com.googlecode.gwt.charts.client;
 
-import com.google.gwt.core.client.JsArray;
 import com.google.gwt.core.client.Scheduler;
 import com.google.gwt.dom.client.Element;
 import com.google.gwt.user.client.DOM;
 import com.google.gwt.user.client.ui.RequiresResize;
 import com.google.gwt.user.client.ui.Widget;
 
-import com.googlecode.gwt.charts.client.ChartObject;
-import com.googlecode.gwt.charts.client.DataSource;
-import com.googlecode.gwt.charts.client.Selection;
-import com.googlecode.gwt.charts.client.event.AnimationFinishHandler;
-import com.googlecode.gwt.charts.client.event.ErrorHandler;
 import com.googlecode.gwt.charts.client.event.Event;
 import com.googlecode.gwt.charts.client.event.EventHandler;
 import com.googlecode.gwt.charts.client.event.HandlerRef;
-import com.googlecode.gwt.charts.client.event.OnMouseOutHandler;
-import com.googlecode.gwt.charts.client.event.OnMouseOverHandler;
-import com.googlecode.gwt.charts.client.event.ReadyHandler;
-import com.googlecode.gwt.charts.client.event.SelectHandler;
 import com.googlecode.gwt.charts.client.options.Options;
 
 import java.util.HashMap;
 
-public abstract class CoreChart extends Widget implements RequiresResize {
+public abstract class ChartWidget<T extends Options> extends Widget implements RequiresResize {
 	protected ChartObject chartObject;
 	private DataSource data;
 	private Options options;
 	private HashMap<HandlerRef, EventHandler> eventMap;
-	private JsArray<Selection> selection;
 	private boolean unloaded;
 
-	public CoreChart() {
+	public ChartWidget() {
 		super();
 		Element chartDiv = DOM.createDiv();
 		chartObject = createChartObject(chartDiv);
 		setElement(chartDiv);
 		eventMap = new HashMap<HandlerRef, EventHandler>();
-	}
-
-	@Override
-	protected void onLoad() {
-		if (!unloaded) {
-			return;
-		}
-		unloaded = false;
-		Scheduler.get().scheduleDeferred(new Scheduler.ScheduledCommand() {
-
-			@Override
-			public void execute() {
-				recreate();
-				redraw();
-			}
-		});
-	}
-
-	@Override
-	protected void onUnload() {
-		this.unloaded = true;
-	}
-
-	public final HandlerRef addAnimationFinishHandler(AnimationFinishHandler handler) {
-		return addHandler(handler);
-	}
-
-	public final HandlerRef addErrorHandler(ErrorHandler handler) {
-		return addHandler(handler);
-	}
-
-	public final HandlerRef addOnMouseOutHandler(OnMouseOutHandler handler) {
-		return addHandler(handler);
-	}
-
-	public final HandlerRef addOnMouseOverHandler(OnMouseOverHandler handler) {
-		return addHandler(handler);
-	}
-
-	public final HandlerRef addReadyHandler(ReadyHandler handler) {
-		return addHandler(handler);
-	}
-
-	public final HandlerRef addSelectHandler(SelectHandler handler) {
-		return addHandler(handler);
 	}
 
 	public final void clearChart() {
@@ -104,12 +48,28 @@ public abstract class CoreChart extends Widget implements RequiresResize {
 		draw(data, null);
 	}
 
-	public final void fireEvent(Event event) {
-		chartObject.trigger(event.getEventName(), event.getProperties());
+	public final void draw(DataSource data, T options) {
+		this.data = data;
+		this.options = options;
+		// Double deferred command because of layout issues
+		Scheduler.get().scheduleDeferred(new Scheduler.ScheduledCommand() {
+
+			@Override
+			public void execute() {
+				Scheduler.get().scheduleDeferred(new Scheduler.ScheduledCommand() {
+
+					@Override
+					public void execute() {
+						redraw();
+					}
+				});
+			}
+		});
+
 	}
 
-	public final JsArray<Selection> getSelection() {
-		return chartObject.getSelection();
+	public final void fireEvent(Event event) {
+		chartObject.trigger(event.getEventName(), event.getProperties());
 	}
 
 	@Override
@@ -135,11 +95,6 @@ public abstract class CoreChart extends Widget implements RequiresResize {
 		chartObject.removeListener(handlerRef);
 	}
 
-	public final void setSelection(JsArray<Selection> selection) {
-		this.selection = selection;
-		chartObject.setSelection(selection);
-	}
-
 	protected final <H extends EventHandler> HandlerRef addHandler(H handler) {
 		HandlerRef handlerRef = chartObject.addListener(handler.getEventName(), handler);
 		eventMap.put(handlerRef, handler);
@@ -148,33 +103,32 @@ public abstract class CoreChart extends Widget implements RequiresResize {
 
 	protected abstract ChartObject createChartObject(Element parent);
 
-	protected final void draw(DataSource data, Options options) {
-		this.data = data;
-		this.options = options;
-		// Double deferred command because of layout issues
+	@Override
+	protected void onLoad() {
+		if (!unloaded) {
+			return;
+		}
+		unloaded = false;
 		Scheduler.get().scheduleDeferred(new Scheduler.ScheduledCommand() {
 
 			@Override
 			public void execute() {
-				Scheduler.get().scheduleDeferred(new Scheduler.ScheduledCommand() {
-
-					@Override
-					public void execute() {
-						redraw();
-					}
-				});
+				recreate();
+				redraw();
 			}
 		});
-
 	}
 
-	private final void recreate() {
+	@Override
+	protected void onUnload() {
+		this.unloaded = true;
+	}
+
+	protected void recreate() {
 		chartObject = createChartObject(getElement());
 		for (EventHandler eventHandler : eventMap.values()) {
 			chartObject.addListener(eventHandler.getEventName(), eventHandler);
 		}
-		if (selection != null) {
-			chartObject.setSelection(selection);
-		}
+
 	}
 }

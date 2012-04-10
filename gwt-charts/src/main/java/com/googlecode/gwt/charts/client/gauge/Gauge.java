@@ -13,34 +13,17 @@
 package com.googlecode.gwt.charts.client.gauge;
 
 import com.google.gwt.dom.client.Element;
-import com.google.gwt.user.client.DOM;
-import com.google.gwt.user.client.ui.Widget;
 
 import com.googlecode.gwt.charts.client.ChartObject;
-import com.googlecode.gwt.charts.client.DataSource;
+import com.googlecode.gwt.charts.client.ChartWidget;
 
-public class Gauge extends Widget {
-	protected ChartObject chartObject;
+public class Gauge extends ChartWidget<GaugeOptions> {
 
 	public Gauge() {
 		super();
-		Element chartDiv = DOM.createDiv();
-		chartObject = createChartObject(chartDiv);
-		setElement(chartDiv);
 	}
 
-	public final void clearChart() {
-		chartObject.clearChart();
-	}
-
-	public final void draw(DataSource data) {
-		chartObject.draw(data);
-	}
-
-	public final void draw(DataSource data, GaugeOptions options) {
-		chartObject.draw(data, options);
-	}
-
+	@Override
 	protected native ChartObject createChartObject(Element container) /*-{
 		return new $wnd.google.visualization.Gauge(container);
 	}-*/;

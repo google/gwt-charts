@@ -346,14 +346,38 @@ public class DataTable extends DataSource {
 		this.setCell(rowIndex, columnIndex);
 	}-*/;
 
+	public final native void setCell(int rowIndex, int columnIndex, boolean value) /*-{
+		this.setCell(rowIndex, columnIndex, value);
+	}-*/;
+
+	public final native void setCell(int rowIndex, int columnIndex, boolean value, String formattedValue) /*-{
+		this.setCell(rowIndex, columnIndex, value, formattedValue);
+	}-*/;
+
 	public final native void setCell(int rowIndex, int columnIndex, boolean value, String formattedValue,
 			Properties properties) /*-{
 		this.setCell(rowIndex, columnIndex, value, formattedValue, properties);
 	}-*/;
 
+	public final native void setCell(int rowIndex, int columnIndex, Date value) /*-{
+		this.setCell(rowIndex, columnIndex, @com.googlecode.gwt.charts.client.util.DateHelper::getJsDate(Ljava/util/Date;) (value));
+	}-*/;
+
+	public final native void setCell(int rowIndex, int columnIndex, Date value, String formattedValue) /*-{
+		this.setCell(rowIndex, columnIndex, @com.googlecode.gwt.charts.client.util.DateHelper::getJsDate(Ljava/util/Date;) (value), formattedValue);
+	}-*/;
+	
 	public final native void setCell(int rowIndex, int columnIndex, Date value, String formattedValue,
 			Properties properties) /*-{
 		this.setCell(rowIndex, columnIndex, @com.googlecode.gwt.charts.client.util.DateHelper::getJsDate(Ljava/util/Date;) (value), formattedValue, properties);
+	}-*/;
+
+	public final native void setCell(int rowIndex, int columnIndex, double value) /*-{
+		this.setCell(rowIndex, columnIndex, value);
+	}-*/;
+
+	public final native void setCell(int rowIndex, int columnIndex, double value, String formattedValue) /*-{
+		this.setCell(rowIndex, columnIndex, value, formattedValue);
 	}-*/;
 
 	public final native void setCell(int rowIndex, int columnIndex, double value, String formattedValue,
@@ -361,14 +385,25 @@ public class DataTable extends DataSource {
 		this.setCell(rowIndex, columnIndex, value, formattedValue, properties);
 	}-*/;
 
-	public final native void setCell(int rowIndex, int columnIndex, int value, String formattedValue,
-			Properties properties) /*-{
-		this.setCell(rowIndex, columnIndex, value, formattedValue, properties);
+	public final native void setCell(int rowIndex, int columnIndex, String value) /*-{
+		this.setCell(rowIndex, columnIndex, value);
+	}-*/;
+	
+	public final native void setCell(int rowIndex, int columnIndex, String value, String formattedValue) /*-{
+		this.setCell(rowIndex, columnIndex, value, formattedValue);
 	}-*/;
 
 	public final native void setCell(int rowIndex, int columnIndex, String value, String formattedValue,
 			Properties properties) /*-{
 		this.setCell(rowIndex, columnIndex, value, formattedValue, properties);
+	}-*/;
+
+	public final native void setCell(int rowIndex, int columnIndex, TimeOfDay value) /*-{
+		this.setCell(rowIndex, columnIndex, value);
+	}-*/;
+
+	public final native void setCell(int rowIndex, int columnIndex, TimeOfDay value, String formattedValue) /*-{
+		this.setCell(rowIndex, columnIndex, value, formattedValue);
 	}-*/;
 
 	public final native void setCell(int rowIndex, int columnIndex, TimeOfDay value, String formattedValue,
@@ -483,26 +518,6 @@ public class DataTable extends DataSource {
 	 * @see #setProperties(int, int, Properties)
 	 */
 	public final native void setValue(int rowIndex, int columnIndex, double value) /*-{
-		this.setValue(rowIndex, columnIndex, value);
-	}-*/;
-
-	/**
-	 * Sets the value of a cell. In addition to overwriting any existing cell value, this method will also clear out any
-	 * formatted value and properties for the cell.
-	 * 
-	 * @param rowIndex should be a number greater than or equal to zero, and less than the number of rows as returned by
-	 *        the getNumberOfRows() method.
-	 * @param columnIndex should be a number greater than or equal to zero, and less than the number of columns as
-	 *        returned by the getNumberOfColumns() method. This method does not let you set a formatted value for this
-	 *        cell; to do that, call setFormattedValue().
-	 * @param value is the value assigned to the specified cell. The type of the returned value depends on the column
-	 *        type
-	 * @see #setCell(int, int)
-	 * @see #setFormattedValue(int, int, String)
-	 * @see #setProperty(int, int, String, String)
-	 * @see #setProperties(int, int, Properties)
-	 */
-	public final native void setValue(int rowIndex, int columnIndex, int value) /*-{
 		this.setValue(rowIndex, columnIndex, value);
 	}-*/;
 
