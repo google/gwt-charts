@@ -13,6 +13,9 @@
 package com.googlecode.gwt.charts.client;
 
 import com.google.gwt.core.client.JavaScriptObject;
+import com.google.gwt.core.client.JsDate;
+
+import com.googlecode.gwt.charts.client.util.DateHelper;
 
 import java.util.Date;
 
@@ -33,9 +36,10 @@ public class Properties extends JavaScriptObject {
 		return this[key];
 	}-*/;
 
-	public final native Date getDate(String key) /*-{
-		return @com.googlecode.gwt.charts.client.util.DateHelper::getDate(Lcom/google/gwt/core/client/JsDate;) (this[key]);
-	}-*/;
+	public final Date getDate(String key) {
+		JsDate jsDate = getObject(key).cast();
+		return DateHelper.getDate(jsDate);
+	}
 
 	public final native double getNumber(String key) /*-{
 		return this[key];

@@ -17,8 +17,8 @@ import com.google.gwt.core.client.JsArray;
 import com.googlecode.gwt.charts.client.options.Options;
 
 /**
- * Represents a generic chart javascript object with all existing methods. Each chart implementation wraps only the
- * appliable methods.
+ * Represents a generic chart javascript object with all existing methods.
+ * Each chart implementation wraps only the appliable methods.
  */
 public class ChartObject extends HasListeners {
 

@@ -14,6 +14,8 @@ package com.googlecode.gwt.charts.client.options;
 
 import com.google.gwt.core.client.JsArrayString;
 
+import com.googlecode.gwt.charts.client.util.ArrayHelper;
+
 public abstract class CoreOptions extends Options {
 	public static CoreOptions create() {
 		return createObject().cast();
@@ -42,7 +44,11 @@ public abstract class CoreOptions extends Options {
 		this.chartArea = chartArea;
 	}-*/;
 
-	public final native void setColors(JsArrayString colors) /*-{
+	public final void setColors(String... colors) {
+		setColors(ArrayHelper.createArray(colors));
+	}
+
+	private final native void setColors(JsArrayString colors) /*-{
 		this.colors = colors;
 	}-*/;
 

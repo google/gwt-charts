@@ -13,27 +13,146 @@
 package com.googlecode.gwt.charts.client;
 
 import com.google.gwt.core.client.JavaScriptObject;
+import com.google.gwt.core.client.JsDate;
 
+import com.googlecode.gwt.charts.client.util.DateHelper;
+
+import java.util.Date;
+
+/**
+ * Represents the minimal and maximal values of values in a specified column.
+ */
 public class ColumnRange extends JavaScriptObject {
-	public static ColumnRange create() {
-		return createObject().cast();
-	}
-
-	public static ColumnRange create(int min, int max) {
-		ColumnRange columnRange = createObject().cast();
-		columnRange.setMin(min);
-		columnRange.setMax(max);
-		return columnRange;
-	}
 
 	protected ColumnRange() {
+		// Default constructor
 	}
 
-	public final native int setMax(int max) /*-{
-		this.max = max;
+	/**
+	 * Returns the maximum existing value
+	 * 
+	 * @return the maximum existing value
+	 */
+	public final native boolean getMaxBoolean() /*-{
+		return this.max;
 	}-*/;
 
-	public final native int setMin(int min) /*-{
-		this.min = min;
+	/**
+	 * Returns the maximum existing value
+	 * 
+	 * @return the maximum existing value
+	 */
+	public final Date getMaxDate() {
+		JsDate jsDate = getMaxObject().cast();
+		return DateHelper.getDate(jsDate);
+	}
+
+	/**
+	 * Returns the maximum existing value
+	 * 
+	 * @return the maximum existing value
+	 */
+	public final native double getMaxNumber() /*-{
+		return this.max;
+	}-*/;
+
+	/**
+	 * Returns the maximum existing value
+	 * 
+	 * @return the maximum existing value
+	 */
+	public final native JavaScriptObject getMaxObject() /*-{
+		return this.max;
+	}-*/;
+
+	/**
+	 * Returns the maximum existing value
+	 * 
+	 * @return the maximum existing value
+	 */
+	public final native String getMaxString() /*-{
+		return this.max;
+	}-*/;
+
+	/**
+	 * Returns the maximum existing value
+	 * 
+	 * @return the maximum existing value
+	 */
+	public final native TimeOfDay getMaxTimeOfDay() /*-{
+		return this.max;
+	}-*/;
+
+	/**
+	 * Checks if max is null
+	 * 
+	 * @return true if null, false otherwise
+	 */
+	public final native boolean isMaxNull() /*-{
+		return this.max == null;
+	}-*/;
+
+	/**
+	 * Returns the minimum existing value
+	 * 
+	 * @return the minimum existing value
+	 */
+	public final native boolean getMinBoolean() /*-{
+		return this.min;
+	}-*/;
+
+	/**
+	 * Returns the minimum existing value
+	 * 
+	 * @return the minimum existing value
+	 */
+	public final Date getMinDate() {
+		JsDate jsDate = getMinObject().cast();
+		return DateHelper.getDate(jsDate);
+	}
+
+	/**
+	 * Returns the minimum existing value
+	 * 
+	 * @return the minimum existing value
+	 */
+	public final native double getMinNumber() /*-{
+		return this.min;
+	}-*/;
+
+	/**
+	 * Returns the minimum existing value
+	 * 
+	 * @return the minimum existing value
+	 */
+	public final native JavaScriptObject getMinObject() /*-{
+		return this.min;
+	}-*/;
+
+	/**
+	 * Returns the minimum existing value
+	 * 
+	 * @return the minimum existing value
+	 */
+	public final native String getMinString() /*-{
+		return this.min;
+	}-*/;
+
+	/**
+	 * Returns the minimum existing value
+	 * 
+	 * @return the minimum existing value
+	 */
+	public final native TimeOfDay getMinTimeOfDay() /*-{
+		return this.min;
+	}-*/;
+
+	/**
+	 * Checks if min is null
+	 * 
+	 * @return true if null, false otherwise
+	 */
+	public final native boolean isMinNull() /*-{
+		return this.min == null;
 	}-*/;
 }

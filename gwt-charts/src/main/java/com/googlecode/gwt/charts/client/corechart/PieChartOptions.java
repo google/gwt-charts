@@ -23,6 +23,7 @@ import com.googlecode.gwt.charts.client.options.PieSliceText;
 import com.googlecode.gwt.charts.client.options.Slice;
 import com.googlecode.gwt.charts.client.options.TextStyle;
 import com.googlecode.gwt.charts.client.options.VAxis;
+import com.googlecode.gwt.charts.client.util.ArrayHelper;
 
 public class PieChartOptions extends Options {
 	public static PieChartOptions create() {
@@ -44,7 +45,11 @@ public class PieChartOptions extends Options {
 		this.chartArea = chartArea;
 	}-*/;
 
-	public final native void setColors(JsArrayString colors) /*-{
+	public final void setColors(String... colors) {
+		setColors(ArrayHelper.createArray(colors));
+	}
+
+	private final native void setColors(JsArrayString colors) /*-{
 		this.colors = colors;
 	}-*/;
 

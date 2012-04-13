@@ -19,16 +19,16 @@ public enum Resolution {
 	/**
 	 * Supported for all regions, except for US state regions.
 	 */
-	AUTO("countries"),
+	COUNTRIES("countries"),
 	/**
 	 * Supported only for country regions and US state regions. Not supported for all countries; please test a country
 	 * to see whether this option is supported.
 	 */
-	REGIONS("provinces"),
+	PROVINCES("provinces"),
 	/**
 	 * Supported for the US country region and US state regions only.
 	 */
-	MARKERS("metros");
+	METROS("metros");
 
 	/**
 	 * Get a Resolution by providing its name.

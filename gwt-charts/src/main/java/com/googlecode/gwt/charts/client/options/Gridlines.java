@@ -19,7 +19,10 @@ import com.google.gwt.core.client.JavaScriptObject;
  * This option is only supported for a continuous axis.
  */
 public class Gridlines extends JavaScriptObject {
-
+	public static Gridlines create() {
+		return createObject().cast();
+	}
+	
 	protected Gridlines() {
 	}
 

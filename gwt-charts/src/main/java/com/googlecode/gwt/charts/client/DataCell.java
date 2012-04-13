@@ -14,6 +14,8 @@ package com.googlecode.gwt.charts.client;
 
 import com.google.gwt.core.client.JavaScriptObject;
 
+import com.googlecode.gwt.charts.client.util.DateHelper;
+
 import java.util.Date;
 
 /**
@@ -42,20 +44,20 @@ public class DataCell extends JavaScriptObject {
 		this.v = v;
 	}-*/;
 
-	public final native void setVDate(Date v) /*-{
-		this.v = @com.googlecode.gwt.charts.client.util.DateHelper::getJsDate(Ljava/util/Date;) (v);
-	}-*/;
+	public final void setVDate(Date v) {
+		setVObject(DateHelper.getJsDate(v));
+	}
 
-	public final native void setVDouble(double v) /*-{
-		this.v = v;
-	}-*/;
-
-	public final native void setVInt(int v) /*-{
+	public final native void setVNumber(double v) /*-{
 		this.v = v;
 	}-*/;
 
 	public final native void setVNull() /*-{
 		this.v = null;
+	}-*/;
+
+	public final native void setVObject(JavaScriptObject v) /*-{
+		this.v = v;
 	}-*/;
 
 	public final native void setVString(String v) /*-{

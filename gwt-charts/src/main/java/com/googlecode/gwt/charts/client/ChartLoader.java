@@ -41,6 +41,8 @@ public class ChartLoader {
 	}
 
 	/**
+	 * Returns the current language
+	 * 
 	 * @return the language
 	 */
 	public String getLanguage() {
@@ -48,6 +50,8 @@ public class ChartLoader {
 	}
 
 	/**
+	 * Returns the current packages
+	 * 
 	 * @return the packages
 	 */
 	public ChartPackage[] getPackages() {
@@ -55,6 +59,8 @@ public class ChartLoader {
 	}
 
 	/**
+	 * Returns the current version
+	 * 
 	 * @return the version
 	 */
 	public String getVersion() {
@@ -80,6 +86,9 @@ public class ChartLoader {
 	}
 
 	/**
+	 * Sets the display language for the charts.
+	 * Must be set before {@link #loadApi(Runnable)} is called.
+	 * 
 	 * @param language the language to set
 	 */
 	public void setLanguage(String language) {
@@ -87,14 +96,20 @@ public class ChartLoader {
 	}
 
 	/**
-	 * @param packages the packages to set
+	 * Sets the packages for loading
+	 * Must be set before {@link #loadApi(Runnable)} is called.
+	 * 
+	 * @param packages the packages to load
 	 */
 	public void setPackages(ChartPackage... packages) {
 		this.packages = packages;
 	}
 
 	/**
-	 * @param version the version to set
+	 * Sets the api version for loading
+	 * Must be set before {@link #loadApi(Runnable)} is called.
+	 * 
+	 * @param version the version to use
 	 */
 	public void setVersion(String version) {
 		this.version = version;

@@ -16,10 +16,35 @@ package com.googlecode.gwt.charts.client;
  * Data type of the values of a DataTable column
  */
 public enum ColumnType {
-	STRING("string"), NUMBER("number"), BOOLEAN("boolean"), DATE("date"), DATETIME("datetime"), TIMEOFDAY("timeofday");
+	/**
+	 * Text column
+	 */
+	STRING("string"),
+	/**
+	 * Integer or decimal column
+	 */
+	NUMBER("number"),
+	/**
+	 * Boolean column
+	 */
+	BOOLEAN("boolean"),
+	/**
+	 * Date column (without time)
+	 */
+	DATE("date"),
+	/**
+	 * Date and time column
+	 */
+	DATETIME("datetime"),
+	/**
+	 * A time of day column
+	 * @see {@link TimeOfDay}
+	 */
+	TIMEOFDAY("timeofday");
 
 	/**
 	 * Get the corresponding ColumnType by name.
+	 * 
 	 * @param name a string representing the ColumnType name.
 	 * @return a ColumnType corresponding to the provided name.
 	 */
@@ -40,6 +65,7 @@ public enum ColumnType {
 
 	/**
 	 * Get the name of the ColumnType.
+	 * 
 	 * @return the name of the ColumnType.
 	 */
 	public String getName() {
