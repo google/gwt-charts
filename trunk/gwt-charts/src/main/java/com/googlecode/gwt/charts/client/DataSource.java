@@ -39,8 +39,8 @@ public class DataSource extends JavaScriptObject {
 	 * that are retrieved by queries, the column identifier is set by the data source, and can be used to refer to
 	 * columns when using the query language.
 	 * 
-	 * @param
-	 * @return
+	 * @param columnIndex the column position
+	 * @return the identifier of the given column index
 	 */
 	public final native String getColumnId(int columnIndex) /*-{
 		return this.getColumnId(columnIndex);
@@ -52,8 +52,8 @@ public class DataSource extends JavaScriptObject {
 	 * header in a table, or as the legend label in a pie chart. For data tables that are retrieved by queries, the
 	 * column label is set by the data source, or by the label clause of the query language.
 	 * 
-	 * @param columnIndex
-	 * @return
+	 * @param columnIndex the column position
+	 * @return the label of the given column index
 	 */
 	public final native String getColumnLabel(int columnIndex) /*-{
 		return this.getColumnLabel(columnIndex);
@@ -66,8 +66,8 @@ public class DataSource extends JavaScriptObject {
 	 * format clause of the query language. An example of a pattern is '#,##0.00'. For more on patterns see the query
 	 * language reference.
 	 * 
-	 * @param columnIndex
-	 * @return
+	 * @param columnIndex the column position
+	 * @return the pattern of the given column index
 	 */
 	public final native String getColumnPattern(int columnIndex) /*-{
 		return this.getColumnPattern(columnIndex);
@@ -78,8 +78,8 @@ public class DataSource extends JavaScriptObject {
 	 * reference, so changing values in the retrieved object changes them in the DataTable. columnIndex is the numeric
 	 * index of the column to retrieve properties for.
 	 * 
-	 * @param columnIndex
-	 * @return
+	 * @param columnIndex the column position
+	 * @return the properties of the given column index
 	 */
 	public final native Properties getColumnProperties(int columnIndex) /*-{
 		return this.getColumnProperties(columnIndex);
@@ -91,9 +91,9 @@ public class DataSource extends JavaScriptObject {
 	 * than the number of columns as returned by the getNumberOfColumns() method. name is the property name, as a
 	 * string.
 	 * 
-	 * @param columnIndex
-	 * @param propertyName
-	 * @return
+	 * @param columnIndex the column position
+	 * @param propertyName a property name
+	 * @return the property value of the given column and property name
 	 */
 	// FIXME value type can vary
 	public final native String getColumnProperty(int columnIndex, String propertyName) /*-{
@@ -105,8 +105,8 @@ public class DataSource extends JavaScriptObject {
 	 * and max. If the range has no values, min and max will contain null. columnIndex should be a number greater than
 	 * or equal to zero, and less than the number of columns as returned by the getNumberOfColumns() method.
 	 * 
-	 * @param columnIndex
-	 * @return
+	 * @param columnIndex the column position
+	 * @return an object with minimal and maximal values of values in the specified column
 	 */
 	public final native ColumnRange getColumnRange(int columnIndex) /*-{
 		return this.getColumnRange(columnIndex);
@@ -115,8 +115,8 @@ public class DataSource extends JavaScriptObject {
 	/**
 	 * Returns the role of the specified column.
 	 * 
-	 * @param columnIndex
-	 * @return
+	 * @param columnIndex the column position
+	 * @return the role of the specified column
 	 */
 	public final native RoleType getColumnRole(int columnIndex) /*-{
 		return @com.googlecode.gwt.charts.client.RoleType::findByName(Ljava/lang/String;) (this.getColumnRole(columnIndex));
@@ -124,20 +124,33 @@ public class DataSource extends JavaScriptObject {
 
 	/**
 	 * Returns the type of a given column specified by the column index. columnIndex should be a number greater than or
-	 * equal to zero, and less than the number of columns as returned by the getNumberOfColumns() method. The returned
-	 * column type can be one of the following: 'string' 'number' 'boolean' 'date' 'datetime' 'timeofday'
+	 * equal to zero, and less than the number of columns as returned by the getNumberOfColumns() method.
 	 * 
-	 * @param columnIndex
-	 * @return
+	 * @param columnIndex the column position
+	 * @return the type of the specified column
 	 */
 	public final native ColumnType getColumnType(int columnIndex) /*-{
 		return @com.googlecode.gwt.charts.client.ColumnType::findByName(Ljava/lang/String;) (this.getColumnType(columnIndex));
 	}-*/;
 
+	/**
+	 * Returns the unique values in a certain column, in ascending order.
+	 * 
+	 * @param columnIndex should be a number greater than or equal to zero, and less than the number of columns as
+	 *        returned by the getNumberOfColumns() method.
+	 * @return the unique values in a certain column, in ascending order.
+	 */
 	public final native JsArrayBoolean getDistinctValuesBoolean(int columnIndex) /*-{
 		return this.getDistinctValues(columnIndex);
 	}-*/;
 
+	/**
+	 * Returns the unique values in a certain column, in ascending order.
+	 * 
+	 * @param columnIndex should be a number greater than or equal to zero, and less than the number of columns as
+	 *        returned by the getNumberOfColumns() method.
+	 * @return the unique values in a certain column, in ascending order.
+	 */
 	public final native JsArray<JsDate> getDistinctValuesDate(int columnIndex) /*-{
 		return this.getDistinctValues(columnIndex);
 	}-*/;
@@ -149,50 +162,92 @@ public class DataSource extends JavaScriptObject {
 	 *        returned by the getNumberOfColumns() method.
 	 * @return the unique values in a certain column, in ascending order.
 	 */
-	// FIXME value type can vary
+	public final native JsArray<JavaScriptObject> getDistinctValuesObject(int columnIndex) /*-{
+		return this.getDistinctValues(columnIndex);
+	}-*/;
+
+	/**
+	 * Returns the unique values in a certain column, in ascending order.
+	 * 
+	 * @param columnIndex should be a number greater than or equal to zero, and less than the number of columns as
+	 *        returned by the getNumberOfColumns() method.
+	 * @return the unique values in a certain column, in ascending order.
+	 */
 	public final native JsArrayNumber getDistinctValuesNumber(int columnIndex) /*-{
 		return this.getDistinctValues(columnIndex);
 	}-*/;
 
+	/**
+	 * Returns the unique values in a certain column, in ascending order.
+	 * 
+	 * @param columnIndex should be a number greater than or equal to zero, and less than the number of columns as
+	 *        returned by the getNumberOfColumns() method.
+	 * @return the unique values in a certain column, in ascending order.
+	 */
 	public final native JsArrayString getDistinctValuesString(int columnIndex) /*-{
 		return this.getDistinctValues(columnIndex);
 	}-*/;
 
+	/**
+	 * Returns the unique values in a certain column, in ascending order.
+	 * 
+	 * @param columnIndex should be a number greater than or equal to zero, and less than the number of columns as
+	 *        returned by the getNumberOfColumns() method.
+	 * @return the unique values in a certain column, in ascending order.
+	 */
 	public final native JsArray<TimeOfDay> getDistinctValuesTimeOfDay(int columnIndex) /*-{
 		return this.getDistinctValues(columnIndex);
 	}-*/;
 
 	/**
-	 * @param filters
-	 * @return
+	 * Returns the row indexes for rows that match all of the given filters. The indexes are returned in ascending
+	 * order. The output of this method can be used as input to DataView.setRows() to change the displayed set of rows
+	 * in a visualization.
+	 * 
+	 * @param filters An array of objects that describe an acceptable cell value.
+	 * @return the row indexes for rows that match all of the given filters.
 	 */
 	public final native JsArrayNumber getFilteredRows(JsArray<RowFilter> filters) /*-{
 		return this.getFilteredRows(filters);
 	}-*/;
 
 	/**
-	 * @param rowIndex
-	 * @param columnIndex
-	 * @return
+	 * Returns the formatted value of the cell at the given row and column indexes.
+	 * 
+	 * @param rowIndex should be a number greater than or equal to zero, and less than the number of rows
+	 * @param columnIndex should be a number greater than or equal to zero, and less than the number of columns
+	 * @return the formatted value
 	 */
 	public final native String getFormattedValue(int rowIndex, int columnIndex) /*-{
 		return this.getFormattedValue(rowIndex, columnIndex);
 	}-*/;
 
 	/**
-	 * @return
+	 * Returns the number of columns in the table.
+	 * 
+	 * @return number of columns in the table
 	 */
 	public final native int getNumberOfColumns() /*-{
 		return this.getNumberOfColumns();
 	}-*/;
 
 	/**
-	 * @return
+	 * Returns the number of rows in the table.
+	 * 
+	 * @return number of rows in the table
 	 */
 	public final native int getNumberOfRows() /*-{
 		return this.getNumberOfRows();
 	}-*/;
 
+	/**
+	 * Returns a map of all the properties for the specified cell. Note that the properties object is returned by
+	 * reference, so changing values in the retrieved object changes them in the DataSource.
+	 * 
+	 * @param rowIndex is the cell's row index.
+	 * @param columnIndex is the cell's column index.
+	 * @return a map of all the properties for the specified cell
+	 */
 	public final native Properties getProperties(int rowIndex, int columnIndex) /*-{
 		return this.getProperties(rowIndex, columnIndex);
 	}-*/;

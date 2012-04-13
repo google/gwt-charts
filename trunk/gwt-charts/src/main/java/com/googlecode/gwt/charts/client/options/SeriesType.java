@@ -19,11 +19,11 @@ public enum SeriesType {
 	/**
 	 * Lines like in LineChart 
 	 */
-	LINE("datum"),
+	LINE("line"),
 	/**
 	 * Bars are actually vertical bars (columns)
 	 */
-	BARS("category"),
+	BARS("bars"),
 	/**
 	 * Area like in AreaChart
 	 */

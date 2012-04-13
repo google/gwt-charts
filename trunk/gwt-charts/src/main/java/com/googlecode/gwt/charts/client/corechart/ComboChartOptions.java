@@ -19,6 +19,7 @@ import com.googlecode.gwt.charts.client.options.CurveType;
 import com.googlecode.gwt.charts.client.options.FocusTarget;
 import com.googlecode.gwt.charts.client.options.SeriesType;
 import com.googlecode.gwt.charts.client.options.VAxis;
+import com.googlecode.gwt.charts.client.util.ArrayHelper;
 
 public class ComboChartOptions extends CoreOptions {
 	public static ComboChartOptions create() {
@@ -64,6 +65,17 @@ public class ComboChartOptions extends CoreOptions {
 		this.reverseCategories = reverseCategories;
 	}-*/;
 
+	public final void setSeries(ComboChartSeries... series) {
+		setSeries(ArrayHelper.createArray(series));
+	}
+
+	public final native void setSeries(int index, ComboChartSeries series) /*-{
+		if (!this.series) {
+			this.series = {};
+		}
+		this.series[index] = series;
+	}-*/;
+
 	public final native void setSeries(JsArray<ComboChartSeries> series) /*-{
 		this.series = series;
 	}-*/;
@@ -71,6 +83,13 @@ public class ComboChartOptions extends CoreOptions {
 	public final void setSeriesType(SeriesType seriesType) {
 		setSeriesType(seriesType.getName());
 	}
+
+	public final native void setVAxes(int index, VAxis vAxes) /*-{
+		if (!this.vAxes) {
+			this.vAxes = {};
+		}
+		this.vAxes[index] = vAxes;
+	}-*/;
 
 	public final native void setVAxes(JsArray<VAxis> vAxes) /*-{
 		this.vAxes = vAxes;

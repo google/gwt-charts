@@ -17,59 +17,59 @@ package com.googlecode.gwt.charts.client;
  */
 public enum ChartType {
 	/**
-	 * 
+	 * Area chart
 	 */
 	AREA("AreaChart"),
 	/**
-	 * 
+	 * Bar chart
 	 */
 	BAR("BarChart"),
 	/**
-	 * 
+	 * Bubble chart
 	 */
 	BUBBLE("BubbleChart"),
 	/**
-	 * 
+	 * Candlestick chart
 	 */
 	CANDLESTICK("CandlestickChart"),
 	/**
-	 * 
+	 * Column chart
 	 */
 	COLUMN("ColumnChart"),
 	/**
-	 * 
+	 * Combo chart, a mix of lines, bars, and area charts
 	 */
 	COMBO("ComboChart"),
 	/**
-	 * 
+	 * Line chart
 	 */
 	LINE("LineChart"),
 	/**
-	 * 
+	 * Pie chart
 	 */
 	PIE("PieChart"),
 	/**
-	 * 
+	 * Scatter chart
 	 */
 	SCATTER("ScatterChart"),
 	/**
-	 * 
+	 * Stepped area chart
 	 */
 	STEPPED_AREA("SteppedAreaChart"),
 	/**
-	 * 
+	 * Gauge chart
 	 */
 	GAUGE("Gauge"),
 	/**
-	 * 
+	 * Geo chart
 	 */
 	GEO_CHART("GeoChart"),
 	/**
-	 * 
+	 * Table
 	 */
 	TABLE("Table"),
 	/**
-	 * 
+	 * Tree map
 	 */
 	TREE_MAP("TreeMap");
 

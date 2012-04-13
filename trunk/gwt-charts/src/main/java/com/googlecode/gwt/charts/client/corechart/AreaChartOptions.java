@@ -17,6 +17,7 @@ import com.google.gwt.core.client.JsArray;
 import com.googlecode.gwt.charts.client.options.CoreOptions;
 import com.googlecode.gwt.charts.client.options.FocusTarget;
 import com.googlecode.gwt.charts.client.options.VAxis;
+import com.googlecode.gwt.charts.client.util.ArrayHelper;
 
 public class AreaChartOptions extends CoreOptions {
 	public static AreaChartOptions create() {
@@ -92,6 +93,17 @@ public class AreaChartOptions extends CoreOptions {
 	 */
 	public final native void setReverseCategories(boolean reverseCategories) /*-{
 		this.reverseCategories = reverseCategories;
+	}-*/;
+
+	public final void setSeries(AreaChartSeries... series) {
+		setSeries(ArrayHelper.createArray(series));
+	}
+
+	public final native void setSeries(int index, AreaChartSeries series) /*-{
+		if (!this.series) {
+			this.series = {};
+		}
+		this.series[index] = series;
 	}-*/;
 
 	/**
