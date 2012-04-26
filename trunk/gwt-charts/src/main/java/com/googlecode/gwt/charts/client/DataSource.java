@@ -252,58 +252,270 @@ public class DataSource extends JavaScriptObject {
 		return this.getProperties(rowIndex, columnIndex);
 	}-*/;
 
-	// FIXME value type can vary
-	public final native String getProperty(int rowIndex, int columnIndex, String name) /*-{
+	/**
+	 * Returns the value of a named property, or null if no such property is set for the specified cell.
+	 * 
+	 * @param rowIndex is the cell's row index.
+	 * @param columnIndex is the cell's column index.
+	 * @param name is a string with the property name.
+	 * @return the value of a named property or null
+	 */
+	public final native boolean getPropertyBoolean(int rowIndex, int columnIndex, String name) /*-{
 		return this.getProperty(rowIndex, columnIndex, name);
 	}-*/;
 
+	/**
+	 * Returns the value of a named property, or null if no such property is set for the specified cell.
+	 * 
+	 * @param rowIndex is the cell's row index.
+	 * @param columnIndex is the cell's column index.
+	 * @param name is a string with the property name.
+	 * @return the value of a named property or null
+	 */
+	public final Date getPropertyDate(int rowIndex, int columnIndex, String name) {
+		JsDate jsDate = getPropertyObject(rowIndex, columnIndex, name).cast();
+		return DateHelper.getDate(jsDate);
+	}
+
+	/**
+	 * Returns the value of a named property, or null if no such property is set for the specified cell.
+	 * 
+	 * @param rowIndex is the cell's row index.
+	 * @param columnIndex is the cell's column index.
+	 * @param name is a string with the property name.
+	 * @return the value of a named property or null
+	 */
+	public final native double getPropertyNumber(int rowIndex, int columnIndex, String name) /*-{
+		return this.getProperty(rowIndex, columnIndex, name);
+	}-*/;
+
+	/**
+	 * Returns the value of a named property, or null if no such property is set for the specified cell.
+	 * 
+	 * @param rowIndex is the cell's row index.
+	 * @param columnIndex is the cell's column index.
+	 * @param name is a string with the property name.
+	 * @return the value of a named property or null
+	 */
+	public final native JavaScriptObject getPropertyObject(int rowIndex, int columnIndex, String name) /*-{
+		return this.getProperty(rowIndex, columnIndex, name);
+	}-*/;
+
+	/**
+	 * Returns the value of a named property, or null if no such property is set for the specified cell.
+	 * 
+	 * @param rowIndex is the cell's row index.
+	 * @param columnIndex is the cell's column index.
+	 * @param name is a string with the property name.
+	 * @return the value of a named property or null
+	 */
+	public final native String getPropertyString(int rowIndex, int columnIndex, String name) /*-{
+		return this.getProperty(rowIndex, columnIndex, name);
+	}-*/;
+
+	/**
+	 * Returns a map of all properties for the specified row. Note that the properties object is returned by reference,
+	 * so changing values in the retrieved object changes them in the DataTable.
+	 * 
+	 * @param rowIndex is the index of the row to retrieve properties for.
+	 * @return a map of all properties for the specified row
+	 */
 	public final native Properties getRowProperties(int rowIndex) /*-{
 		return this.getRowProperties(rowIndex);
 	}-*/;
 
-	// FIXME value type can vary
-	public final native String getRowProperty(int rowIndex, String name) /*-{
-		return this.getRowProperty(rowIndex, columnIndex, name);
+	/**
+	 * Returns the value of a named property, or null if no such property is set for the specified row.
+	 * 
+	 * @param rowIndex is the cell's row index.
+	 * @param name is a string with the property name.
+	 * @return the value of a named property or null
+	 */
+	public final native boolean getRowPropertyBoolean(int rowIndex, String name) /*-{
+		return this.getRowProperty(rowIndex, name);
 	}-*/;
 
+	/**
+	 * Returns the value of a named property, or null if no such property is set for the specified row.
+	 * 
+	 * @param rowIndex is the cell's row index.
+	 * @param name is a string with the property name.
+	 * @return the value of a named property or null
+	 */
+	public final Date getRowPropertyDate(int rowIndex, String name) {
+		JsDate jsDate = getRowPropertyObject(rowIndex, name).cast();
+		return DateHelper.getDate(jsDate);
+	}
+
+	/**
+	 * Returns the value of a named property, or null if no such property is set for the specified row.
+	 * 
+	 * @param rowIndex is the cell's row index.
+	 * @param name is a string with the property name.
+	 * @return the value of a named property or null
+	 */
+	public final native double getRowPropertyNumber(int rowIndex, String name) /*-{
+		return this.getRowProperty(rowIndex, name);
+	}-*/;
+
+	/**
+	 * Returns the value of a named property, or null if no such property is set for the specified row.
+	 * 
+	 * @param rowIndex is the cell's row index.
+	 * @param name is a string with the property name.
+	 * @return the value of a named property or null
+	 */
+	public final native JavaScriptObject getRowPropertyObject(int rowIndex, String name) /*-{
+		return this.getRowProperty(rowIndex, name);
+	}-*/;
+
+	/**
+	 * Returns the value of a named property, or null if no such property is set for the specified row.
+	 * 
+	 * @param rowIndex is the cell's row index.
+	 * @param name is a string with the property name.
+	 * @return the value of a named property or null
+	 */
+	public final native String getRowPropertyString(int rowIndex, String name) /*-{
+		return this.getRowProperty(rowIndex, name);
+	}-*/;
+
+	/**
+	 * Returns a map of all properties for the table.
+	 * 
+	 * @return a map of all properties
+	 */
 	public final native Properties getTableProperties() /*-{
 		return this.getTableProperties();
 	}-*/;
 
-	// FIXME value type can vary
-	public final native String getTableProperty(String name) /*-{
-		return this.getRowProperty(name);
+	/**
+	 * Returns the value of a named property, or null if no such property is set for the table.
+	 * 
+	 * @param name is a string with the property name.
+	 * @return the value of a named property or null
+	 */
+	public final native boolean getTablePropertyBoolean(String name) /*-{
+		return this.getTableProperty(name);
 	}-*/;
 
+	/**
+	 * Returns the value of a named property, or null if no such property is set for the table.
+	 * 
+	 * @param name is a string with the property name.
+	 * @return the value of a named property or null
+	 */
+	public final Date getTablePropertyDate(String name) {
+		JsDate jsDate = getTablePropertyObject(name).cast();
+		return DateHelper.getDate(jsDate);
+	}
+
+	/**
+	 * Returns the value of a named property, or null if no such property is set for the table.
+	 * 
+	 * @param name is a string with the property name.
+	 * @return the value of a named property or null
+	 */
+	public final native double getTablePropertyNumber(String name) /*-{
+		return this.getTableProperty(name);
+	}-*/;
+
+	/**
+	 * Returns the value of a named property, or null if no such property is set for the table.
+	 * 
+	 * @param name is a string with the property name.
+	 * @return the value of a named property or null
+	 */
+	public final native JavaScriptObject getTablePropertyObject(String name) /*-{
+		return this.getTableProperty(name);
+	}-*/;
+
+	/**
+	 * Returns the value of a named property, or null if no such property is set for the table.
+	 * 
+	 * @param name is a string with the property name.
+	 * @return the value of a named property or null
+	 */
+	public final native String getTablePropertyString(String name) /*-{
+		return this.getTableProperty(name);
+	}-*/;
+
+	/**
+	 * Returns the value of the cell at the given row and column indexes.
+	 * @param rowIndex should be a number greater than or equal to zero, and less than the number of rows
+	 * @param columnIndex should be a number greater than or equal to zero, and less than the number of columns
+	 * @return value of the specified cell
+	 */
 	public final native boolean getValueBoolean(int rowIndex, int columnIndex) /*-{
 		return this.getValue(rowIndex, columnIndex);
 	}-*/;
 
+	/**
+	 * Returns the value of the cell at the given row and column indexes.
+	 * @param rowIndex should be a number greater than or equal to zero, and less than the number of rows
+	 * @param columnIndex should be a number greater than or equal to zero, and less than the number of columns
+	 * @return value of the specified cell
+	 */
 	public final Date getValueDate(int rowIndex, int columnIndex) {
-		return DateHelper.getDate(getValueJsDate(rowIndex, columnIndex));
+		JsDate jsDate = getValueObject(rowIndex, columnIndex).cast();
+		return DateHelper.getDate(jsDate);
 	}
 
+	/**
+	 * Returns the value of the cell at the given row and column indexes.
+	 * @param rowIndex should be a number greater than or equal to zero, and less than the number of rows
+	 * @param columnIndex should be a number greater than or equal to zero, and less than the number of columns
+	 * @return value of the specified cell
+	 */
 	public final native double getValueNumber(int rowIndex, int columnIndex) /*-{
 		return this.getValue(rowIndex, columnIndex);
 	}-*/;
 
+	/**
+	 * Returns the value of the cell at the given row and column indexes.
+	 * @param rowIndex should be a number greater than or equal to zero, and less than the number of rows
+	 * @param columnIndex should be a number greater than or equal to zero, and less than the number of columns
+	 * @return value of the specified cell
+	 */
+	public final native JavaScriptObject getValueObject(int rowIndex, int columnIndex) /*-{
+		return this.getValue(rowIndex, columnIndex);
+	}-*/;
+
+	/**
+	 * Returns the value of the cell at the given row and column indexes.
+	 * @param rowIndex should be a number greater than or equal to zero, and less than the number of rows
+	 * @param columnIndex should be a number greater than or equal to zero, and less than the number of columns
+	 * @return value of the specified cell
+	 */
 	public final native String getValueString(int rowIndex, int columnIndex) /*-{
 		return this.getValue(rowIndex, columnIndex);
 	}-*/;
 
+	/**
+	 * Returns the value of the cell at the given row and column indexes.
+	 * @param rowIndex should be a number greater than or equal to zero, and less than the number of rows
+	 * @param columnIndex should be a number greater than or equal to zero, and less than the number of columns
+	 * @return value of the specified cell
+	 */
 	public final native TimeOfDay getValueTimeOfDay(int rowIndex, int columnIndex) /*-{
 		return this.getValue(rowIndex, columnIndex);
 	}-*/;
 
+	/**
+	 * Checks if the value of the cell at the given row and column indexes is null
+	 * @param rowIndex should be a number greater than or equal to zero, and less than the number of rows
+	 * @param columnIndex should be a number greater than or equal to zero, and less than the number of columns
+	 * @return true if null, false otherwise
+	 */
 	public final native boolean isValueNull(int rowIndex, int columnIndex) /*-{
 		return this.getValue(rowIndex, columnIndex) == null;
 	}-*/;
 
+	/**
+	 * Returns a JSON representation of the DataTable that can be passed into the DataTable constructor.
+	 * @return a JSON representation of the DataTable
+	 */
 	public final native String toJSON() /*-{
 		return this.toJSON();
-	}-*/;
-
-	private final native JsDate getValueJsDate(int rowIndex, int columnIndex) /*-{
-		return this.getValue(rowIndex, columnIndex);
 	}-*/;
 }

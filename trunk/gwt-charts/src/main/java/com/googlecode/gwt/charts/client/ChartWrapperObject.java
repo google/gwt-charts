@@ -57,6 +57,8 @@ public class ChartWrapperObject<T extends Options> extends HasListeners {
 	 * Creates a empty ChartWrapper instance.
 	 * You must set all the appropriate properties using the set... methods exposed by this object.
 	 * 
+	 * @param <T> the chart options type
+	 * 
 	 * @return a new ChartWrapper instance
 	 */
 	public static native <T extends Options> ChartWrapperObject<T> create() /*-{
@@ -65,6 +67,8 @@ public class ChartWrapperObject<T extends Options> extends HasListeners {
 
 	/**
 	 * Creates a ChartWrapper instance with the provided properties.
+	 * 
+	 * @param <T> the chart options type
 	 * 
 	 * @param chartWrapperSpec chart properties specification
 	 * @return a new ChartWrapper instance
