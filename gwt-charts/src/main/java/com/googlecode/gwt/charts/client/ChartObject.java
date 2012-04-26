@@ -17,8 +17,8 @@ import com.google.gwt.core.client.JsArray;
 import com.googlecode.gwt.charts.client.options.Options;
 
 /**
- * Represents a generic chart javascript object with all existing methods.
- * Each chart implementation wraps only the appliable methods.
+ * Represents a generic chart javascript object with all common methods.
+ * Each chart implementation adds their own specific methods.
  */
 public class ChartObject extends HasListeners {
 
@@ -49,7 +49,7 @@ public class ChartObject extends HasListeners {
 	 * the graphic on the page using the linked visualization code. You should call this method every time the data or
 	 * options change. The object should be drawn inside the DOM element passed into the constructor.
 	 * 
-	 * @param data tipically a {@link DataTable} or {@link DataView} holding the data to use to draw the chart.
+	 * @param data a {@link DataTable} or {@link DataView} holding the data to use to draw the chart.
 	 * @param options A map of name/value pairs of custom options.
 	 * @see <a href="http://code.google.com/apis/chart/interactive/docs/reference.html#visdraw">draw API reference</a>
 	 */
