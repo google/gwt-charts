@@ -39,7 +39,12 @@ public enum ChartPackage {
 	/**
 	 * Used for controls and dashboards
 	 */
-	CONTROLS("controls");
+	CONTROLS("controls"),
+	/**
+	 * Used for chart editor. No need to load the packages for the chart type that you render in the editor; the
+	 * chart editor will load that package for you.
+	 */
+	CHARTEDITOR("charteditor");
 
 	/**
 	 * Get a ChartPackage by providing its name.

@@ -47,14 +47,14 @@ import java.util.Date;
  * @param <T> the options this chart implements
  */
 // TODO create a workaround for all adding any event type
-public class ChartWrapper<T extends Options> extends Widget implements RequiresResize {
+public class ChartWrapperWidget<T extends Options> extends Widget implements RequiresResize {
 	private ChartWrapperObject<T> chartWrapperObject;
 
 	/**
 	 * Creates a empty ChartWrapper instance.
 	 * You must set all the appropriate properties using the set... methods exposed by this object.
 	 */
-	public ChartWrapper() {
+	public ChartWrapperWidget() {
 		super();
 		setElement(DOM.createDiv());
 		chartWrapperObject = ChartWrapperObject.create();
@@ -65,7 +65,7 @@ public class ChartWrapper<T extends Options> extends Widget implements RequiresR
 	 * 
 	 * @param chartWrapperSpec chart properties specification
 	 */
-	public ChartWrapper(ChartWrapperSpec<T> chartWrapperSpec) {
+	public ChartWrapperWidget(ChartWrapperSpec<T> chartWrapperSpec) {
 		super();
 		setElement(DOM.createDiv());
 		chartWrapperObject = ChartWrapperObject.create(chartWrapperSpec);
