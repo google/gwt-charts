@@ -32,27 +32,27 @@ import com.googlecode.gwt.charts.client.util.DateHelper;
 import java.util.Date;
 
 /**
- * A ChartWrapperObject class is used to wrap your chart and handle all loading, drawing, and Datasource querying for
+ * A ChartWrapper class is used to wrap your chart and handle all loading, drawing, and Datasource querying for
  * your
  * chart. The class exposes convenience methods for setting values on the chart and drawing it. This class simplifies
  * reading from a data source, because you do not have to create a query callback handler. You can also use it to save a
  * chart easily for reuse.
  * 
- * Another bonus of using ChartWrapperObject is that you can reduce the number of library loads by using dynamic
+ * Another bonus of using ChartWrapper is that you can reduce the number of library loads by using dynamic
  * loading.
- * Additionally, you don't need to load the JSAPI library explicitly, and ChartWrapperObject will handle looking up the
+ * Additionally, you don't need to load the JSAPI library explicitly, and ChartWrapper will handle looking up the
  * chart
  * libraries for you, so you do not need to specify any chart libraries in your loading statement. See the examples
  * below for details.
  * 
- * However, ChartWrapperObject currently only propagates a subset of events thrown by charts: select, ready, and error.
+ * However, ChartWrapper currently only propagates a subset of events thrown by charts: select, ready, and error.
  * Other
- * events are not transmitted through the ChartWrapperObject instance; to get other events, you must call getChart() and
+ * events are not transmitted through the ChartWrapper instance; to get other events, you must call getChart() and
  * subscribe to events directly on the chart handle.
  * 
  * @param <T> the options this chart implements
  */
-public class ChartWrapperObject<T extends Options> extends HasListeners {
+public class ChartWrapper<T extends Options> extends HasListeners {
 	/**
 	 * Creates a empty ChartWrapper instance.
 	 * You must set all the appropriate properties using the set... methods exposed by this object.
@@ -61,7 +61,7 @@ public class ChartWrapperObject<T extends Options> extends HasListeners {
 	 * 
 	 * @return a new ChartWrapper instance
 	 */
-	public static native <T extends Options> ChartWrapperObject<T> create() /*-{
+	public static native <T extends Options> ChartWrapper<T> create() /*-{
 		return new $wnd.google.visualization.ChartWrapper();
 	}-*/;
 
@@ -73,11 +73,11 @@ public class ChartWrapperObject<T extends Options> extends HasListeners {
 	 * @param chartWrapperSpec chart properties specification
 	 * @return a new ChartWrapper instance
 	 */
-	public static native <T extends Options> ChartWrapperObject<T> create(ChartWrapperSpec<T> chartWrapperSpec) /*-{
+	public static native <T extends Options> ChartWrapper<T> create(ChartWrapperSpec<T> chartWrapperSpec) /*-{
 		return new $wnd.google.visualization.ChartWrapper(chartWrapperSpec);
 	}-*/;
 
-	protected ChartWrapperObject() {
+	protected ChartWrapper() {
 		// Default constructor
 	}
 
@@ -120,9 +120,9 @@ public class ChartWrapperObject<T extends Options> extends HasListeners {
 	/**
 	 * Returns a deep copy of the chart wrapper.
 	 * 
-	 * @return a deep copy of the ChartWrapperObject
+	 * @return a deep copy of the ChartWrapper
 	 */
-	public final native ChartWrapperObject<?> cloneObject() /*-{
+	public final native ChartWrapper<?> cloneObject() /*-{
 		this.clone();
 	}-*/;
 

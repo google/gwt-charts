@@ -15,7 +15,7 @@ package com.googlecode.gwt.charts.client.controls;
 import com.google.gwt.core.client.JsArray;
 import com.google.gwt.dom.client.Element;
 
-import com.googlecode.gwt.charts.client.ChartWrapperObject;
+import com.googlecode.gwt.charts.client.ChartWrapper;
 import com.googlecode.gwt.charts.client.DataSource;
 import com.googlecode.gwt.charts.client.HasListeners;
 
@@ -28,11 +28,11 @@ public class DashboardObject extends HasListeners {
 	protected DashboardObject() {
 	}
 
-	public final native void bind(ControlWrapperObject<?> controlWrapper, ChartWrapperObject<?> chartWrapper) /*-{
+	public final native void bind(ControlWrapperObject<?> controlWrapper, ChartWrapper<?> chartWrapper) /*-{
 		this.bind(controlWrapper, chartWrapper);
 	}-*/;
 
-	public final native void bind(JsArray<ControlWrapperObject<?>> controlWrappers, JsArray<ChartWrapperObject<?>> chartWrappers) /*-{
+	public final native void bind(JsArray<ControlWrapperObject<?>> controlWrappers, JsArray<ChartWrapper<?>> chartWrappers) /*-{
 		this.bind(controlWrappers, chartWrappers);
 	}-*/;
 
