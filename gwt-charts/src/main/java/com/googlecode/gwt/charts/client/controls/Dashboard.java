@@ -17,7 +17,7 @@ import com.google.gwt.dom.client.Element;
 import com.google.gwt.user.client.DOM;
 import com.google.gwt.user.client.ui.Widget;
 
-import com.googlecode.gwt.charts.client.ChartWrapperObject;
+import com.googlecode.gwt.charts.client.ChartWrapper;
 import com.googlecode.gwt.charts.client.ChartWrapperWidget;
 import com.googlecode.gwt.charts.client.DataSource;
 import com.googlecode.gwt.charts.client.event.ErrorEvent;
@@ -47,7 +47,7 @@ public class Dashboard extends Widget {
 		return dashboardObject.addListener(ReadyEvent.NAME, handler);
 	}
 
-	public final void bind(ControlWrapperObject<?> controlWrapper, ChartWrapperObject<?> chartWrapper) {
+	public final void bind(ControlWrapperObject<?> controlWrapper, ChartWrapper<?> chartWrapper) {
 		dashboardObject.bind(controlWrapper, chartWrapper);
 	}
 
@@ -58,7 +58,7 @@ public class Dashboard extends Widget {
 			controlWrapper.setContainerId(DOM.createUniqueId());
 			controlArray.push(controlWrapper.getObject());
 		}
-		JsArray<ChartWrapperObject<?>> chartArray = JsArray.createArray().cast();
+		JsArray<ChartWrapper<?>> chartArray = JsArray.createArray().cast();
 		for (ChartWrapperWidget<?> chartWrapper : chartWrappers) {
 			chartWrapper.setContainerId(DOM.createUniqueId());
 			chartArray.push(chartWrapper.getObject());
