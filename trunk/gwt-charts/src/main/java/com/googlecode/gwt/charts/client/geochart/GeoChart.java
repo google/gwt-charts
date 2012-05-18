@@ -54,6 +54,15 @@ public class GeoChart extends ChartWidget<GeoChartOptions> {
 		chartObject.setSelection(selection);
 	}
 
+	/**
+	 * Redraws the chart with last used data and options.
+	 */
+	@Override
+	public final void redraw() {
+		super.clearChart();
+		super.redraw();
+	}
+
 	@Override
 	protected native ChartObject createChartObject(Element container) /*-{
 		return new $wnd.google.visualization.GeoChart(container);

@@ -119,7 +119,7 @@ public abstract class ChartWidget<T extends Options> extends Widget implements R
 	/**
 	 * Redraws the chart with last used data and options.
 	 */
-	public final void redraw() {
+	public void redraw() {
 		if (data != null) {
 			chartObject.draw(data, options);
 		}
