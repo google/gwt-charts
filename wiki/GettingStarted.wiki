@@ -1,11 +1,28 @@
 #summary Getting started with GWT Charts
 
-= Introduction =
+= Getting started with GWT Charts =
 
-A simple example.
+== Downloading ==
+Please download the latest jar version from the [http://code.google.com/p/gwt-charts/downloads/list project download page].
 
+== Project Setup ==
+  * Include the jar in your project classpath
+  * Inherit the module `com.googlecode.gwt.charts.Charts` in the your XML definition file
+<code language="xml">
+<inherits name="com.googlecode.gwt.charts.Charts"/>
+</code>
+  * Call the `com.googlecode.gwt.charts.client.ChartLoader` class for loading the appropriate packages into your GWT module, *before* you use any type of chart. See the following snippet:
+<code language="java">
+ChartLoader chartLoader = new ChartLoader(ChartPackage.CORECHART);
+chartLoader.loadApi(new Runnable() {
+	@Override
+	public void run() {
+		// call method to show chart
+	}
+});
+</code>
 
-= Details =
+== A Simple Example ==
 
 {{{
 package com.googlecode.gwt.charts.client;
