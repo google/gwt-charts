@@ -47,12 +47,30 @@ import com.google.gwt.core.client.JsArrayInteger;
  */
 public class DataView extends DataSource {
 
-	public static native DataView create(DataSource table) /*-{
-		return new $wnd.google.visualization.DataView(table);
+	/**
+	 * Creates a new DataView for the given DataSource
+	 * 
+	 * @param dataSource A DataTable or DataView used to initialize the view. By default, the view contains all the
+	 *        columns and rows in the underlying data table or view, in the original order.
+	 * @return a new DataView
+	 */
+	public static native DataView create(DataSource dataSource) /*-{
+		return new $wnd.google.visualization.DataView(dataSource);
 	}-*/;
 
-	public static native DataView createFromJson(DataSource table, String json) /*-{
-		return $wnd.google.visualization.DataView.fromJSON(table, json);
+	/**
+	 * This constructor creates a new DataView by assigning a serialized DataView to a DataTable. It helps you recreate
+	 * the DataView that you serialized using DataView.toJSON()
+	 * 
+	 * @param dataSource The DataTable object that you used to create the DataView, on which you called
+	 *        DataView.toJSON(). If this table is any different from the original table, you will get unpredictable
+	 *        results.
+	 * @param json The JSON string returned by DataView.toJSON(). This is a description of which rows to show or hide
+	 *        from the data DataTable.
+	 * @return a new DataView
+	 */
+	public static native DataView createFromJson(DataSource dataSource, String json) /*-{
+		return $wnd.google.visualization.DataView.fromJSON(dataSource, json);
 	}-*/;
 
 	protected DataView() {
@@ -75,7 +93,7 @@ public class DataView extends DataSource {
 	 * the getNumberOfRows() method.
 	 * 
 	 * @param viewRowIndex
-	 * @return
+	 * @return the index of a given row specified by its index in this view
 	 */
 	public final native int getTableRowIndex(int viewRowIndex) /*-{
 		return this.getTableRowIndex(viewRowIndex);
@@ -89,7 +107,7 @@ public class DataView extends DataSource {
 	 * table/view.
 	 * 
 	 * @param tableColumnIndex
-	 * @return
+	 * @return the index in this view that maps to a given column
 	 */
 	public final native int getViewColumnIndex(int tableColumnIndex) /*-{
 		return this.getViewColumnIndex(tableColumnIndex);
@@ -99,7 +117,7 @@ public class DataView extends DataSource {
 	 * Returns the columns in this view, in order. That is, if you call setColumns with some array, and then call
 	 * getViewColumns() you should get an identical array.
 	 * 
-	 * @return
+	 * @return the columns in this view, in order
 	 */
 	public final native JsArrayInteger getViewColumns() /*-{
 		return this.getViewColumns();
@@ -112,7 +130,7 @@ public class DataView extends DataSource {
 	 * the number of rows as returned by the getNumberOfRows() method of the underlying table/view.
 	 * 
 	 * @param tableRowIndex
-	 * @return
+	 * @return the index in this view that maps to a given row
 	 */
 	public final native int getViewRowIndex(int tableRowIndex) /*-{
 		return this.getViewRowIndex(tableRowIndex);
@@ -122,7 +140,7 @@ public class DataView extends DataSource {
 	 * Returns the rows in this view, in order. That is, if you call setRows with some array, and then call
 	 * getViewRows() you should get an identical array.
 	 * 
-	 * @return
+	 * @return the rows in this view, in order
 	 */
 	public final native JsArrayInteger getViewRows() /*-{
 		return this.getViewRows();
@@ -207,7 +225,7 @@ public class DataView extends DataSource {
 	/**
 	 * Returns a DataTable object populated with the visible rows and columns of the DataView.
 	 * 
-	 * @return
+	 * @return a DataTable representation of this view
 	 */
 	public final native DataTable toDataTable() /*-{
 		this.toDataTable();

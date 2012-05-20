@@ -59,9 +59,8 @@ public class BarFormatOptions extends JavaScriptObject {
 	 * to enhance visual scanning of the bars. Default value is 'false'.
 	 * 
 	 * @param drawZeroLine
-	 * @return
 	 */
-	public final native boolean setDrawZeroLine(boolean drawZeroLine) /*-{
+	public final native void setDrawZeroLine(boolean drawZeroLine) /*-{
 		this.drawZeroLine = drawZeroLine;
 	}-*/;
 
