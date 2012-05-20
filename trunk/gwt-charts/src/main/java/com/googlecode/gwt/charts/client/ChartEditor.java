@@ -47,7 +47,10 @@ public class ChartEditor extends HasListeners {
 	}-*/;
 
 	// TODO implement chart editor options: dataSourceInput
-
+	protected ChartEditor() {
+		// Default constructor
+	}
+	
 	/**
 	 * Fired when the user clicks the "Cancel" button on the dialog.
 	 * 
