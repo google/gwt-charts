@@ -29,7 +29,7 @@ public class AreaChartOptions extends CoreOptions {
 
 	/**
 	 * Sets the default opacity of the colored area under an area chart series. To specify opacity for an individual
-	 * series, set the areaOpacity with {@link #setSeries(JsArray)}.
+	 * series, set the areaOpacity with {@link #setSeries(int, AreaChartSeries)}.
 	 * 
 	 * @param opacity a value from 0.0 (fully transparent) to 1.0 (fully opaque)
 	 */
@@ -65,7 +65,7 @@ public class AreaChartOptions extends CoreOptions {
 
 	/**
 	 * Defines data line width in pixels. Use zero to hide all lines and show only the points. You can override values
-	 * for individual series using {@link #setSeries(JsArray)}.
+	 * for individual series using {@link #setSeries(int, AreaChartSeries)}.
 	 * 
 	 * @param width data line width in pixels
 	 */
@@ -75,7 +75,7 @@ public class AreaChartOptions extends CoreOptions {
 
 	/**
 	 * Sets diameter of displayed points in pixels. Use zero to hide all points. You can override values for individual
-	 * series using {@link #setSeries(JsArray)}.
+	 * series using {@link #setSeries(int, AreaChartSeries)}.
 	 * 
 	 * @param size diameter of displayed points in pixels
 	 */
@@ -95,25 +95,27 @@ public class AreaChartOptions extends CoreOptions {
 		this.reverseCategories = reverseCategories;
 	}-*/;
 
+	/**
+	 * Sets series options with an array of objects, each describing the format of the corresponding series in the
+	 * chart.
+	 * 
+	 * @param series an array of the corresponding series objects
+	 */
 	public final void setSeries(AreaChartSeries... series) {
 		setSeries(ArrayHelper.createArray(series));
 	}
 
+	/**
+	 * Sets series options by index for describing the format of the corresponding series in the chart
+	 * 
+	 * @param index the series index
+	 * @param series an object definining the series format
+	 */
 	public final native void setSeries(int index, AreaChartSeries series) /*-{
 		if (!this.series) {
 			this.series = {};
 		}
 		this.series[index] = series;
-	}-*/;
-
-	/**
-	 * An array of objects, each describing the format of the corresponding series in the chart. To use default values
-	 * for a series, specify an empty object {}. If a series or a value is not specified, the global value will be used.
-	 * 
-	 * @param series
-	 */
-	public final native void setSeries(JsArray<AreaChartSeries> series) /*-{
-		this.series = series;
 	}-*/;
 
 	/**
@@ -132,6 +134,16 @@ public class AreaChartOptions extends CoreOptions {
 
 	private final native void setFocusTarget(String focusTarget) /*-{
 		this.focusTarget = focusTarget;
+	}-*/;
+
+	/**
+	 * An array of objects, each describing the format of the corresponding series in the chart. To use default values
+	 * for a series, specify an empty object {}. If a series or a value is not specified, the global value will be used.
+	 * 
+	 * @param series
+	 */
+	private final native void setSeries(JsArray<AreaChartSeries> series) /*-{
+		this.series = series;
 	}-*/;
 
 }

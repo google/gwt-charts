@@ -16,6 +16,7 @@ import com.google.gwt.core.client.JsArray;
 
 import com.googlecode.gwt.charts.client.options.CoreOptions;
 import com.googlecode.gwt.charts.client.options.CurveType;
+import com.googlecode.gwt.charts.client.util.ArrayHelper;
 
 public class ScatterChartOptions extends CoreOptions {
 	public static ScatterChartOptions create() {
@@ -54,12 +55,35 @@ public class ScatterChartOptions extends CoreOptions {
 	}-*/;
 
 	/**
+	 * Sets series options with an array of objects, each describing the format of the corresponding series in the
+	 * chart.
+	 * 
+	 * @param series an array of the corresponding series objects
+	 */
+	public final void setSeries(ScatterChartSeries... series) {
+		setSeries(ArrayHelper.createArray(series));
+	}
+
+	/**
+	 * Sets series options by index for describing the format of the corresponding series in the chart
+	 * 
+	 * @param index the series index
+	 * @param series an object definining the series format
+	 */
+	public final native void setSeries(int index, ScatterChartSeries series) /*-{
+		if (!this.series) {
+			this.series = {};
+		}
+		this.series[index] = series;
+	}-*/;
+
+	/**
 	 * An array of objects, each describing the format of the corresponding series in the chart. To use default values
 	 * for a series, specify an empty object {}. If a series or a value is not specified, the global value will be used.
 	 * 
 	 * @param series
 	 */
-	public final native void setSeries(JsArray<ScatterChartSeries> series) /*-{
+	private final native void setSeries(JsArray<ScatterChartSeries> series) /*-{
 		this.series = series;
 	}-*/;
 

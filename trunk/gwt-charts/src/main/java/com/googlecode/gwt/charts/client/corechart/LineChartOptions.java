@@ -18,6 +18,7 @@ import com.googlecode.gwt.charts.client.options.CoreOptions;
 import com.googlecode.gwt.charts.client.options.CurveType;
 import com.googlecode.gwt.charts.client.options.FocusTarget;
 import com.googlecode.gwt.charts.client.options.VAxis;
+import com.googlecode.gwt.charts.client.util.ArrayHelper;
 
 public class LineChartOptions extends CoreOptions {
 	public static LineChartOptions create() {
@@ -89,13 +90,26 @@ public class LineChartOptions extends CoreOptions {
 	}-*/;
 
 	/**
-	 * An array of objects, each describing the format of the corresponding series in the chart. To use default values
-	 * for a series, specify an empty object {}. If a series or a value is not specified, the global value will be used.
+	 * Sets series options with an array of objects, each describing the format of the corresponding series in the
+	 * chart.
 	 * 
-	 * @param series
+	 * @param series an array of the corresponding series objects
 	 */
-	public final native void setSeries(JsArray<LineChartSeries> series) /*-{
-		this.series = series;
+	public final void setSeries(LineChartSeries... series) {
+		setSeries(ArrayHelper.createArray(series));
+	}
+
+	/**
+	 * Sets series options by index for describing the format of the corresponding series in the chart
+	 * 
+	 * @param index the series index
+	 * @param series an object definining the series format
+	 */
+	public final native void setSeries(int index, LineChartSeries series) /*-{
+		if (!this.series) {
+			this.series = {};
+		}
+		this.series[index] = series;
 	}-*/;
 
 	/**
@@ -112,6 +126,16 @@ public class LineChartOptions extends CoreOptions {
 
 	private final native void setFocusTarget(String focusTarget) /*-{
 		this.focusTarget = focusTarget;
+	}-*/;
+
+	/**
+	 * An array of objects, each describing the format of the corresponding series in the chart. To use default values
+	 * for a series, specify an empty object {}. If a series or a value is not specified, the global value will be used.
+	 * 
+	 * @param series
+	 */
+	private final native void setSeries(JsArray<LineChartSeries> series) /*-{
+		this.series = series;
 	}-*/;
 
 }
