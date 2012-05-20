@@ -17,6 +17,7 @@ import com.google.gwt.core.client.JsArray;
 import com.googlecode.gwt.charts.client.options.CoreOptions;
 import com.googlecode.gwt.charts.client.options.FocusTarget;
 import com.googlecode.gwt.charts.client.options.VAxis;
+import com.googlecode.gwt.charts.client.util.ArrayHelper;
 
 public class CandlestickChartOptions extends CoreOptions {
 	public static CandlestickChartOptions create() {
@@ -26,6 +27,19 @@ public class CandlestickChartOptions extends CoreOptions {
 	protected CandlestickChartOptions() {
 	}
 
+	/**
+	 * Defines the type of the entity that receives focus on mouse hover. Also affects which entity is selected by mouse
+	 * click, and which data table element is associated with events. Can be one of the following:
+	 * <ul>
+	 * <li>'datum' - Focus on a single data point. Correlates to a cell in the data table.</li>
+	 * <li>'category' - Focus on a grouping of all data points along the major axis. Correlates to a row in the data
+	 * table.</li>
+	 * </ul>
+	 * In focusTarget 'category' the tooltip displays all the category values.<br>
+	 * This may be useful for comparing values of different series.
+	 * 
+	 * @param focusTarget the type of the entity that receives focus on mouse hover
+	 */
 	public final void setFocusTarget(FocusTarget focusTarget) {
 		setFocusTarget(focusTarget);
 	}
@@ -34,8 +48,27 @@ public class CandlestickChartOptions extends CoreOptions {
 		this.reverseCategories = reverseCategories;
 	}-*/;
 
-	public final native void setSeries(JsArray<CandlestickChartSeries> series) /*-{
-		this.series = series;
+	/**
+	 * Sets series options with an array of objects, each describing the format of the corresponding series in the
+	 * chart.
+	 * 
+	 * @param series an array of the corresponding series objects
+	 */
+	public final void setSeries(CandlestickChartSeries... series) {
+		setSeries(ArrayHelper.createArray(series));
+	}
+
+	/**
+	 * Sets series options by index for describing the format of the corresponding series in the chart
+	 * 
+	 * @param index the series index
+	 * @param series an object definining the series format
+	 */
+	public final native void setSeries(int index, CandlestickChartSeries series) /*-{
+		if (!this.series) {
+			this.series = {};
+		}
+		this.series[index] = series;
 	}-*/;
 
 	public final native void setVAxes(JsArray<VAxis> vAxes) /*-{
@@ -44,6 +77,10 @@ public class CandlestickChartOptions extends CoreOptions {
 
 	private final native void setFocusTarget(String focusTarget) /*-{
 		this.focusTarget = focusTarget;
+	}-*/;
+
+	private final native void setSeries(JsArray<CandlestickChartSeries> series) /*-{
+		this.series = series;
 	}-*/;
 
 }

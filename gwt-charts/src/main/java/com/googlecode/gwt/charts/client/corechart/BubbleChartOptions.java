@@ -18,6 +18,7 @@ import com.googlecode.gwt.charts.client.options.Bubble;
 import com.googlecode.gwt.charts.client.options.ColorAxis;
 import com.googlecode.gwt.charts.client.options.CoreOptions;
 import com.googlecode.gwt.charts.client.options.SizeAxis;
+import com.googlecode.gwt.charts.client.util.ArrayHelper;
 
 public class BubbleChartOptions extends CoreOptions {
 	public static BubbleChartOptions create() {
@@ -35,8 +36,27 @@ public class BubbleChartOptions extends CoreOptions {
 		this.colorAxis = colorAxis;
 	}-*/;
 
-	public final native void setSeries(JsArray<BubbleChartSeries> series) /*-{
-		this.series = series;
+	/**
+	 * Sets series options with an array of objects, each describing the format of the corresponding series in the
+	 * chart.
+	 * 
+	 * @param series an array of the corresponding series objects
+	 */
+	public final void setSeries(BubbleChartSeries... series) {
+		setSeries(ArrayHelper.createArray(series));
+	}
+
+	/**
+	 * Sets series options by index for describing the format of the corresponding series in the chart
+	 * 
+	 * @param index the series index
+	 * @param series an object definining the series format
+	 */
+	public final native void setSeries(int index, BubbleChartSeries series) /*-{
+		if (!this.series) {
+			this.series = {};
+		}
+		this.series[index] = series;
 	}-*/;
 
 	public final native void setSizeAxis(SizeAxis sizeAxis) /*-{
@@ -45,6 +65,10 @@ public class BubbleChartOptions extends CoreOptions {
 
 	public final native void setSortBubblesBySize(boolean sorted) /*-{
 		this.sortBubblesBySize = sorted;
+	}-*/;
+
+	private final native void setSeries(JsArray<BubbleChartSeries> series) /*-{
+		this.series = series;
 	}-*/;
 
 }

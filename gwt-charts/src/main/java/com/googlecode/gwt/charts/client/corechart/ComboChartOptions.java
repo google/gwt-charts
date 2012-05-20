@@ -41,6 +41,19 @@ public class ComboChartOptions extends CoreOptions {
 		this.curveType = curveType;
 	}-*/;
 
+	/**
+	 * Defines the type of the entity that receives focus on mouse hover. Also affects which entity is selected by mouse
+	 * click, and which data table element is associated with events. Can be one of the following:
+	 * <ul>
+	 * <li>'datum' - Focus on a single data point. Correlates to a cell in the data table.</li>
+	 * <li>'category' - Focus on a grouping of all data points along the major axis. Correlates to a row in the data
+	 * table.</li>
+	 * </ul>
+	 * In focusTarget 'category' the tooltip displays all the category values.<br>
+	 * This may be useful for comparing values of different series.
+	 * 
+	 * @param focusTarget the type of the entity that receives focus on mouse hover
+	 */
 	public final void setFocusTarget(FocusTarget focusTarget) {
 		setFocusTarget(focusTarget);
 	}
@@ -76,10 +89,6 @@ public class ComboChartOptions extends CoreOptions {
 		this.series[index] = series;
 	}-*/;
 
-	public final native void setSeries(JsArray<ComboChartSeries> series) /*-{
-		this.series = series;
-	}-*/;
-
 	public final void setSeriesType(SeriesType seriesType) {
 		setSeriesType(seriesType.getName());
 	}
@@ -101,6 +110,10 @@ public class ComboChartOptions extends CoreOptions {
 
 	private final native void setSeriesType(String seriesType) /*-{
 		this.seriesType = seriesType;
+	}-*/;
+
+	private final native void setSeries(JsArray<ComboChartSeries> series) /*-{
+		this.series = series;
 	}-*/;
 
 }
