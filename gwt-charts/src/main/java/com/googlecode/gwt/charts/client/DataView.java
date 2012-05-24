@@ -43,7 +43,7 @@ import com.google.gwt.core.client.JsArrayInteger;
  * When you modify a DataView by hiding or showing rows or columns, the visualization will not be affected until you
  * call draw() on the visualization again.<br>
  * 
- * @see <a href="http://code.google.com/apis/chart/interactive/docs/reference.html#DataView">DataView API Reference</a>
+ * @see <a href="http://developers.google.com/chart/interactive/docs/reference.html#DataView">DataView API Reference</a>
  */
 public class DataView extends DataSource {
 

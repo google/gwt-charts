@@ -20,6 +20,9 @@ import com.googlecode.gwt.charts.client.options.CoreOptions;
 import com.googlecode.gwt.charts.client.options.SizeAxis;
 import com.googlecode.gwt.charts.client.util.ArrayHelper;
 
+/**
+ * Configuration options for {@link BubbleChart}.
+ */
 public class BubbleChartOptions extends CoreOptions {
 	public static BubbleChartOptions create() {
 		return createObject().cast();
@@ -28,10 +31,18 @@ public class BubbleChartOptions extends CoreOptions {
 	protected BubbleChartOptions() {
 	}
 
+	/**
+	 * Sets visual bubble properties
+	 * @param bubble an object with members to configure the visual properties of the bubbles
+	 */
 	public final native void setBubble(Bubble bubble) /*-{
 		this.bubble = bubble;
 	}-*/;
 
+	/**
+	 * An object that specifies a mapping between color column values and colors or a gradient scale.
+	 * @param colorAxis
+	 */
 	public final native void setColorAxis(ColorAxis colorAxis) /*-{
 		this.colorAxis = colorAxis;
 	}-*/;

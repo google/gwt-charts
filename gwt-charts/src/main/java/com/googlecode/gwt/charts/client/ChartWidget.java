@@ -15,7 +15,6 @@ package com.googlecode.gwt.charts.client;
 import com.google.gwt.core.client.Scheduler;
 import com.google.gwt.dom.client.Element;
 import com.google.gwt.user.client.DOM;
-import com.google.gwt.user.client.ui.ProvidesResize;
 import com.google.gwt.user.client.ui.RequiresResize;
 import com.google.gwt.user.client.ui.Widget;
 
@@ -29,7 +28,7 @@ import java.util.HashMap;
 /**
  * This class is used as a widget wrapper for all chart types.
  * Supports automatically resizing via {@link RequiresResize}, which means that all parents
- * must implement {@link ProvidesResize} for this to work.
+ * must implement {@link com.google.gwt.user.client.ui.ProvidesResize} for this to work.
  * It also supports attach/detach funcionality.
  *
  * @param <T> the chart options type
@@ -42,7 +41,7 @@ public abstract class ChartWidget<T extends Options> extends Widget implements R
 	private boolean unloaded;
 
 	/**
-	 * Creates a new ChartWidget
+	 * Creates a new ChartWidget.
 	 */
 	public ChartWidget() {
 		super();
@@ -65,7 +64,7 @@ public abstract class ChartWidget<T extends Options> extends Widget implements R
 	 * options change.
 	 * 
 	 * @param data a {@link DataTable} or {@link DataView} holding the data to use to draw the chart.
-	 * @see <a href="http://code.google.com/apis/chart/interactive/docs/reference.html#visdraw">draw API reference</a>
+	 * @see <a href="http://developers.google.com/chart/interactive/docs/reference.html#visdraw">draw API reference</a>
 	 */
 	public final void draw(DataSource data) {
 		draw(data, null);
@@ -78,7 +77,7 @@ public abstract class ChartWidget<T extends Options> extends Widget implements R
 	 * 
 	 * @param data a {@link DataTable} or {@link DataView} holding the data to use to draw the chart.
 	 * @param options A map of name/value pairs of custom options.
-	 * @see <a href="http://code.google.com/apis/chart/interactive/docs/reference.html#visdraw">draw API reference</a>
+	 * @see <a href="http://developers.google.com/chart/interactive/docs/reference.html#visdraw">draw API reference</a>
 	 */
 	public final void draw(DataSource data, T options) {
 		this.data = data;
@@ -97,11 +96,10 @@ public abstract class ChartWidget<T extends Options> extends Widget implements R
 				});
 			}
 		});
-
 	}
 
 	/**
-	 * Fires an event to all listeners
+	 * Fires an event to all listeners.
 	 * 
 	 * @param event the event object to fire
 	 */
@@ -134,7 +132,7 @@ public abstract class ChartWidget<T extends Options> extends Widget implements R
 	}
 
 	/**
-	 * Removes a single handler matching the given handler reference
+	 * Removes a single handler matching the given handler reference.
 	 * 
 	 * @param handlerRef an handler reference
 	 */
@@ -185,6 +183,5 @@ public abstract class ChartWidget<T extends Options> extends Widget implements R
 		for (EventHandler eventHandler : eventMap.values()) {
 			chartObject.addListener(eventHandler.getEventName(), eventHandler);
 		}
-
 	}
 }

@@ -16,8 +16,14 @@ import com.google.gwt.dom.client.Element;
 
 import com.googlecode.gwt.charts.client.ChartObject;
 
+/**
+ * A stepped area chart that is rendered within the browser using SVG or VML. Displays tips when hovering over steps.
+ */
 public class SteppedAreaChart extends CoreChartWidget<SteppedAreaChartOptions> {
 
+	/**
+	 * Creates a new chart widget
+	 */
 	public SteppedAreaChart() {
 		super();
 	}

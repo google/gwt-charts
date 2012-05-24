@@ -17,7 +17,7 @@ import com.google.gwt.core.client.JavaScriptObject;
 /**
  * Animation Transition behavior settings.
  * 
- * @see <a href="http://code.google.com/apis/chart/interactive/docs/animation.html">Transition Animation</a>
+ * @see <a href="http://developers.google.com/chart/interactive/docs/animation.html">Transition Animation</a>
  */
 
 public class Animation extends JavaScriptObject {

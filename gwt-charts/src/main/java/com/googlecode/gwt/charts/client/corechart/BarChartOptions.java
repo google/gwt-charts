@@ -19,6 +19,10 @@ import com.googlecode.gwt.charts.client.options.FocusTarget;
 import com.googlecode.gwt.charts.client.options.HAxis;
 import com.googlecode.gwt.charts.client.util.ArrayHelper;
 
+/**
+ * Configuration options for {@link BarChart}.
+ * @see <a href="https://developers.google.com/chart/interactive/docs/gallery/barchart#Configuration_Options">Bar Chart Configuration Options</a>
+ */
 public class BarChartOptions extends CoreOptions {
 	public static BarChartOptions create() {
 		return createObject().cast();
@@ -44,8 +48,40 @@ public class BarChartOptions extends CoreOptions {
 		setFocusTarget(focusTarget);
 	}
 
-	public final native void setHAxes(JsArray<HAxis> hAxes) /*-{
-		this.hAxes = hAxes;
+	/**
+	 * Specifies properties for individual horizontal axes, if the chart has multiple horizontal axes. Each child object
+	 * is a hAxis object, and can contain all the properties supported by hAxis. These property values override any
+	 * global settings for the same property.<br>
+	 * <br>
+	 * To specify a chart with multiple horizontal axes, first define a new axis using series.targetAxisIndex, then
+	 * configure the axis using hAxes
+	 * 
+	 * @param hAxes an array of objects definining the horizontal axes properties
+	 * @see #setSeries(int, BarChartSeries)
+	 * @see BarChartSeries#setTargetAxisIndex(int, int)
+	 */
+	public final void setHAxes(HAxis... hAxes) {
+		setHAxes(ArrayHelper.createArray(hAxes));
+	}
+
+	/**
+	 * Specifies properties for individual horizontal axes, if the chart has multiple horizontal axes. Each child object
+	 * is a hAxis object, and can contain all the properties supported by hAxis. These property values override any
+	 * global settings for the same property.<br>
+	 * <br>
+	 * To specify a chart with multiple horizontal axes, first define a new axis using series.targetAxisIndex, then
+	 * configure the axis using hAxes
+	 * 
+	 * @param index the axis index
+	 * @param hAxis an object definining the horizontal axis properties
+	 * @see #setSeries(int, BarChartSeries)
+	 * @see BarChartSeries#setTargetAxisIndex(int, int)
+	 */
+	public final native void setHAxis(int index, HAxis hAxis) /*-{
+		if (!this.hAxes) {
+			this.hAxes = {};
+		}
+		this.hAxes[index] = hAxis;
 	}-*/;
 
 	/**
@@ -62,7 +98,7 @@ public class BarChartOptions extends CoreOptions {
 	 * supported for a discrete major axis.
 	 * 
 	 * @param reverseCategories
-	 * @see <a href="http://code.google.com/apis/chart/interactive/docs/customizing_axes.html#Terminology">Discrete vs
+	 * @see <a href="http://developers.google.com/chart/interactive/docs/customizing_axes.html#Terminology">Discrete vs
 	 *      Continuous</a>
 	 */
 	public final native void setReverseCategories(boolean reverseCategories) /*-{
@@ -98,6 +134,10 @@ public class BarChartOptions extends CoreOptions {
 
 	private final native void setSeries(JsArray<BarChartSeries> series) /*-{
 		this.series = series;
+	}-*/;
+
+	private final native void setHAxes(JsArray<HAxis> hAxes) /*-{
+		this.hAxes = hAxes;
 	}-*/;
 
 }

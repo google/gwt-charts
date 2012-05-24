@@ -38,7 +38,6 @@ public enum ColumnType {
 	DATETIME("datetime"),
 	/**
 	 * A time of day column
-	 * @see {@link TimeOfDay}
 	 */
 	TIMEOFDAY("timeofday");
 

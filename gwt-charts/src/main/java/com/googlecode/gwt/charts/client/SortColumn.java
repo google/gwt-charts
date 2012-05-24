@@ -15,7 +15,7 @@ package com.googlecode.gwt.charts.client;
 import com.google.gwt.core.client.JavaScriptObject;
 
 /**
- * Represents a column object for adding to a DataTable.
+ * Represents an object for sorting a DataTable.
  */
 public class SortColumn extends JavaScriptObject {
 

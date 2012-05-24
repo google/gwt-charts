@@ -48,10 +48,6 @@ public abstract class CoreOptions extends Options {
 		setColors(ArrayHelper.createArray(colors));
 	}
 
-	private final native void setColors(JsArrayString colors) /*-{
-		this.colors = colors;
-	}-*/;
-
 	public final native void setEnableInteractivity(boolean enableInteractivity) /*-{
 		this.enableInteractivity = enableInteractivity;
 	}-*/;
@@ -98,6 +94,10 @@ public abstract class CoreOptions extends Options {
 
 	private final native void setAxisTitlesPosition(String axisTitlesPosition) /*-{
 		this.axisTitlesPosition = axisTitlesPosition;
+	}-*/;
+
+	private final native void setColors(JsArrayString colors) /*-{
+		this.colors = colors;
 	}-*/;
 
 	private final native void setTitlePosition(String titlePosition) /*-{

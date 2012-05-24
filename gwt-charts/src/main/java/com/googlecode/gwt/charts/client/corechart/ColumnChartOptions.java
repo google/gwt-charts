@@ -19,6 +19,9 @@ import com.googlecode.gwt.charts.client.options.FocusTarget;
 import com.googlecode.gwt.charts.client.options.VAxis;
 import com.googlecode.gwt.charts.client.util.ArrayHelper;
 
+/**
+ * Configuration options for {@link ColumnChart}.
+ */
 public class ColumnChartOptions extends CoreOptions {
 	public static ColumnChartOptions create() {
 		return createObject().cast();

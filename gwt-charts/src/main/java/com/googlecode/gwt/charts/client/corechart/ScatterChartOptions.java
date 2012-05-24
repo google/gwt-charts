@@ -18,6 +18,9 @@ import com.googlecode.gwt.charts.client.options.CoreOptions;
 import com.googlecode.gwt.charts.client.options.CurveType;
 import com.googlecode.gwt.charts.client.util.ArrayHelper;
 
+/**
+ * Configuration options for {@link ScatterChart}.
+ */
 public class ScatterChartOptions extends CoreOptions {
 	public static ScatterChartOptions create() {
 		return createObject().cast();

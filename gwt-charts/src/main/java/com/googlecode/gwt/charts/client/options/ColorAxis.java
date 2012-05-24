@@ -16,6 +16,11 @@ import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.JsArrayNumber;
 import com.google.gwt.core.client.JsArrayString;
 
+import com.googlecode.gwt.charts.client.util.ArrayHelper;
+
+/**
+ * An object that specifies a mapping between color column values and colors or a gradient scale.
+ */
 public class ColorAxis extends JavaScriptObject {
 	public static ColorAxis create() {
 		return createObject().cast();
@@ -24,9 +29,9 @@ public class ColorAxis extends JavaScriptObject {
 	protected ColorAxis() {
 	}
 
-	public final native void setColors(JsArrayString colors) /*-{
-		this.colors = colors;
-	}-*/;
+	public final void setColors(String... colors) {
+		setColors(ArrayHelper.createArray(colors));
+	}
 
 	public final native void setLegend(ColorAxisLegend legend) /*-{
 		this.legend = legend;
@@ -40,8 +45,15 @@ public class ColorAxis extends JavaScriptObject {
 		this.minValue = minValue;
 	}-*/;
 
-	public final native void setValues(JsArrayNumber values) /*-{
-		this.values = values;
+	public final void setValues(double... values) {
+		setValues(ArrayHelper.createArray(values));
+	}
+
+	private final native void setColors(JsArrayString colors) /*-{
+		this.colors = colors;
 	}-*/;
 
+	private final native void setValues(JsArrayNumber values) /*-{
+		this.values = values;
+	}-*/;
 }

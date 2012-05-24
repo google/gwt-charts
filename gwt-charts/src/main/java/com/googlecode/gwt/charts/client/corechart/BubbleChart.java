@@ -16,8 +16,17 @@ import com.google.gwt.dom.client.Element;
 
 import com.googlecode.gwt.charts.client.ChartObject;
 
+/**
+ * A bubble chart that is rendered within the browser using SVG or VML. Displays tips when hovering over bubbles.<br>
+ * 
+ * A bubble chart is used to visualize a data set with 2 to 4 dimensions. The first two dimensions are visualized as
+ * coordinates, the 3rd as color and the 4th as size.
+ */
 public class BubbleChart extends CoreChartWidget<BubbleChartOptions> {
 
+	/**
+	 * Creates a new chart widget
+	 */
 	public BubbleChart() {
 		super();
 	}

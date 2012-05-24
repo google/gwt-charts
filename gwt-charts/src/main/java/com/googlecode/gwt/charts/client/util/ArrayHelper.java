@@ -2,6 +2,7 @@ package com.googlecode.gwt.charts.client.util;
 
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.JsArray;
+import com.google.gwt.core.client.JsArrayNumber;
 import com.google.gwt.core.client.JsArrayString;
 
 public class ArrayHelper {
@@ -16,6 +17,14 @@ public class ArrayHelper {
 	
 	public static JsArrayString createArray(String... array) {
 		JsArrayString jsArray = JsArray.createArray().cast();
+		for (int i = 0; i < array.length; i++) {
+			jsArray.set(i, array[i]);
+		}
+		return jsArray;
+	}
+	
+	public static JsArrayNumber createArray(double... array) {
+		JsArrayNumber jsArray = JsArray.createArray().cast();
 		for (int i = 0; i < array.length; i++) {
 			jsArray.set(i, array[i]);
 		}

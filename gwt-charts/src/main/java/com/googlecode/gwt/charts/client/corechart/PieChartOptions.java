@@ -25,6 +25,9 @@ import com.googlecode.gwt.charts.client.options.TextStyle;
 import com.googlecode.gwt.charts.client.options.VAxis;
 import com.googlecode.gwt.charts.client.util.ArrayHelper;
 
+/**
+ * Configuration options for {@link PieChart}.
+ */
 public class PieChartOptions extends Options {
 	public static PieChartOptions create() {
 		return createObject().cast();
@@ -48,10 +51,6 @@ public class PieChartOptions extends Options {
 	public final void setColors(String... colors) {
 		setColors(ArrayHelper.createArray(colors));
 	}
-
-	private final native void setColors(JsArrayString colors) /*-{
-		this.colors = colors;
-	}-*/;
 
 	public final native void setFontName(String name) /*-{
 		this.fontName = name;
@@ -115,6 +114,10 @@ public class PieChartOptions extends Options {
 
 	public final native void setVAxis(VAxis vAxis) /*-{
 		this.vAxis = vAxis;
+	}-*/;
+
+	private final native void setColors(JsArrayString colors) /*-{
+		this.colors = colors;
 	}-*/;
 
 	private final native void setPieSliceText(String pieSliceText) /*-{

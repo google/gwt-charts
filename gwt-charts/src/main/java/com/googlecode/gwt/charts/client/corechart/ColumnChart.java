@@ -16,8 +16,15 @@ import com.google.gwt.dom.client.Element;
 
 import com.googlecode.gwt.charts.client.ChartObject;
 
+/**
+ * A vertical bar chart that is rendered within the browser using SVG or VML. Displays tips when hovering over bars. For
+ * a horizontal version of this chart, see the {@link BarChart}.
+ */
 public class ColumnChart extends CoreChartWidget<ColumnChartOptions> {
 
+	/**
+	 * Creates a new chart widget
+	 */
 	public ColumnChart() {
 		super();
 	}

@@ -19,6 +19,9 @@ import com.googlecode.gwt.charts.client.options.FocusTarget;
 import com.googlecode.gwt.charts.client.options.VAxis;
 import com.googlecode.gwt.charts.client.util.ArrayHelper;
 
+/**
+ * Configuration options for {@link SteppedAreaChart}.
+ */
 public class SteppedAreaChartOptions extends CoreOptions {
 	public static SteppedAreaChartOptions create() {
 		return createObject().cast();

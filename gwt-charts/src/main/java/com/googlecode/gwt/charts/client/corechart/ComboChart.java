@@ -16,8 +16,19 @@ import com.google.gwt.dom.client.Element;
 
 import com.googlecode.gwt.charts.client.ChartObject;
 
+/**
+ * A chart that lets you render each series as a different marker type from the following list: columns, lines, and area
+ * lines.<br>
+ * <br>
+ * To assign a default marker type for series, use
+ * {@link ComboChartOptions#setSeriesType(com.googlecode.gwt.charts.client.options.SeriesType)}.<br>
+ * Use the {@link ComboChartOptions#setSeries(int, ComboChartSeries)} to specify properties of each series individually.
+ */
 public class ComboChart extends CoreChartWidget<ComboChartOptions> {
 
+	/**
+	 * Creates a new chart widget
+	 */
 	public ComboChart() {
 		super();
 	}

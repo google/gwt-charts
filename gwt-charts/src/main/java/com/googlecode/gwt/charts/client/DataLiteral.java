@@ -15,20 +15,45 @@ package com.googlecode.gwt.charts.client;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.JsArray;
 
+/**
+ * You can initialize a DataTable by passing a JavaScript string literal object into the data parameter. We'll call this
+ * object the data object. You can code this object by hand, according to the description below, or you can use a helper
+ * Python library if you know how to use Python, and your site can use it. However, if you want to construct the object
+ * by hand, this section will describe the syntax.
+ * 
+ * @see <a href="http://developers.google.com/chart/interactive/docs/reference.html#dataparam">Format of the
+ *      Constructor&quot;s JavaScript Literal</a>
+ */
 public class DataLiteral extends JavaScriptObject {
 
 	protected DataLiteral() {
 	}
 
+	/**
+	 * Sets an array of objects describing the ID and type of each column.
+	 * 
+	 * @param cols an array of objects describing the ID and type of each column.
+	 */
 	public final native void setCols(JsArray<DataColumn> cols) /*-{
 		return this.cols = cols;
 	}-*/;
 
+	/**
+	 * The table-level p property is a map of custom values applied to the whole DataTable. If your visualization
+	 * supports any datatable-level properties, it will describe them; otherwise, this property will be ignored.
+	 * 
+	 * @param p a map of custom values applied to the whole DataTable.
+	 */
 	public final native void setP(Properties p) /*-{
 		return this.p = p;
 	}-*/;
 
-	public final native void setRows(JsArray<DataCell> rows) /*-{
+	/**
+	 * Sets holds an array of row objects.
+	 * 
+	 * @param rows an array of row objects.
+	 */
+	public final native void setRows(JsArray<DataRow> rows) /*-{
 		return this.rows = rows;
 	}-*/;
 }

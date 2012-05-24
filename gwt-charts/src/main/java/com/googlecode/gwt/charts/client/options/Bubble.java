@@ -15,9 +15,14 @@ package com.googlecode.gwt.charts.client.options;
 import com.google.gwt.core.client.JavaScriptObject;
 
 /**
+ * An object with members to configure the visual properties of the bubbles.
  */
-
 public class Bubble extends JavaScriptObject {
+	/**
+	 * Default constructor
+	 * 
+	 * @return a new object
+	 */
 	public static Bubble create() {
 		return createObject().cast();
 	}
@@ -26,24 +31,27 @@ public class Bubble extends JavaScriptObject {
 	}
 
 	/**
+	 * Sets the opacity of the bubbles, where 0 is fully transparent and 1 is fully opaque.
 	 * 
-	 * @param opacity
+	 * @param opacity 0 is fully transparent and 1 is fully opaque
 	 */
 	public final native void setOpacity(double opacity) /*-{
 		this.opacity = opacity;
 	}-*/;
 
 	/**
+	 * Sets the color of the bubbles' stroke.
 	 * 
-	 * @param stroke The color of the bubbles' stroke.
+	 * @param stroke an HTML color string
 	 */
 	public final native void setStroke(String stroke) /*-{
 		this.stroke = stroke;
 	}-*/;
 
 	/**
+	 * Sets the bubble text style.
 	 * 
-	 * @param textStyle
+	 * @param textStyle an object that specifies the bubble text style.
 	 */
 	public final native void setTextStyle(TextStyle textStyle) /*-{
 		this.textStyle = textStyle;
