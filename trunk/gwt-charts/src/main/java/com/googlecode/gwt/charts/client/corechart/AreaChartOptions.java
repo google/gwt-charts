@@ -19,6 +19,9 @@ import com.googlecode.gwt.charts.client.options.FocusTarget;
 import com.googlecode.gwt.charts.client.options.VAxis;
 import com.googlecode.gwt.charts.client.util.ArrayHelper;
 
+/**
+ * Configuration options for {@link AreaChart}.
+ */
 public class AreaChartOptions extends CoreOptions {
 	public static AreaChartOptions create() {
 		return createObject().cast();
@@ -88,7 +91,7 @@ public class AreaChartOptions extends CoreOptions {
 	 * supported for a discrete major axis.
 	 * 
 	 * @param reverseCategories
-	 * @see <a href="http://code.google.com/apis/chart/interactive/docs/customizing_axes.html#Terminology">Discrete vs
+	 * @see <a href="http://developers.google.com/chart/interactive/docs/customizing_axes.html#Terminology">Discrete vs
 	 *      Continuous</a>
 	 */
 	public final native void setReverseCategories(boolean reverseCategories) /*-{

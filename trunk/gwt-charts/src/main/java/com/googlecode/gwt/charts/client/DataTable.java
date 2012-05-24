@@ -27,7 +27,7 @@ import java.util.Date;
  * inline CSS style string to the rendered table cell. A visualization should describe in its documentation any custom
  * properties that it supports.
  * 
- * @see <a href="http://code.google.com/apis/chart/interactive/docs/reference.html#DataTable">DataTable API
+ * @see <a href="http://developers.google.com/chart/interactive/docs/reference.html#DataTable">DataTable API
  *      Reference</a>
  */
 public class DataTable extends DataSource {
@@ -294,6 +294,7 @@ public class DataTable extends DataSource {
 
 	/**
 	 * Insert the specified number of empty rows at the specified row index.
+	 * @param <E> 
 	 * 
 	 * @param rowIndex is the index number where to insert the new row(s). Rows will be added, starting at the index
 	 *        number specified.

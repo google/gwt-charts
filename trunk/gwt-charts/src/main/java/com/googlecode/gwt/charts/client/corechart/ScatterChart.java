@@ -16,8 +16,16 @@ import com.google.gwt.dom.client.Element;
 
 import com.googlecode.gwt.charts.client.ChartObject;
 
+/**
+ * A scatter chart that is rendered within the browser using SVG or VML. Displays tips when hovering over points.<br>
+ * <br>
+ * A scatter chart is used to map correlation between sets of numbers.
+ */
 public class ScatterChart extends CoreChartWidget<ScatterChartOptions> {
 
+	/**
+	 * Creates a new chart widget
+	 */
 	public ScatterChart() {
 		super();
 	}

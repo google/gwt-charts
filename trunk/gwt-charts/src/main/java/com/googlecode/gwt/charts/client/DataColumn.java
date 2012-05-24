@@ -19,6 +19,13 @@ import com.google.gwt.core.client.JavaScriptObject;
  */
 public class DataColumn extends JavaScriptObject {
 
+	/**
+	 * Default static constructor
+	 * 
+	 * @param type data type of the data in the column. 
+	 * 
+	 * @return a new object
+	 */
 	public static DataColumn create(ColumnType type) {
 		DataColumn dataColumn = createObject().cast();
 		dataColumn.setType(type);
@@ -46,6 +53,13 @@ public class DataColumn extends JavaScriptObject {
 		this.label = label;
 	}-*/;
 
+	/**
+	 * An object that is a map of custom values applied to the cell. These values can be of any JavaScript type. If your
+	 * visualization supports any cell-level properties, it will describe them; otherwise, this property will be
+	 * ignored.
+	 * 
+	 * @param p a map of custom values applied to the cell.
+	 */
 	public final native void setP(Properties p) /*-{
 		this.p = p;
 	}-*/;

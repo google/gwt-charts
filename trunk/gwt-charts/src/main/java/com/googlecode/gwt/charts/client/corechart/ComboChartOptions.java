@@ -21,6 +21,9 @@ import com.googlecode.gwt.charts.client.options.SeriesType;
 import com.googlecode.gwt.charts.client.options.VAxis;
 import com.googlecode.gwt.charts.client.util.ArrayHelper;
 
+/**
+ * Configuration options for {@link ComboChart}.
+ */
 public class ComboChartOptions extends CoreOptions {
 	public static ComboChartOptions create() {
 		return createObject().cast();

@@ -20,6 +20,9 @@ import com.googlecode.gwt.charts.client.options.FocusTarget;
 import com.googlecode.gwt.charts.client.options.VAxis;
 import com.googlecode.gwt.charts.client.util.ArrayHelper;
 
+/**
+ * Configuration options for {@link LineChart}.
+ */
 public class LineChartOptions extends CoreOptions {
 	public static LineChartOptions create() {
 		return createObject().cast();
@@ -82,7 +85,7 @@ public class LineChartOptions extends CoreOptions {
 	 * supported for a discrete major axis.
 	 * 
 	 * @param reverseCategories
-	 * @see <a href="http://code.google.com/apis/chart/interactive/docs/customizing_axes.html#Terminology">Discrete vs
+	 * @see <a href="http://developers.google.com/chart/interactive/docs/customizing_axes.html#Terminology">Discrete vs
 	 *      Continuous</a>
 	 */
 	public final native void setReverseCategories(boolean reverseCategories) /*-{
@@ -128,12 +131,6 @@ public class LineChartOptions extends CoreOptions {
 		this.focusTarget = focusTarget;
 	}-*/;
 
-	/**
-	 * An array of objects, each describing the format of the corresponding series in the chart. To use default values
-	 * for a series, specify an empty object {}. If a series or a value is not specified, the global value will be used.
-	 * 
-	 * @param series
-	 */
 	private final native void setSeries(JsArray<LineChartSeries> series) /*-{
 		this.series = series;
 	}-*/;

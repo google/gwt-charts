@@ -16,8 +16,19 @@ import com.google.gwt.dom.client.Element;
 
 import com.googlecode.gwt.charts.client.ChartObject;
 
+/**
+ * An interactive candlestick chart.<br>
+ * <br>
+ * A candlestick chart is used to show an opening and closing value overlaid on top of a total variance. Candlestick
+ * charts are often used to show stock value behavior. In this chart, items where the opening value is less than the
+ * closing value (a gain) are drawn as filled boxes, and items where the opening value is more than the closing value (a
+ * loss) are drawn as hollow boxes.
+ */
 public class CandlestickChart extends CoreChartWidget<CandlestickChartOptions> {
 
+	/**
+	 * Creates a new chart widget
+	 */
 	public CandlestickChart() {
 		super();
 	}

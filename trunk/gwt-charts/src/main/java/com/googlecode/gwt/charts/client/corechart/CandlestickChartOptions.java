@@ -19,6 +19,10 @@ import com.googlecode.gwt.charts.client.options.FocusTarget;
 import com.googlecode.gwt.charts.client.options.VAxis;
 import com.googlecode.gwt.charts.client.util.ArrayHelper;
 
+/**
+ * Configuration options for {@link CandlestickChart}.
+ */
+
 public class CandlestickChartOptions extends CoreOptions {
 	public static CandlestickChartOptions create() {
 		return createObject().cast();

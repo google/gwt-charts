@@ -14,7 +14,15 @@ package com.googlecode.gwt.charts.client.options;
 
 import com.google.gwt.core.client.JavaScriptObject;
 
+/**
+ * 
+ */
 public class TextStyle extends JavaScriptObject {
+	/**
+	 * Default constructor
+	 * 
+	 * @return a new object
+	 */
 	public static TextStyle create() {
 		return createObject().cast();
 	}
@@ -22,14 +30,26 @@ public class TextStyle extends JavaScriptObject {
 	protected TextStyle() {
 	}
 
+	/**
+	 * Sets the text color
+	 * @param color an HTML color string
+	 */
 	public final native void setColor(String color) /*-{
 		this.color = color;
 	}-*/;
 
+	/**
+	 * Sets the text font family name
+	 * @param fontName a font family name
+	 */
 	public final native void setFontName(String fontName) /*-{
 		this.fontName = fontName;
 	}-*/;
 
+	/**
+	 * Sets the text font size
+	 * @param fontSize
+	 */
 	public final native void setFontSize(int fontSize) /*-{
 		this.fontSize = fontSize;
 	}-*/;

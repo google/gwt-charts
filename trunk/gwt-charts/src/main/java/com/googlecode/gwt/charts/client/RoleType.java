@@ -15,7 +15,7 @@ package com.googlecode.gwt.charts.client;
 /**
  * A column role describes the purpose of the data in that column: for example, a column might hold data describing
  * tooltip text, data point annotations, or uncertainty indicators.
- * @see <a href="http://code.google.com/apis/chart/interactive/docs/roles.html">DataTable Roles</a>
+ * @see <a href="http://developers.google.com/chart/interactive/docs/roles.html">DataTable Roles</a>
  */
 public enum RoleType {
 	/**

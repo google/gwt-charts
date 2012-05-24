@@ -16,8 +16,14 @@ import com.google.gwt.dom.client.Element;
 
 import com.googlecode.gwt.charts.client.ChartObject;
 
+/**
+ * A pie chart that is rendered within the browser using SVG or VML. Displays tooltips when hovering over slices.
+ */
 public class PieChart extends CoreChartWidget<PieChartOptions> {
 
+	/**
+	 * Creates a new chart widget
+	 */
 	public PieChart() {
 		super();
 	}

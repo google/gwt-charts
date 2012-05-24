@@ -38,7 +38,7 @@ public class ChartObject extends HasListeners {
 	 * options change. The object should be drawn inside the DOM element passed into the constructor.
 	 * 
 	 * @param data tipically a {@link DataTable} or {@link DataView} holding the data to use to draw the chart.
-	 * @see <a href="http://code.google.com/apis/chart/interactive/docs/reference.html#visdraw">draw() API reference</a>
+	 * @see <a href="http://developers.google.com/chart/interactive/docs/reference.html#visdraw">draw() API reference</a>
 	 */
 	public final native void draw(DataSource data) /*-{
 		this.draw(data);
@@ -51,7 +51,7 @@ public class ChartObject extends HasListeners {
 	 * 
 	 * @param data a {@link DataTable} or {@link DataView} holding the data to use to draw the chart.
 	 * @param options A map of name/value pairs of custom options.
-	 * @see <a href="http://code.google.com/apis/chart/interactive/docs/reference.html#visdraw">draw API reference</a>
+	 * @see <a href="http://developers.google.com/chart/interactive/docs/reference.html#visdraw">draw API reference</a>
 	 */
 	public final native void draw(DataSource data, Options options) /*-{
 		this.draw(data, options);
@@ -78,7 +78,7 @@ public class ChartObject extends HasListeners {
 	 * selected item. The retrieved array can be passed into {@link #setSelection(JsArray)}.
 	 * 
 	 * @return an array of selected objects
-	 * @see <a href="http://code.google.com/apis/chart/interactive/docs/reference.html#visgetselection">getSelection API
+	 * @see <a href="http://developers.google.com/chart/interactive/docs/reference.html#visgetselection">getSelection API
 	 *      reference</a>
 	 */
 	public final native JsArray<Selection> getSelection() /*-{
@@ -107,7 +107,7 @@ public class ChartObject extends HasListeners {
 	 * setSelection(null), or setSelection([]).
 	 * 
 	 * @param selection an array of objects, each with a numeric row and/or column property
-	 * @see <a href="http://code.google.com/apis/chart/interactive/docs/reference.html#vissetselection">setSelection API
+	 * @see <a href="http://developers.google.com/chart/interactive/docs/reference.html#vissetselection">setSelection API
 	 *      reference</a>
 	 */
 	public final native void setSelection(JsArray<Selection> selection) /*-{

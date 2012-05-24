@@ -25,7 +25,6 @@ import com.googlecode.gwt.charts.client.event.HandlerRef;
 import com.googlecode.gwt.charts.client.event.ReadyHandler;
 import com.googlecode.gwt.charts.client.event.SelectHandler;
 import com.googlecode.gwt.charts.client.options.Options;
-import com.googlecode.gwt.charts.client.util.ChartHelper;
 
 import java.util.Date;
 
@@ -416,7 +415,7 @@ public class ChartWrapperWidget<T extends Options> extends Widget implements Req
 	/**
 	 * Sets the DataTable for the chart.
 	 * 
-	 * @param dataTable an array following the syntax of {@link ChartHelper#arrayToDataTable(JsArrayMixed)}
+	 * @param dataTable an array following the syntax of {@link com.googlecode.gwt.charts.client.util.ChartHelper#arrayToDataTable(JsArrayMixed)}
 	 */
 	public final void setDataTable(JsArrayMixed dataTable) {
 		chartWrapper.setDataTable(dataTable);

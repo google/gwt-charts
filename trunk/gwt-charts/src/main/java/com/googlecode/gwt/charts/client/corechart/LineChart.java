@@ -16,8 +16,14 @@ import com.google.gwt.dom.client.Element;
 
 import com.googlecode.gwt.charts.client.ChartObject;
 
+/**
+ * A line chart that is rendered within the browser using SVG or VML. Displays tips when hovering over points.
+ */
 public class LineChart extends CoreChartWidget<LineChartOptions> {
 
+	/**
+	 * Creates a new chart widget
+	 */
 	public LineChart() {
 		super();
 	}

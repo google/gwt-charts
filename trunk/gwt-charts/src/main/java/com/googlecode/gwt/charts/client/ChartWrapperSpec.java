@@ -17,7 +17,6 @@ import com.google.gwt.core.client.JsArrayMixed;
 import com.google.gwt.core.client.JsArrayString;
 
 import com.googlecode.gwt.charts.client.options.Options;
-import com.googlecode.gwt.charts.client.util.ChartHelper;
 
 /**
  * A ChartWrapper initializer specification as described in <a
@@ -98,7 +97,7 @@ public class ChartWrapperSpec<T extends Options> extends JavaScriptObject {
 	 * Sets the data table used to populate the visualization.
 	 * You must specify either this property or the dataSourceUrl property.
 	 * 
-	 * @param dataTable a two-dimensional array like that accepted by {@link ChartHelper#arrayToDataTable(JsArrayMixed)}
+	 * @param dataTable a two-dimensional array like that accepted by {@link com.googlecode.gwt.charts.client.util.ChartHelper#arrayToDataTable(JsArrayMixed)}
 	 */
 	public final native void setDataTable(JsArrayMixed dataTable) /*-{
 		this.dataTable = dataTable;

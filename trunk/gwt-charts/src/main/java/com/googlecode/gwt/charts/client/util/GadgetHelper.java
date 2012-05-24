@@ -20,7 +20,7 @@ import com.googlecode.gwt.charts.client.query.QueryResponse;
 /**
  * A helper class to simplify writing Gadgets that use the Google Visualization API.
  * 
- * @see <a href="http://code.google.com/apis/chart/interactive/docs/reference.html#GadgetHelper">GadgetHelper API
+ * @see <a href="http://developers.google.com/chart/interactive/docs/reference.html#GadgetHelper">GadgetHelper API
  *      Reference</a>
  */
 public class GadgetHelper extends JavaScriptObject {

@@ -17,7 +17,7 @@ import com.google.gwt.core.client.JavaScriptObject;
 /**
  * Represents a query that is sent to a data source.
  * 
- * @see <a href="http://code.google.com/apis/chart/interactive/docs/reference.html#queryobjects"></a>
+ * @see <a href="http://developers.google.com/chart/interactive/docs/reference.html#queryobjects"></a>
  */
 public class Query extends JavaScriptObject {
 
