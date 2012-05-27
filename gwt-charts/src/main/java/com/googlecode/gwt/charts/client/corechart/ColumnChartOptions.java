@@ -14,6 +14,7 @@ package com.googlecode.gwt.charts.client.corechart;
 
 import com.google.gwt.core.client.JsArray;
 
+import com.googlecode.gwt.charts.client.options.Bar;
 import com.googlecode.gwt.charts.client.options.CoreOptions;
 import com.googlecode.gwt.charts.client.options.FocusTarget;
 import com.googlecode.gwt.charts.client.options.VAxis;
@@ -23,12 +24,26 @@ import com.googlecode.gwt.charts.client.util.ArrayHelper;
  * Configuration options for {@link ColumnChart}.
  */
 public class ColumnChartOptions extends CoreOptions {
+	/**
+	 * Default constructor
+	 * 
+	 * @return a new object instance
+	 */
 	public static ColumnChartOptions create() {
 		return createObject().cast();
 	}
 
 	protected ColumnChartOptions() {
 	}
+
+	/**
+	 * Sets the bar options, currently only width
+	 * 
+	 * @param bar an object defining bar options
+	 */
+	public final native void setBar(Bar bar) /*-{
+		this.bar = bar;
+	}-*/;
 
 	/**
 	 * Defines the type of the entity that receives focus on mouse hover. Also affects which entity is selected by mouse
@@ -47,10 +62,23 @@ public class ColumnChartOptions extends CoreOptions {
 		setFocusTarget(focusTarget);
 	}
 
+	/**
+	 * Stacks or unstacks series elements.
+	 * 
+	 * @param isStacked If set to true, series elements are stacked (default: false)
+	 */
 	public final native void setIsStacked(boolean isStacked) /*-{
 		this.isStacked = isStacked;
 	}-*/;
 
+	/**
+	 * If set to true, will draw series from right to left. The default is to draw left-to-right. This option is only
+	 * supported for a discrete major axis.
+	 * 
+	 * @param reverseCategories
+	 * @see <a href="http://developers.google.com/chart/interactive/docs/customizing_axes.html#Terminology">Discrete vs
+	 *      Continuous</a>
+	 */
 	public final native void setReverseCategories(boolean reverseCategories) /*-{
 		this.reverseCategories = reverseCategories;
 	}-*/;
@@ -78,6 +106,16 @@ public class ColumnChartOptions extends CoreOptions {
 		this.series[index] = series;
 	}-*/;
 
+	/**
+	 * Specifies properties for individual vertical axes, if the chart has multiple vertical axes. Each child object is
+	 * a vAxis object, and can contain all the properties supported by vAxis. These property values override any global
+	 * settings for the same property.
+	 * 
+	 * To specify a chart with multiple vertical axes, first define a new axis using series.targetAxisIndex, then
+	 * configure the axis using vAxes.
+	 * 
+	 * @param vAxes an array of VAxis values
+	 */
 	public final native void setVAxes(JsArray<VAxis> vAxes) /*-{
 		this.vAxes = vAxes;
 	}-*/;

@@ -14,6 +14,7 @@ package com.googlecode.gwt.charts.client.corechart;
 
 import com.google.gwt.core.client.JsArray;
 
+import com.googlecode.gwt.charts.client.options.Bar;
 import com.googlecode.gwt.charts.client.options.CoreOptions;
 import com.googlecode.gwt.charts.client.options.FocusTarget;
 import com.googlecode.gwt.charts.client.options.HAxis;
@@ -21,15 +22,31 @@ import com.googlecode.gwt.charts.client.util.ArrayHelper;
 
 /**
  * Configuration options for {@link BarChart}.
- * @see <a href="https://developers.google.com/chart/interactive/docs/gallery/barchart#Configuration_Options">Bar Chart Configuration Options</a>
+ * 
+ * @see <a href="https://developers.google.com/chart/interactive/docs/gallery/barchart#Configuration_Options">Bar Chart
+ *      Configuration Options</a>
  */
 public class BarChartOptions extends CoreOptions {
+	/**
+	 * Default constructor
+	 * 
+	 * @return a new object instance
+	 */
 	public static BarChartOptions create() {
 		return createObject().cast();
 	}
 
 	protected BarChartOptions() {
 	}
+
+	/**
+	 * Sets the bar options, currently only width
+	 * 
+	 * @param bar an object defining bar options
+	 */
+	public final native void setBar(Bar bar) /*-{
+		this.bar = bar;
+	}-*/;
 
 	/**
 	 * Defines the type of the entity that receives focus on mouse hover. Also affects which entity is selected by mouse
