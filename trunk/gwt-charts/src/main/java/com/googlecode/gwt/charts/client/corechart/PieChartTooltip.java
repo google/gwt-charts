@@ -19,6 +19,11 @@ import com.googlecode.gwt.charts.client.options.TooltipText;
 import com.googlecode.gwt.charts.client.options.TooltipTrigger;
 
 public class PieChartTooltip extends JavaScriptObject {
+	/**
+	 * Default constructor
+	 * 
+	 * @return a new object instance
+	 */
 	public static PieChartTooltip create() {
 		return createObject().cast();
 	}

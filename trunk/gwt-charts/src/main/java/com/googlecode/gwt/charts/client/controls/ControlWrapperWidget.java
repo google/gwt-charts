@@ -12,50 +12,32 @@
  */
 package com.googlecode.gwt.charts.client.controls;
 
-import com.googlecode.gwt.charts.client.HasListeners;
-import com.googlecode.gwt.charts.client.event.ErrorEvent;
+import com.google.gwt.user.client.DOM;
+import com.google.gwt.user.client.ui.RequiresResize;
+import com.google.gwt.user.client.ui.Widget;
+
 import com.googlecode.gwt.charts.client.event.ErrorHandler;
+import com.googlecode.gwt.charts.client.event.Event;
 import com.googlecode.gwt.charts.client.event.HandlerRef;
-import com.googlecode.gwt.charts.client.event.ReadyEvent;
 import com.googlecode.gwt.charts.client.event.ReadyHandler;
-import com.googlecode.gwt.charts.client.event.StateChangedEvent;
 import com.googlecode.gwt.charts.client.event.StateChangedHandler;
 
 /**
- * A ControlWrapperWidget object is a wrapper around a JSON representation of a configured control instance.<br>
- * The class exposes convenience methods for defining a dashboard control, drawing it and programmatically changing its
- * state.
+ * This class is used as a widget wrapper for control wrappers.
  * 
- * @see <a href="https://developers.google.com/chart/interactive/docs/gallery/controls#controlwrapperobject">Control
- *      Wrapper</a>
- * 
- * @param <T> the options type for this control
+ * @param <T> the control options type
  */
-public class ControlWrapperObject<T extends ControlOptions> extends HasListeners {
-	/**
-	 * Creates an empty control wrapper.
-	 * You must set all the appropriate properties using the set... methods.
-	 * 
-	 * @param <T> the options type for this control
-	 * @return an empty control wrapper
-	 */
-	public static native <T extends ControlOptions> ControlWrapperObject<T> create() /*-{
-		return new $wnd.google.visualization.ControlWrapper();
-	}-*/;
+public class ControlWrapperWidget<T extends ControlOptions> extends Widget implements RequiresResize {
+
+	private ControlWrapperObject<T> controlWrapperObject;
 
 	/**
-	 * Creates a control wrapper with the given specification.
-	 * 
-	 * @param <T> the options type for this control
-	 * @param spec a property set for defining this wrapper
-	 * @return a control wrapper
+	 * Creates a new ControlWrapperWidget.
 	 */
-	public static native <T extends ControlOptions> ControlWrapperObject<T> create(ControlWrapperSpec<?> spec) /*-{
-		return new $wnd.google.visualization.ControlWrapper(spec);
-	}-*/;
-
-	protected ControlWrapperObject() {
-		// Default constructor
+	public ControlWrapperWidget() {
+		super();
+		setElement(DOM.createDiv());
+		controlWrapperObject = ControlWrapperObject.create();
 	}
 
 	/**
@@ -65,7 +47,7 @@ public class ControlWrapperObject<T extends ControlOptions> extends HasListeners
 	 * @return a reference for removing this handler
 	 */
 	public final HandlerRef addErrorHandler(ErrorHandler handler) {
-		return addListener(ErrorEvent.NAME, handler);
+		return controlWrapperObject.addErrorHandler(handler);
 	}
 
 	/**
@@ -78,7 +60,7 @@ public class ControlWrapperObject<T extends ControlOptions> extends HasListeners
 	 * @return a reference for removing this handler
 	 */
 	public final HandlerRef addReadyHandler(ReadyHandler handler) {
-		return addListener(ReadyEvent.NAME, handler);
+		return controlWrapperObject.addReadyHandler(handler);
 	}
 
 	/**
@@ -90,7 +72,7 @@ public class ControlWrapperObject<T extends ControlOptions> extends HasListeners
 	 * @return a reference for removing this handler
 	 */
 	public final HandlerRef addStateChangedHandler(StateChangedHandler handler) {
-		return addListener(StateChangedEvent.NAME, handler);
+		return controlWrapperObject.addStateChangedHandler(handler);
 	}
 
 	/**
@@ -98,26 +80,26 @@ public class ControlWrapperObject<T extends ControlOptions> extends HasListeners
 	 * 
 	 * @return a deep copy of the control wrapper
 	 */
-	public final native ControlWrapperObject<T> cloneObject() /*-{
-		this.clone();
-	}-*/;
+	public final ControlWrapperObject<T> cloneObject() {
+		return controlWrapperObject.cloneObject();
+	}
 
 	/**
 	 * Draws the control. Normally the dashboard holding the control takes care of drawing it. You should call draw() to
 	 * force programmatic redraws of the control after you change any of its other settings, like options or state.
 	 */
-	public final native void draw() /*-{
-		this.draw();
-	}-*/;
+	public final void draw() {
+		controlWrapperObject.draw();
+	}
 
 	/**
 	 * The ID of the control's DOM container element.
 	 * 
 	 * @return container element ID
 	 */
-	public final native String getContainerId() /*-{
-		return this.getContainerId();
-	}-*/;
+	public final String getContainerId() {
+		return controlWrapperObject.getContainerId();
+	}
 
 	/**
 	 * Returns a reference to the control created by this ControlWrapper. This will return null until after you have
@@ -127,18 +109,18 @@ public class ControlWrapperObject<T extends ControlOptions> extends HasListeners
 	 * 
 	 * @return a reference to the control created by this ControlWrapper.
 	 */
-	public final native Control getControl() /*-{
-		return this.getControl();
-	}-*/;
+	public final Control getControl() {
+		return controlWrapperObject.getControl();
+	}
 
 	/**
 	 * Returns the control name assigned by setControlName().
 	 * 
 	 * @return control name
 	 */
-	public final native String getControlName() /*-{
-		return this.getControlName();
-	}-*/;
+	public final String getControlName() {
+		return controlWrapperObject.getControlName();
+	}
 
 	/**
 	 * The class name of the control. If this is a Google control, the name will not be qualified with
@@ -147,9 +129,9 @@ public class ControlWrapperObject<T extends ControlOptions> extends HasListeners
 	 * 
 	 * @return the class name of the control.
 	 */
-	public final native String getControlType() /*-{
-		return this.getControlType();
-	}-*/;
+	public final String getControlType() {
+		return controlWrapperObject.getControlType();
+	}
 
 	/**
 	 * Returns the specified control option value.
@@ -157,9 +139,9 @@ public class ControlWrapperObject<T extends ControlOptions> extends HasListeners
 	 * @param key the name of the option to retrieve. May be a qualified name, such as 'vAxis.title'.
 	 * @return control option value
 	 */
-	public final native String getOption(String key) /*-{
-		return this.getOption(key);
-	}-*/;
+	public final String getOption(String key) {
+		return controlWrapperObject.getOption(key);
+	}
 
 	/**
 	 * Returns the specified control option value.
@@ -169,36 +151,58 @@ public class ControlWrapperObject<T extends ControlOptions> extends HasListeners
 	 * @param defaultValue If the specified value is undefined or null, this value will be returned.
 	 * @return control option value or default value
 	 */
-	public final native String getOption(String key, String defaultValue) /*-{
-		return this.getOption(key, defaultValue);
-	}-*/;
+	public final String getOption(String key, String defaultValue) {
+		return controlWrapperObject.getOption(key, defaultValue);
+	}
 
 	/**
 	 * Returns the options object for this control.
 	 * 
 	 * @return the options object for this control
 	 */
-	public final native T getOptions() /*-{
-		return this.getOptions();
-	}-*/;
+	public final T getOptions() {
+		return controlWrapperObject.getOptions();
+	}
 
 	/**
 	 * Returns the control state.
 	 * 
 	 * @return the control state
 	 */
-	public final native ControlState getState() /*-{
-		return this.getState();
-	}-*/;
+	public final ControlState getState() {
+		return controlWrapperObject.getState();
+	}
+
+	@Override
+	public void onResize() {
+		draw();
+	}
+
+	/**
+	 * Removes all existing handlers from this chart.
+	 */
+	public final void removeAllHandlers() {
+		controlWrapperObject.removeAllListeners();
+	}
+
+	/**
+	 * Removes a single handler matching the given handler reference.
+	 * 
+	 * @param handlerRef an handler reference
+	 */
+	public final void removeHandler(HandlerRef handlerRef) {
+		controlWrapperObject.removeListener(handlerRef);
+	}
 
 	/**
 	 * Sets the ID of the containing DOM element for the control.
 	 * 
 	 * @param containerId the ID of the containing DOM element
 	 */
-	public final native void setContainerId(String containerId) /*-{
-		this.setContainerId(containerId);
-	}-*/;
+	public final void setContainerId(String containerId) {
+		getElement().setId(containerId);
+		controlWrapperObject.setContainerId(containerId);
+	}
 
 	/**
 	 * Sets an arbitrary name for the control. This is not shown anywhere on the control, but is for your reference
@@ -206,9 +210,9 @@ public class ControlWrapperObject<T extends ControlOptions> extends HasListeners
 	 * 
 	 * @param controlName an arbitrary name for the control
 	 */
-	public final native void setControlName(String controlName) /*-{
-		this.setControlName(controlName);
-	}-*/;
+	public final void setControlName(String controlName) {
+		controlWrapperObject.setControlName(controlName);
+	}
 
 	/**
 	 * Sets the control type. Pass in the class name of the control to instantiate. If this is a Google control, do not
@@ -218,7 +222,7 @@ public class ControlWrapperObject<T extends ControlOptions> extends HasListeners
 	 * @param controlType the control type
 	 */
 	public final void setControlType(ControlType controlType) {
-		setControlType(controlType.getName());
+		controlWrapperObject.setControlType(controlType);
 	}
 
 	/**
@@ -228,18 +232,18 @@ public class ControlWrapperObject<T extends ControlOptions> extends HasListeners
 	 * @param key the option name
 	 * @param value the value
 	 */
-	public final native void setOption(String key, String value) /*-{
-		return this.setOption(key, value);
-	}-*/;
+	public final void setOption(String key, String value) {
+		controlWrapperObject.setOption(key, value);
+	}
 
 	/**
 	 * Sets a complete options object for a control.
 	 * 
 	 * @param options a complete options object
 	 */
-	public final native void setOptions(T options) /*-{
-		return this.setOptions(options);
-	}-*/;
+	public final void setOptions(T options) {
+		controlWrapperObject.setOptions(options);
+	}
 
 	/**
 	 * Sets the control state. The state collects all the variables that the user operating the control can affect. For
@@ -248,20 +252,29 @@ public class ControlWrapperObject<T extends ControlOptions> extends HasListeners
 	 * 
 	 * @param state the control state
 	 */
-	public final native void setState(ControlState state) /*-{
-		return this.setState(state);
-	}-*/;
+	public final void setState(ControlState state) {
+		controlWrapperObject.setState(state);
+	}
 
 	/**
 	 * Returns a string version of the JSON representation of the control.
 	 * 
 	 * @return JSON representation of the control
 	 */
-	public final native String toJSON() /*-{
-		this.toJSON();
-	}-*/;
+	public final String toJSON() {
+		return controlWrapperObject.toJSON();
+	}
 
-	private final native void setControlType(String controlType) /*-{
-		this.setControlType(controlType);
-	}-*/;
+	/**
+	 * Fires an event to all listeners.
+	 * 
+	 * @param event the event object to fire
+	 */
+	public final void fireEvent(Event event) {
+		controlWrapperObject.trigger(event.getEventName(), event.getProperties());
+	}
+
+	protected ControlWrapperObject<T> getObject() {
+		return controlWrapperObject;
+	}
 }

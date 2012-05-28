@@ -15,6 +15,11 @@ package com.googlecode.gwt.charts.client.corechart;
 import com.google.gwt.core.client.JavaScriptObject;
 
 public class SteppedAreaChartSeries extends JavaScriptObject {
+	/**
+	 * Default constructor
+	 * 
+	 * @return a new object instance
+	 */
 	public static SteppedAreaChartSeries create() {
 		return createObject().cast();
 	}

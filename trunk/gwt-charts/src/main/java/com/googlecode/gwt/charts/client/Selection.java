@@ -14,26 +14,61 @@ package com.googlecode.gwt.charts.client;
 
 import com.google.gwt.core.client.JavaScriptObject;
 
+/**
+ * A representation of a selection in a chart.
+ * Commonly defined by optional row/column values.
+ */
 public class Selection extends JavaScriptObject {
+	/**
+	 * Creates an empty selection
+	 * 
+	 * @return a new Selection
+	 */
+	public static Selection create() {
+		Selection selection = createObject().cast();
+		return selection;
+	}
 
+	/**
+	 * Creates a new selection with row and column selection
+	 * 
+	 * @param row the row index
+	 * @param column the column index
+	 * @return a new Selection
+	 */
 	public static Selection create(Integer row, Integer column) {
 		Selection selection = createObject().cast();
 		selection.setRow(row);
 		selection.setColumn(column);
 		return selection;
 	}
-	
+
 	protected Selection() {
 	}
 
+	/**
+	 * Returns the column index for this selection
+	 * 
+	 * @return the column index
+	 */
 	public final native Integer getColumn() /*-{
 		return this.column != null ? @java.lang.Integer::valueOf(I)(this.column) : null;
 	}-*/;
 
+	/**
+	 * Returns the row index for this selection
+	 * 
+	 * @return the row index
+	 */
 	public final native Integer getRow() /*-{
 		return this.row != null ? @java.lang.Integer::valueOf(I)(this.row) : null;
 	}-*/;
 
+	/**
+	 * Sets the column index for this selection
+	 * 
+	 * @param column the column index
+	 */
 	public final native void setColumn(Integer column) /*-{
 		if (column == null) {
 			delete this.column;
@@ -41,6 +76,11 @@ public class Selection extends JavaScriptObject {
 		this.column = column.@java.lang.Integer::intValue();
 	}-*/;
 
+	/**
+	 * Sets the row index for this selection
+	 * 
+	 * @param row the column index
+	 */
 	public final native void setRow(Integer row) /*-{
 		if (row == null) {
 			delete this.row;

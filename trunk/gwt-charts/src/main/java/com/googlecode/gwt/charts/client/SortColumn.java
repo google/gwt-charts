@@ -18,7 +18,12 @@ import com.google.gwt.core.client.JavaScriptObject;
  * Represents an object for sorting a DataTable.
  */
 public class SortColumn extends JavaScriptObject {
-
+	/**
+	 * Creates a new SortColumn by specifing the column index.
+	 * @param column the column index to sort
+	 * 
+	 * @return a new object instance
+	 */
 	public static SortColumn create(int column) {
 		SortColumn dataColumn = createObject().cast();
 		dataColumn.setColumn(column);

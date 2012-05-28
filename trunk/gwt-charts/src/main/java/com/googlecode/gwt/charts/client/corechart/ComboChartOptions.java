@@ -65,6 +65,11 @@ public class ComboChartOptions extends CoreOptions {
 		this.interpolateNulls = interpolateNulls;
 	}-*/;
 
+	/**
+	 * Stacks or unstacks series elements.
+	 * 
+	 * @param isStacked If set to true, series elements are stacked (default: false)
+	 */
 	public final native void setIsStacked(boolean isStacked) /*-{
 		this.isStacked = isStacked;
 	}-*/;
@@ -77,6 +82,14 @@ public class ComboChartOptions extends CoreOptions {
 		this.pointSize = size;
 	}-*/;
 
+	/**
+	 * If set to true, will draw series from right to left. The default is to draw left-to-right. This option is only
+	 * supported for a discrete major axis.
+	 * 
+	 * @param reverseCategories
+	 * @see <a href="http://developers.google.com/chart/interactive/docs/customizing_axes.html#Terminology">Discrete vs
+	 *      Continuous</a>
+	 */
 	public final native void setReverseCategories(boolean reverseCategories) /*-{
 		this.reverseCategories = reverseCategories;
 	}-*/;

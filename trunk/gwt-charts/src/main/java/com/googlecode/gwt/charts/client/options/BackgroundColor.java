@@ -15,9 +15,13 @@ package com.googlecode.gwt.charts.client.options;
 import com.google.gwt.core.client.JavaScriptObject;
 
 /**
+ * A set of background color options
  */
-
 public class BackgroundColor extends JavaScriptObject {
+	/**
+	 * Default constructor
+	 * @return a new object instance
+	 */
 	public static BackgroundColor create() {
 		return createObject().cast();
 	}
