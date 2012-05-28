@@ -15,6 +15,11 @@ package com.googlecode.gwt.charts.client.corechart;
 import com.google.gwt.core.client.JavaScriptObject;
 
 public class BubbleChartSeries extends JavaScriptObject {
+	/**
+	 * Default constructor
+	 * 
+	 * @return a new object instance
+	 */
 	public static BubbleChartSeries create() {
 		return createObject().cast();
 	}

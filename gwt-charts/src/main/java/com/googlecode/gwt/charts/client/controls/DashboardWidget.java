@@ -28,11 +28,11 @@ import com.googlecode.gwt.charts.client.event.ReadyHandler;
 
 import java.util.List;
 
-public class Dashboard extends Widget {
+public class DashboardWidget extends Widget {
 
 	private DashboardObject dashboardObject;
 
-	public Dashboard() {
+	public DashboardWidget() {
 		super();
 		Element dashboardDiv = DOM.createDiv();
 		dashboardObject = DashboardObject.create(dashboardDiv);
@@ -51,10 +51,10 @@ public class Dashboard extends Widget {
 		dashboardObject.bind(controlWrapper, chartWrapper);
 	}
 
-	public final void bind(List<ControlWrapper<?>> controlWrappers,
+	public final void bind(List<ControlWrapperWidget<?>> controlWrappers,
 			List<ChartWrapperWidget<?>> chartWrappers) {
 		JsArray<ControlWrapperObject<?>> controlArray = JsArray.createArray().cast();
-		for (ControlWrapper<?> controlWrapper : controlWrappers) {
+		for (ControlWrapperWidget<?> controlWrapper : controlWrappers) {
 			controlWrapper.setContainerId(DOM.createUniqueId());
 			controlArray.push(controlWrapper.getObject());
 		}

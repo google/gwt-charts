@@ -22,6 +22,11 @@ import com.googlecode.gwt.charts.client.util.ArrayHelper;
  * Configuration options for {@link ScatterChart}.
  */
 public class ScatterChartOptions extends CoreOptions {
+	/**
+	 * Default constructor
+	 * 
+	 * @return a new object instance
+	 */
 	public static ScatterChartOptions create() {
 		return createObject().cast();
 	}

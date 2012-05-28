@@ -23,6 +23,11 @@ import com.googlecode.gwt.charts.client.util.ArrayHelper;
  * Configuration options for {@link AreaChart}.
  */
 public class AreaChartOptions extends CoreOptions {
+	/**
+	 * Default constructor
+	 * 
+	 * @return a new object instance
+	 */
 	public static AreaChartOptions create() {
 		return createObject().cast();
 	}
@@ -129,7 +134,7 @@ public class AreaChartOptions extends CoreOptions {
 	 * To specify a chart with multiple vertical axes, first define a new axis using series.targetAxisIndex, then
 	 * configure the axis using vAxes.
 	 * 
-	 * @param vAxes
+	 * @param vAxes an array of VAxis values
 	 */
 	public final native void setVAxes(JsArray<VAxis> vAxes) /*-{
 		this.vAxes = vAxes;

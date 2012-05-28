@@ -29,6 +29,11 @@ import com.googlecode.gwt.charts.client.util.ArrayHelper;
  * Configuration options for {@link PieChart}.
  */
 public class PieChartOptions extends Options {
+	/**
+	 * Default constructor
+	 * 
+	 * @return a new object instance
+	 */
 	public static PieChartOptions create() {
 		return createObject().cast();
 	}
@@ -88,6 +93,14 @@ public class PieChartOptions extends Options {
 		this.pieSliceTextStyle = pieSliceTextStyle;
 	}-*/;
 
+	/**
+	 * If set to true, will draw series from right to left. The default is to draw left-to-right. This option is only
+	 * supported for a discrete major axis.
+	 * 
+	 * @param reverseCategories
+	 * @see <a href="http://developers.google.com/chart/interactive/docs/customizing_axes.html#Terminology">Discrete vs
+	 *      Continuous</a>
+	 */
 	public final native void setReverseCategories(boolean reverseCategories) /*-{
 		this.reverseCategories = reverseCategories;
 	}-*/;

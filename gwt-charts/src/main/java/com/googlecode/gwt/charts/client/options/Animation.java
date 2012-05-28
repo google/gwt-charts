@@ -21,6 +21,14 @@ import com.google.gwt.core.client.JavaScriptObject;
  */
 
 public class Animation extends JavaScriptObject {
+	/**
+	 * Default constructor
+	 * 
+	 * @return a new object instance
+	 */
+	public static Animation create() {
+		return createObject().cast();
+	}
 
 	protected Animation() {
 	}

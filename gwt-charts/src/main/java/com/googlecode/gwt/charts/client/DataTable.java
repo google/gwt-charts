@@ -12,6 +12,7 @@
  */
 package com.googlecode.gwt.charts.client;
 
+import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.JsArray;
 import com.google.gwt.core.client.JsArrayInteger;
 import com.google.gwt.core.client.JsArrayMixed;
@@ -174,6 +175,7 @@ public class DataTable extends DataSource {
 	 * Returns a clone of the data table. The result is a deep copy of the data table except for the cell properties,
 	 * row properties, table properties and column properties, which are shallow copies; this means that non-primitive
 	 * properties are copied by reference, but primitive properties are copied by value.
+	 * 
 	 * @return a clone of this object
 	 */
 	public final native DataTable cloneObject() /*-{
@@ -294,7 +296,8 @@ public class DataTable extends DataSource {
 
 	/**
 	 * Insert the specified number of empty rows at the specified row index.
-	 * @param <E> 
+	 * 
+	 * @param <E>
 	 * 
 	 * @param rowIndex is the index number where to insert the new row(s). Rows will be added, starting at the index
 	 *        number specified.
@@ -343,70 +346,196 @@ public class DataTable extends DataSource {
 		this.removeRows(rowIndex, numberOfRows);
 	}-*/;
 
+	/**
+	 * Sets the value, formatted value, and/or properties, of a cell.
+	 * 
+	 * @param rowIndex should be a number with a valid row index.
+	 * @param columnIndex should be a number greater than or equal to zero, and less than the number of columns
+	 */
 	public final native void setCell(int rowIndex, int columnIndex) /*-{
 		this.setCell(rowIndex, columnIndex);
 	}-*/;
 
+	/**
+	 * Sets the value of a cell.
+	 * 
+	 * @param rowIndex should be a number with a valid row index.
+	 * @param columnIndex should be a number greater than or equal to zero, and less than the number of columns
+	 * @param value the value assigned to the specified cell
+	 */
 	public final native void setCell(int rowIndex, int columnIndex, boolean value) /*-{
 		this.setCell(rowIndex, columnIndex, value);
 	}-*/;
 
+	/**
+	 * Sets the value and formatted value of a cell.
+	 * 
+	 * @param rowIndex should be a number with a valid row index.
+	 * @param columnIndex should be a number greater than or equal to zero, and less than the number of columns
+	 * @param value the value assigned to the specified cell
+	 * @param formattedValue 
+	 */
 	public final native void setCell(int rowIndex, int columnIndex, boolean value, String formattedValue) /*-{
 		this.setCell(rowIndex, columnIndex, value, formattedValue);
 	}-*/;
 
+	/**
+	 * Sets the value, formatted value and properties of a cell.
+	 * 
+	 * @param rowIndex should be a number with a valid row index.
+	 * @param columnIndex should be a number greater than or equal to zero, and less than the number of columns
+	 * @param value the value assigned to the specified cell
+	 * @param formattedValue is a string with the value formatted as a string
+	 * @param properties is an Object (a name/value map) with additional properties for this cell
+	 */
 	public final native void setCell(int rowIndex, int columnIndex, boolean value, String formattedValue,
 			Properties properties) /*-{
 		this.setCell(rowIndex, columnIndex, value, formattedValue, properties);
 	}-*/;
 
+	/**
+	 * Sets the value of a cell.
+	 * 
+	 * @param rowIndex should be a number with a valid row index.
+	 * @param columnIndex should be a number greater than or equal to zero, and less than the number of columns
+	 * @param value the value assigned to the specified cell
+	 */
 	public final native void setCell(int rowIndex, int columnIndex, Date value) /*-{
 		this.setCell(rowIndex, columnIndex, @com.googlecode.gwt.charts.client.util.DateHelper::getJsDate(Ljava/util/Date;) (value));
 	}-*/;
 
+	/**
+	 * Sets the value and formatted value of a cell.
+	 * 
+	 * @param rowIndex should be a number with a valid row index.
+	 * @param columnIndex should be a number greater than or equal to zero, and less than the number of columns
+	 * @param value the value assigned to the specified cell
+	 * @param formattedValue 
+	 */
 	public final native void setCell(int rowIndex, int columnIndex, Date value, String formattedValue) /*-{
 		this.setCell(rowIndex, columnIndex, @com.googlecode.gwt.charts.client.util.DateHelper::getJsDate(Ljava/util/Date;) (value), formattedValue);
 	}-*/;
-	
+
+	/**
+	 * Sets the value, formatted value and properties of a cell.
+	 * 
+	 * @param rowIndex should be a number with a valid row index.
+	 * @param columnIndex should be a number greater than or equal to zero, and less than the number of columns
+	 * @param value the value assigned to the specified cell
+	 * @param formattedValue is a string with the value formatted as a string
+	 * @param properties is an Object (a name/value map) with additional properties for this cell
+	 */
 	public final native void setCell(int rowIndex, int columnIndex, Date value, String formattedValue,
 			Properties properties) /*-{
 		this.setCell(rowIndex, columnIndex, @com.googlecode.gwt.charts.client.util.DateHelper::getJsDate(Ljava/util/Date;) (value), formattedValue, properties);
 	}-*/;
 
+	/**
+	 * Sets the value of a cell.
+	 * 
+	 * @param rowIndex should be a number with a valid row index.
+	 * @param columnIndex should be a number greater than or equal to zero, and less than the number of columns
+	 * @param value the value assigned to the specified cell
+	 */
 	public final native void setCell(int rowIndex, int columnIndex, double value) /*-{
 		this.setCell(rowIndex, columnIndex, value);
 	}-*/;
 
+	/**
+	 * Sets the value and formatted value of a cell.
+	 * 
+	 * @param rowIndex should be a number with a valid row index.
+	 * @param columnIndex should be a number greater than or equal to zero, and less than the number of columns
+	 * @param value the value assigned to the specified cell
+	 * @param formattedValue is a string with the value formatted as a string
+	 */
 	public final native void setCell(int rowIndex, int columnIndex, double value, String formattedValue) /*-{
 		this.setCell(rowIndex, columnIndex, value, formattedValue);
 	}-*/;
 
+	/**
+	 * Sets the value, formatted value and properties of a cell.
+	 * 
+	 * @param rowIndex should be a number with a valid row index.
+	 * @param columnIndex should be a number greater than or equal to zero, and less than the number of columns
+	 * @param value the value assigned to the specified cell
+	 * @param formattedValue is a string with the value formatted as a string
+	 * @param properties is an Object (a name/value map) with additional properties for this cell
+	 */
 	public final native void setCell(int rowIndex, int columnIndex, double value, String formattedValue,
 			Properties properties) /*-{
 		this.setCell(rowIndex, columnIndex, value, formattedValue, properties);
 	}-*/;
 
+	/**
+	 * Sets the value of a cell.
+	 * 
+	 * @param rowIndex should be a number with a valid row index.
+	 * @param columnIndex should be a number greater than or equal to zero, and less than the number of columns
+	 * @param value the value assigned to the specified cell
+	 */
 	public final native void setCell(int rowIndex, int columnIndex, String value) /*-{
 		this.setCell(rowIndex, columnIndex, value);
 	}-*/;
-	
+
+	/**
+	 * Sets the value and formatted value of a cell.
+	 * 
+	 * @param rowIndex should be a number with a valid row index.
+	 * @param columnIndex should be a number greater than or equal to zero, and less than the number of columns
+	 * @param value the value assigned to the specified cell
+	 * @param formattedValue is a string with the value formatted as a string
+	 */
 	public final native void setCell(int rowIndex, int columnIndex, String value, String formattedValue) /*-{
 		this.setCell(rowIndex, columnIndex, value, formattedValue);
 	}-*/;
 
+	/**
+	 * Sets the value, formatted value and properties of a cell.
+	 * 
+	 * @param rowIndex should be a number with a valid row index.
+	 * @param columnIndex should be a number greater than or equal to zero, and less than the number of columns
+	 * @param value the value assigned to the specified cell
+	 * @param formattedValue is a string with the value formatted as a string
+	 * @param properties is an Object (a name/value map) with additional properties for this cell
+	 */
 	public final native void setCell(int rowIndex, int columnIndex, String value, String formattedValue,
 			Properties properties) /*-{
 		this.setCell(rowIndex, columnIndex, value, formattedValue, properties);
 	}-*/;
 
+	/**
+	 * Sets the value of a cell.
+	 * 
+	 * @param rowIndex should be a number with a valid row index.
+	 * @param columnIndex should be a number greater than or equal to zero, and less than the number of columns
+	 * @param value the value assigned to the specified cell
+	 */
 	public final native void setCell(int rowIndex, int columnIndex, TimeOfDay value) /*-{
 		this.setCell(rowIndex, columnIndex, value);
 	}-*/;
 
+	/**
+	 * Sets the value and formatted value of a cell.
+	 * 
+	 * @param rowIndex should be a number with a valid row index.
+	 * @param columnIndex should be a number greater than or equal to zero, and less than the number of columns
+	 * @param value the value assigned to the specified cell
+	 * @param formattedValue is a string with the value formatted as a string
+	 */
 	public final native void setCell(int rowIndex, int columnIndex, TimeOfDay value, String formattedValue) /*-{
 		this.setCell(rowIndex, columnIndex, value, formattedValue);
 	}-*/;
 
+	/**
+	 * Sets the value, formatted value and properties of a cell.
+	 * 
+	 * @param rowIndex should be a number with a valid row index.
+	 * @param columnIndex should be a number greater than or equal to zero, and less than the number of columns
+	 * @param value the value assigned to the specified cell
+	 * @param formattedValue is a string with the value formatted as a string
+	 * @param properties is an Object (a name/value map) with additional properties for this cell
+	 */
 	public final native void setCell(int rowIndex, int columnIndex, TimeOfDay value, String formattedValue,
 			Properties properties) /*-{
 		this.setCell(rowIndex, columnIndex, value, formattedValue, properties);
@@ -439,6 +568,79 @@ public class DataTable extends DataSource {
 	}-*/;
 
 	/**
+	 * Sets multiple cell properties. Some visualizations support row, column, or cell properties to modify their
+	 * display or behavior; see the visualization documentation to see what properties are supported.
+	 * 
+	 * @param columnIndex should be a number greater than or equal to zero, and less than the number of columns
+	 * @param properties is an Object (name/value map) with additional properties for this cell. If null is specified,
+	 *        all additional properties of the cell will be removed.
+	 */
+	public final native void setColumnProperties(int columnIndex, Properties properties) /*-{
+		this.setColumnProperties(columnIndex, properties);
+	}-*/;
+
+	/**
+	 * Sets a cell property. Some visualizations support row, column, or cell properties to modify their display or
+	 * behavior; see the visualization documentation to see what properties are supported.
+	 * 
+	 * @param columnIndex should be a number greater than or equal to zero, and less than the number of columns
+	 * @param name is a string with the property name
+	 * @param value is a value to assign to the specified named property of the specified cell
+	 */
+	public final native void setColumnProperty(int columnIndex, String name, boolean value) /*-{
+		this.setColumnProperty(columnIndex, name, value);
+	}-*/;
+
+	/**
+	 * Sets a cell property. Some visualizations support row, column, or cell properties to modify their display or
+	 * behavior; see the visualization documentation to see what properties are supported.
+	 * 
+	 * @param columnIndex should be a number greater than or equal to zero, and less than the number of columns
+	 * @param name is a string with the property name
+	 * @param value is a value to assign to the specified named property of the specified cell
+	 */
+	public final native void setColumnProperty(int columnIndex, String name, Date value) /*-{
+		this.setColumnProperty(columnIndex, name,
+				@com.googlecode.gwt.charts.client.util.DateHelper::getJsDate(Ljava/util/Date;)(value));
+	}-*/;
+
+	/**
+	 * Sets a cell property. Some visualizations support row, column, or cell properties to modify their display or
+	 * behavior; see the visualization documentation to see what properties are supported.
+	 * 
+	 * @param columnIndex should be a number greater than or equal to zero, and less than the number of columns
+	 * @param name is a string with the property name
+	 * @param value is a value to assign to the specified named property of the specified cell
+	 */
+	public final native void setColumnProperty(int columnIndex, String name, double value) /*-{
+		this.setColumnProperty(columnIndex, name, value);
+	}-*/;
+
+	/**
+	 * Sets a cell property. Some visualizations support row, column, or cell properties to modify their display or
+	 * behavior; see the visualization documentation to see what properties are supported.
+	 * 
+	 * @param columnIndex should be a number greater than or equal to zero, and less than the number of columns
+	 * @param name is a string with the property name
+	 * @param value is a value to assign to the specified named property of the specified cell
+	 */
+	public final native void setColumnProperty(int columnIndex, String name, JavaScriptObject value) /*-{
+		this.setColumnProperty(columnIndex, name, value);
+	}-*/;
+
+	/**
+	 * Sets a cell property. Some visualizations support row, column, or cell properties to modify their display or
+	 * behavior; see the visualization documentation to see what properties are supported.
+	 * 
+	 * @param columnIndex should be a number greater than or equal to zero, and less than the number of columns
+	 * @param name is a string with the property name
+	 * @param value is a value to assign to the specified named property of the specified cell
+	 */
+	public final native void setColumnProperty(int columnIndex, String name, String value) /*-{
+		this.setColumnProperty(columnIndex, name, value);
+	}-*/;
+
+	/**
 	 * Sets the formatted value of a cell.
 	 * 
 	 * @param rowIndex should be a number greater than or equal to zero, and less than the number of rows as returned by
@@ -454,12 +656,223 @@ public class DataTable extends DataSource {
 		this.setFormattedValue(rowIndex, columnIndex, formattedValue);
 	}-*/;
 
+	/**
+	 * Sets multiple cell properties. Some visualizations support row, column, or cell properties to modify their
+	 * display or behavior; see the visualization documentation to see what properties are supported.
+	 * 
+	 * @param rowIndex should be a number greater than or equal to zero, and less than the number of rows
+	 * @param columnIndex should be a number greater than or equal to zero, and less than the number of columns
+	 * @param properties is an Object (name/value map) with additional properties for this cell. If null is specified,
+	 *        all additional properties of the cell will be removed.
+	 */
 	public final native void setProperties(int rowIndex, int columnIndex, Properties properties) /*-{
 		this.setProperties(rowIndex, columnIndex, properties);
 	}-*/;
 
+	/**
+	 * Sets a cell property. Some visualizations support row, column, or cell properties to modify their display or
+	 * behavior; see the visualization documentation to see what properties are supported.
+	 * 
+	 * @param rowIndex should be a number greater than or equal to zero, and less than the number of rows
+	 * @param columnIndex should be a number greater than or equal to zero, and less than the number of columns
+	 * @param name is a string with the property name
+	 * @param value is a value to assign to the specified named property of the specified cell
+	 */
+	public final native void setProperty(int rowIndex, int columnIndex, String name, boolean value) /*-{
+		this.setProperty(rowIndex, columnIndex, name, value);
+	}-*/;
+
+	/**
+	 * Sets a cell property. Some visualizations support row, column, or cell properties to modify their display or
+	 * behavior; see the visualization documentation to see what properties are supported.
+	 * 
+	 * @param rowIndex should be a number greater than or equal to zero, and less than the number of rows
+	 * @param columnIndex should be a number greater than or equal to zero, and less than the number of columns
+	 * @param name is a string with the property name
+	 * @param value is a value to assign to the specified named property of the specified cell
+	 */
+	public final native void setProperty(int rowIndex, int columnIndex, String name, Date value) /*-{
+		this.setProperty(rowIndex, columnIndex, name,
+				@com.googlecode.gwt.charts.client.util.DateHelper::getJsDate(Ljava/util/Date;)(value));
+	}-*/;
+
+	/**
+	 * Sets a cell property. Some visualizations support row, column, or cell properties to modify their display or
+	 * behavior; see the visualization documentation to see what properties are supported.
+	 * 
+	 * @param rowIndex should be a number greater than or equal to zero, and less than the number of rows
+	 * @param columnIndex should be a number greater than or equal to zero, and less than the number of columns
+	 * @param name is a string with the property name
+	 * @param value is a value to assign to the specified named property of the specified cell
+	 */
+	public final native void setProperty(int rowIndex, int columnIndex, String name, double value) /*-{
+		this.setProperty(rowIndex, columnIndex, name, value);
+	}-*/;
+
+	/**
+	 * Sets a cell property. Some visualizations support row, column, or cell properties to modify their display or
+	 * behavior; see the visualization documentation to see what properties are supported.
+	 * 
+	 * @param rowIndex should be a number greater than or equal to zero, and less than the number of rows
+	 * @param columnIndex should be a number greater than or equal to zero, and less than the number of columns
+	 * @param name is a string with the property name
+	 * @param value is a value to assign to the specified named property of the specified cell
+	 */
+	public final native void setProperty(int rowIndex, int columnIndex, String name, JavaScriptObject value) /*-{
+		this.setProperty(rowIndex, columnIndex, name, value);
+	}-*/;
+
+	/**
+	 * Sets a cell property. Some visualizations support row, column, or cell properties to modify their display or
+	 * behavior; see the visualization documentation to see what properties are supported.
+	 * 
+	 * @param rowIndex should be a number greater than or equal to zero, and less than the number of rows
+	 * @param columnIndex should be a number greater than or equal to zero, and less than the number of columns
+	 * @param name is a string with the property name
+	 * @param value is a value to assign to the specified named property of the specified cell
+	 */
 	public final native void setProperty(int rowIndex, int columnIndex, String name, String value) /*-{
 		this.setProperty(rowIndex, columnIndex, name, value);
+	}-*/;
+
+	/**
+	 * Sets multiple cell properties. Some visualizations support row, column, or cell properties to modify their
+	 * display or behavior; see the visualization documentation to see what properties are supported.
+	 * 
+	 * @param rowIndex should be a number greater than or equal to zero, and less than the number of rows
+	 * @param properties is an Object (name/value map) with additional properties for this cell. If null is specified,
+	 *        all additional properties of the cell will be removed.
+	 */
+	public final native void setRowProperties(int rowIndex, Properties properties) /*-{
+		this.setRowProperties(rowIndex, properties);
+	}-*/;
+
+	/**
+	 * Sets a cell property. Some visualizations support row, column, or cell properties to modify their display or
+	 * behavior; see the visualization documentation to see what properties are supported.
+	 * 
+	 * @param rowIndex should be a number greater than or equal to zero, and less than the number of rows
+	 * @param name is a string with the property name
+	 * @param value is a value to assign to the specified named property of the specified cell
+	 */
+	public final native void setRowProperty(int rowIndex, String name, boolean value) /*-{
+		this.setRowProperty(rowIndex, name, value);
+	}-*/;
+
+	/**
+	 * Sets a cell property. Some visualizations support row, column, or cell properties to modify their display or
+	 * behavior; see the visualization documentation to see what properties are supported.
+	 * 
+	 * @param rowIndex should be a number greater than or equal to zero, and less than the number of rows
+	 * @param name is a string with the property name
+	 * @param value is a value to assign to the specified named property of the specified cell
+	 */
+	public final native void setRowProperty(int rowIndex, String name, Date value) /*-{
+		this.setRowProperty(rowIndex, name,
+				@com.googlecode.gwt.charts.client.util.DateHelper::getJsDate(Ljava/util/Date;)(value));
+	}-*/;
+
+	/**
+	 * Sets a cell property. Some visualizations support row, column, or cell properties to modify their display or
+	 * behavior; see the visualization documentation to see what properties are supported.
+	 * 
+	 * @param rowIndex should be a number greater than or equal to zero, and less than the number of rows
+	 * @param name is a string with the property name
+	 * @param value is a value to assign to the specified named property of the specified cell
+	 */
+	public final native void setRowProperty(int rowIndex, String name, double value) /*-{
+		this.setRowProperty(rowIndex, name, value);
+	}-*/;
+
+	/**
+	 * Sets a cell property. Some visualizations support row, column, or cell properties to modify their display or
+	 * behavior; see the visualization documentation to see what properties are supported.
+	 * 
+	 * @param rowIndex should be a number greater than or equal to zero, and less than the number of rows
+	 * @param name is a string with the property name
+	 * @param value is a value to assign to the specified named property of the specified cell
+	 */
+	public final native void setRowProperty(int rowIndex, String name, JavaScriptObject value) /*-{
+		this.setRowProperty(rowIndex, name, value);
+	}-*/;
+
+	/**
+	 * Sets a cell property. Some visualizations support row, column, or cell properties to modify their display or
+	 * behavior; see the visualization documentation to see what properties are supported.
+	 * 
+	 * @param rowIndex should be a number greater than or equal to zero, and less than the number of rows
+	 * @param name is a string with the property name
+	 * @param value is a value to assign to the specified named property of the specified cell
+	 */
+	public final native void setRowProperty(int rowIndex, String name, String value) /*-{
+		this.setRowProperty(rowIndex, name, value);
+	}-*/;
+
+	/**
+	 * Sets multiple table properties. Some visualizations support table, row, column, or cell properties to modify
+	 * their display or behavior; see the visualization documentation to see what properties are supported.
+	 * 
+	 * @param properties is an Object (name/value map) with additional properties for this table. If null is specified,
+	 *        all additional properties of the table will be removed.
+	 */
+	public final native void setTableProperties(Properties properties) /*-{
+		this.setTableProperties(properties);
+	}-*/;
+
+	/**
+	 * Sets a cell property. Some visualizations support row, column, or cell properties to modify their display or
+	 * behavior; see the visualization documentation to see what properties are supported.
+	 * 
+	 * @param name is a string with the property name
+	 * @param value is a value to assign to the specified named property of the specified table
+	 */
+	public final native void setTableProperty(String name, boolean value) /*-{
+		this.setTableProperty(name, value);
+	}-*/;
+
+	/**
+	 * Sets a cell property. Some visualizations support row, column, or cell properties to modify their display or
+	 * behavior; see the visualization documentation to see what properties are supported.
+	 * 
+	 * @param name is a string with the property name
+	 * @param value is a value to assign to the specified named property of the specified table
+	 */
+	public final native void setTableProperty(String name, Date value) /*-{
+		this.setTableProperty(name,
+				@com.googlecode.gwt.charts.client.util.DateHelper::getJsDate(Ljava/util/Date;)(value));
+	}-*/;
+
+	/**
+	 * Sets a cell property. Some visualizations support row, column, or cell properties to modify their display or
+	 * behavior; see the visualization documentation to see what properties are supported.
+	 * 
+	 * @param name is a string with the property name
+	 * @param value is a value to assign to the specified named property of the specified table
+	 */
+	public final native void setTableProperty(String name, double value) /*-{
+		this.setTableProperty(name, value);
+	}-*/;
+
+	/**
+	 * Sets a cell property. Some visualizations support row, column, or cell properties to modify their display or
+	 * behavior; see the visualization documentation to see what properties are supported.
+	 * 
+	 * @param name is a string with the property name
+	 * @param value is a value to assign to the specified named property of the specified table
+	 */
+	public final native void setTableProperty(String name, JavaScriptObject value) /*-{
+		this.setTableProperty(name, value);
+	}-*/;
+
+	/**
+	 * Sets a cell property. Some visualizations support row, column, or cell properties to modify their display or
+	 * behavior; see the visualization documentation to see what properties are supported.
+	 * 
+	 * @param name is a string with the property name
+	 * @param value is a value to assign to the specified named property of the specified table
+	 */
+	public final native void setTableProperty(String name, String value) /*-{
+		this.setTableProperty(name, value);
 	}-*/;
 
 	/**
@@ -475,7 +888,7 @@ public class DataTable extends DataSource {
 	 *        type
 	 * @see #setCell(int, int)
 	 * @see #setFormattedValue(int, int, String)
-	 * @see #setProperty(int, int, String, String)
+	 * @see #setProperty(int, int, String, boolean)
 	 * @see #setProperties(int, int, Properties)
 	 */
 	public final native void setValue(int rowIndex, int columnIndex, boolean value) /*-{

@@ -24,7 +24,11 @@ import com.googlecode.gwt.charts.client.query.QueryResponse;
  *      Reference</a>
  */
 public class GadgetHelper extends JavaScriptObject {
-
+	/**
+	 * Creates a new instance.
+	 * 
+	 * @return a new GadgetHelper instance
+	 */
 	public static final native GadgetHelper create() /*-{
 		return new $wnd.google.visualization.GadgetHelper();
 	}-*/;

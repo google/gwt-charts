@@ -18,6 +18,11 @@ import com.googlecode.gwt.charts.client.options.CurveType;
 import com.googlecode.gwt.charts.client.options.SeriesType;
 
 public class ComboChartSeries extends JavaScriptObject {
+	/**
+	 * Default constructor
+	 * 
+	 * @return a new object instance
+	 */
 	public static ComboChartSeries create() {
 		return createObject().cast();
 	}

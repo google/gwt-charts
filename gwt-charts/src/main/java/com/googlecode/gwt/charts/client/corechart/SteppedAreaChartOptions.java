@@ -23,6 +23,11 @@ import com.googlecode.gwt.charts.client.util.ArrayHelper;
  * Configuration options for {@link SteppedAreaChart}.
  */
 public class SteppedAreaChartOptions extends CoreOptions {
+	/**
+	 * Default constructor
+	 * 
+	 * @return a new object instance
+	 */
 	public static SteppedAreaChartOptions create() {
 		return createObject().cast();
 	}
@@ -61,10 +66,23 @@ public class SteppedAreaChartOptions extends CoreOptions {
 		setFocusTarget(focusTarget);
 	}
 
+	/**
+	 * Stacks or unstacks series elements.
+	 * 
+	 * @param isStacked If set to true, series elements are stacked (default: false)
+	 */
 	public final native void setIsStacked(boolean isStacked) /*-{
 		this.isStacked = isStacked;
 	}-*/;
 
+	/**
+	 * If set to true, will draw series from right to left. The default is to draw left-to-right. This option is only
+	 * supported for a discrete major axis.
+	 * 
+	 * @param reverseCategories
+	 * @see <a href="http://developers.google.com/chart/interactive/docs/customizing_axes.html#Terminology">Discrete vs
+	 *      Continuous</a>
+	 */
 	public final native void setReverseCategories(boolean reverseCategories) /*-{
 		this.reverseCategories = reverseCategories;
 	}-*/;

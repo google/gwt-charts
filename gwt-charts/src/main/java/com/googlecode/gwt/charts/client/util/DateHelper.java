@@ -16,15 +16,30 @@ import com.google.gwt.core.client.JsDate;
 
 import java.util.Date;
 
+/**
+ * A set of utility date methods.
+ */
 public class DateHelper {
 
+	/**
+	 * Converts a JsDate into a java Date
+	 * 
+	 * @param jsDate a JsDate value
+	 * @return a Date value
+	 */
 	public static Date getDate(JsDate jsDate) {
 		if (jsDate == null) {
 			return null;
 		}
 		return new Date((long) jsDate.getTime());
 	}
-	
+
+	/**
+	 * Converts a java Date into a JsDate
+	 * 
+	 * @param date a Date value
+	 * @return a JsDate value
+	 */
 	public static JsDate getJsDate(Date date) {
 		if (date == null) {
 			return null;

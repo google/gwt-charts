@@ -17,6 +17,11 @@ import com.google.gwt.core.client.JavaScriptObject;
 import com.googlecode.gwt.charts.client.options.CurveType;
 
 public class LineChartSeries extends JavaScriptObject {
+	/**
+	 * Default constructor
+	 * 
+	 * @return a new object instance
+	 */
 	public static LineChartSeries create() {
 		return createObject().cast();
 	}
