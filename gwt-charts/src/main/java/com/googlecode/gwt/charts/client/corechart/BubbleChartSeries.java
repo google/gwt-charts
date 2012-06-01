@@ -27,10 +27,20 @@ public class BubbleChartSeries extends JavaScriptObject {
 	protected BubbleChartSeries() {
 	}
 
+	/**
+	 * The color to use for this series.
+	 * 
+	 * @param color a valid HTML color string
+	 */
 	public final native void setColor(String color) /*-{
 		this.color = color;
 	}-*/;
 
+	/**
+	 * Defines if this series should have a legend entry.
+	 * 
+	 * @param visibleInLegend true if visible, false if not
+	 */
 	public final native void setVisibleInLegend(boolean visibleInLegend) /*-{
 		this.visibleInLegend = visibleInLegend;
 	}-*/;

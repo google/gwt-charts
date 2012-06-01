@@ -109,7 +109,7 @@ public abstract class ChartWidget<T extends Options> extends Widget implements R
 
 	@Override
 	public void onResize() {
-		if (isVisible()) {
+		if (isVisible() && getOffsetHeight() != 0 && getOffsetWidth() != 0) {
 			redraw();
 		}
 	}

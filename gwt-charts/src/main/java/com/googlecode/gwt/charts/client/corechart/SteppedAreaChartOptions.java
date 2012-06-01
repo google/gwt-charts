@@ -37,7 +37,7 @@ public class SteppedAreaChartOptions extends CoreOptions {
 
 	/**
 	 * Sets the default opacity of the colored area under an area chart series. To specify opacity for an individual
-	 * series, set the areaOpacity with {@link #setSeries(JsArray)}.
+	 * series, set the areaOpacity with {@link #setSeries(int, SteppedAreaChartSeries)}.
 	 * 
 	 * @param areaOpacity a value from 0.0 (fully transparent) to 1.0 (fully opaque)
 	 */
@@ -45,6 +45,12 @@ public class SteppedAreaChartOptions extends CoreOptions {
 		this.areaOpacity = areaOpacity;
 	}-*/;
 
+	/**
+	 * If set to true, will connect the steps to form a stepped line. Otherwise, only a top line appears. The default is
+	 * to connect the steps.
+	 * 
+	 * @param connectSteps
+	 */
 	public final native void setConnectSteps(boolean connectSteps) /*-{
 		this.connectSteps = connectSteps;
 	}-*/;
@@ -111,16 +117,35 @@ public class SteppedAreaChartOptions extends CoreOptions {
 	}-*/;
 
 	/**
+	 * Specifies properties for individual vertical axes, if the chart has multiple vertical axes. These property values
+	 * override any global settings for the same property.
+	 * 
+	 * To specify a chart with multiple vertical axes, first define a new axis using series.targetAxisIndex, then
+	 * configure the axis using vAxes.
+	 * 
+	 * @param index the axis index
+	 * @param vAxis a set of vertical axis properties
+	 */
+	public final native void setVAxis(int index, VAxis vAxis) /*-{
+		if (!this.vAxes) {
+			this.vAxes = {};
+		}
+		this.vAxes[index] = vAxis;
+	}-*/;
+
+	/**
 	 * Specifies properties for individual vertical axes, if the chart has multiple vertical axes. Each child object is
 	 * a vAxis object, and can contain all the properties supported by vAxis. These property values override any global
-	 * settings for the same property. To specify a chart with multiple vertical axes, first define a new axis using
-	 * series.targetAxisIndex, then configure the axis using vAxes.
+	 * settings for the same property.
 	 * 
-	 * @param vAxes
+	 * To specify a chart with multiple vertical axes, first define a new axis using series.targetAxisIndex, then
+	 * configure the axis using vAxes.
+	 * 
+	 * @param vAxes an array of VAxis values
 	 */
-	public final native void setVAxes(JsArray<VAxis> vAxes) /*-{
-		this.vAxes = vAxes;
-	}-*/;
+	public final void setVAxes(VAxis... vAxes) {
+		setVAxes(ArrayHelper.createArray(vAxes));
+	}
 
 	private final native void setFocusTarget(String focusTarget) /*-{
 		this.focusTarget = focusTarget;
@@ -130,4 +155,7 @@ public class SteppedAreaChartOptions extends CoreOptions {
 		this.series = series;
 	}-*/;
 
+	private final native void setVAxes(JsArray<VAxis> vAxes) /*-{
+		this.vAxes = vAxes;
+	}-*/;
 }

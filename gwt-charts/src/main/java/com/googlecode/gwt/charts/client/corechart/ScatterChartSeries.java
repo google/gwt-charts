@@ -27,18 +27,38 @@ public class ScatterChartSeries extends JavaScriptObject {
 	protected ScatterChartSeries() {
 	}
 
+	/**
+	 * The color to use for this series.
+	 * 
+	 * @param color a valid HTML color string
+	 */
 	public final native void setColor(String color) /*-{
 		this.color = color;
 	}-*/;
 
+	/**
+	 * Overrides the global lineWidth value for this series.
+	 * 
+	 * @param width line width in pixels
+	 */
 	public final native void setLineWidth(int width) /*-{
 		this.lineWidth = width;
 	}-*/;
 
+	/**
+	 * Overrides the global pointSize value for this series.
+	 * 
+	 * @param size diameter of displayed points in pixels
+	 */
 	public final native void setPointSize(int size) /*-{
 		this.pointSize = size;
 	}-*/;
 
+	/**
+	 * Defines if this series should have a legend entry.
+	 * 
+	 * @param visibleInLegend true if visible, false if not
+	 */
 	public final native void setVisibleInLegend(boolean visibleInLegend) /*-{
 		this.visibleInLegend = visibleInLegend;
 	}-*/;

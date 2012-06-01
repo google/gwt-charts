@@ -34,17 +34,18 @@ public class ScatterChartOptions extends CoreOptions {
 	protected ScatterChartOptions() {
 	}
 
+	/**
+	 * Controls the curve of the lines when the line width is not zero.
+	 * 
+	 * @param curveType the line curve type
+	 */
 	public final void setCurveType(CurveType curveType) {
 		setCurveType(curveType.getName());
 	}
 
-	public final native void setCurveType(String curveType) /*-{
-		this.curveType = curveType;
-	}-*/;
-
 	/**
 	 * Defines data line width in pixels. Use zero to hide all lines and show only the points. You can override values
-	 * for individual series using {@link #setSeries(JsArray)}.
+	 * for individual series using {@link #setSeries(int, ScatterChartSeries)}.
 	 * 
 	 * @param lineWidth data line width in pixels
 	 */
@@ -54,7 +55,7 @@ public class ScatterChartOptions extends CoreOptions {
 
 	/**
 	 * Sets diameter of displayed points in pixels. Use zero to hide all points. You can override values for individual
-	 * series using {@link #setSeries(JsArray)}.
+	 * series using {@link #setSeries(int, ScatterChartSeries)}.
 	 * 
 	 * @param pointSize diameter of displayed points in pixels
 	 */
@@ -83,6 +84,10 @@ public class ScatterChartOptions extends CoreOptions {
 			this.series = {};
 		}
 		this.series[index] = series;
+	}-*/;
+
+	private final native void setCurveType(String curveType) /*-{
+		this.curveType = curveType;
 	}-*/;
 
 	/**

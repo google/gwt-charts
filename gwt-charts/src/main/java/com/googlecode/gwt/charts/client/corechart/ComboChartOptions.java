@@ -25,6 +25,11 @@ import com.googlecode.gwt.charts.client.util.ArrayHelper;
  * Configuration options for {@link ComboChart}.
  */
 public class ComboChartOptions extends CoreOptions {
+	/**
+	 * Default constructor
+	 * 
+	 * @return a new object instance
+	 */
 	public static ComboChartOptions create() {
 		return createObject().cast();
 	}
@@ -32,17 +37,24 @@ public class ComboChartOptions extends CoreOptions {
 	protected ComboChartOptions() {
 	}
 
+	/**
+	 * Sets the default opacity of the colored area under an area chart series. To specify opacity for an individual
+	 * series, set the areaOpacity with {@link #setSeries(int, ComboChartSeries)}.
+	 * 
+	 * @param opacity a value from 0.0 (fully transparent) to 1.0 (fully opaque)
+	 */
 	public final native void setAreaOpacity(double opacity) /*-{
 		this.areaOpacity = opacity;
 	}-*/;
 
+	/**
+	 * Controls the curve of the lines when the line width is not zero.
+	 * 
+	 * @param curveType the line curve type
+	 */
 	public final void setCurveType(CurveType curveType) {
 		setCurveType(curveType.getName());
 	}
-
-	public final native void setCurveType(String curveType) /*-{
-		this.curveType = curveType;
-	}-*/;
 
 	/**
 	 * Defines the type of the entity that receives focus on mouse hover. Also affects which entity is selected by mouse
@@ -61,6 +73,12 @@ public class ComboChartOptions extends CoreOptions {
 		setFocusTarget(focusTarget);
 	}
 
+	/**
+	 * Whether to guess the value of missing points. If true, it will guess the value of any missing data based on
+	 * neighboring points. If false, it will leave a break in the line at the unknown point.
+	 * 
+	 * @param interpolateNulls true to guess the value of missing points
+	 */
 	public final native void setInterpolateNulls(boolean interpolateNulls) /*-{
 		this.interpolateNulls = interpolateNulls;
 	}-*/;
@@ -74,10 +92,22 @@ public class ComboChartOptions extends CoreOptions {
 		this.isStacked = isStacked;
 	}-*/;
 
+	/**
+	 * Defines data line width in pixels. Use zero to hide all lines and show only the points. You can override values
+	 * for individual series using {@link #setSeries(int, ComboChartSeries)}.
+	 * 
+	 * @param width data line width in pixels
+	 */
 	public final native void setLineWidth(int width) /*-{
 		this.lineWidth = width;
 	}-*/;
 
+	/**
+	 * Sets diameter of displayed points in pixels. Use zero to hide all points. You can override values for individual
+	 * series using {@link #setSeries(int, ComboChartSeries)}.
+	 * 
+	 * @param size diameter of displayed points in pixels
+	 */
 	public final native void setPointSize(int size) /*-{
 		this.pointSize = size;
 	}-*/;
@@ -94,10 +124,22 @@ public class ComboChartOptions extends CoreOptions {
 		this.reverseCategories = reverseCategories;
 	}-*/;
 
+	/**
+	 * Sets series options with an array of objects, each describing the format of the corresponding series in the
+	 * chart.
+	 * 
+	 * @param series an array of the corresponding series objects
+	 */
 	public final void setSeries(ComboChartSeries... series) {
 		setSeries(ArrayHelper.createArray(series));
 	}
 
+	/**
+	 * Sets series options by index for describing the format of the corresponding series in the chart
+	 * 
+	 * @param index the series index
+	 * @param series an object definining the series format
+	 */
 	public final native void setSeries(int index, ComboChartSeries series) /*-{
 		if (!this.series) {
 			this.series = {};
@@ -105,19 +147,48 @@ public class ComboChartOptions extends CoreOptions {
 		this.series[index] = series;
 	}-*/;
 
+	/**
+	 * Sets the default line type for any series not specified in the series property.
+	 * 
+	 * @param seriesType the series type
+	 */
 	public final void setSeriesType(SeriesType seriesType) {
 		setSeriesType(seriesType.getName());
 	}
 
-	public final native void setVAxes(int index, VAxis vAxes) /*-{
+	/**
+	 * Specifies properties for individual vertical axes, if the chart has multiple vertical axes. These property values
+	 * override any global settings for the same property.
+	 * 
+	 * To specify a chart with multiple vertical axes, first define a new axis using series.targetAxisIndex, then
+	 * configure the axis using vAxes.
+	 * 
+	 * @param index the axis index
+	 * @param vAxis a set of vertical axis properties
+	 */
+	public final native void setVAxis(int index, VAxis vAxis) /*-{
 		if (!this.vAxes) {
 			this.vAxes = {};
 		}
-		this.vAxes[index] = vAxes;
+		this.vAxes[index] = vAxis;
 	}-*/;
 
-	public final native void setVAxes(JsArray<VAxis> vAxes) /*-{
-		this.vAxes = vAxes;
+	/**
+	 * Specifies properties for individual vertical axes, if the chart has multiple vertical axes. Each child object is
+	 * a vAxis object, and can contain all the properties supported by vAxis. These property values override any global
+	 * settings for the same property.
+	 * 
+	 * To specify a chart with multiple vertical axes, first define a new axis using series.targetAxisIndex, then
+	 * configure the axis using vAxes.
+	 * 
+	 * @param vAxes an array of VAxis values
+	 */
+	public final void setVAxes(VAxis... vAxes) {
+		setVAxes(ArrayHelper.createArray(vAxes));
+	}
+
+	private final native void setCurveType(String curveType) /*-{
+		this.curveType = curveType;
 	}-*/;
 
 	private final native void setFocusTarget(String focusTarget) /*-{
@@ -130,6 +201,10 @@ public class ComboChartOptions extends CoreOptions {
 
 	private final native void setSeries(JsArray<ComboChartSeries> series) /*-{
 		this.series = series;
+	}-*/;
+
+	private final native void setVAxes(JsArray<VAxis> vAxes) /*-{
+		this.vAxes = vAxes;
 	}-*/;
 
 }

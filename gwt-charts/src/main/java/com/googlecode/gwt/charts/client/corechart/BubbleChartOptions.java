@@ -24,6 +24,11 @@ import com.googlecode.gwt.charts.client.util.ArrayHelper;
  * Configuration options for {@link BubbleChart}.
  */
 public class BubbleChartOptions extends CoreOptions {
+	/**
+	 * Default constructor
+	 * 
+	 * @return a new object instance
+	 */
 	public static BubbleChartOptions create() {
 		return createObject().cast();
 	}
@@ -33,6 +38,7 @@ public class BubbleChartOptions extends CoreOptions {
 
 	/**
 	 * Sets visual bubble properties
+	 * 
 	 * @param bubble an object with members to configure the visual properties of the bubbles
 	 */
 	public final native void setBubble(Bubble bubble) /*-{
@@ -41,6 +47,7 @@ public class BubbleChartOptions extends CoreOptions {
 
 	/**
 	 * An object that specifies a mapping between color column values and colors or a gradient scale.
+	 * 
 	 * @param colorAxis
 	 */
 	public final native void setColorAxis(ColorAxis colorAxis) /*-{
@@ -70,12 +77,23 @@ public class BubbleChartOptions extends CoreOptions {
 		this.series[index] = series;
 	}-*/;
 
+	/**
+	 * Configures how values are associated with bubble size.
+	 * 
+	 * @param sizeAxis
+	 */
 	public final native void setSizeAxis(SizeAxis sizeAxis) /*-{
 		this.sizeAxis = sizeAxis;
 	}-*/;
 
-	public final native void setSortBubblesBySize(boolean sorted) /*-{
-		this.sortBubblesBySize = sorted;
+	/**
+	 * Defines sorting methid for the bubbles.
+	 * Sorts the bubbles by size so the smaller bubbles appear above the larger bubbles or according to their order in the DataTable.
+	 * 
+	 * @param sortBubblesBySize true to sort by size
+	 */
+	public final native void setSortBubblesBySize(boolean sortBubblesBySize) /*-{
+		this.sortBubblesBySize = sortBubblesBySize;
 	}-*/;
 
 	private final native void setSeries(JsArray<BubbleChartSeries> series) /*-{

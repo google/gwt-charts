@@ -125,10 +125,6 @@ public class PieChartOptions extends Options {
 		this.tooltip = tooltip;
 	}-*/;
 
-	public final native void setVAxis(VAxis vAxis) /*-{
-		this.vAxis = vAxis;
-	}-*/;
-
 	private final native void setColors(JsArrayString colors) /*-{
 		this.colors = colors;
 	}-*/;
