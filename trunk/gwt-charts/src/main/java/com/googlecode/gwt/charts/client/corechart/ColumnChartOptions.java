@@ -107,6 +107,23 @@ public class ColumnChartOptions extends CoreOptions {
 	}-*/;
 
 	/**
+	 * Specifies properties for individual vertical axes, if the chart has multiple vertical axes. These property values
+	 * override any global settings for the same property.
+	 * 
+	 * To specify a chart with multiple vertical axes, first define a new axis using series.targetAxisIndex, then
+	 * configure the axis using vAxes.
+	 * 
+	 * @param index the axis index
+	 * @param vAxis a set of vertical axis properties
+	 */
+	public final native void setVAxis(int index, VAxis vAxis) /*-{
+		if (!this.vAxes) {
+			this.vAxes = {};
+		}
+		this.vAxes[index] = vAxis;
+	}-*/;
+
+	/**
 	 * Specifies properties for individual vertical axes, if the chart has multiple vertical axes. Each child object is
 	 * a vAxis object, and can contain all the properties supported by vAxis. These property values override any global
 	 * settings for the same property.
@@ -116,9 +133,9 @@ public class ColumnChartOptions extends CoreOptions {
 	 * 
 	 * @param vAxes an array of VAxis values
 	 */
-	public final native void setVAxes(JsArray<VAxis> vAxes) /*-{
-		this.vAxes = vAxes;
-	}-*/;
+	public final void setVAxes(VAxis... vAxes) {
+		setVAxes(ArrayHelper.createArray(vAxes));
+	}
 
 	private final native void setFocusTarget(String focusTarget) /*-{
 		this.focusTarget = focusTarget;
@@ -128,4 +145,7 @@ public class ColumnChartOptions extends CoreOptions {
 		this.series = series;
 	}-*/;
 
+	private final native void setVAxes(JsArray<VAxis> vAxes) /*-{
+		this.vAxes = vAxes;
+	}-*/;
 }

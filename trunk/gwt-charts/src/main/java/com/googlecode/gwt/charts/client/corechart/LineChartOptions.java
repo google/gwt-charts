@@ -24,6 +24,11 @@ import com.googlecode.gwt.charts.client.util.ArrayHelper;
  * Configuration options for {@link LineChart}.
  */
 public class LineChartOptions extends CoreOptions {
+	/**
+	 * Default constructor
+	 * 
+	 * @return a new object instance
+	 */
 	public static LineChartOptions create() {
 		return createObject().cast();
 	}
@@ -31,13 +36,14 @@ public class LineChartOptions extends CoreOptions {
 	protected LineChartOptions() {
 	}
 
+	/**
+	 * Controls the curve of the lines when the line width is not zero.
+	 * 
+	 * @param curveType the line curve type
+	 */
 	public final void setCurveType(CurveType curveType) {
 		setCurveType(curveType.getName());
 	}
-
-	public final native void setCurveType(String curveType) /*-{
-		this.curveType = curveType;
-	}-*/;
 
 	/**
 	 * Defines the type of the entity that receives focus on mouse hover. Also affects which entity is selected by mouse
@@ -56,13 +62,19 @@ public class LineChartOptions extends CoreOptions {
 		setFocusTarget(focusTarget);
 	}
 
+	/**
+	 * Whether to guess the value of missing points. If true, it will guess the value of any missing data based on
+	 * neighboring points. If false, it will leave a break in the line at the unknown point.
+	 * 
+	 * @param interpolateNulls true to guess the value of missing points
+	 */
 	public final native void setInterpolateNulls(boolean interpolateNulls) /*-{
 		this.interpolateNulls = interpolateNulls;
 	}-*/;
 
 	/**
 	 * Defines data line width in pixels. Use zero to hide all lines and show only the points. You can override values
-	 * for individual series using {@link #setSeries(JsArray)}.
+	 * for individual series using {@link #setSeries(int, LineChartSeries)}.
 	 * 
 	 * @param lineWidth data line width in pixels
 	 */
@@ -72,7 +84,7 @@ public class LineChartOptions extends CoreOptions {
 
 	/**
 	 * Sets diameter of displayed points in pixels. Use zero to hide all points. You can override values for individual
-	 * series using {@link #setSeries(JsArray)}.
+	 * series using {@link #setSeries(int, LineChartSeries)}.
 	 * 
 	 * @param pointSize diameter of displayed points in pixels
 	 */
@@ -116,15 +128,38 @@ public class LineChartOptions extends CoreOptions {
 	}-*/;
 
 	/**
+	 * Specifies properties for individual vertical axes, if the chart has multiple vertical axes. These property values
+	 * override any global settings for the same property.
+	 * 
+	 * To specify a chart with multiple vertical axes, first define a new axis using series.targetAxisIndex, then
+	 * configure the axis using vAxes.
+	 * 
+	 * @param index the axis index
+	 * @param vAxis a set of vertical axis properties
+	 */
+	public final native void setVAxis(int index, VAxis vAxis) /*-{
+		if (!this.vAxes) {
+			this.vAxes = {};
+		}
+		this.vAxes[index] = vAxis;
+	}-*/;
+
+	/**
 	 * Specifies properties for individual vertical axes, if the chart has multiple vertical axes. Each child object is
 	 * a vAxis object, and can contain all the properties supported by vAxis. These property values override any global
-	 * settings for the same property. To specify a chart with multiple vertical axes, first define a new axis using
-	 * series.targetAxisIndex, then configure the axis using vAxes.
+	 * settings for the same property.
 	 * 
-	 * @param vAxes
+	 * To specify a chart with multiple vertical axes, first define a new axis using series.targetAxisIndex, then
+	 * configure the axis using vAxes.
+	 * 
+	 * @param vAxes an array of VAxis values
 	 */
-	public final native void setVAxes(JsArray<VAxis> vAxes) /*-{
-		this.vAxes = vAxes;
+	public final void setVAxes(VAxis... vAxes) {
+		setVAxes(ArrayHelper.createArray(vAxes));
+	}
+
+	private final native void setCurveType(String curveType) /*-{
+		this.curveType = curveType;
 	}-*/;
 
 	private final native void setFocusTarget(String focusTarget) /*-{
@@ -135,4 +170,7 @@ public class LineChartOptions extends CoreOptions {
 		this.series = series;
 	}-*/;
 
+	private final native void setVAxes(JsArray<VAxis> vAxes) /*-{
+		this.vAxes = vAxes;
+	}-*/;
 }

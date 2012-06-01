@@ -27,14 +27,31 @@ public class CandlestickChartSeries extends JavaScriptObject {
 	protected CandlestickChartSeries() {
 	}
 
+	/**
+	 * The color to use for this series.
+	 * 
+	 * @param color a valid HTML color string
+	 */
 	public final native void setColor(String color) /*-{
 		this.color = color;
 	}-*/;
 
-	public final native void setTargetAxisIndex(int series, int index) /*-{
+	/**
+	 * Which axis to assign this series to, where 0 is the default axis, and 1 is the opposite axis. Default value is 0;
+	 * set to 1 to define a chart where different series are rendered against different axes. At least one series much
+	 * be allocated to the default axis. You can define a different scale for different axes.
+	 * 
+	 * @param index the axis index for this series
+	 */
+	public final native void setTargetAxisIndex(int index) /*-{
 		this.targetAxisIndex = index;
 	}-*/;
 
+	/**
+	 * Defines if this series should have a legend entry.
+	 * 
+	 * @param visibleInLegend true if visible, false if not
+	 */
 	public final native void setVisibleInLegend(boolean visibleInLegend) /*-{
 		this.visibleInLegend = visibleInLegend;
 	}-*/;

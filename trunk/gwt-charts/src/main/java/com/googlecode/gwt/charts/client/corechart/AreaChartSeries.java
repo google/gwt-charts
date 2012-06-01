@@ -27,26 +27,58 @@ public class AreaChartSeries extends JavaScriptObject {
 	protected AreaChartSeries() {
 	}
 
+	/**
+	 * Overrides the global areaOpacity for this series.
+	 * 
+	 * @param opacity a value from 0.0 (fully transparent) to 1.0 (fully opaque)
+	 */
 	public final native void setAreaOpacity(double opacity) /*-{
 		this.areaOpacity = opacity;
 	}-*/;
 
+	/**
+	 * The color to use for this series.
+	 * 
+	 * @param color a valid HTML color string
+	 */
 	public final native void setColor(String color) /*-{
 		this.color = color;
 	}-*/;
 
+	/**
+	 * Overrides the global lineWidth value for this series.
+	 * 
+	 * @param width line width in pixels
+	 */
 	public final native void setLineWidth(int width) /*-{
 		this.lineWidth = width;
 	}-*/;
 
+	/**
+	 * Overrides the global pointSize value for this series.
+	 * 
+	 * @param size diameter of displayed points in pixels
+	 */
 	public final native void setPointSize(int size) /*-{
 		this.pointSize = size;
 	}-*/;
 
-	public final native void setTargetAxisIndex(int series, int index) /*-{
+	/**
+	 * Which axis to assign this series to, where 0 is the default axis, and 1 is the opposite axis. Default value is 0;
+	 * set to 1 to define a chart where different series are rendered against different axes. At least one series much
+	 * be allocated to the default axis. You can define a different scale for different axes.
+	 * 
+	 * @param index the axis index for this series
+	 */
+	public final native void setTargetAxisIndex(int index) /*-{
 		this.targetAxisIndex = index;
 	}-*/;
 
+	/**
+	 * Defines if this series should have a legend entry.
+	 * 
+	 * @param visibleInLegend true if visible, false if not
+	 */
 	public final native void setVisibleInLegend(boolean visibleInLegend) /*-{
 		this.visibleInLegend = visibleInLegend;
 	}-*/;

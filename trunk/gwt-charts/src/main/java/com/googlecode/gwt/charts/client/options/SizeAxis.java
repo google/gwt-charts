@@ -14,6 +14,9 @@ package com.googlecode.gwt.charts.client.options;
 
 import com.google.gwt.core.client.JavaScriptObject;
 
+/**
+ * An object with members to configure how values are associated with bubble size.
+ */
 public class SizeAxis extends JavaScriptObject {
 	public static SizeAxis create() {
 		return createObject().cast();
@@ -22,18 +25,40 @@ public class SizeAxis extends JavaScriptObject {
 	protected SizeAxis() {
 	}
 
-	public final native void setMaxSize(double maxSize) /*-{
+	/**
+	 * Sets the maximum radius of the largest possible bubble, in pixels.
+	 * 
+	 * @param maxSize maximum radius of the largest possible bubble, in pixels
+	 */
+	public final native void setMaxSize(int maxSize) /*-{
 		this.maxSize = maxSize;
 	}-*/;
 
+	/**
+	 * Sets the size value (as appears in the chart data) to be mapped to sizeAxis.maxSize.
+	 * Larger values will be cropped to this value.
+	 * 
+	 * @param maxValue
+	 */
 	public final native void setMaxValue(double maxValue) /*-{
 		this.maxValue = maxValue;
 	}-*/;
 
-	public final native void setMinSize(double minSize) /*-{
+	/**
+	 * Sets the minimum radius of the smallest possible bubble, in pixels.
+	 * 
+	 * @param minSize minimum radius of the smallest possible bubble, in pixels
+	 */
+	public final native void setMinSize(int minSize) /*-{
 		this.minSize = minSize;
 	}-*/;
 
+	/**
+	 * Sets the size value (as appears in the chart data) to be mapped to sizeAxis.minSize. Smaller values will be
+	 * cropped to this value.
+	 * 
+	 * @param minValue
+	 */
 	public final native void setMinValue(double minValue) /*-{
 		this.minValue = minValue;
 	}-*/;
