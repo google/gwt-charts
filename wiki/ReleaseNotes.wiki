@@ -1,6 +1,10 @@
 #summary Release Notes
 
 = Release Notes =
+== July 4, 2012 ==
+Released version 0.9.5.
+  * Updated library to the latest Google Chart Tools release (June 18, 2012)
+  * Better support for MVP pattern
 == May 30, 2012 ==
 Released version 0.9.4.
   * Updated library to the latest Google Chart Tools release (May 02, 2012)
