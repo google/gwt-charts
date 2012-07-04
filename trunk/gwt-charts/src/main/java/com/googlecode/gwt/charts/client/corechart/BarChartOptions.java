@@ -75,7 +75,7 @@ public class BarChartOptions extends CoreOptions {
 	 * 
 	 * @param hAxes an array of objects definining the horizontal axes properties
 	 * @see #setSeries(int, BarChartSeries)
-	 * @see BarChartSeries#setTargetAxisIndex(int, int)
+	 * @see BarChartSeries#setTargetAxisIndex(int)
 	 */
 	public final void setHAxes(HAxis... hAxes) {
 		setHAxes(ArrayHelper.createArray(hAxes));
@@ -92,7 +92,7 @@ public class BarChartOptions extends CoreOptions {
 	 * @param index the axis index
 	 * @param hAxis an object definining the horizontal axis properties
 	 * @see #setSeries(int, BarChartSeries)
-	 * @see BarChartSeries#setTargetAxisIndex(int, int)
+	 * @see BarChartSeries#setTargetAxisIndex(int)
 	 */
 	public final native void setHAxis(int index, HAxis hAxis) /*-{
 		if (!this.hAxes) {

@@ -14,6 +14,7 @@ package com.googlecode.gwt.charts.client.corechart;
 
 import com.google.gwt.core.client.JsArray;
 
+import com.googlecode.gwt.charts.client.options.BackgroundColor;
 import com.googlecode.gwt.charts.client.options.Bar;
 import com.googlecode.gwt.charts.client.options.CoreOptions;
 import com.googlecode.gwt.charts.client.options.FocusTarget;
@@ -47,6 +48,14 @@ public class CandlestickChartOptions extends CoreOptions {
 	}-*/;
 
 	/**
+	 * Sets the colors applied to falling candles
+	 * @param fallingColor falling candles color settings
+	 */
+	public final native void setFallingColor(BackgroundColor fallingColor) /*-{
+		this.fallingColor = fallingColor;
+	}-*/;
+
+	/**
 	 * Defines the type of the entity that receives focus on mouse hover. Also affects which entity is selected by mouse
 	 * click, and which data table element is associated with events. Can be one of the following:
 	 * <ul>
@@ -62,7 +71,15 @@ public class CandlestickChartOptions extends CoreOptions {
 	public final void setFocusTarget(FocusTarget focusTarget) {
 		setFocusTarget(focusTarget);
 	}
-
+	
+	/**
+	 * If true, rising candles will appear hollow and falling candles will appear solid, otherwise, the opposite.
+	 * @param hollowIsRising
+	 */
+	public final native void setHollowIsRising(boolean hollowIsRising) /*-{
+		this.hollowIsRising = hollowIsRising;
+	}-*/;
+	
 	/**
 	 * If set to true, will draw series from right to left. The default is to draw left-to-right. This option is only
 	 * supported for a discrete major axis.
@@ -73,6 +90,14 @@ public class CandlestickChartOptions extends CoreOptions {
 	 */
 	public final native void setReverseCategories(boolean reverseCategories) /*-{
 		this.reverseCategories = reverseCategories;
+	}-*/;
+
+	/**
+	 * Sets the colors applied to rising candles
+	 * @param risingColor rising candles color settings
+	 */
+	public final native void setRisingColor(BackgroundColor risingColor) /*-{
+		this.risingColor = risingColor;
 	}-*/;
 
 	/**

@@ -14,6 +14,7 @@ package com.googlecode.gwt.charts.client.corechart;
 
 import com.google.gwt.core.client.JsArray;
 
+import com.googlecode.gwt.charts.client.options.Candlestick;
 import com.googlecode.gwt.charts.client.options.CoreOptions;
 import com.googlecode.gwt.charts.client.options.CurveType;
 import com.googlecode.gwt.charts.client.options.FocusTarget;
@@ -47,6 +48,15 @@ public class ComboChartOptions extends CoreOptions {
 		this.areaOpacity = opacity;
 	}-*/;
 
+	/**
+	 * Sets the candlestick options
+	 * 
+	 * @param candlestick an object with options
+	 */
+	public final native void setCandlestick(Candlestick candlestick) /*-{
+		this.candlestick = candlestick;
+	}-*/;
+	
 	/**
 	 * Controls the curve of the lines when the line width is not zero.
 	 * 

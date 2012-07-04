@@ -31,13 +31,13 @@ public class Legend extends JavaScriptObject {
 	protected Legend() {
 	}
 
+	public final void setAligment(LegendAlignment alignment) {
+		setAlignment(alignment.getName());
+	}
+
 	public final void setPosition(LegendPosition position) {
 		setPosition(position.getName());
 	}
-
-	public final native void setPosition(String position) /*-{
-		this.position = position;
-	}-*/;
 
 	/**
 	 * 
@@ -45,6 +45,14 @@ public class Legend extends JavaScriptObject {
 	 */
 	public final native void setTextStyle(TextStyle textStyle) /*-{
 		this.textStyle = textStyle;
+	}-*/;
+
+	protected final native void setAlignment(String alignment) /*-{
+		this.alignment = alignment;
+	}-*/;
+
+	protected final native void setPosition(String position) /*-{
+		this.position = position;
 	}-*/;
 
 }

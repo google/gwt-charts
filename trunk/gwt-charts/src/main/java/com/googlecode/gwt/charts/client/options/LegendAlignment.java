@@ -13,40 +13,32 @@
 package com.googlecode.gwt.charts.client.options;
 
 /**
- * The type of marker for a series.
+ * Alignment of the legend.
  */
-public enum SeriesType {
+public enum LegendAlignment {
 	/**
-	 * Lines like in LineChart 
+	 * Aligned to the start of the area allocated for the legend.
 	 */
-	LINE("line"),
+	START("start"),
 	/**
-	 * Bars are actually vertical bars (columns)
+	 * Centered in the area allocated for the legend.
 	 */
-	BARS("bars"),
+	CENTER("center"),
 	/**
-	 * Area like in AreaChart
+	 * Aligned to the end of the area allocated for the legend.
 	 */
-	AREA("area"),
-	/**
-	 * Area like in SteppedAreaChart
-	 */
-	STEPPED_AREA("steppedArea"),
-	/**
-	 * Candlesticks like in CandlestickChart
-	 */
-	CANDLESTICK("candlesticks");
+	END("end");
 
 	/**
-	 * Get a SeriesType by providing its name.
+	 * Get a TitlePosition by providing its name.
 	 * 
-	 * @param name the SeriesType name.
-	 * @return a SeriesType corresponding to the provided name.
+	 * @param name the TitlePosition name.
+	 * @return a TitlePosition corresponding to the provided name.
 	 */
-	public static SeriesType findByName(String name) {
-		for (SeriesType seriesType : SeriesType.values()) {
-			if (seriesType.getName().equals(name)) {
-				return seriesType;
+	public static LegendAlignment findByName(String name) {
+		for (LegendAlignment legendAlignment : LegendAlignment.values()) {
+			if (legendAlignment.getName().equals(name)) {
+				return legendAlignment;
 			}
 		}
 		return null;
@@ -54,12 +46,12 @@ public enum SeriesType {
 
 	private final String name;
 
-	private SeriesType(String name) {
+	private LegendAlignment(String name) {
 		this.name = name;
 	}
 
 	/**
-	 * Get the name of the SeriesType.
+	 * Get the name of the TitlePosition.
 	 * 
 	 * @return the name
 	 */

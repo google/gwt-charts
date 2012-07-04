@@ -14,6 +14,7 @@ package com.googlecode.gwt.charts.client.corechart;
 
 import com.google.gwt.core.client.JavaScriptObject;
 
+import com.googlecode.gwt.charts.client.options.BackgroundColor;
 import com.googlecode.gwt.charts.client.options.CurveType;
 import com.googlecode.gwt.charts.client.options.SeriesType;
 
@@ -58,6 +59,15 @@ public class ComboChartSeries extends JavaScriptObject {
 	}
 
 	/**
+	 * Sets the colors applied to falling candles
+	 * 
+	 * @param fallingColor falling candles color settings
+	 */
+	public final native void setFallingColor(BackgroundColor fallingColor) /*-{
+		this.fallingColor = fallingColor;
+	}-*/;
+
+	/**
 	 * Overrides the global lineWidth value for this series.
 	 * 
 	 * @param width line width in pixels
@@ -73,6 +83,15 @@ public class ComboChartSeries extends JavaScriptObject {
 	 */
 	public final native void setPointSize(int size) /*-{
 		this.pointSize = size;
+	}-*/;
+
+	/**
+	 * Sets the colors applied to rising candles
+	 * 
+	 * @param risingColor rising candles color settings
+	 */
+	public final native void setRisingColor(BackgroundColor risingColor) /*-{
+		this.risingColor = risingColor;
 	}-*/;
 
 	/**

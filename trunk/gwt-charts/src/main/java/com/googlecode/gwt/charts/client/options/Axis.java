@@ -50,6 +50,10 @@ public abstract class Axis extends JavaScriptObject {
 		this.maxValue = maxValue;
 	}-*/;
 
+	public final native void setMinorGridlines(Gridlines minorGridlines) /*-{
+		this.minorGridlines = minorGridlines;
+	}-*/;
+
 	public final native void setMinValue(double minValue) /*-{
 		this.minValue = minValue;
 	}-*/;
