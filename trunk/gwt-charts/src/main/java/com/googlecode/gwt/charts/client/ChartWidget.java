@@ -30,7 +30,7 @@ import java.util.HashMap;
  * Supports automatically resizing via {@link RequiresResize}, which means that all parents
  * must implement {@link com.google.gwt.user.client.ui.ProvidesResize} for this to work.
  * It also supports attach/detach funcionality.
- *
+ * 
  * @param <T> the chart options type
  */
 public abstract class ChartWidget<T extends Options> extends Widget implements RequiresResize {
@@ -39,6 +39,7 @@ public abstract class ChartWidget<T extends Options> extends Widget implements R
 	private Options options;
 	private HashMap<HandlerRef, EventHandler> eventMap;
 	private boolean unloaded;
+	private boolean pending;
 
 	/**
 	 * Creates a new ChartWidget.
@@ -82,20 +83,7 @@ public abstract class ChartWidget<T extends Options> extends Widget implements R
 	public final void draw(DataSource data, T options) {
 		this.data = data;
 		this.options = options;
-		// Double deferred command because of layout issues
-		Scheduler.get().scheduleDeferred(new Scheduler.ScheduledCommand() {
-
-			@Override
-			public void execute() {
-				Scheduler.get().scheduleDeferred(new Scheduler.ScheduledCommand() {
-
-					@Override
-					public void execute() {
-						redraw();
-					}
-				});
-			}
-		});
+		redraw();
 	}
 
 	/**
@@ -118,9 +106,24 @@ public abstract class ChartWidget<T extends Options> extends Widget implements R
 	 * Redraws the chart with last used data and options.
 	 */
 	public void redraw() {
-		if (data != null) {
-			chartObject.draw(data, options);
+		if (pending) {
+			return;
 		}
+		pending = true;
+		// Double deferred command because of layout issues
+		Scheduler.get().scheduleDeferred(new Scheduler.ScheduledCommand() {
+
+			@Override
+			public void execute() {
+				Scheduler.get().scheduleDeferred(new Scheduler.ScheduledCommand() {
+
+					@Override
+					public void execute() {
+						redrawNow();
+					}
+				});
+			}
+		});
 	}
 
 	/**
@@ -163,14 +166,8 @@ public abstract class ChartWidget<T extends Options> extends Widget implements R
 			return;
 		}
 		unloaded = false;
-		Scheduler.get().scheduleDeferred(new Scheduler.ScheduledCommand() {
-
-			@Override
-			public void execute() {
-				recreate();
-				redraw();
-			}
-		});
+		recreate();
+		redraw();
 	}
 
 	@Override
@@ -183,5 +180,12 @@ public abstract class ChartWidget<T extends Options> extends Widget implements R
 		for (EventHandler eventHandler : eventMap.values()) {
 			chartObject.addListener(eventHandler.getEventName(), eventHandler);
 		}
+	}
+
+	protected void redrawNow() {
+		if (data != null) {
+			chartObject.draw(data, options);
+		}
+		pending = false;
 	}
 }
