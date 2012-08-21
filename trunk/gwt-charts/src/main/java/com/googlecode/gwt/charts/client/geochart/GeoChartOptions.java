@@ -26,6 +26,10 @@ public class GeoChartOptions extends Options {
 	protected GeoChartOptions() {
 	}
 
+	public final native void hideLegend() /*-{
+		this.legend = "none";
+	}-*/;
+
 	public final native void setBackgroundColor(BackgroundColor backgroundColor) /*-{
 		this.backgroundColor = backgroundColor;
 	}-*/;
