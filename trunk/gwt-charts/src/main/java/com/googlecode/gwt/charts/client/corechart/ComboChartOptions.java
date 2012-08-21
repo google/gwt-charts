@@ -14,6 +14,7 @@ package com.googlecode.gwt.charts.client.corechart;
 
 import com.google.gwt.core.client.JsArray;
 
+import com.googlecode.gwt.charts.client.options.Bar;
 import com.googlecode.gwt.charts.client.options.Candlestick;
 import com.googlecode.gwt.charts.client.options.CoreOptions;
 import com.googlecode.gwt.charts.client.options.CurveType;
@@ -49,6 +50,15 @@ public class ComboChartOptions extends CoreOptions {
 	}-*/;
 
 	/**
+	 * Sets the bar options, currently only width
+	 * 
+	 * @param bar an object defining bar options
+	 */
+	public final native void setBar(Bar bar) /*-{
+		this.bar = bar;
+	}-*/;
+
+	/**
 	 * Sets the candlestick options
 	 * 
 	 * @param candlestick an object with options
@@ -56,7 +66,7 @@ public class ComboChartOptions extends CoreOptions {
 	public final native void setCandlestick(Candlestick candlestick) /*-{
 		this.candlestick = candlestick;
 	}-*/;
-	
+
 	/**
 	 * Controls the curve of the lines when the line width is not zero.
 	 * 
