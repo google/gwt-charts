@@ -20,7 +20,7 @@ import com.googlecode.gwt.charts.client.event.ErrorHandler;
 import com.googlecode.gwt.charts.client.event.Event;
 import com.googlecode.gwt.charts.client.event.HandlerRef;
 import com.googlecode.gwt.charts.client.event.ReadyHandler;
-import com.googlecode.gwt.charts.client.event.StateChangedHandler;
+import com.googlecode.gwt.charts.client.event.StateChangeHandler;
 
 /**
  * This class is used as a widget wrapper for control wrappers.
@@ -71,8 +71,8 @@ public class ControlWrapperWidget<T extends ControlOptions> extends Widget imple
 	 * @param handler the state change handler
 	 * @return a reference for removing this handler
 	 */
-	public final HandlerRef addStateChangedHandler(StateChangedHandler handler) {
-		return controlWrapperObject.addStateChangedHandler(handler);
+	public final HandlerRef addStateChangeHandler(StateChangeHandler handler) {
+		return controlWrapperObject.addStateChangeHandler(handler);
 	}
 
 	/**

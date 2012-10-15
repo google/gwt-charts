@@ -77,7 +77,7 @@ public class HasListeners extends JavaScriptObject {
 	 * @param handlerRef The listener handler to remove, as returned by {@link #addListener(String, EventHandler)}.
 	 */
 	public final native void removeListener(HandlerRef handlerRef) /*-{
-		$wnd.google.visualization.events.removeListener(handlerReg);
+		$wnd.google.visualization.events.removeListener(handlerRef);
 	}-*/;
 
 	/**

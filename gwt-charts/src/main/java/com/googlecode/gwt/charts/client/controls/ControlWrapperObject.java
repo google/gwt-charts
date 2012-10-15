@@ -18,8 +18,8 @@ import com.googlecode.gwt.charts.client.event.ErrorHandler;
 import com.googlecode.gwt.charts.client.event.HandlerRef;
 import com.googlecode.gwt.charts.client.event.ReadyEvent;
 import com.googlecode.gwt.charts.client.event.ReadyHandler;
-import com.googlecode.gwt.charts.client.event.StateChangedEvent;
-import com.googlecode.gwt.charts.client.event.StateChangedHandler;
+import com.googlecode.gwt.charts.client.event.StateChangeEvent;
+import com.googlecode.gwt.charts.client.event.StateChangeHandler;
 
 /**
  * A ControlWrapperWidget object is a wrapper around a JSON representation of a configured control instance.<br>
@@ -89,8 +89,8 @@ public class ControlWrapperObject<T extends ControlOptions> extends HasListeners
 	 * @param handler the state change handler
 	 * @return a reference for removing this handler
 	 */
-	public final HandlerRef addStateChangedHandler(StateChangedHandler handler) {
-		return addListener(StateChangedEvent.NAME, handler);
+	public final HandlerRef addStateChangeHandler(StateChangeHandler handler) {
+		return addListener(StateChangeEvent.NAME, handler);
 	}
 
 	/**
