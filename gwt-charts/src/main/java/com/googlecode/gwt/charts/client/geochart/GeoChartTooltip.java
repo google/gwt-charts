@@ -15,6 +15,7 @@ package com.googlecode.gwt.charts.client.geochart;
 import com.google.gwt.core.client.JavaScriptObject;
 
 import com.googlecode.gwt.charts.client.options.TextStyle;
+import com.googlecode.gwt.charts.client.options.TooltipTrigger;
 
 public class GeoChartTooltip extends JavaScriptObject {
 	public static GeoChartTooltip create() {
@@ -28,4 +29,11 @@ public class GeoChartTooltip extends JavaScriptObject {
 		this.textStyle = textStyle;
 	}-*/;
 
+	public final void setTrigger(TooltipTrigger trigger) {
+		setTrigger(trigger.getName());
+	}
+
+	private final native void setTrigger(String trigger) /*-{
+		this.trigger = trigger;
+	}-*/;
 }

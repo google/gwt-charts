@@ -19,7 +19,7 @@ public enum TooltipTrigger {
 	/**
 	 * The tooltip will be displayed when the user hovers over an element.
 	 */
-	HOVER("hover"),
+	FOCUS("focus"),
 	/**
 	 * The tooltip will not be displayed.
 	 */
