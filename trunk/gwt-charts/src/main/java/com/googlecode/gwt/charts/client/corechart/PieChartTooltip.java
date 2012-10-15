@@ -12,13 +12,10 @@
  */
 package com.googlecode.gwt.charts.client.corechart;
 
-import com.google.gwt.core.client.JavaScriptObject;
-
-import com.googlecode.gwt.charts.client.options.TextStyle;
+import com.googlecode.gwt.charts.client.options.Tooltip;
 import com.googlecode.gwt.charts.client.options.TooltipText;
-import com.googlecode.gwt.charts.client.options.TooltipTrigger;
 
-public class PieChartTooltip extends JavaScriptObject {
+public class PieChartTooltip extends Tooltip {
 	/**
 	 * Default constructor
 	 * 
@@ -31,10 +28,6 @@ public class PieChartTooltip extends JavaScriptObject {
 	protected PieChartTooltip() {
 	}
 
-	public final native void setShowColorCode(boolean showColorCode) /*-{
-		this.showColorCode = showColorCode;
-	}-*/;
-
 	public final native void setText(String text) /*-{
 		this.text = text;
 	}-*/;
@@ -43,15 +36,4 @@ public class PieChartTooltip extends JavaScriptObject {
 		setText(text.getName());
 	}
 
-	public final native void setTextStyle(TextStyle textStyle) /*-{
-		this.textStyle = textStyle;
-	}-*/;
-
-	public final void setTrigger(TooltipTrigger trigger) {
-		setTrigger(trigger.getName());
-	}
-
-	private final native void setTrigger(String trigger) /*-{
-		this.trigger = trigger;
-	}-*/;
 }
