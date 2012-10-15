@@ -14,18 +14,18 @@ package com.googlecode.gwt.charts.client.event;
 
 import com.googlecode.gwt.charts.client.Properties;
 
-public abstract class StateChangedHandler implements EventHandler {
+public abstract class StateChangeHandler implements EventHandler {
 
 	@Override
 	public void dispatch(Properties properties) {
-		onStateChanged(new StateChangedEvent(properties));
+		onStateChange(new StateChangeEvent(properties));
 	}
 
 	@Override
 	public String getEventName() {
-		return StateChangedEvent.NAME;
+		return StateChangeEvent.NAME;
 	}
 
-	public abstract void onStateChanged(StateChangedEvent event);
+	public abstract void onStateChange(StateChangeEvent event);
 
 }
