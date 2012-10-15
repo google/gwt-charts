@@ -21,6 +21,7 @@ import com.google.gwt.user.client.ui.RequiresResize;
 import com.google.gwt.user.client.ui.Widget;
 
 import com.googlecode.gwt.charts.client.event.ErrorHandler;
+import com.googlecode.gwt.charts.client.event.EventHandler;
 import com.googlecode.gwt.charts.client.event.HandlerRef;
 import com.googlecode.gwt.charts.client.event.ReadyHandler;
 import com.googlecode.gwt.charts.client.event.SelectHandler;
@@ -78,6 +79,17 @@ public class ChartWrapperWidget<T extends Options> extends Widget implements Req
 	 */
 	public final HandlerRef addErrorHandler(ErrorHandler handler) {
 		return chartWrapper.addErrorHandler(handler);
+	}
+
+	/**
+	 * Adds an event directly to the chart.
+	 * Make sure the underlying chart supports the supplied event
+	 * 
+	 * @param handler the chart handler
+	 * @return a reference for removing this handler
+	 */
+	public final HandlerRef addHandler(EventHandler handler) {
+		return chartWrapper.addHandler(handler);
 	}
 
 	/**

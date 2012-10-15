@@ -20,6 +20,7 @@ import com.google.gwt.core.client.JsDate;
 
 import com.googlecode.gwt.charts.client.event.ErrorEvent;
 import com.googlecode.gwt.charts.client.event.ErrorHandler;
+import com.googlecode.gwt.charts.client.event.EventHandler;
 import com.googlecode.gwt.charts.client.event.HandlerRef;
 import com.googlecode.gwt.charts.client.event.ReadyEvent;
 import com.googlecode.gwt.charts.client.event.ReadyHandler;
@@ -91,6 +92,22 @@ public class ChartWrapper<T extends Options> extends HasListeners {
 		return addListener(ErrorEvent.NAME, handler);
 	}
 
+	/**
+	 * Adds an event directly to the chart
+	 * 
+	 * @param handler the chart handler
+	 * @return a reference for removing this handler
+	 */
+	public final HandlerRef addHandler(final EventHandler handler) {
+		return addListener(ReadyEvent.NAME, new ReadyHandler() {
+			
+			@Override
+			public void onReady(ReadyEvent event) {
+				addListener(getChart(), handler.getEventName(), handler);
+			}
+		});
+	}
+	
 	/**
 	 * The chart is ready for external method calls. If you want to interact with the chart, and call methods after you
 	 * draw it, you should set up a listener for this event before you call the draw method, and call them only after
