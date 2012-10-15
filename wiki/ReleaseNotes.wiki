@@ -1,6 +1,12 @@
 #summary Release Notes
 
 = Release Notes =
+== October 15, 2012 ==
+Released version 0.9.6.
+  * Updated library to the latest Google Chart Tools release (September 24, 2012)
+  * Breaking change: StateChangedEvent renamed to StateChangeEvent (see issue 15)
+  * Support for all underlying events in ChartWrapper
+  * Minor bugfixes
 == July 4, 2012 ==
 Released version 0.9.5.
   * Updated library to the latest Google Chart Tools release (June 18, 2012)
