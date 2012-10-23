@@ -10,17 +10,20 @@
  * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
  * specific language governing permissions and limitations under the License.
  */
-package com.googlecode.gwt.charts.client.controls;
+package com.googlecode.gwt.charts.client.controls.filter;
 
 import com.google.gwt.core.client.JavaScriptObject;
-import com.google.gwt.core.client.JsDate;
 
 import com.googlecode.gwt.charts.client.TimeOfDay;
 
 import java.util.Date;
 
-public class ControlStateRange extends JavaScriptObject {
-	protected ControlStateRange() {
+public class ChartRangeFilterStateRange extends JavaScriptObject {
+	public static ChartRangeFilterStateRange create() {
+		return createObject().cast();
+	}
+	
+	protected ChartRangeFilterStateRange() {
 	}
 
 	public final native void setEnd(Date end) /*-{
@@ -35,12 +38,12 @@ public class ControlStateRange extends JavaScriptObject {
 		this.end = end;
 	}-*/;
 
-	public final native void setEnd(JsDate end) /*-{
+	public final native void setEnd(TimeOfDay end) /*-{
 		this.end = end;
 	}-*/;
 
-	public final native void setEnd(TimeOfDay end) /*-{
-		this.end = end;
+	public final native void setStart(Date start) /*-{
+		this.start = @com.googlecode.gwt.charts.client.util.DateHelper::getJsDate(Ljava/util/Date;) (start);
 	}-*/;
 
 	public final native void setStart(double start) /*-{
@@ -48,10 +51,6 @@ public class ControlStateRange extends JavaScriptObject {
 	}-*/;
 
 	public final native void setStart(int start) /*-{
-		this.start = start;
-	}-*/;
-
-	public final native void setStart(JsDate start) /*-{
 		this.start = start;
 	}-*/;
 

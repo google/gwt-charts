@@ -15,6 +15,7 @@ package com.googlecode.gwt.charts.client.controls.filter;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.JsArrayString;
 
+import com.googlecode.gwt.charts.client.ChartType;
 import com.googlecode.gwt.charts.client.controls.ControlOptionsUi;
 
 public class ChartRangeFilterUi extends ControlOptionsUi {
@@ -30,9 +31,14 @@ public class ChartRangeFilterUi extends ControlOptionsUi {
 		this.chartOptions = chartOptions;
 	}-*/;
 
-	public final native void setChartType(String chartType) /*-{
-		this.chartType = chartType;
-	}-*/;
+	/**
+	 * Sets the chart type.
+	 * 
+	 * @param chartType the chart type to display
+	 */
+	public final void setChartType(ChartType chartType) {
+		setChartType(chartType.getName());
+	}
 
 	public final native void setChartView(JsArrayString chartView) /*-{
 		this.chartView = chartView;
@@ -54,4 +60,7 @@ public class ChartRangeFilterUi extends ControlOptionsUi {
 		this.snapToData = snapToData;
 	}-*/;
 
+	private final native void setChartType(String chartType) /*-{
+		this.chartType = chartType;
+	}-*/;
 }

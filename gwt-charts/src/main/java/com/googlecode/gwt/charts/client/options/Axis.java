@@ -58,9 +58,9 @@ public abstract class Axis extends JavaScriptObject {
 		this.minValue = minValue;
 	}-*/;
 
-	public final native void setTextPosition(String position) /*-{
-		this.textPosition = position;
-	}-*/;
+	public final void setTextPosition(TextPosition position) {
+		setTextPosition(position.getName());
+	}
 
 	public final native void setTextStyle(TextStyle textStyle) /*-{
 		this.textStyle = textStyle;
@@ -84,6 +84,10 @@ public abstract class Axis extends JavaScriptObject {
 
 	private final native void setDirection(int direction) /*-{
 		this.direction = direction;
+	}-*/;
+
+	private final native void setTextPosition(String position) /*-{
+		this.textPosition = position;
 	}-*/;
 
 }

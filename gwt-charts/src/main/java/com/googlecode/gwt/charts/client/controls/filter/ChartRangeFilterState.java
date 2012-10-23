@@ -13,7 +13,6 @@
 package com.googlecode.gwt.charts.client.controls.filter;
 
 import com.googlecode.gwt.charts.client.controls.ControlState;
-import com.googlecode.gwt.charts.client.controls.ControlStateRange;
 
 public class ChartRangeFilterState extends ControlState {
 	public static ChartRangeFilterState create() {
@@ -24,7 +23,7 @@ public class ChartRangeFilterState extends ControlState {
 		// Default constructor
 	}
 
-	public final native void setRange(ControlStateRange range) /*-{
+	public final native void setRange(ChartRangeFilterStateRange range) /*-{
 		this.range = range;
 	}-*/;
 
