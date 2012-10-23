@@ -357,7 +357,9 @@ public class ChartWrapperWidget<T extends Options> extends Widget implements Req
 
 	@Override
 	public void onResize() {
-		draw();
+		if (chartWrapper.getChart() != null) {
+			draw();
+		}
 	}
 
 	/**

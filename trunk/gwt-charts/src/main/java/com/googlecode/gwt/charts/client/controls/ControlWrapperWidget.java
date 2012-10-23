@@ -175,7 +175,9 @@ public class ControlWrapperWidget<T extends ControlOptions> extends Widget imple
 
 	@Override
 	public void onResize() {
-		draw();
+		if (controlWrapperObject.getControl() != null) {
+			draw();
+		}
 	}
 
 	/**

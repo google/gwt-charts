@@ -36,7 +36,7 @@ public class DateFormat extends JavaScriptObject {
 		return formatValue(DateHelper.getJsDate(value));
 	}
 
-	public final native String formatValue(JsDate value) /*-{
+	private final native String formatValue(JsDate value) /*-{
 		return this.formatValue(value);
 	}-*/;
 }

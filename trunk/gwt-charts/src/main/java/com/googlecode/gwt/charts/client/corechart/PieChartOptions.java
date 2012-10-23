@@ -22,7 +22,6 @@ import com.googlecode.gwt.charts.client.options.Options;
 import com.googlecode.gwt.charts.client.options.PieSliceText;
 import com.googlecode.gwt.charts.client.options.Slice;
 import com.googlecode.gwt.charts.client.options.TextStyle;
-import com.googlecode.gwt.charts.client.options.VAxis;
 import com.googlecode.gwt.charts.client.util.ArrayHelper;
 
 /**
