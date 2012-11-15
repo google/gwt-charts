@@ -155,6 +155,6 @@ public class ChartWrapperSpec<T extends Options> extends JavaScriptObject {
 	}-*/;
 
 	private final native void setChartType(String chartType) /*-{
-		this.controlType = controlType;
+		this.chartType = chartType;
 	}-*/;
 }
