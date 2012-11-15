@@ -29,28 +29,67 @@ public class CategoryFilterOptions extends ControlOptions {
 		// Default constructor
 	}
 
+	/**
+	 * An object with members to configure various aspects of the control's UI.
+	 * 
+	 * @param ui
+	 */
 	public final native void setUi(CategoryFilterUi ui) /*-{
 		this.ui = ui;
 	}-*/;
 
+	/**
+	 * When populating the list of selectable values automatically from the DataTable column this filter operates on,
+	 * whether to use the actual cell values or their formatted values. (default: false)
+	 * 
+	 * @param useFormattedValue true to use the actual cell values or their formatted values
+	 */
 	public final native void setUseFormattedValue(boolean useFormattedValue) /*-{
 		this.useFormattedValue = useFormattedValue;
 	}-*/;
 
-	public final native void setValues(JsArray<JavaScriptObject> selectedValues) /*-{
+	/**
+	 * List of object values to choose from.
+	 * They should have a suitable toString() representation for display to the user.
+	 * 
+	 * @param values
+	 */
+	public final native void setValues(JsArray<JavaScriptObject> values) /*-{
 		this.values = values;
 	}-*/;
 
-	public final native void setValues(JsArrayBoolean selectedValues) /*-{
+	/**
+	 * List of boolean values to choose from.
+	 * 
+	 * @param values
+	 */
+	public final native void setValues(JsArrayBoolean values) /*-{
 		this.values = values;
 	}-*/;
 
+	/**
+	 * List of number values to choose from.
+	 * 
+	 * @param values
+	 */
 	public final native void setValues(JsArrayNumber values) /*-{
 		this.values = values;
 	}-*/;
 
-	public final native void setValues(JsArrayString selectedValues) /*-{
+	/**
+	 * List of string values to choose from.
+	 * 
+	 * @param values
+	 */
+	public final native void setValues(JsArrayString values) /*-{
 		this.values = values;
 	}-*/;
 
+	/**
+	 * The list of values will be automatically computed
+	 * from the values present in the DataTable column this control operates on.
+	 */
+	public final native void setValuesNull() /*-{
+		this.values = null;
+	}-*/;
 }
