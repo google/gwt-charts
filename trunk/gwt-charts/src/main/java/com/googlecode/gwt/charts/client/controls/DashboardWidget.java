@@ -57,8 +57,7 @@ public class DashboardWidget extends Widget {
 		dashboardObject.bind(controlWrapper.getObject(), chartWrapper.getObject());
 	}
 
-	public final void bind(List<ControlWrapperWidget<?>> controlWrappers,
-			List<ChartWrapperWidget<?>> chartWrappers) {
+	public final void bind(List<ControlWrapperWidget<?>> controlWrappers, List<ChartWrapperWidget<?>> chartWrappers) {
 		JsArray<ControlWrapperObject<?>> controlArray = JsArray.createArray().cast();
 		for (ControlWrapperWidget<?> controlWrapper : controlWrappers) {
 			controlWrapper.setContainerId(DOM.createUniqueId());
@@ -76,4 +75,12 @@ public class DashboardWidget extends Widget {
 		dashboardObject.draw(data);
 	}
 
+	/**
+	 * Returns the underlying dashboard object.
+	 * 
+	 * @return the underlying dashboard object
+	 */
+	public DashboardObject getObject() {
+		return dashboardObject;
+	}
 }
