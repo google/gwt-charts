@@ -25,11 +25,12 @@ import com.googlecode.gwt.charts.client.event.StateChangeHandler;
 /**
  * This class is used as a widget wrapper for control wrappers.
  * 
- * @param <T> the control options type
+ * @param <O> the control options type
+ * @param <S> the control state type
  */
-public class ControlWrapperWidget<T extends ControlOptions> extends Widget implements RequiresResize {
+public class ControlWrapperWidget<O extends ControlOptions, S extends ControlState> extends Widget implements RequiresResize {
 
-	private ControlWrapperObject<T> controlWrapperObject;
+	private ControlWrapperObject<O,S> controlWrapperObject;
 
 	/**
 	 * Creates a new ControlWrapperWidget.
@@ -38,6 +39,7 @@ public class ControlWrapperWidget<T extends ControlOptions> extends Widget imple
 		super();
 		setElement(DOM.createDiv());
 		controlWrapperObject = ControlWrapperObject.create();
+		setContainerId(DOM.createUniqueId());
 	}
 
 	/**
@@ -80,7 +82,7 @@ public class ControlWrapperWidget<T extends ControlOptions> extends Widget imple
 	 * 
 	 * @return a deep copy of the control wrapper
 	 */
-	public final ControlWrapperObject<T> cloneObject() {
+	public final ControlWrapperObject<O,S> cloneObject() {
 		return controlWrapperObject.cloneObject();
 	}
 
@@ -160,7 +162,7 @@ public class ControlWrapperWidget<T extends ControlOptions> extends Widget imple
 	 * 
 	 * @return the options object for this control
 	 */
-	public final T getOptions() {
+	public final O getOptions() {
 		return controlWrapperObject.getOptions();
 	}
 
@@ -243,7 +245,7 @@ public class ControlWrapperWidget<T extends ControlOptions> extends Widget imple
 	 * 
 	 * @param options a complete options object
 	 */
-	public final void setOptions(T options) {
+	public final void setOptions(O options) {
 		controlWrapperObject.setOptions(options);
 	}
 
@@ -254,7 +256,7 @@ public class ControlWrapperWidget<T extends ControlOptions> extends Widget imple
 	 * 
 	 * @param state the control state
 	 */
-	public final void setState(ControlState state) {
+	public final void setState(S state) {
 		controlWrapperObject.setState(state);
 	}
 
@@ -276,7 +278,12 @@ public class ControlWrapperWidget<T extends ControlOptions> extends Widget imple
 		controlWrapperObject.trigger(event.getEventName(), event.getProperties());
 	}
 
-	protected ControlWrapperObject<T> getObject() {
+	/**
+	 * Returns the underlying control wrapper object.
+	 * 
+	 * @return the underlying control wrapper object
+	 */
+	public ControlWrapperObject<O,S> getObject() {
 		return controlWrapperObject;
 	}
 }

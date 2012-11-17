@@ -36,7 +36,7 @@ import java.util.Date;
  * chart easily for reuse.
  * 
  * Another bonus of using ChartWrapper is that you can reduce the number of library loads by using dynamic loading.
- * Additionally, you don't need to load the JSAPI library explicitly, and ChartWrapper will handle looking up the chart
+ * Additionally, you don't need to load the JSAPI library explicitly, and ChartWrapperObject will handle looking up the chart
  * libraries for you, so you do not need to specify any chart libraries in your loading statement. See the examples
  * below for details.
  * 
@@ -46,29 +46,29 @@ import java.util.Date;
  * 
  * @param <T> the options this chart implements
  */
-// TODO create a workaround for all adding any event type
 public class ChartWrapperWidget<T extends Options> extends Widget implements RequiresResize {
-	private ChartWrapper<T> chartWrapper;
+	private ChartWrapperObject<T> chartWrapperObject;
 
 	/**
-	 * Creates a empty ChartWrapper instance.
+	 * Creates a empty ChartWrapperObject instance.
 	 * You must set all the appropriate properties using the set... methods exposed by this object.
 	 */
 	public ChartWrapperWidget() {
 		super();
 		setElement(DOM.createDiv());
-		chartWrapper = ChartWrapper.create();
+		chartWrapperObject = ChartWrapperObject.create();
+		setContainerId(DOM.createUniqueId());
 	}
 
 	/**
-	 * Creates a ChartWrapper instance with the provided properties.
+	 * Creates a ChartWrapperObject instance with the provided properties.
 	 * 
 	 * @param chartWrapperSpec chart properties specification
 	 */
 	public ChartWrapperWidget(ChartWrapperSpec<T> chartWrapperSpec) {
 		super();
 		setElement(DOM.createDiv());
-		chartWrapper = ChartWrapper.create(chartWrapperSpec);
+		chartWrapperObject = ChartWrapperObject.create(chartWrapperSpec);
 	}
 
 	/**
@@ -78,7 +78,7 @@ public class ChartWrapperWidget<T extends Options> extends Widget implements Req
 	 * @return a reference for removing this handler
 	 */
 	public final HandlerRef addErrorHandler(ErrorHandler handler) {
-		return chartWrapper.addErrorHandler(handler);
+		return chartWrapperObject.addErrorHandler(handler);
 	}
 
 	/**
@@ -89,7 +89,7 @@ public class ChartWrapperWidget<T extends Options> extends Widget implements Req
 	 * @return a reference for removing this handler
 	 */
 	public final HandlerRef addHandler(EventHandler handler) {
-		return chartWrapper.addHandler(handler);
+		return chartWrapperObject.addHandler(handler);
 	}
 
 	/**
@@ -101,13 +101,13 @@ public class ChartWrapperWidget<T extends Options> extends Widget implements Req
 	 * @return a reference for removing this handler
 	 */
 	public final HandlerRef addReadyHandler(ReadyHandler handler) {
-		return chartWrapper.addReadyHandler(handler);
+		return chartWrapperObject.addReadyHandler(handler);
 	}
 
 	/**
 	 * Fired when the user clicks a bar or legend. When a chart element is selected, the corresponding cell in the data
 	 * table is selected; when a legend is selected, the corresponding column in the data table is selected. To learn
-	 * what has been selected, call ChartWrapper.getChart().getSelection(). Note that this will only be thrown when the
+	 * what has been selected, call ChartWrapperObject.getChart().getSelection(). Note that this will only be thrown when the
 	 * underlying chart type throws a selection event.
 	 * 
 	 * @param handler the select handler
@@ -115,16 +115,16 @@ public class ChartWrapperWidget<T extends Options> extends Widget implements Req
 	 */
 	// TODO expose getSelection()
 	public final HandlerRef addSelectHandler(SelectHandler handler) {
-		return chartWrapper.addSelectHandler(handler);
+		return chartWrapperObject.addSelectHandler(handler);
 	}
 
 	/**
 	 * Returns a deep copy of the chart wrapper.
 	 * 
-	 * @return a deep copy of the ChartWrapper
+	 * @return a deep copy of the ChartWrapperObject
 	 */
-	public final ChartWrapper<?> cloneObject() {
-		return chartWrapper.cloneObject();
+	public final ChartWrapperObject<?> cloneObject() {
+		return chartWrapperObject.cloneObject();
 	}
 
 	/**
@@ -132,18 +132,18 @@ public class ChartWrapperWidget<T extends Options> extends Widget implements Req
 	 * changes.
 	 */
 	public final void draw() {
-		chartWrapper.draw();
+		chartWrapperObject.draw();
 	}
 
 	/**
-	 * Returns a reference to the chart created by this ChartWrapper, for example a google.visualization.BarChart or a
-	 * google.visualization.ColumnChart. This will return null until after you have called draw() on the ChartWrapper
+	 * Returns a reference to the chart created by this ChartWrapperObject, for example a google.visualization.BarChart or a
+	 * google.visualization.ColumnChart. This will return null until after you have called draw() on the ChartWrapperObject
 	 * object, and it throws a ready event. Methods called on the returned object will be reflected on the page.
 	 * 
 	 * @return a reference to the chart object
 	 */
 	public final ChartObject getChart() {
-		return chartWrapper.getChart();
+		return chartWrapperObject.getChart();
 	}
 
 	/**
@@ -152,7 +152,7 @@ public class ChartWrapperWidget<T extends Options> extends Widget implements Req
 	 * @return chart name
 	 */
 	public final String getChartName() {
-		return chartWrapper.getChartName();
+		return chartWrapperObject.getChartName();
 	}
 
 	/**
@@ -163,7 +163,7 @@ public class ChartWrapperWidget<T extends Options> extends Widget implements Req
 	 * @return class name of the wrapped chart
 	 */
 	public final String getChartType() {
-		return chartWrapper.getChartType();
+		return chartWrapperObject.getChartType();
 	}
 
 	/**
@@ -172,7 +172,7 @@ public class ChartWrapperWidget<T extends Options> extends Widget implements Req
 	 * @return DOM container ID
 	 */
 	public final String getContainerId() {
-		return chartWrapper.getContainerId();
+		return chartWrapperObject.getContainerId();
 	}
 
 	/**
@@ -181,7 +181,7 @@ public class ChartWrapperWidget<T extends Options> extends Widget implements Req
 	 * @return URL for this data source
 	 */
 	public final String getDataSourceUrl() {
-		return chartWrapper.getDataSourceUrl();
+		return chartWrapperObject.getDataSourceUrl();
 	}
 
 	/**
@@ -193,7 +193,7 @@ public class ChartWrapperWidget<T extends Options> extends Widget implements Req
 	 * @return a reference to the chart's DataTable
 	 */
 	public final DataTable getDataTable() {
-		return chartWrapper.getDataTable();
+		return chartWrapperObject.getDataTable();
 	}
 
 	/**
@@ -201,8 +201,8 @@ public class ChartWrapperWidget<T extends Options> extends Widget implements Req
 	 * 
 	 * @return the underlying chart object
 	 */
-	public ChartWrapper<T> getObject() {
-		return chartWrapper;
+	public ChartWrapperObject<T> getObject() {
+		return chartWrapperObject;
 	}
 
 	/**
@@ -212,7 +212,7 @@ public class ChartWrapperWidget<T extends Options> extends Widget implements Req
 	 * @return the value specified by key
 	 */
 	public final boolean getOptionBoolean(String key) {
-		return chartWrapper.getOptionBoolean(key);
+		return chartWrapperObject.getOptionBoolean(key);
 	}
 
 	/**
@@ -222,7 +222,7 @@ public class ChartWrapperWidget<T extends Options> extends Widget implements Req
 	 * @return the value specified by key
 	 */
 	public final Date getOptionDate(String key) {
-		return chartWrapper.getOptionDate(key);
+		return chartWrapperObject.getOptionDate(key);
 	}
 
 	/**
@@ -232,7 +232,7 @@ public class ChartWrapperWidget<T extends Options> extends Widget implements Req
 	 * @return the value specified by key
 	 */
 	public final double getOptionNumber(String key) {
-		return chartWrapper.getOptionNumber(key);
+		return chartWrapperObject.getOptionNumber(key);
 	}
 
 	/**
@@ -242,7 +242,7 @@ public class ChartWrapperWidget<T extends Options> extends Widget implements Req
 	 * @return the value specified by key
 	 */
 	public final JavaScriptObject getOptionObject(String key) {
-		return chartWrapper.getOptionObject(key);
+		return chartWrapperObject.getOptionObject(key);
 	}
 
 	/**
@@ -252,7 +252,7 @@ public class ChartWrapperWidget<T extends Options> extends Widget implements Req
 	 * @return the value specified by key
 	 */
 	public final String getOptionString(String key) {
-		return chartWrapper.getOptionString(key);
+		return chartWrapperObject.getOptionString(key);
 	}
 
 	/**
@@ -263,7 +263,7 @@ public class ChartWrapperWidget<T extends Options> extends Widget implements Req
 	 * @return the value specified by key
 	 */
 	public final boolean getOptionBoolean(String key, boolean defaultValue) {
-		return chartWrapper.getOptionBoolean(key, defaultValue);
+		return chartWrapperObject.getOptionBoolean(key, defaultValue);
 	}
 
 	/**
@@ -274,7 +274,7 @@ public class ChartWrapperWidget<T extends Options> extends Widget implements Req
 	 * @return the value specified by key
 	 */
 	public final Date getOptionDate(String key, Date defaultValue) {
-		return chartWrapper.getOptionDate(key, defaultValue);
+		return chartWrapperObject.getOptionDate(key, defaultValue);
 	}
 
 	/**
@@ -285,7 +285,7 @@ public class ChartWrapperWidget<T extends Options> extends Widget implements Req
 	 * @return the value specified by key
 	 */
 	public final double getOptionNumber(String key, double defaultValue) {
-		return chartWrapper.getOptionNumber(key, defaultValue);
+		return chartWrapperObject.getOptionNumber(key, defaultValue);
 	}
 
 	/**
@@ -296,7 +296,7 @@ public class ChartWrapperWidget<T extends Options> extends Widget implements Req
 	 * @return the value specified by key
 	 */
 	public final JavaScriptObject getOptionObject(String key, JavaScriptObject defaultValue) {
-		return chartWrapper.getOptionObject(key, defaultValue);
+		return chartWrapperObject.getOptionObject(key, defaultValue);
 	}
 
 	/**
@@ -307,7 +307,7 @@ public class ChartWrapperWidget<T extends Options> extends Widget implements Req
 	 * @return the value specified by key
 	 */
 	public final String getOptionString(String key, String defaultValue) {
-		return chartWrapper.getOptionString(key, defaultValue);
+		return chartWrapperObject.getOptionString(key, defaultValue);
 	}
 
 	/**
@@ -316,7 +316,7 @@ public class ChartWrapperWidget<T extends Options> extends Widget implements Req
 	 * @return the options object for this chart
 	 */
 	public final T getOptions() {
-		return chartWrapper.getOptions();
+		return chartWrapperObject.getOptions();
 	}
 
 	/**
@@ -325,7 +325,7 @@ public class ChartWrapperWidget<T extends Options> extends Widget implements Req
 	 * @return query string for this chart
 	 */
 	public final String getQuery() {
-		return chartWrapper.getQuery();
+		return chartWrapperObject.getQuery();
 	}
 
 	/**
@@ -334,7 +334,7 @@ public class ChartWrapperWidget<T extends Options> extends Widget implements Req
 	 * @return refresh interval in seconds
 	 */
 	public final int getRefreshInterval() {
-		return chartWrapper.getRefreshInterval();
+		return chartWrapperObject.getRefreshInterval();
 	}
 
 	/**
@@ -343,7 +343,7 @@ public class ChartWrapperWidget<T extends Options> extends Widget implements Req
 	 * @return an array of DataView initializer objects
 	 */
 	public final JsArray<DataView> getViewArray() {
-		return chartWrapper.getViewArray();
+		return chartWrapperObject.getViewArray();
 	}
 
 	/**
@@ -352,12 +352,12 @@ public class ChartWrapperWidget<T extends Options> extends Widget implements Req
 	 * @return the DataView initializer object
 	 */
 	public final DataView getView() {
-		return chartWrapper.getView();
+		return chartWrapperObject.getView();
 	}
 
 	@Override
 	public void onResize() {
-		if (chartWrapper.getChart() != null) {
+		if (chartWrapperObject.getChart() != null) {
 			draw();
 		}
 	}
@@ -366,7 +366,7 @@ public class ChartWrapperWidget<T extends Options> extends Widget implements Req
 	 * Unregister all event handlers.
 	 */
 	public final void removeAllHandlers() {
-		chartWrapper.removeAllListeners();
+		chartWrapperObject.removeAllListeners();
 	}
 
 	/**
@@ -375,7 +375,7 @@ public class ChartWrapperWidget<T extends Options> extends Widget implements Req
 	 * @param handlerRef event handler reference
 	 */
 	public final void removeHandler(HandlerRef handlerRef) {
-		chartWrapper.removeListener(handlerRef);
+		chartWrapperObject.removeListener(handlerRef);
 	}
 
 	/**
@@ -385,7 +385,7 @@ public class ChartWrapperWidget<T extends Options> extends Widget implements Req
 	 * @param chartName an arbitrary name for the chart
 	 */
 	public final void setChartName(String chartName) {
-		chartWrapper.setChartName(chartName);
+		chartWrapperObject.setChartName(chartName);
 	}
 
 	/**
@@ -394,7 +394,7 @@ public class ChartWrapperWidget<T extends Options> extends Widget implements Req
 	 * @param chartType the chart type to display
 	 */
 	public final void setChartType(ChartType chartType) {
-		chartWrapper.setChartType(chartType);
+		chartWrapperObject.setChartType(chartType);
 	}
 
 	/**
@@ -404,7 +404,7 @@ public class ChartWrapperWidget<T extends Options> extends Widget implements Req
 	 */
 	public final void setContainerId(String containerId) {
 		getElement().setId(containerId);
-		chartWrapper.setContainerId(containerId);
+		chartWrapperObject.setContainerId(containerId);
 	}
 
 	/**
@@ -414,7 +414,7 @@ public class ChartWrapperWidget<T extends Options> extends Widget implements Req
 	 * @param url the URL of a data source to use for this chart
 	 */
 	public final void setDataSourceUrl(String url) {
-		chartWrapper.setDataSourceUrl(url);
+		chartWrapperObject.setDataSourceUrl(url);
 	}
 
 	/**
@@ -423,7 +423,7 @@ public class ChartWrapperWidget<T extends Options> extends Widget implements Req
 	 * @param dataTable the DataTable object for the chart
 	 */
 	public final void setDataTable(DataTable dataTable) {
-		chartWrapper.setDataTable(dataTable);
+		chartWrapperObject.setDataTable(dataTable);
 	}
 
 	/**
@@ -432,7 +432,7 @@ public class ChartWrapperWidget<T extends Options> extends Widget implements Req
 	 * @param dataTable an array following the syntax of {@link com.googlecode.gwt.charts.client.util.ChartHelper#arrayToDataTable(JsArrayMixed)}
 	 */
 	public final void setDataTable(JsArrayMixed dataTable) {
-		chartWrapper.setDataTable(dataTable);
+		chartWrapperObject.setDataTable(dataTable);
 	}
 
 	/**
@@ -441,7 +441,7 @@ public class ChartWrapperWidget<T extends Options> extends Widget implements Req
 	 * @param json a JSON representation of a DataTable
 	 */
 	public final void setDataTable(String json) {
-		chartWrapper.setDataTable(json);
+		chartWrapperObject.setDataTable(json);
 	}
 
 	/**
@@ -452,7 +452,7 @@ public class ChartWrapperWidget<T extends Options> extends Widget implements Req
 	 * @param value
 	 */
 	public final void setOption(String key, boolean value) {
-		chartWrapper.setOption(key, value);
+		chartWrapperObject.setOption(key, value);
 	}
 
 	/**
@@ -463,7 +463,7 @@ public class ChartWrapperWidget<T extends Options> extends Widget implements Req
 	 * @param value the value to set
 	 */
 	public final void setOption(String key, Date value) {
-		chartWrapper.setOption(key, value);
+		chartWrapperObject.setOption(key, value);
 	}
 
 	/**
@@ -474,7 +474,7 @@ public class ChartWrapperWidget<T extends Options> extends Widget implements Req
 	 * @param value the value to set
 	 */
 	public final void setOption(String key, double value) {
-		chartWrapper.setOption(key, value);
+		chartWrapperObject.setOption(key, value);
 	}
 
 	/**
@@ -485,7 +485,7 @@ public class ChartWrapperWidget<T extends Options> extends Widget implements Req
 	 * @param value the value to set
 	 */
 	public final void setOption(String key, JavaScriptObject value) {
-		chartWrapper.setOption(key, value);
+		chartWrapperObject.setOption(key, value);
 	}
 
 	/**
@@ -496,7 +496,7 @@ public class ChartWrapperWidget<T extends Options> extends Widget implements Req
 	 * @param value the value to set
 	 */
 	public final void setOption(String key, String value) {
-		chartWrapper.setOption(key, value);
+		chartWrapperObject.setOption(key, value);
 	}
 
 	/**
@@ -505,7 +505,7 @@ public class ChartWrapperWidget<T extends Options> extends Widget implements Req
 	 * @param key the option key
 	 */
 	public final void setOptionNull(String key) {
-		chartWrapper.setOptionNull(key);
+		chartWrapperObject.setOptionNull(key);
 	}
 
 	/**
@@ -514,7 +514,7 @@ public class ChartWrapperWidget<T extends Options> extends Widget implements Req
 	 * @param options a complete options object
 	 */
 	public final void setOptions(T options) {
-		chartWrapper.setOptions(options);
+		chartWrapperObject.setOptions(options);
 	}
 
 	/**
@@ -524,7 +524,7 @@ public class ChartWrapperWidget<T extends Options> extends Widget implements Req
 	 * @param query a data source query string
 	 */
 	public final void setQuery(String query) {
-		chartWrapper.setQuery(query);
+		chartWrapperObject.setQuery(query);
 	}
 
 	/**
@@ -534,7 +534,7 @@ public class ChartWrapperWidget<T extends Options> extends Widget implements Req
 	 * @param refreshInterval refresh interval for this chart in seconds
 	 */
 	public final void setRefreshInterval(int refreshInterval) {
-		chartWrapper.setRefreshInterval(refreshInterval);
+		chartWrapperObject.setRefreshInterval(refreshInterval);
 	}
 
 	/**
@@ -548,7 +548,7 @@ public class ChartWrapperWidget<T extends Options> extends Widget implements Req
 	 */
 
 	public final void setView(JsArrayString view) {
-		chartWrapper.setView(view);
+		chartWrapperObject.setView(view);
 	}
 
 	/**
@@ -558,7 +558,7 @@ public class ChartWrapperWidget<T extends Options> extends Widget implements Req
 	 * @param view a DataView initializer object, like that returned by dataview.toJSON()
 	 */
 	public final void setView(String view) {
-		chartWrapper.setView(view);
+		chartWrapperObject.setView(view);
 	}
 
 	/**
@@ -567,7 +567,7 @@ public class ChartWrapperWidget<T extends Options> extends Widget implements Req
 	 * @return a JSON representation of the chart
 	 */
 	public final String toJSON() {
-		return chartWrapper.toJSON();
+		return chartWrapperObject.toJSON();
 	}
 
 	/**
@@ -577,6 +577,6 @@ public class ChartWrapperWidget<T extends Options> extends Widget implements Req
 	 * @param properties A map of name/value pairs to pass to the receiving method.
 	 */
 	public final void trigger(String eventName, Properties properties) {
-		chartWrapper.trigger(eventName, properties);
+		chartWrapperObject.trigger(eventName, properties);
 	}
 }

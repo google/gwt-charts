@@ -38,4 +38,20 @@ public class NumberRangeFilterState extends ControlState {
 	public final native void setLowValue(double lowValue) /*-{
 		this.lowValue = lowValue;
 	}-*/;
+
+	public final native boolean getHighThumbAtMaximum() /*-{
+		return this.highThumbAtMaximum;
+	}-*/;
+
+	public final native double getHighValue() /*-{
+		return this.highValue;
+	}-*/;
+
+	public final native boolean getLowThumbAtMinimum() /*-{
+		return this.lowThumbAtMinimum;
+	}-*/;
+
+	public final native double getLowValue() /*-{
+		return this.lowValue;
+	}-*/;
 }

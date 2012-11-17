@@ -44,4 +44,20 @@ public class CategoryFilterState extends ControlState {
 	public final native void setSelectedValues(JsArrayString selectedValues) /*-{
 		this.selectedValues = selectedValues;
 	}-*/;
+
+	public final native JsArray<JavaScriptObject> getSelectedValuesObject() /*-{
+		return this.selectedValues;
+	}-*/;
+
+	public final native JsArrayBoolean getSelectedValuesBoolean() /*-{
+		return this.selectedValues;
+	}-*/;
+
+	public final native JsArrayNumber getSelectedValuesNumber() /*-{
+		return this.selectedValues;
+	}-*/;
+
+	public final native JsArrayString getSelectedValuesString() /*-{
+		return this.selectedValues;
+	}-*/;
 }

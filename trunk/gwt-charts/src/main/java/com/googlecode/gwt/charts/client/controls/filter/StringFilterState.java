@@ -33,4 +33,12 @@ public class StringFilterState extends ControlState {
 		this.value = value;
 	}-*/;
 
+	public final native JavaScriptObject getValueObject() /*-{
+		return this.value;
+	}-*/;
+
+	public final native String getValueString() /*-{
+		return this.value;
+	}-*/;
+
 }

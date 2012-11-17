@@ -29,28 +29,32 @@ import com.googlecode.gwt.charts.client.event.StateChangeHandler;
  * @see <a href="https://developers.google.com/chart/interactive/docs/gallery/controls#controlwrapperobject">Control
  *      Wrapper</a>
  * 
- * @param <T> the options type for this control
+ * @param <O> the options type for this control
+ * @param <S> the state type for this control
  */
-public class ControlWrapperObject<T extends ControlOptions> extends HasListeners {
+public class ControlWrapperObject<O extends ControlOptions, S extends ControlState> extends HasListeners {
 	/**
 	 * Creates an empty control wrapper.
 	 * You must set all the appropriate properties using the set... methods.
 	 * 
-	 * @param <T> the options type for this control
+	 * @param <O> the options type for this control
+	 * @param <S> the state type for this control
 	 * @return an empty control wrapper
 	 */
-	public static native <T extends ControlOptions> ControlWrapperObject<T> create() /*-{
+	public static native <O extends ControlOptions, S extends ControlState> ControlWrapperObject<O, S> create() /*-{
 		return new $wnd.google.visualization.ControlWrapper();
 	}-*/;
 
 	/**
 	 * Creates a control wrapper with the given specification.
 	 * 
-	 * @param <T> the options type for this control
+	 * @param <O> the options type for this control
+	 * @param <S> the state type for this control
 	 * @param spec a property set for defining this wrapper
 	 * @return a control wrapper
 	 */
-	public static native <T extends ControlOptions> ControlWrapperObject<T> create(ControlWrapperSpec<?> spec) /*-{
+	public static native <O extends ControlOptions, S extends ControlState> ControlWrapperObject<O, S> create(
+			ControlWrapperSpec<?> spec) /*-{
 		return new $wnd.google.visualization.ControlWrapper(spec);
 	}-*/;
 
@@ -98,7 +102,7 @@ public class ControlWrapperObject<T extends ControlOptions> extends HasListeners
 	 * 
 	 * @return a deep copy of the control wrapper
 	 */
-	public final native ControlWrapperObject<T> cloneObject() /*-{
+	public final native ControlWrapperObject<O, S> cloneObject() /*-{
 		this.clone();
 	}-*/;
 
@@ -178,7 +182,7 @@ public class ControlWrapperObject<T extends ControlOptions> extends HasListeners
 	 * 
 	 * @return the options object for this control
 	 */
-	public final native T getOptions() /*-{
+	public final native O getOptions() /*-{
 		return this.getOptions();
 	}-*/;
 
@@ -187,7 +191,7 @@ public class ControlWrapperObject<T extends ControlOptions> extends HasListeners
 	 * 
 	 * @return the control state
 	 */
-	public final native ControlState getState() /*-{
+	public final native S getState() /*-{
 		return this.getState();
 	}-*/;
 
@@ -237,7 +241,7 @@ public class ControlWrapperObject<T extends ControlOptions> extends HasListeners
 	 * 
 	 * @param options a complete options object
 	 */
-	public final native void setOptions(T options) /*-{
+	public final native void setOptions(O options) /*-{
 		return this.setOptions(options);
 	}-*/;
 
@@ -248,7 +252,7 @@ public class ControlWrapperObject<T extends ControlOptions> extends HasListeners
 	 * 
 	 * @param state the control state
 	 */
-	public final native void setState(ControlState state) /*-{
+	public final native void setState(S state) /*-{
 		return this.setState(state);
 	}-*/;
 

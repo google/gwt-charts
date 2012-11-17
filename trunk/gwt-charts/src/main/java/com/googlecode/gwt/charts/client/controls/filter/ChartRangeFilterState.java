@@ -27,4 +27,7 @@ public class ChartRangeFilterState extends ControlState {
 		this.range = range;
 	}-*/;
 
+	public final native ChartRangeFilterStateRange getRange() /*-{
+		return this.range;
+	}-*/;
 }

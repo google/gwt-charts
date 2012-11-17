@@ -19,7 +19,7 @@ import com.google.gwt.core.client.JsArrayString;
 import com.googlecode.gwt.charts.client.options.Options;
 
 /**
- * A ChartWrapper initializer specification as described in <a
+ * A ChartWrapperObject initializer specification as described in <a
  * href="https://developers.google.com/chart/interactive/docs/reference#google.visualization.drawchart"
  * >google.visualization.drawChart()</a>.
  * 

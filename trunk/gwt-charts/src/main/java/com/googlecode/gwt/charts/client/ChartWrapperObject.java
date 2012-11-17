@@ -33,52 +33,52 @@ import com.googlecode.gwt.charts.client.util.DateHelper;
 import java.util.Date;
 
 /**
- * A ChartWrapper class is used to wrap your chart and handle all loading, drawing, and Datasource querying for
+ * A ChartWrapperObject class is used to wrap your chart and handle all loading, drawing, and Datasource querying for
  * your
  * chart. The class exposes convenience methods for setting values on the chart and drawing it. This class simplifies
  * reading from a data source, because you do not have to create a query callback handler. You can also use it to save a
  * chart easily for reuse.
  * 
- * Another bonus of using ChartWrapper is that you can reduce the number of library loads by using dynamic
+ * Another bonus of using ChartWrapperObject is that you can reduce the number of library loads by using dynamic
  * loading.
- * Additionally, you don't need to load the JSAPI library explicitly, and ChartWrapper will handle looking up the
+ * Additionally, you don't need to load the JSAPI library explicitly, and ChartWrapperObject will handle looking up the
  * chart
  * libraries for you, so you do not need to specify any chart libraries in your loading statement. See the examples
  * below for details.
  * 
- * However, ChartWrapper currently only propagates a subset of events thrown by charts: select, ready, and error.
+ * However, ChartWrapperObject currently only propagates a subset of events thrown by charts: select, ready, and error.
  * Other
- * events are not transmitted through the ChartWrapper instance; to get other events, you must call getChart() and
+ * events are not transmitted through the ChartWrapperObject instance; to get other events, you must call getChart() and
  * subscribe to events directly on the chart handle.
  * 
  * @param <T> the options this chart implements
  */
-public class ChartWrapper<T extends Options> extends HasListeners {
+public class ChartWrapperObject<T extends Options> extends HasListeners {
 	/**
-	 * Creates a empty ChartWrapper instance.
+	 * Creates a empty ChartWrapperObject instance.
 	 * You must set all the appropriate properties using the set... methods exposed by this object.
 	 * 
 	 * @param <T> the chart options type
 	 * 
-	 * @return a new ChartWrapper instance
+	 * @return a new ChartWrapperObject instance
 	 */
-	public static native <T extends Options> ChartWrapper<T> create() /*-{
+	public static native <T extends Options> ChartWrapperObject<T> create() /*-{
 		return new $wnd.google.visualization.ChartWrapper();
 	}-*/;
 
 	/**
-	 * Creates a ChartWrapper instance with the provided properties.
+	 * Creates a ChartWrapperObject instance with the provided properties.
 	 * 
 	 * @param <T> the chart options type
 	 * 
 	 * @param chartWrapperSpec chart properties specification
-	 * @return a new ChartWrapper instance
+	 * @return a new ChartWrapperObject instance
 	 */
-	public static native <T extends Options> ChartWrapper<T> create(ChartWrapperSpec<T> chartWrapperSpec) /*-{
+	public static native <T extends Options> ChartWrapperObject<T> create(ChartWrapperSpec<T> chartWrapperSpec) /*-{
 		return new $wnd.google.visualization.ChartWrapper(chartWrapperSpec);
 	}-*/;
 
-	protected ChartWrapper() {
+	protected ChartWrapperObject() {
 		// Default constructor
 	}
 
@@ -123,7 +123,7 @@ public class ChartWrapper<T extends Options> extends HasListeners {
 	/**
 	 * Fired when the user clicks a bar or legend. When a chart element is selected, the corresponding cell in the data
 	 * table is selected; when a legend is selected, the corresponding column in the data table is selected. To learn
-	 * what has been selected, call ChartWrapper.getChart().getSelection(). Note that this will only be thrown when the
+	 * what has been selected, call ChartWrapperObject.getChart().getSelection(). Note that this will only be thrown when the
 	 * underlying chart type throws a selection event.
 	 * 
 	 * @param handler the select handler
@@ -137,9 +137,9 @@ public class ChartWrapper<T extends Options> extends HasListeners {
 	/**
 	 * Returns a deep copy of the chart wrapper.
 	 * 
-	 * @return a deep copy of the ChartWrapper
+	 * @return a deep copy of the ChartWrapperObject
 	 */
-	public final native ChartWrapper<?> cloneObject() /*-{
+	public final native ChartWrapperObject<?> cloneObject() /*-{
 		this.clone();
 	}-*/;
 
@@ -152,8 +152,8 @@ public class ChartWrapper<T extends Options> extends HasListeners {
 	}-*/;
 
 	/**
-	 * Returns a reference to the chart created by this ChartWrapper, for example a google.visualization.BarChart or a
-	 * google.visualization.ColumnChart. This will return null until after you have called draw() on the ChartWrapper
+	 * Returns a reference to the chart created by this ChartWrapperObject, for example a google.visualization.BarChart or a
+	 * google.visualization.ColumnChart. This will return null until after you have called draw() on the ChartWrapperObject
 	 * object, and it throws a ready event. Methods called on the returned object will be reflected on the page.
 	 * 
 	 * @return a reference to the chart object
