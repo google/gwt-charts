@@ -13,9 +13,12 @@
 package com.googlecode.gwt.charts.client.controls.filter;
 
 import com.googlecode.gwt.charts.client.controls.ControlType;
-import com.googlecode.gwt.charts.client.controls.ControlWrapperWidget;
+import com.googlecode.gwt.charts.client.controls.ControlWrapper;
 
-public class NumberRangeFilter extends ControlWrapperWidget<NumberRangeFilterOptions, NumberRangeFilterState> {
+/**
+ * A slider with two thumbs to select ranges of numeric values.
+ */
+public class NumberRangeFilter extends ControlWrapper<NumberRangeFilterOptions, NumberRangeFilterState> {
 
 	/**
 	 * Creates a new NumberRangeFilter.

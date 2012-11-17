@@ -83,7 +83,7 @@ public class ChartEditor extends HasListeners {
 	 *        reflected in
 	 *        the chart editor's copy.
 	 */
-	public final native void openDialog(ChartWrapperWidget<?> chartWrapperObject)/*-{
+	public final native void openDialog(ChartWrapper<?> chartWrapperObject)/*-{
 		this.openDialog(chartWrapperObject);
 	}-*/;
 
@@ -99,7 +99,7 @@ public class ChartEditor extends HasListeners {
 	 * 
 	 * @return a ChartWrapperObject representing the chart
 	 */
-	public final native ChartWrapperWidget<?> getChartWrapper()/*-{
+	public final native ChartWrapper<?> getChartWrapper()/*-{
 		return this.getChartWrapper();
 	}-*/;
 
@@ -109,7 +109,7 @@ public class ChartEditor extends HasListeners {
 	 * @param chartWrapperObject A ChartWrapperObject object representing the new chart to render. The chart must either have
 	 *        a populated DataTable, or be connected to a valid data source.
 	 */
-	public final native void setChartWrapper(ChartWrapperWidget<?> chartWrapperObject)/*-{
+	public final native void setChartWrapper(ChartWrapper<?> chartWrapperObject)/*-{
 		this.setChartWrapper(chartWrapperObject);
 	}-*/;
 }

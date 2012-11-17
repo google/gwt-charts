@@ -13,9 +13,12 @@
 package com.googlecode.gwt.charts.client.controls.filter;
 
 import com.googlecode.gwt.charts.client.controls.ControlType;
-import com.googlecode.gwt.charts.client.controls.ControlWrapperWidget;
+import com.googlecode.gwt.charts.client.controls.ControlWrapper;
 
-public class StringFilter extends ControlWrapperWidget<StringFilterOptions, StringFilterState> {
+/**
+ * A simple text input field that lets you filter data via string matching.
+ */
+public class StringFilter extends ControlWrapper<StringFilterOptions, StringFilterState> {
 
 	/**
 	 * Creates a new StringFilter.

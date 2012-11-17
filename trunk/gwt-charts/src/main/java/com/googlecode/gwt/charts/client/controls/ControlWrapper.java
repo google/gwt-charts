@@ -24,18 +24,20 @@ import com.googlecode.gwt.charts.client.event.StateChangeHandler;
 
 /**
  * This class is used as a widget wrapper for control wrappers.
+ * Supports automatically resizing via {@link RequiresResize}, which means that all parents
+ * must implement {@link com.google.gwt.user.client.ui.ProvidesResize} for this to work.
  * 
  * @param <O> the control options type
  * @param <S> the control state type
  */
-public class ControlWrapperWidget<O extends ControlOptions, S extends ControlState> extends Widget implements RequiresResize {
+public class ControlWrapper<O extends ControlOptions, S extends ControlState> extends Widget implements RequiresResize {
 
 	private ControlWrapperObject<O,S> controlWrapperObject;
 
 	/**
-	 * Creates a new ControlWrapperWidget.
+	 * Creates a new ControlWrapper.
 	 */
-	public ControlWrapperWidget() {
+	public ControlWrapper() {
 		super();
 		setElement(DOM.createDiv());
 		controlWrapperObject = ControlWrapperObject.create();
@@ -68,7 +70,7 @@ public class ControlWrapperWidget<O extends ControlOptions, S extends ControlSta
 	/**
 	 * Fired when the user interacts with the control, affecting its state. For example, a statechange event will fire
 	 * whenever you move the thumbs of a range slider control. To retrieve an updated control state after the event
-	 * fired, call ControlWrapperWidget.getState().
+	 * fired, call ControlWrapper.getState().
 	 * 
 	 * @param handler the state change handler
 	 * @return a reference for removing this handler
