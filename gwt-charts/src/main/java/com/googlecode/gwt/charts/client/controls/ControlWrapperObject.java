@@ -22,7 +22,7 @@ import com.googlecode.gwt.charts.client.event.StateChangeEvent;
 import com.googlecode.gwt.charts.client.event.StateChangeHandler;
 
 /**
- * A ControlWrapperWidget object is a wrapper around a JSON representation of a configured control instance.<br>
+ * A ControlWrapper object is a wrapper around a JSON representation of a configured control instance.<br>
  * The class exposes convenience methods for defining a dashboard control, drawing it and programmatically changing its
  * state.
  * 
@@ -88,7 +88,7 @@ public class ControlWrapperObject<O extends ControlOptions, S extends ControlSta
 	/**
 	 * Fired when the user interacts with the control, affecting its state. For example, a statechange event will fire
 	 * whenever you move the thumbs of a range slider control. To retrieve an updated control state after the event
-	 * fired, call ControlWrapperWidget.getState().
+	 * fired, call ControlWrapper.getState().
 	 * 
 	 * @param handler the state change handler
 	 * @return a reference for removing this handler

@@ -36,7 +36,8 @@ import java.util.Date;
  * chart easily for reuse.
  * 
  * Another bonus of using ChartWrapper is that you can reduce the number of library loads by using dynamic loading.
- * Additionally, you don't need to load the JSAPI library explicitly, and ChartWrapperObject will handle looking up the chart
+ * Additionally, you don't need to load the JSAPI library explicitly, and ChartWrapperObject will handle looking up the
+ * chart
  * libraries for you, so you do not need to specify any chart libraries in your loading statement. See the examples
  * below for details.
  * 
@@ -44,16 +45,19 @@ import java.util.Date;
  * events are not transmitted through the ChartWrapper instance; to get other events, you must call getChart() and
  * subscribe to events directly on the chart handle.
  * 
+ * Supports automatically resizing via {@link RequiresResize}, which means that all parents
+ * must implement {@link com.google.gwt.user.client.ui.ProvidesResize} for this to work.
+ * 
  * @param <T> the options this chart implements
  */
-public class ChartWrapperWidget<T extends Options> extends Widget implements RequiresResize {
+public class ChartWrapper<T extends Options> extends Widget implements RequiresResize {
 	private ChartWrapperObject<T> chartWrapperObject;
 
 	/**
 	 * Creates a empty ChartWrapperObject instance.
 	 * You must set all the appropriate properties using the set... methods exposed by this object.
 	 */
-	public ChartWrapperWidget() {
+	public ChartWrapper() {
 		super();
 		setElement(DOM.createDiv());
 		chartWrapperObject = ChartWrapperObject.create();
@@ -65,7 +69,7 @@ public class ChartWrapperWidget<T extends Options> extends Widget implements Req
 	 * 
 	 * @param chartWrapperSpec chart properties specification
 	 */
-	public ChartWrapperWidget(ChartWrapperSpec<T> chartWrapperSpec) {
+	public ChartWrapper(ChartWrapperSpec<T> chartWrapperSpec) {
 		super();
 		setElement(DOM.createDiv());
 		chartWrapperObject = ChartWrapperObject.create(chartWrapperSpec);
@@ -107,7 +111,8 @@ public class ChartWrapperWidget<T extends Options> extends Widget implements Req
 	/**
 	 * Fired when the user clicks a bar or legend. When a chart element is selected, the corresponding cell in the data
 	 * table is selected; when a legend is selected, the corresponding column in the data table is selected. To learn
-	 * what has been selected, call ChartWrapperObject.getChart().getSelection(). Note that this will only be thrown when the
+	 * what has been selected, call ChartWrapperObject.getChart().getSelection(). Note that this will only be thrown
+	 * when the
 	 * underlying chart type throws a selection event.
 	 * 
 	 * @param handler the select handler
@@ -136,8 +141,10 @@ public class ChartWrapperWidget<T extends Options> extends Widget implements Req
 	}
 
 	/**
-	 * Returns a reference to the chart created by this ChartWrapperObject, for example a google.visualization.BarChart or a
-	 * google.visualization.ColumnChart. This will return null until after you have called draw() on the ChartWrapperObject
+	 * Returns a reference to the chart created by this ChartWrapperObject, for example a google.visualization.BarChart
+	 * or a
+	 * google.visualization.ColumnChart. This will return null until after you have called draw() on the
+	 * ChartWrapperObject
 	 * object, and it throws a ready event. Methods called on the returned object will be reflected on the page.
 	 * 
 	 * @return a reference to the chart object
@@ -429,7 +436,8 @@ public class ChartWrapperWidget<T extends Options> extends Widget implements Req
 	/**
 	 * Sets the DataTable for the chart.
 	 * 
-	 * @param dataTable an array following the syntax of {@link com.googlecode.gwt.charts.client.util.ChartHelper#arrayToDataTable(JsArrayMixed)}
+	 * @param dataTable an array following the syntax of
+	 *        {@link com.googlecode.gwt.charts.client.util.ChartHelper#arrayToDataTable(JsArrayMixed)}
 	 */
 	public final void setDataTable(JsArrayMixed dataTable) {
 		chartWrapperObject.setDataTable(dataTable);

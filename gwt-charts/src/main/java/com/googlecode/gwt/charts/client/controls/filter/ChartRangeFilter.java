@@ -13,9 +13,13 @@
 package com.googlecode.gwt.charts.client.controls.filter;
 
 import com.googlecode.gwt.charts.client.controls.ControlType;
-import com.googlecode.gwt.charts.client.controls.ControlWrapperWidget;
+import com.googlecode.gwt.charts.client.controls.ControlWrapper;
 
-public class ChartRangeFilter extends ControlWrapperWidget<ChartRangeFilterOptions, ChartRangeFilterState> {
+/**
+ * A slider with two thumbs superimposed onto a chart, to select a range of values from the continuous axis of the
+ * chart.
+ */
+public class ChartRangeFilter extends ControlWrapper<ChartRangeFilterOptions, ChartRangeFilterState> {
 
 	/**
 	 * Creates a new ChartRangeFilter.

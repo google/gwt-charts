@@ -19,7 +19,7 @@ import com.google.gwt.user.client.DOM;
 import com.google.gwt.user.client.ui.Widget;
 
 import com.googlecode.gwt.charts.client.ChartWrapperObject;
-import com.googlecode.gwt.charts.client.ChartWrapperWidget;
+import com.googlecode.gwt.charts.client.ChartWrapper;
 import com.googlecode.gwt.charts.client.DataSource;
 import com.googlecode.gwt.charts.client.event.ErrorEvent;
 import com.googlecode.gwt.charts.client.event.ErrorHandler;
@@ -33,13 +33,13 @@ import java.util.List;
 /**
  * Represents a collection of collaborating controls and charts that share the same underlying data.
  */
-public class DashboardWidget extends Widget {
+public class Dashboard extends Widget {
 	private DashboardObject dashboardObject;
 
 	/**
-	 * Creates a DashboardWidget
+	 * Creates a Dashboard
 	 */
-	public DashboardWidget() {
+	public Dashboard() {
 		super();
 		Element dashboardDiv = DOM.createDiv();
 		dashboardObject = DashboardObject.create(dashboardDiv);
@@ -85,7 +85,7 @@ public class DashboardWidget extends Widget {
 	 * @param controlWrapper
 	 * @param chartWrapper
 	 */
-	public final void bind(ControlWrapperWidget<?, ?> controlWrapper, ChartWrapperWidget<?> chartWrapper) {
+	public final void bind(ControlWrapper<?, ?> controlWrapper, ChartWrapper<?> chartWrapper) {
 		dashboardObject.bind(controlWrapper.getObject(), chartWrapper.getObject());
 	}
 
@@ -98,13 +98,13 @@ public class DashboardWidget extends Widget {
 	 * @param controlWrappers
 	 * @param chartWrappers
 	 */
-	public final void bind(List<ControlWrapperWidget<?, ?>> controlWrappers, List<ChartWrapperWidget<?>> chartWrappers) {
+	public final void bind(List<ControlWrapper<?, ?>> controlWrappers, List<ChartWrapper<?>> chartWrappers) {
 		JsArray<ControlWrapperObject<?, ?>> controlWrapperArray = JsArray.createArray().cast();
-		for (ControlWrapperWidget<?, ?> controlWrapper : controlWrappers) {
+		for (ControlWrapper<?, ?> controlWrapper : controlWrappers) {
 			controlWrapperArray.push(controlWrapper.getObject());
 		}
 		JsArray<ChartWrapperObject<?>> chartWrapperArray = JsArray.createArray().cast();
-		for (ChartWrapperWidget<?> chartWrapper : chartWrappers) {
+		for (ChartWrapper<?> chartWrapper : chartWrappers) {
 			chartWrapperArray.push(chartWrapper.getObject());
 		}
 		dashboardObject.bind(controlWrapperArray, chartWrapperArray);

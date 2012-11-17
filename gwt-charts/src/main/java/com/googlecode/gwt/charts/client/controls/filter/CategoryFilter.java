@@ -13,9 +13,12 @@
 package com.googlecode.gwt.charts.client.controls.filter;
 
 import com.googlecode.gwt.charts.client.controls.ControlType;
-import com.googlecode.gwt.charts.client.controls.ControlWrapperWidget;
+import com.googlecode.gwt.charts.client.controls.ControlWrapper;
 
-public class CategoryFilter extends ControlWrapperWidget<CategoryFilterOptions, CategoryFilterState> {
+/**
+ * A picker to choose one or more between a set of defined values.
+ */
+public class CategoryFilter extends ControlWrapper<CategoryFilterOptions, CategoryFilterState> {
 
 	/**
 	 * Creates a new CategoryFilter.
