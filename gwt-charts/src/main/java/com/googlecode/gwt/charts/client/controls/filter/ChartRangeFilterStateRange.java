@@ -13,8 +13,10 @@
 package com.googlecode.gwt.charts.client.controls.filter;
 
 import com.google.gwt.core.client.JavaScriptObject;
+import com.google.gwt.core.client.JsDate;
 
 import com.googlecode.gwt.charts.client.TimeOfDay;
+import com.googlecode.gwt.charts.client.util.DateHelper;
 
 import java.util.Date;
 
@@ -22,7 +24,7 @@ public class ChartRangeFilterStateRange extends JavaScriptObject {
 	public static ChartRangeFilterStateRange create() {
 		return createObject().cast();
 	}
-	
+
 	protected ChartRangeFilterStateRange() {
 	}
 
@@ -31,10 +33,6 @@ public class ChartRangeFilterStateRange extends JavaScriptObject {
 	}-*/;
 
 	public final native void setEnd(double end) /*-{
-		this.end = end;
-	}-*/;
-
-	public final native void setEnd(int end) /*-{
 		this.end = end;
 	}-*/;
 
@@ -50,11 +48,39 @@ public class ChartRangeFilterStateRange extends JavaScriptObject {
 		this.start = start;
 	}-*/;
 
-	public final native void setStart(int start) /*-{
+	public final native void setStart(TimeOfDay start) /*-{
 		this.start = start;
 	}-*/;
 
-	public final native void setStart(TimeOfDay start) /*-{
-		this.start = start;
+	public final Date getEndDate() {
+		return DateHelper.getDate(getEndJsDate());
+	}
+
+	public final native double getEndNumber() /*-{
+		this.end = end;
+	}-*/;
+
+	public final native TimeOfDay getEndTimeOfDay() /*-{
+		this.end = end;
+	}-*/;
+
+	public final Date getStartDate() {
+		return DateHelper.getDate(getStartJsDate());
+	}
+
+	public final native double getStartNumber() /*-{
+		return this.start;
+	}-*/;
+
+	public final native TimeOfDay getStartTimeOfDay() /*-{
+		return this.start;
+	}-*/;
+
+	private final native JsDate getEndJsDate() /*-{
+		return this.end;
+	}-*/;
+
+	private final native JsDate getStartJsDate() /*-{
+		return this.start;
 	}-*/;
 }

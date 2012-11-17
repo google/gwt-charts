@@ -5,6 +5,8 @@ import com.google.gwt.core.client.JsArray;
 import com.google.gwt.core.client.JsArrayNumber;
 import com.google.gwt.core.client.JsArrayString;
 
+import java.util.List;
+
 /**
  * A set of utility array methods.
  */
@@ -21,6 +23,21 @@ public class ArrayHelper {
 		JsArray<E> jsArray = JsArray.createArray().cast();
 		for (int i = 0; i < array.length; i++) {
 			jsArray.set(i, array[i]);
+		}
+		return jsArray;
+	}
+
+	/**
+	 * Converts a list of java objects into a javascript array (JsArray).
+	 * 
+	 * @param <E> the type of array
+	 * @param array the array containing values
+	 * @return a corresponding JsArray
+	 */
+	public static <E extends JavaScriptObject> JsArray<E> createArray(List<E> array) {
+		JsArray<E> jsArray = JsArray.createArray().cast();
+		for (E object : array) {
+			jsArray.push(object);
 		}
 		return jsArray;
 	}
