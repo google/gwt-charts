@@ -95,8 +95,63 @@ public class DataSource extends JavaScriptObject {
 	 * @param propertyName a property name
 	 * @return the property value of the given column and property name
 	 */
-	// FIXME value type can vary
-	public final native String getColumnProperty(int columnIndex, String propertyName) /*-{
+	public final native boolean getColumnPropertyBoolean(int columnIndex, String propertyName) /*-{
+		return this.getColumnProperty(columnIndex, propertyName);
+	}-*/;
+
+	/**
+	 * Returns the value of a named property, or null if no such property is set for the specified column. The return
+	 * type varies, depending on the property. columnIndex should be a number greater than or equal to zero, and less
+	 * than the number of columns as returned by the getNumberOfColumns() method. name is the property name, as a
+	 * string.
+	 * 
+	 * @param columnIndex the column position
+	 * @param propertyName a property name
+	 * @return the property value of the given column and property name
+	 */
+	public final native JsDate getColumnPropertyDate(int columnIndex, String propertyName) /*-{
+		return this.getColumnProperty(columnIndex, propertyName);
+	}-*/;
+
+	/**
+	 * Returns the value of a named property, or null if no such property is set for the specified column. The return
+	 * type varies, depending on the property. columnIndex should be a number greater than or equal to zero, and less
+	 * than the number of columns as returned by the getNumberOfColumns() method. name is the property name, as a
+	 * string.
+	 * 
+	 * @param columnIndex the column position
+	 * @param propertyName a property name
+	 * @return the property value of the given column and property name
+	 */
+	public final native double getColumnPropertyNumber(int columnIndex, String propertyName) /*-{
+		return this.getColumnProperty(columnIndex, propertyName);
+	}-*/;
+
+	/**
+	 * Returns the value of a named property, or null if no such property is set for the specified column. The return
+	 * type varies, depending on the property. columnIndex should be a number greater than or equal to zero, and less
+	 * than the number of columns as returned by the getNumberOfColumns() method. name is the property name, as a
+	 * string.
+	 * 
+	 * @param columnIndex the column position
+	 * @param propertyName a property name
+	 * @return the property value of the given column and property name
+	 */
+	public final native JavaScriptObject getColumnPropertyObject(int columnIndex, String propertyName) /*-{
+		return this.getColumnProperty(columnIndex, propertyName);
+	}-*/;
+
+	/**
+	 * Returns the value of a named property, or null if no such property is set for the specified column. The return
+	 * type varies, depending on the property. columnIndex should be a number greater than or equal to zero, and less
+	 * than the number of columns as returned by the getNumberOfColumns() method. name is the property name, as a
+	 * string.
+	 * 
+	 * @param columnIndex the column position
+	 * @param propertyName a property name
+	 * @return the property value of the given column and property name
+	 */
+	public final native String getColumnPropertyString(int columnIndex, String propertyName) /*-{
 		return this.getColumnProperty(columnIndex, propertyName);
 	}-*/;
 
@@ -162,7 +217,7 @@ public class DataSource extends JavaScriptObject {
 	 *        returned by the getNumberOfColumns() method.
 	 * @return the unique values in a certain column, in ascending order.
 	 */
-	public final native JsArray<JavaScriptObject> getDistinctValuesObject(int columnIndex) /*-{
+	public final native JsArrayNumber getDistinctValuesNumber(int columnIndex) /*-{
 		return this.getDistinctValues(columnIndex);
 	}-*/;
 
@@ -173,7 +228,7 @@ public class DataSource extends JavaScriptObject {
 	 *        returned by the getNumberOfColumns() method.
 	 * @return the unique values in a certain column, in ascending order.
 	 */
-	public final native JsArrayNumber getDistinctValuesNumber(int columnIndex) /*-{
+	public final native JsArray<JavaScriptObject> getDistinctValuesObject(int columnIndex) /*-{
 		return this.getDistinctValues(columnIndex);
 	}-*/;
 
@@ -442,6 +497,7 @@ public class DataSource extends JavaScriptObject {
 
 	/**
 	 * Returns the value of the cell at the given row and column indexes.
+	 * 
 	 * @param rowIndex should be a number greater than or equal to zero, and less than the number of rows
 	 * @param columnIndex should be a number greater than or equal to zero, and less than the number of columns
 	 * @return value of the specified cell
@@ -452,6 +508,7 @@ public class DataSource extends JavaScriptObject {
 
 	/**
 	 * Returns the value of the cell at the given row and column indexes.
+	 * 
 	 * @param rowIndex should be a number greater than or equal to zero, and less than the number of rows
 	 * @param columnIndex should be a number greater than or equal to zero, and less than the number of columns
 	 * @return value of the specified cell
@@ -463,6 +520,7 @@ public class DataSource extends JavaScriptObject {
 
 	/**
 	 * Returns the value of the cell at the given row and column indexes.
+	 * 
 	 * @param rowIndex should be a number greater than or equal to zero, and less than the number of rows
 	 * @param columnIndex should be a number greater than or equal to zero, and less than the number of columns
 	 * @return value of the specified cell
@@ -473,6 +531,7 @@ public class DataSource extends JavaScriptObject {
 
 	/**
 	 * Returns the value of the cell at the given row and column indexes.
+	 * 
 	 * @param rowIndex should be a number greater than or equal to zero, and less than the number of rows
 	 * @param columnIndex should be a number greater than or equal to zero, and less than the number of columns
 	 * @return value of the specified cell
@@ -483,6 +542,7 @@ public class DataSource extends JavaScriptObject {
 
 	/**
 	 * Returns the value of the cell at the given row and column indexes.
+	 * 
 	 * @param rowIndex should be a number greater than or equal to zero, and less than the number of rows
 	 * @param columnIndex should be a number greater than or equal to zero, and less than the number of columns
 	 * @return value of the specified cell
@@ -493,6 +553,7 @@ public class DataSource extends JavaScriptObject {
 
 	/**
 	 * Returns the value of the cell at the given row and column indexes.
+	 * 
 	 * @param rowIndex should be a number greater than or equal to zero, and less than the number of rows
 	 * @param columnIndex should be a number greater than or equal to zero, and less than the number of columns
 	 * @return value of the specified cell
@@ -503,6 +564,7 @@ public class DataSource extends JavaScriptObject {
 
 	/**
 	 * Checks if the value of the cell at the given row and column indexes is null
+	 * 
 	 * @param rowIndex should be a number greater than or equal to zero, and less than the number of rows
 	 * @param columnIndex should be a number greater than or equal to zero, and less than the number of columns
 	 * @return true if null, false otherwise
@@ -513,6 +575,7 @@ public class DataSource extends JavaScriptObject {
 
 	/**
 	 * Returns a JSON representation of the DataTable that can be passed into the DataTable constructor.
+	 * 
 	 * @return a JSON representation of the DataTable
 	 */
 	public final native String toJSON() /*-{

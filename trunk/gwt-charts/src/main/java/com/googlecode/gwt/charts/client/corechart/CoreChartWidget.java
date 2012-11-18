@@ -56,10 +56,35 @@ public abstract class CoreChartWidget<T extends Options> extends ChartWidget<T> 
 		return addHandler(handler);
 	}
 
+	/**
+	 * Returns an array of selected objects, each one describing a data element in the underlying table used to create
+	 * the
+	 * visualization (a DataView or a DataTable). Each object has properties row and/or column, with the index of the
+	 * row and/or column of the selected item in the underlying DataTable. If the row property is null, then the
+	 * selection is a column; if the column property is null, then the selection is a row; if both are non-null, then it
+	 * is a specific data item. You can call the DataTable.getValue() method to get the value of the selected item. The
+	 * retrieved array can be passed into setSelection().
+	 * 
+	 * @return an array of selected objects
+	 */
 	public final JsArray<Selection> getSelection() {
 		return chartObject.getSelection();
 	}
 
+	/**
+	 * Selects a data entry in the visualization—for example, a point in an area chart, or a bar in a bar chart. When
+	 * this method is called, the visualization should visually indicate what the new selection is. The implementation
+	 * of setSelection() should not fire a "select" event. Visualizations may ignore part of the selection. For example,
+	 * a table that can show only selected rows may ignore cell or column elements in its setSelection() implementation,
+	 * or it can select the entire row.
+	 * 
+	 * Every time this method is called, all selected items are deselected, and the new selection list passed in should
+	 * be applied. There is no explicit way to deselect individual items; to deselect individual items, call
+	 * setSelection() with the items to remain selected; to deselect all elements, call setSelection(),
+	 * setSelection(null), or setSelection([]).
+	 * 
+	 * @param selection
+	 */
 	public final void setSelection(JsArray<Selection> selection) {
 		this.selection = selection;
 		chartObject.setSelection(selection);

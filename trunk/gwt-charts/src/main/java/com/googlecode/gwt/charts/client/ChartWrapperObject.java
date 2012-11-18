@@ -100,14 +100,14 @@ public class ChartWrapperObject<T extends Options> extends HasListeners {
 	 */
 	public final HandlerRef addHandler(final EventHandler handler) {
 		return addListener(ReadyEvent.NAME, new ReadyHandler() {
-			
+
 			@Override
 			public void onReady(ReadyEvent event) {
 				addListener(getChart(), handler.getEventName(), handler);
 			}
 		});
 	}
-	
+
 	/**
 	 * The chart is ready for external method calls. If you want to interact with the chart, and call methods after you
 	 * draw it, you should set up a listener for this event before you call the draw method, and call them only after
@@ -123,13 +123,13 @@ public class ChartWrapperObject<T extends Options> extends HasListeners {
 	/**
 	 * Fired when the user clicks a bar or legend. When a chart element is selected, the corresponding cell in the data
 	 * table is selected; when a legend is selected, the corresponding column in the data table is selected. To learn
-	 * what has been selected, call ChartWrapperObject.getChart().getSelection(). Note that this will only be thrown when the
+	 * what has been selected, call ChartWrapperObject.getChart().getSelection(). Note that this will only be thrown
+	 * when the
 	 * underlying chart type throws a selection event.
 	 * 
 	 * @param handler the select handler
 	 * @return a reference for removing this handler
 	 */
-	// TODO expose getSelection()
 	public final HandlerRef addSelectHandler(SelectHandler handler) {
 		return addListener(SelectEvent.NAME, handler);
 	}
@@ -152,8 +152,10 @@ public class ChartWrapperObject<T extends Options> extends HasListeners {
 	}-*/;
 
 	/**
-	 * Returns a reference to the chart created by this ChartWrapperObject, for example a google.visualization.BarChart or a
-	 * google.visualization.ColumnChart. This will return null until after you have called draw() on the ChartWrapperObject
+	 * Returns a reference to the chart created by this ChartWrapperObject, for example a google.visualization.BarChart
+	 * or a
+	 * google.visualization.ColumnChart. This will return null until after you have called draw() on the
+	 * ChartWrapperObject
 	 * object, and it throws a ready event. Methods called on the returned object will be reflected on the page.
 	 * 
 	 * @return a reference to the chart object
@@ -227,10 +229,33 @@ public class ChartWrapperObject<T extends Options> extends HasListeners {
 	 * Returns the specified chart option value.
 	 * 
 	 * @param key The name of the option to retrieve. May be a qualified name, such as 'vAxis.title'
+	 * @param defaultValue If the specified value is undefined or null, this value will be returned.
+	 * @return the value specified by key
+	 */
+	public final native boolean getOptionBoolean(String key, boolean defaultValue) /*-{
+		return this.getOption(key, defaultValue);
+	}-*/;
+
+	/**
+	 * Returns the specified chart option value.
+	 * 
+	 * @param key The name of the option to retrieve. May be a qualified name, such as 'vAxis.title'
 	 * @return the value specified by key
 	 */
 	public final Date getOptionDate(String key) {
 		JsDate jsDate = this.getOptionObject(key).cast();
+		return DateHelper.getDate(jsDate);
+	}
+
+	/**
+	 * Returns the specified chart option value.
+	 * 
+	 * @param key The name of the option to retrieve. May be a qualified name, such as 'vAxis.title'
+	 * @param defaultValue If the specified value is undefined or null, this value will be returned.
+	 * @return the value specified by key
+	 */
+	public final Date getOptionDate(String key, Date defaultValue) {
+		JsDate jsDate = this.getOptionObject(key, DateHelper.getJsDate(defaultValue)).cast();
 		return DateHelper.getDate(jsDate);
 	}
 
@@ -248,10 +273,41 @@ public class ChartWrapperObject<T extends Options> extends HasListeners {
 	 * Returns the specified chart option value.
 	 * 
 	 * @param key The name of the option to retrieve. May be a qualified name, such as 'vAxis.title'
+	 * @param defaultValue If the specified value is undefined or null, this value will be returned.
+	 * @return the value specified by key
+	 */
+	public final native double getOptionNumber(String key, double defaultValue) /*-{
+		return this.getOption(key, defaultValue);
+	}-*/;
+
+	/**
+	 * Returns the specified chart option value.
+	 * 
+	 * @param key The name of the option to retrieve. May be a qualified name, such as 'vAxis.title'
 	 * @return the value specified by key
 	 */
 	public final native JavaScriptObject getOptionObject(String key) /*-{
 		return this.getOption(key);
+	}-*/;
+
+	/**
+	 * Returns the specified chart option value.
+	 * 
+	 * @param key The name of the option to retrieve. May be a qualified name, such as 'vAxis.title'
+	 * @param defaultValue If the specified value is undefined or null, this value will be returned.
+	 * @return the value specified by key
+	 */
+	public final native JavaScriptObject getOptionObject(String key, JavaScriptObject defaultValue) /*-{
+		return this.getOption(key, defaultValue);
+	}-*/;
+
+	/**
+	 * Returns the options object for this chart.
+	 * 
+	 * @return the options object for this chart
+	 */
+	public final native T getOptions() /*-{
+		return this.getOptions();
 	}-*/;
 
 	/**
@@ -271,62 +327,8 @@ public class ChartWrapperObject<T extends Options> extends HasListeners {
 	 * @param defaultValue If the specified value is undefined or null, this value will be returned.
 	 * @return the value specified by key
 	 */
-	public final native boolean getOptionBoolean(String key, boolean defaultValue) /*-{
-		return this.getOption(key, defaultValue);
-	}-*/;
-
-	/**
-	 * Returns the specified chart option value.
-	 * 
-	 * @param key The name of the option to retrieve. May be a qualified name, such as 'vAxis.title'
-	 * @param defaultValue If the specified value is undefined or null, this value will be returned.
-	 * @return the value specified by key
-	 */
-	public final Date getOptionDate(String key, Date defaultValue) {
-		JsDate jsDate = this.getOptionObject(key, DateHelper.getJsDate(defaultValue)).cast();
-		return DateHelper.getDate(jsDate);
-	}
-
-	/**
-	 * Returns the specified chart option value.
-	 * 
-	 * @param key The name of the option to retrieve. May be a qualified name, such as 'vAxis.title'
-	 * @param defaultValue If the specified value is undefined or null, this value will be returned.
-	 * @return the value specified by key
-	 */
-	public final native double getOptionNumber(String key, double defaultValue) /*-{
-		return this.getOption(key, defaultValue);
-	}-*/;
-
-	/**
-	 * Returns the specified chart option value.
-	 * 
-	 * @param key The name of the option to retrieve. May be a qualified name, such as 'vAxis.title'
-	 * @param defaultValue If the specified value is undefined or null, this value will be returned.
-	 * @return the value specified by key
-	 */
-	public final native JavaScriptObject getOptionObject(String key, JavaScriptObject defaultValue) /*-{
-		return this.getOption(key, defaultValue);
-	}-*/;
-
-	/**
-	 * Returns the specified chart option value.
-	 * 
-	 * @param key The name of the option to retrieve. May be a qualified name, such as 'vAxis.title'
-	 * @param defaultValue If the specified value is undefined or null, this value will be returned.
-	 * @return the value specified by key
-	 */
 	public final native String getOptionString(String key, String defaultValue) /*-{
 		return this.getOption(key, defaultValue);
-	}-*/;
-
-	/**
-	 * Returns the options object for this chart.
-	 * 
-	 * @return the options object for this chart
-	 */
-	public final native T getOptions() /*-{
-		return this.getOptions();
 	}-*/;
 
 	/**
@@ -348,13 +350,19 @@ public class ChartWrapperObject<T extends Options> extends HasListeners {
 	}-*/;
 
 	/**
-	 * Returns an array of DataView initializer objects.
+	 * Returns an array of selected objects, each one describing a data element in the underlying table used to create
+	 * the
+	 * visualization (a DataView or a DataTable). Each object has properties row and/or column, with the index of the
+	 * row and/or column of the selected item in the underlying DataTable. If the row property is null, then the
+	 * selection is a column; if the column property is null, then the selection is a row; if both are non-null, then it
+	 * is a specific data item. You can call the DataTable.getValue() method to get the value of the selected item. The
+	 * retrieved array can be passed into setSelection().
 	 * 
-	 * @return an array of DataView initializer objects
+	 * @return an array of selected objects
 	 */
-	public final native JsArray<DataView> getViewArray() /*-{
-		return this.getViewArray();
-	}-*/;
+	public final JsArray<Selection> getSelection() {
+		return getChart().getSelection();
+	}
 
 	/**
 	 * Returns the DataView initializer object.
@@ -363,6 +371,15 @@ public class ChartWrapperObject<T extends Options> extends HasListeners {
 	 */
 	public final native DataView getView() /*-{
 		return this.getView();
+	}-*/;
+
+	/**
+	 * Returns an array of DataView initializer objects.
+	 * 
+	 * @return an array of DataView initializer objects
+	 */
+	public final native JsArray<DataView> getViewArray() /*-{
+		return this.getViewArray();
 	}-*/;
 
 	/**
@@ -522,6 +539,24 @@ public class ChartWrapperObject<T extends Options> extends HasListeners {
 	public final native void setRefreshInterval(int refreshInterval) /*-{
 		this.setRefreshInterval(refreshInterval);
 	}-*/;
+
+	/**
+	 * Selects a data entry in the visualization—for example, a point in an area chart, or a bar in a bar chart. When
+	 * this method is called, the visualization should visually indicate what the new selection is. The implementation
+	 * of setSelection() should not fire a "select" event. Visualizations may ignore part of the selection. For example,
+	 * a table that can show only selected rows may ignore cell or column elements in its setSelection() implementation,
+	 * or it can select the entire row.
+	 * 
+	 * Every time this method is called, all selected items are deselected, and the new selection list passed in should
+	 * be applied. There is no explicit way to deselect individual items; to deselect individual items, call
+	 * setSelection() with the items to remain selected; to deselect all elements, call setSelection(),
+	 * setSelection(null), or setSelection([]).
+	 * 
+	 * @param selection
+	 */
+	public final void setSelection(JsArray<Selection> selection) {
+		getChart().setSelection(selection);
+	}
 
 	/**
 	 * Sets a DataView initializer object, which acts as a filter over the underlying data. The chart wrapper must have
