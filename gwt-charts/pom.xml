@@ -22,6 +22,7 @@
 	<scm>
 		<url>http://gwt-charts.googlecode.com/svn/trunk/</url>
 		<connection>scm:svn:http://gwt-charts.googlecode.com/svn/trunk/</connection>
+		<developerConnection>scm:svn:http://gwt-charts.googlecode.com/svn/trunk/</developerConnection>
 	</scm>
 
 	<developers>
@@ -66,7 +67,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-war-plugin</artifactId>
-				<version>2.1.1</version>
+				<version>2.3</version>
 				<configuration>
 					<warSourceDirectory>src/main/webapp</warSourceDirectory>
 					<webXml>src/main/webapp/WEB-INF/web.xml</webXml>
@@ -75,7 +76,35 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-site-plugin</artifactId>
-				<version>3.0</version>
+				<version>3.2</version>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<version>2.2.1</version>
+				<executions>
+					<execution>
+						<id>attach-sources</id>
+						<phase>verify</phase>
+						<goals>
+							<goal>jar-no-fork</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>2.9</version>
+				<executions>
+					<execution>
+						<id>attach-sources</id>
+						<phase>verify</phase>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
