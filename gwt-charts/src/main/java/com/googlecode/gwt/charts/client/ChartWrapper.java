@@ -111,14 +111,13 @@ public class ChartWrapper<T extends Options> extends Widget implements RequiresR
 	/**
 	 * Fired when the user clicks a bar or legend. When a chart element is selected, the corresponding cell in the data
 	 * table is selected; when a legend is selected, the corresponding column in the data table is selected. To learn
-	 * what has been selected, call ChartWrapperObject.getChart().getSelection(). Note that this will only be thrown
+	 * what has been selected, call getSelection(). Note that this will only be thrown
 	 * when the
 	 * underlying chart type throws a selection event.
 	 * 
 	 * @param handler the select handler
 	 * @return a reference for removing this handler
 	 */
-	// TODO expose getSelection()
 	public final HandlerRef addSelectHandler(SelectHandler handler) {
 		return chartWrapperObject.addSelectHandler(handler);
 	}
@@ -226,10 +225,32 @@ public class ChartWrapper<T extends Options> extends Widget implements RequiresR
 	 * Returns the specified chart option value.
 	 * 
 	 * @param key The name of the option to retrieve. May be a qualified name, such as 'vAxis.title'
+	 * @param defaultValue If the specified value is undefined or null, this value will be returned.
+	 * @return the value specified by key
+	 */
+	public final boolean getOptionBoolean(String key, boolean defaultValue) {
+		return chartWrapperObject.getOptionBoolean(key, defaultValue);
+	}
+
+	/**
+	 * Returns the specified chart option value.
+	 * 
+	 * @param key The name of the option to retrieve. May be a qualified name, such as 'vAxis.title'
 	 * @return the value specified by key
 	 */
 	public final Date getOptionDate(String key) {
 		return chartWrapperObject.getOptionDate(key);
+	}
+
+	/**
+	 * Returns the specified chart option value.
+	 * 
+	 * @param key The name of the option to retrieve. May be a qualified name, such as 'vAxis.title'
+	 * @param defaultValue If the specified value is undefined or null, this value will be returned.
+	 * @return the value specified by key
+	 */
+	public final Date getOptionDate(String key, Date defaultValue) {
+		return chartWrapperObject.getOptionDate(key, defaultValue);
 	}
 
 	/**
@@ -246,10 +267,41 @@ public class ChartWrapper<T extends Options> extends Widget implements RequiresR
 	 * Returns the specified chart option value.
 	 * 
 	 * @param key The name of the option to retrieve. May be a qualified name, such as 'vAxis.title'
+	 * @param defaultValue If the specified value is undefined or null, this value will be returned.
+	 * @return the value specified by key
+	 */
+	public final double getOptionNumber(String key, double defaultValue) {
+		return chartWrapperObject.getOptionNumber(key, defaultValue);
+	}
+
+	/**
+	 * Returns the specified chart option value.
+	 * 
+	 * @param key The name of the option to retrieve. May be a qualified name, such as 'vAxis.title'
 	 * @return the value specified by key
 	 */
 	public final JavaScriptObject getOptionObject(String key) {
 		return chartWrapperObject.getOptionObject(key);
+	}
+
+	/**
+	 * Returns the specified chart option value.
+	 * 
+	 * @param key The name of the option to retrieve. May be a qualified name, such as 'vAxis.title'
+	 * @param defaultValue If the specified value is undefined or null, this value will be returned.
+	 * @return the value specified by key
+	 */
+	public final JavaScriptObject getOptionObject(String key, JavaScriptObject defaultValue) {
+		return chartWrapperObject.getOptionObject(key, defaultValue);
+	}
+
+	/**
+	 * Returns the options object for this chart.
+	 * 
+	 * @return the options object for this chart
+	 */
+	public final T getOptions() {
+		return chartWrapperObject.getOptions();
 	}
 
 	/**
@@ -269,61 +321,8 @@ public class ChartWrapper<T extends Options> extends Widget implements RequiresR
 	 * @param defaultValue If the specified value is undefined or null, this value will be returned.
 	 * @return the value specified by key
 	 */
-	public final boolean getOptionBoolean(String key, boolean defaultValue) {
-		return chartWrapperObject.getOptionBoolean(key, defaultValue);
-	}
-
-	/**
-	 * Returns the specified chart option value.
-	 * 
-	 * @param key The name of the option to retrieve. May be a qualified name, such as 'vAxis.title'
-	 * @param defaultValue If the specified value is undefined or null, this value will be returned.
-	 * @return the value specified by key
-	 */
-	public final Date getOptionDate(String key, Date defaultValue) {
-		return chartWrapperObject.getOptionDate(key, defaultValue);
-	}
-
-	/**
-	 * Returns the specified chart option value.
-	 * 
-	 * @param key The name of the option to retrieve. May be a qualified name, such as 'vAxis.title'
-	 * @param defaultValue If the specified value is undefined or null, this value will be returned.
-	 * @return the value specified by key
-	 */
-	public final double getOptionNumber(String key, double defaultValue) {
-		return chartWrapperObject.getOptionNumber(key, defaultValue);
-	}
-
-	/**
-	 * Returns the specified chart option value.
-	 * 
-	 * @param key The name of the option to retrieve. May be a qualified name, such as 'vAxis.title'
-	 * @param defaultValue If the specified value is undefined or null, this value will be returned.
-	 * @return the value specified by key
-	 */
-	public final JavaScriptObject getOptionObject(String key, JavaScriptObject defaultValue) {
-		return chartWrapperObject.getOptionObject(key, defaultValue);
-	}
-
-	/**
-	 * Returns the specified chart option value.
-	 * 
-	 * @param key The name of the option to retrieve. May be a qualified name, such as 'vAxis.title'
-	 * @param defaultValue If the specified value is undefined or null, this value will be returned.
-	 * @return the value specified by key
-	 */
 	public final String getOptionString(String key, String defaultValue) {
 		return chartWrapperObject.getOptionString(key, defaultValue);
-	}
-
-	/**
-	 * Returns the options object for this chart.
-	 * 
-	 * @return the options object for this chart
-	 */
-	public final T getOptions() {
-		return chartWrapperObject.getOptions();
 	}
 
 	/**
@@ -345,12 +344,18 @@ public class ChartWrapper<T extends Options> extends Widget implements RequiresR
 	}
 
 	/**
-	 * Returns an array of DataView initializer objects.
+	 * Returns an array of selected objects, each one describing a data element in the underlying table used to create
+	 * the
+	 * visualization (a DataView or a DataTable). Each object has properties row and/or column, with the index of the
+	 * row and/or column of the selected item in the underlying DataTable. If the row property is null, then the
+	 * selection is a column; if the column property is null, then the selection is a row; if both are non-null, then it
+	 * is a specific data item. You can call the DataTable.getValue() method to get the value of the selected item. The
+	 * retrieved array can be passed into setSelection().
 	 * 
-	 * @return an array of DataView initializer objects
+	 * @return an array of selected objects
 	 */
-	public final JsArray<DataView> getViewArray() {
-		return chartWrapperObject.getViewArray();
+	public final JsArray<Selection> getSelection() {
+		return chartWrapperObject.getSelection();
 	}
 
 	/**
@@ -360,6 +365,15 @@ public class ChartWrapper<T extends Options> extends Widget implements RequiresR
 	 */
 	public final DataView getView() {
 		return chartWrapperObject.getView();
+	}
+
+	/**
+	 * Returns an array of DataView initializer objects.
+	 * 
+	 * @return an array of DataView initializer objects
+	 */
+	public final JsArray<DataView> getViewArray() {
+		return chartWrapperObject.getViewArray();
 	}
 
 	@Override
@@ -543,6 +557,24 @@ public class ChartWrapper<T extends Options> extends Widget implements RequiresR
 	 */
 	public final void setRefreshInterval(int refreshInterval) {
 		chartWrapperObject.setRefreshInterval(refreshInterval);
+	}
+
+	/**
+	 * Selects a data entry in the visualization—for example, a point in an area chart, or a bar in a bar chart. When
+	 * this method is called, the visualization should visually indicate what the new selection is. The implementation
+	 * of setSelection() should not fire a "select" event. Visualizations may ignore part of the selection. For example,
+	 * a table that can show only selected rows may ignore cell or column elements in its setSelection() implementation,
+	 * or it can select the entire row.
+	 * 
+	 * Every time this method is called, all selected items are deselected, and the new selection list passed in should
+	 * be applied. There is no explicit way to deselect individual items; to deselect individual items, call
+	 * setSelection() with the items to remain selected; to deselect all elements, call setSelection(),
+	 * setSelection(null), or setSelection([]).
+	 * 
+	 * @param selection
+	 */
+	public final void setSelection(JsArray<Selection> selection) {
+		chartWrapperObject.setSelection(selection);
 	}
 
 	/**
