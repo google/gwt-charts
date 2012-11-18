@@ -1,6 +1,13 @@
 #summary Release Notes
 
 = Release Notes =
+== November 17, 2012 ==
+Released version 0.9.8.
+  * Breaking changes: DashboardWidget, ChartWrapperWidget and ControlWrapperWidget renamed to Dashboard, ChartWrapper and ControlWrapper
+  * More breaking changes: ControlWrapper introduces two generics, one for options and other for state
+  * New and simpler filter widgets: CategoryFilter, ChartRangeFilter, NumberRangeFilter, StringFilter (instead of using ControlWrapper)
+  * Several JSNI fixes for Controls and Dashboards
+----
 == October 25, 2012 ==
 Released version 0.9.7.
   * Several fixes for Controls and Dashboards
