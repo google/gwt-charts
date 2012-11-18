@@ -89,7 +89,7 @@ public class CategoryFilterOptions extends ControlOptions {
 	 * The list of values will be automatically computed
 	 * from the values present in the DataTable column this control operates on.
 	 */
-	public final native void setValuesNull() /*-{
+	public final native void setValues() /*-{
 		this.values = null;
 	}-*/;
 }
