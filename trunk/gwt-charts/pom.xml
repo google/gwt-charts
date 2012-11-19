@@ -28,7 +28,7 @@
 	<scm>
 		<url>http://gwt-charts.googlecode.com/svn/trunk/</url>
 		<connection>scm:svn:http://gwt-charts.googlecode.com/svn/trunk/</connection>
-		<developerConnection>scm:svn:http://gwt-charts.googlecode.com/svn/trunk/</developerConnection>
+		<developerConnection>scm:svn:https://gwt-charts.googlecode.com/svn/trunk/</developerConnection>
 	</scm>
 
 	<developers>
