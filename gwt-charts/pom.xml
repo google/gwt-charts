@@ -26,9 +26,9 @@
 	</licenses>
 
 	<scm>
-		<url>http://gwt-charts.googlecode.com/svn/trunk/</url>
-		<connection>scm:svn:http://gwt-charts.googlecode.com/svn/trunk/</connection>
-		<developerConnection>scm:svn:https://gwt-charts.googlecode.com/svn/trunk/</developerConnection>
+		<url>http://gwt-charts.googlecode.com/svn/trunk/gwt-charts</url>
+		<connection>scm:svn:http://gwt-charts.googlecode.com/svn/trunk/gwt-charts</connection>
+		<developerConnection>scm:svn:https://gwt-charts.googlecode.com/svn/trunk/gwt-charts</developerConnection>
 	</scm>
 
 	<developers>
