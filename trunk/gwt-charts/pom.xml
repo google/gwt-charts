@@ -1,9 +1,8 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.googlecode.gwt-charts</groupId>
 	<artifactId>gwt-charts</artifactId>
-	<version>0.9.8-SNAPSHOT</version>
+	<version>0.9.8</version>
 	<packaging>jar</packaging>
 
 	<name>GWT Charts</name>
@@ -26,9 +25,9 @@
 	</licenses>
 
 	<scm>
-		<url>http://gwt-charts.googlecode.com/svn/trunk/</url>
-		<connection>scm:svn:http://gwt-charts.googlecode.com/svn/trunk/</connection>
-		<developerConnection>scm:svn:https://gwt-charts.googlecode.com/svn/trunk/</developerConnection>
+		<url>http://gwt-charts.googlecode.com/svn/tags/gwt-charts-0.9.8</url>
+		<connection>scm:svn:http://gwt-charts.googlecode.com/svn/tags/gwt-charts-0.9.8</connection>
+		<developerConnection>scm:svn:https://gwt-charts.googlecode.com/svn/tags/gwt-charts-0.9.8</developerConnection>
 	</scm>
 
 	<developers>
@@ -155,7 +154,7 @@
 										</goals>
 									</pluginExecutionFilter>
 									<action>
-										<ignore></ignore>
+										<ignore />
 									</action>
 								</pluginExecution>
 							</pluginExecutions>
