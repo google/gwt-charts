@@ -3,4 +3,4 @@
  * [GettingStarted Getting Started]
  * [Documentation Documentation]
  * [ReleaseNotes Release Notes]
- * [FAQ FAQs]
+ * [FAQ FAQ]
