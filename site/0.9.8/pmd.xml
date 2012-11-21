@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pmd version="4.2.5" timestamp="2012-11-20T23:47:13.758">
+<file name="D:\artelecom\workspace\itm\gwt-charts\src\main\java\com\googlecode\gwt\charts\client\ajaxloader\AjaxLoader.java">
+<violation beginline="266" endline="266" begincolumn="29" endcolumn="44" rule="UnusedPrivateMethod" ruleset="Unused Code Rules" package="com.googlecode.gwt.charts.client.ajaxloader" class="AjaxLoader" method="onLoadCallback" externalInfoUrl="http://pmd.sourceforge.net/rules/unusedcode.html#UnusedPrivateMethod" priority="3">
+Avoid unused private methods such as 'onLoadCallback()'.
+</violation>
+</file>
+<file name="D:\artelecom\workspace\itm\gwt-charts\src\main\java\com\googlecode\gwt\charts\client\corechart\AreaChartOptions.java">
+<violation beginline="164" endline="164" begincolumn="35" endcolumn="76" rule="UnusedPrivateMethod" ruleset="Unused Code Rules" package="com.googlecode.gwt.charts.client.corechart" class="AreaChartOptions" method="setSeries" externalInfoUrl="http://pmd.sourceforge.net/rules/unusedcode.html#UnusedPrivateMethod" priority="3">
+Avoid unused private methods such as 'setSeries(JsArray)'.
+</violation>
+</file>
+<file name="D:\artelecom\workspace\itm\gwt-charts\src\main\java\com\googlecode\gwt\charts\client\corechart\CandlestickChartOptions.java">
+<violation beginline="161" endline="161" begincolumn="35" endcolumn="83" rule="UnusedPrivateMethod" ruleset="Unused Code Rules" package="com.googlecode.gwt.charts.client.corechart" class="CandlestickChartOptions" method="setSeries" externalInfoUrl="http://pmd.sourceforge.net/rules/unusedcode.html#UnusedPrivateMethod" priority="3">
+Avoid unused private methods such as 'setSeries(JsArray)'.
+</violation>
+</file>
+<file name="D:\artelecom\workspace\itm\gwt-charts\src\main\java\com\googlecode\gwt\charts\client\corechart\SteppedAreaChartOptions.java">
+<violation beginline="154" endline="154" begincolumn="35" endcolumn="83" rule="UnusedPrivateMethod" ruleset="Unused Code Rules" package="com.googlecode.gwt.charts.client.corechart" class="SteppedAreaChartOptions" method="setSeries" externalInfoUrl="http://pmd.sourceforge.net/rules/unusedcode.html#UnusedPrivateMethod" priority="3">
+Avoid unused private methods such as 'setSeries(JsArray)'.
+</violation>
+<violation beginline="158" endline="158" begincolumn="35" endcolumn="64" rule="UnusedPrivateMethod" ruleset="Unused Code Rules" package="com.googlecode.gwt.charts.client.corechart" class="SteppedAreaChartOptions" method="setVAxes" externalInfoUrl="http://pmd.sourceforge.net/rules/unusedcode.html#UnusedPrivateMethod" priority="3">
+Avoid unused private methods such as 'setVAxes(JsArray)'.
+</violation>
+</file>
+</pmd>
