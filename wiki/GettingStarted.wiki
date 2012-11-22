@@ -3,27 +3,47 @@
 
 = Getting started with GWT Charts =
 
-== Downloading ==
-Please download the latest jar version from the [http://code.google.com/p/gwt-charts/downloads/list project download page].
+== Requirements ==
+  * Java 1.6 or above
+  * GWT 2.x (2.4 preferred)
+
+== Getting the code ==
+
+=== Standalone ===
+  * Download the latest jar version from the [http://code.google.com/p/gwt-charts/downloads/list project download page].
+  * Include the jar in your project classpath
+
+=== Maven ===
+Since version 0.9.8, gwt-charts is available in the [http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22gwt-charts%22 Central Repository].
+
+Just add the following dependency to your pom.xml:
+{{{
+<dependency>
+    <groupId>com.googlecode.gwt-charts</groupId>
+    <artifactId>gwt-charts</artifactId>
+    <version>0.9.8</version>
+</dependency>
+}}}
 
 == Project Setup ==
-  * Include the jar in your project classpath
-  * Inherit the module `com.googlecode.gwt.charts.Charts` in the your XML definition file
+Inherit the module `com.googlecode.gwt.charts.Charts` in the your XML definition file
 <code language="xml">
 <inherits name="com.googlecode.gwt.charts.Charts"/>
 </code>
-  * Call the `com.googlecode.gwt.charts.client.ChartLoader` class for loading the appropriate packages into your GWT module, *before* you use any type of chart. See the following snippet:
+Call the `com.googlecode.gwt.charts.client.ChartLoader` class for loading the appropriate packages into your GWT module, *before* you use any type of chart.
+See the following snippet:
 <code language="java">
 ChartLoader chartLoader = new ChartLoader(ChartPackage.CORECHART);
 chartLoader.loadApi(new Runnable() {
 	@Override
 	public void run() {
-		// call method to show chart
+		// call method to create and show the chart
 	}
 });
 </code>
 
 == A Simple Example ==
+It's better to load them on startup (onModuleLoad), so you don't have to constantly worry about it.
 
 {{{
 package com.googlecode.gwt.charts.client;
