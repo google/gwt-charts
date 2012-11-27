@@ -14,12 +14,13 @@ package com.googlecode.gwt.charts.client.controls;
 
 import com.google.gwt.core.client.JsArray;
 import com.google.gwt.core.client.JsArrayMixed;
+import com.google.gwt.core.client.Scheduler;
 import com.google.gwt.dom.client.Element;
 import com.google.gwt.user.client.DOM;
 import com.google.gwt.user.client.ui.Widget;
 
-import com.googlecode.gwt.charts.client.ChartWrapperObject;
 import com.googlecode.gwt.charts.client.ChartWrapper;
+import com.googlecode.gwt.charts.client.ChartWrapperObject;
 import com.googlecode.gwt.charts.client.DataSource;
 import com.googlecode.gwt.charts.client.event.ErrorEvent;
 import com.googlecode.gwt.charts.client.event.ErrorHandler;
@@ -35,6 +36,8 @@ import java.util.List;
  */
 public class Dashboard extends Widget {
 	private DashboardObject dashboardObject;
+	private Object data;
+	private boolean pending;
 
 	/**
 	 * Creates a Dashboard
@@ -116,7 +119,8 @@ public class Dashboard extends Widget {
 	 * @param dataSource a DataTable or a DataView object
 	 */
 	public final void draw(DataSource dataSource) {
-		dashboardObject.draw(dataSource);
+		this.data = dataSource;
+		redraw();
 	}
 
 	/**
@@ -125,6 +129,7 @@ public class Dashboard extends Widget {
 	 * @param dataArray an array following the syntax of {@link ChartHelper#arrayToDataTable(JsArrayMixed)}
 	 */
 	public final void draw(JsArrayMixed dataArray) {
+		this.data = dataArray;
 		dashboardObject.draw(dataArray);
 	}
 
@@ -134,6 +139,7 @@ public class Dashboard extends Widget {
 	 * @param json a JSON representation of a DataTable
 	 */
 	public final void draw(String json) {
+		this.data = json;
 		dashboardObject.draw(json);
 	}
 
@@ -144,5 +150,40 @@ public class Dashboard extends Widget {
 	 */
 	public DashboardObject getObject() {
 		return dashboardObject;
+	}
+	
+	/**
+	 * Redraws the chart with last used data and options.
+	 */
+	public void redraw() {
+		if (pending) {
+			return;
+		}
+		pending = true;
+		// Double deferred command because of layout issues
+		Scheduler.get().scheduleDeferred(new Scheduler.ScheduledCommand() {
+
+			@Override
+			public void execute() {
+				Scheduler.get().scheduleDeferred(new Scheduler.ScheduledCommand() {
+
+					@Override
+					public void execute() {
+						redrawNow();
+					}
+				});
+			}
+		});
+	}
+	
+	protected void redrawNow() {
+		if (data instanceof DataSource) {
+			dashboardObject.draw((DataSource)data);
+		} else if (data instanceof JsArrayMixed) {
+			dashboardObject.draw((JsArrayMixed)data);
+		} else if (data instanceof String) {
+			dashboardObject.draw((String)data);
+		}
+		pending = false;
 	}
 }
