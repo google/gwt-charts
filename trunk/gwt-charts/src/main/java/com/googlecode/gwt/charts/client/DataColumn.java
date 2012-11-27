@@ -22,13 +22,28 @@ public class DataColumn extends JavaScriptObject {
 	/**
 	 * Default static constructor
 	 * 
-	 * @param type data type of the data in the column. 
+	 * @param type data type of the data in the column.
 	 * 
 	 * @return a new object
 	 */
 	public static DataColumn create(ColumnType type) {
 		DataColumn dataColumn = createObject().cast();
 		dataColumn.setType(type);
+		return dataColumn;
+	}
+
+	/**
+	 * Default static constructor
+	 * 
+	 * @param type data type of the data in the column.
+	 * @param role a role for the column
+	 * 
+	 * @return a new object
+	 */
+	public static DataColumn create(ColumnType type, RoleType role) {
+		DataColumn dataColumn = createObject().cast();
+		dataColumn.setType(type);
+		dataColumn.setRole(role);
 		return dataColumn;
 	}
 
@@ -56,13 +71,22 @@ public class DataColumn extends JavaScriptObject {
 	/**
 	 * An object that is a map of custom values applied to the cell. These values can be of any JavaScript type. If your
 	 * visualization supports any cell-level properties, it will describe them; otherwise, this property will be
-	 * ignored.
+	 * ignored.<br>
+	 * Has no effect when added to a DataTable.
 	 * 
 	 * @param p a map of custom values applied to the cell.
 	 */
-	public final native void setP(Properties p) /*-{
-		this.p = p;
-	}-*/;
+	public final void setP(Properties p) {
+		// A workaround for a unexplainable difference between a DataTable and a literal column
+		// setP uses the setRole value if already set
+		if (!p.containsKey("role")) {
+			String role = getRole();
+			if (role != null) {
+				p.set("role", role);
+			}
+		}
+		setP(p);
+	}
 
 	/**
 	 * Sets a pattern specifying how to display the column value.
@@ -80,6 +104,13 @@ public class DataColumn extends JavaScriptObject {
 	 */
 	public final void setRole(RoleType role) {
 		setRole(role.getName());
+		// A workaround for a unexplainable difference between a DataTable and a literal column
+		// This way setRole works for either cases
+		Properties properties = getP();
+		if (properties == null) {
+			properties = Properties.create();
+		}
+		properties.set("role", role.getName());
 	}
 
 	/**
@@ -91,6 +122,18 @@ public class DataColumn extends JavaScriptObject {
 		setType(type.getName());
 	}
 
+	private final native Properties getP() /*-{
+		return this.p;
+	}-*/;
+
+	private final native String getRole() /*-{
+		return this.role;
+	}-*/;
+
+	private final native void setProperties(Properties p) /*-{
+		this.p = p;
+	}-*/;
+
 	private final native void setRole(String role) /*-{
 		this.role = role;
 	}-*/;
@@ -98,4 +141,5 @@ public class DataColumn extends JavaScriptObject {
 	private final native void setType(String type) /*-{
 		this.type = type.@com.googlecode.gwt.charts.client.ColumnType::getName();
 	}-*/;
+
 }

@@ -128,6 +128,14 @@ public class DataTable extends DataSource {
 	}
 
 	/**
+	 * @param dataColumn
+	 * @return the index of the new column
+	 */
+	public final native int addColumn(DataColumn dataColumn) /*-{
+		return this.addColumn(dataColumn);
+	}-*/;
+
+	/**
 	 * Adds a new, empty row to the end of the table.
 	 * 
 	 * @return the index of the new row
@@ -373,7 +381,7 @@ public class DataTable extends DataSource {
 	 * @param rowIndex should be a number with a valid row index.
 	 * @param columnIndex should be a number greater than or equal to zero, and less than the number of columns
 	 * @param value the value assigned to the specified cell
-	 * @param formattedValue 
+	 * @param formattedValue
 	 */
 	public final native void setCell(int rowIndex, int columnIndex, boolean value, String formattedValue) /*-{
 		this.setCell(rowIndex, columnIndex, value, formattedValue);
@@ -410,7 +418,7 @@ public class DataTable extends DataSource {
 	 * @param rowIndex should be a number with a valid row index.
 	 * @param columnIndex should be a number greater than or equal to zero, and less than the number of columns
 	 * @param value the value assigned to the specified cell
-	 * @param formattedValue 
+	 * @param formattedValue
 	 */
 	public final native void setCell(int rowIndex, int columnIndex, Date value, String formattedValue) /*-{
 		this.setCell(rowIndex, columnIndex, @com.googlecode.gwt.charts.client.util.DateHelper::getJsDate(Ljava/util/Date;) (value), formattedValue);
