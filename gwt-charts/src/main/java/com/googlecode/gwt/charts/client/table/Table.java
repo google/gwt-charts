@@ -31,27 +31,27 @@ public class Table extends ChartWidget<TableOptions> {
 		super();
 	}
 
-	public final HandlerRef addPageHandler(PageHandler handler) {
+	public HandlerRef addPageHandler(PageHandler handler) {
 		return addHandler(handler);
 	}
 
-	public final HandlerRef addReadyHandler(ReadyHandler handler) {
+	public HandlerRef addReadyHandler(ReadyHandler handler) {
 		return addHandler(handler);
 	}
 
-	public final HandlerRef addSelectHandler(SelectHandler handler) {
+	public HandlerRef addSelectHandler(SelectHandler handler) {
 		return addHandler(handler);
 	}
 
-	public final HandlerRef addSortHandler(SortHandler handler) {
+	public HandlerRef addSortHandler(SortHandler handler) {
 		return addHandler(handler);
 	}
 
-	public final JsArray<Selection> getSelection() {
+	public JsArray<Selection> getSelection() {
 		return chartObject.getSelection();
 	}
 
-	public final void setSelection(JsArray<Selection> selection) {
+	public void setSelection(JsArray<Selection> selection) {
 		chartObject.setSelection(selection);
 	}
 

@@ -50,7 +50,7 @@ public class ControlWrapper<O extends ControlOptions, S extends ControlState> ex
 	 * @param handler the error handler
 	 * @return a reference for removing this handler
 	 */
-	public final HandlerRef addErrorHandler(ErrorHandler handler) {
+	public HandlerRef addErrorHandler(ErrorHandler handler) {
 		return controlWrapperObject.addErrorHandler(handler);
 	}
 
@@ -63,7 +63,7 @@ public class ControlWrapper<O extends ControlOptions, S extends ControlState> ex
 	 * @param handler the ready handler
 	 * @return a reference for removing this handler
 	 */
-	public final HandlerRef addReadyHandler(ReadyHandler handler) {
+	public HandlerRef addReadyHandler(ReadyHandler handler) {
 		return controlWrapperObject.addReadyHandler(handler);
 	}
 
@@ -75,7 +75,7 @@ public class ControlWrapper<O extends ControlOptions, S extends ControlState> ex
 	 * @param handler the state change handler
 	 * @return a reference for removing this handler
 	 */
-	public final HandlerRef addStateChangeHandler(StateChangeHandler handler) {
+	public HandlerRef addStateChangeHandler(StateChangeHandler handler) {
 		return controlWrapperObject.addStateChangeHandler(handler);
 	}
 
@@ -84,7 +84,7 @@ public class ControlWrapper<O extends ControlOptions, S extends ControlState> ex
 	 * 
 	 * @return a deep copy of the control wrapper
 	 */
-	public final ControlWrapperObject<O,S> cloneObject() {
+	public ControlWrapperObject<O,S> cloneObject() {
 		return controlWrapperObject.cloneObject();
 	}
 
@@ -92,7 +92,7 @@ public class ControlWrapper<O extends ControlOptions, S extends ControlState> ex
 	 * Draws the control. Normally the dashboard holding the control takes care of drawing it. You should call draw() to
 	 * force programmatic redraws of the control after you change any of its other settings, like options or state.
 	 */
-	public final void draw() {
+	public void draw() {
 		controlWrapperObject.draw();
 	}
 
@@ -101,7 +101,7 @@ public class ControlWrapper<O extends ControlOptions, S extends ControlState> ex
 	 * 
 	 * @return container element ID
 	 */
-	public final String getContainerId() {
+	public String getContainerId() {
 		return controlWrapperObject.getContainerId();
 	}
 
@@ -113,7 +113,7 @@ public class ControlWrapper<O extends ControlOptions, S extends ControlState> ex
 	 * 
 	 * @return a reference to the control created by this ControlWrapper.
 	 */
-	public final Control getControl() {
+	public Control getControl() {
 		return controlWrapperObject.getControl();
 	}
 
@@ -122,7 +122,7 @@ public class ControlWrapper<O extends ControlOptions, S extends ControlState> ex
 	 * 
 	 * @return control name
 	 */
-	public final String getControlName() {
+	public String getControlName() {
 		return controlWrapperObject.getControlName();
 	}
 
@@ -133,7 +133,7 @@ public class ControlWrapper<O extends ControlOptions, S extends ControlState> ex
 	 * 
 	 * @return the class name of the control.
 	 */
-	public final String getControlType() {
+	public String getControlType() {
 		return controlWrapperObject.getControlType();
 	}
 
@@ -143,7 +143,7 @@ public class ControlWrapper<O extends ControlOptions, S extends ControlState> ex
 	 * @param key the name of the option to retrieve. May be a qualified name, such as 'vAxis.title'.
 	 * @return control option value
 	 */
-	public final String getOption(String key) {
+	public String getOption(String key) {
 		return controlWrapperObject.getOption(key);
 	}
 
@@ -155,7 +155,7 @@ public class ControlWrapper<O extends ControlOptions, S extends ControlState> ex
 	 * @param defaultValue If the specified value is undefined or null, this value will be returned.
 	 * @return control option value or default value
 	 */
-	public final String getOption(String key, String defaultValue) {
+	public String getOption(String key, String defaultValue) {
 		return controlWrapperObject.getOption(key, defaultValue);
 	}
 
@@ -164,7 +164,7 @@ public class ControlWrapper<O extends ControlOptions, S extends ControlState> ex
 	 * 
 	 * @return the options object for this control
 	 */
-	public final O getOptions() {
+	public O getOptions() {
 		return controlWrapperObject.getOptions();
 	}
 
@@ -173,7 +173,7 @@ public class ControlWrapper<O extends ControlOptions, S extends ControlState> ex
 	 * 
 	 * @return the control state
 	 */
-	public final ControlState getState() {
+	public ControlState getState() {
 		return controlWrapperObject.getState();
 	}
 
@@ -187,7 +187,7 @@ public class ControlWrapper<O extends ControlOptions, S extends ControlState> ex
 	/**
 	 * Removes all existing handlers from this chart.
 	 */
-	public final void removeAllHandlers() {
+	public void removeAllHandlers() {
 		controlWrapperObject.removeAllListeners();
 	}
 
@@ -196,7 +196,7 @@ public class ControlWrapper<O extends ControlOptions, S extends ControlState> ex
 	 * 
 	 * @param handlerRef an handler reference
 	 */
-	public final void removeHandler(HandlerRef handlerRef) {
+	public void removeHandler(HandlerRef handlerRef) {
 		controlWrapperObject.removeListener(handlerRef);
 	}
 
@@ -205,7 +205,7 @@ public class ControlWrapper<O extends ControlOptions, S extends ControlState> ex
 	 * 
 	 * @param containerId the ID of the containing DOM element
 	 */
-	public final void setContainerId(String containerId) {
+	public void setContainerId(String containerId) {
 		getElement().setId(containerId);
 		controlWrapperObject.setContainerId(containerId);
 	}
@@ -216,7 +216,7 @@ public class ControlWrapper<O extends ControlOptions, S extends ControlState> ex
 	 * 
 	 * @param controlName an arbitrary name for the control
 	 */
-	public final void setControlName(String controlName) {
+	public void setControlName(String controlName) {
 		controlWrapperObject.setControlName(controlName);
 	}
 
@@ -227,7 +227,7 @@ public class ControlWrapper<O extends ControlOptions, S extends ControlState> ex
 	 * 
 	 * @param controlType the control type
 	 */
-	public final void setControlType(ControlType controlType) {
+	public void setControlType(ControlType controlType) {
 		controlWrapperObject.setControlType(controlType);
 	}
 
@@ -238,7 +238,7 @@ public class ControlWrapper<O extends ControlOptions, S extends ControlState> ex
 	 * @param key the option name
 	 * @param value the value
 	 */
-	public final void setOption(String key, String value) {
+	public void setOption(String key, String value) {
 		controlWrapperObject.setOption(key, value);
 	}
 
@@ -247,7 +247,7 @@ public class ControlWrapper<O extends ControlOptions, S extends ControlState> ex
 	 * 
 	 * @param options a complete options object
 	 */
-	public final void setOptions(O options) {
+	public void setOptions(O options) {
 		controlWrapperObject.setOptions(options);
 	}
 
@@ -258,7 +258,7 @@ public class ControlWrapper<O extends ControlOptions, S extends ControlState> ex
 	 * 
 	 * @param state the control state
 	 */
-	public final void setState(S state) {
+	public void setState(S state) {
 		controlWrapperObject.setState(state);
 	}
 
@@ -267,7 +267,7 @@ public class ControlWrapper<O extends ControlOptions, S extends ControlState> ex
 	 * 
 	 * @return JSON representation of the control
 	 */
-	public final String toJSON() {
+	public String toJSON() {
 		return controlWrapperObject.toJSON();
 	}
 
@@ -276,7 +276,7 @@ public class ControlWrapper<O extends ControlOptions, S extends ControlState> ex
 	 * 
 	 * @param event the event object to fire
 	 */
-	public final void fireEvent(Event event) {
+	public void fireEvent(Event event) {
 		controlWrapperObject.trigger(event.getEventName(), event.getProperties());
 	}
 

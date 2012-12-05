@@ -32,27 +32,27 @@ public abstract class CoreChartWidget<T extends Options> extends ChartWidget<T> 
 		super();
 	}
 
-	public final HandlerRef addAnimationFinishHandler(AnimationFinishHandler handler) {
+	public HandlerRef addAnimationFinishHandler(AnimationFinishHandler handler) {
 		return addHandler(handler);
 	}
 
-	public final HandlerRef addErrorHandler(ErrorHandler handler) {
+	public HandlerRef addErrorHandler(ErrorHandler handler) {
 		return addHandler(handler);
 	}
 
-	public final HandlerRef addOnMouseOutHandler(OnMouseOutHandler handler) {
+	public HandlerRef addOnMouseOutHandler(OnMouseOutHandler handler) {
 		return addHandler(handler);
 	}
 
-	public final HandlerRef addOnMouseOverHandler(OnMouseOverHandler handler) {
+	public HandlerRef addOnMouseOverHandler(OnMouseOverHandler handler) {
 		return addHandler(handler);
 	}
 
-	public final HandlerRef addReadyHandler(ReadyHandler handler) {
+	public HandlerRef addReadyHandler(ReadyHandler handler) {
 		return addHandler(handler);
 	}
 
-	public final HandlerRef addSelectHandler(SelectHandler handler) {
+	public HandlerRef addSelectHandler(SelectHandler handler) {
 		return addHandler(handler);
 	}
 
@@ -67,7 +67,7 @@ public abstract class CoreChartWidget<T extends Options> extends ChartWidget<T> 
 	 * 
 	 * @return an array of selected objects
 	 */
-	public final JsArray<Selection> getSelection() {
+	public JsArray<Selection> getSelection() {
 		return chartObject.getSelection();
 	}
 
@@ -85,7 +85,7 @@ public abstract class CoreChartWidget<T extends Options> extends ChartWidget<T> 
 	 * 
 	 * @param selection
 	 */
-	public final void setSelection(JsArray<Selection> selection) {
+	public void setSelection(JsArray<Selection> selection) {
 		this.selection = selection;
 		chartObject.setSelection(selection);
 	}

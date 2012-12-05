@@ -55,7 +55,7 @@ public abstract class ChartWidget<T extends Options> extends Widget implements R
 	/**
 	 * Clears the chart, and releases all of its allocated resources.
 	 */
-	public final void clearChart() {
+	public void clearChart() {
 		chartObject.clearChart();
 	}
 
@@ -67,7 +67,7 @@ public abstract class ChartWidget<T extends Options> extends Widget implements R
 	 * @param data a {@link DataTable} or {@link DataView} holding the data to use to draw the chart.
 	 * @see <a href="http://developers.google.com/chart/interactive/docs/reference.html#visdraw">draw API reference</a>
 	 */
-	public final void draw(DataSource data) {
+	public void draw(DataSource data) {
 		draw(data, null);
 	}
 
@@ -80,7 +80,7 @@ public abstract class ChartWidget<T extends Options> extends Widget implements R
 	 * @param options A map of name/value pairs of custom options.
 	 * @see <a href="http://developers.google.com/chart/interactive/docs/reference.html#visdraw">draw API reference</a>
 	 */
-	public final void draw(DataSource data, T options) {
+	public void draw(DataSource data, T options) {
 		this.data = data;
 		this.options = options;
 		redraw();
@@ -91,7 +91,7 @@ public abstract class ChartWidget<T extends Options> extends Widget implements R
 	 * 
 	 * @param event the event object to fire
 	 */
-	public final void fireEvent(Event event) {
+	public void fireEvent(Event event) {
 		chartObject.trigger(event.getEventName(), event.getProperties());
 	}
 
@@ -129,7 +129,7 @@ public abstract class ChartWidget<T extends Options> extends Widget implements R
 	/**
 	 * Removes all existing handlers from this chart.
 	 */
-	public final void removeAllHandlers() {
+	public void removeAllHandlers() {
 		eventMap.clear();
 		chartObject.removeAllListeners();
 	}
@@ -139,7 +139,7 @@ public abstract class ChartWidget<T extends Options> extends Widget implements R
 	 * 
 	 * @param handlerRef an handler reference
 	 */
-	public final void removeHandler(HandlerRef handlerRef) {
+	public void removeHandler(HandlerRef handlerRef) {
 		eventMap.remove(handlerRef);
 		chartObject.removeListener(handlerRef);
 	}
