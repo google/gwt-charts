@@ -30,27 +30,27 @@ public class GeoChart extends ChartWidget<GeoChartOptions> {
 		super();
 	}
 
-	public final HandlerRef addErrorHandler(ErrorHandler handler) {
+	public HandlerRef addErrorHandler(ErrorHandler handler) {
 		return addHandler(handler);
 	}
 
-	public final HandlerRef addReadyHandler(ReadyHandler handler) {
+	public HandlerRef addReadyHandler(ReadyHandler handler) {
 		return addHandler(handler);
 	}
 
-	public final HandlerRef addRegionClickHandler(RegionClickHandler handler) {
+	public HandlerRef addRegionClickHandler(RegionClickHandler handler) {
 		return addHandler(handler);
 	}
 
-	public final HandlerRef addSelectHandler(SelectHandler handler) {
+	public HandlerRef addSelectHandler(SelectHandler handler) {
 		return addHandler(handler);
 	}
 
-	public final JsArray<Selection> getSelection() {
+	public JsArray<Selection> getSelection() {
 		return chartObject.getSelection();
 	}
 
-	public final void setSelection(JsArray<Selection> selection) {
+	public void setSelection(JsArray<Selection> selection) {
 		chartObject.setSelection(selection);
 	}
 
@@ -58,7 +58,7 @@ public class GeoChart extends ChartWidget<GeoChartOptions> {
 	 * Redraws the chart with last used data and options.
 	 */
 	@Override
-	public final void redraw() {
+	public void redraw() {
 		super.clearChart();
 		super.redraw();
 	}

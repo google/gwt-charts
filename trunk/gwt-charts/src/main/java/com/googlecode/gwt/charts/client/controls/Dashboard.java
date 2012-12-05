@@ -56,7 +56,7 @@ public class Dashboard extends Widget {
 	 * @param handler the error handler
 	 * @return a reference for removing this handler
 	 */
-	public final HandlerRef addErrorHandler(ErrorHandler handler) {
+	public HandlerRef addErrorHandler(ErrorHandler handler) {
 		return dashboardObject.addListener(ErrorEvent.NAME, handler);
 	}
 
@@ -75,7 +75,7 @@ public class Dashboard extends Widget {
 	 * @param handler the ready handler
 	 * @return a reference for removing this handler
 	 */
-	public final HandlerRef addReadyHandler(ReadyHandler handler) {
+	public HandlerRef addReadyHandler(ReadyHandler handler) {
 		return dashboardObject.addListener(ReadyEvent.NAME, handler);
 	}
 
@@ -88,7 +88,7 @@ public class Dashboard extends Widget {
 	 * @param controlWrapper
 	 * @param chartWrapper
 	 */
-	public final void bind(ControlWrapper<?, ?> controlWrapper, ChartWrapper<?> chartWrapper) {
+	public void bind(ControlWrapper<?, ?> controlWrapper, ChartWrapper<?> chartWrapper) {
 		dashboardObject.bind(controlWrapper.getObject(), chartWrapper.getObject());
 	}
 
@@ -101,7 +101,7 @@ public class Dashboard extends Widget {
 	 * @param controlWrappers
 	 * @param chartWrappers
 	 */
-	public final void bind(List<ControlWrapper<?, ?>> controlWrappers, List<ChartWrapper<?>> chartWrappers) {
+	public void bind(List<ControlWrapper<?, ?>> controlWrappers, List<ChartWrapper<?>> chartWrappers) {
 		JsArray<ControlWrapperObject<?, ?>> controlWrapperArray = JsArray.createArray().cast();
 		for (ControlWrapper<?, ?> controlWrapper : controlWrappers) {
 			controlWrapperArray.push(controlWrapper.getObject());
@@ -118,7 +118,7 @@ public class Dashboard extends Widget {
 	 * 
 	 * @param dataSource a DataTable or a DataView object
 	 */
-	public final void draw(DataSource dataSource) {
+	public void draw(DataSource dataSource) {
 		this.data = dataSource;
 		redraw();
 	}
@@ -128,7 +128,7 @@ public class Dashboard extends Widget {
 	 * 
 	 * @param dataArray an array following the syntax of {@link ChartHelper#arrayToDataTable(JsArrayMixed)}
 	 */
-	public final void draw(JsArrayMixed dataArray) {
+	public void draw(JsArrayMixed dataArray) {
 		this.data = dataArray;
 		dashboardObject.draw(dataArray);
 	}
@@ -138,7 +138,7 @@ public class Dashboard extends Widget {
 	 * 
 	 * @param json a JSON representation of a DataTable
 	 */
-	public final void draw(String json) {
+	public void draw(String json) {
 		this.data = json;
 		dashboardObject.draw(json);
 	}

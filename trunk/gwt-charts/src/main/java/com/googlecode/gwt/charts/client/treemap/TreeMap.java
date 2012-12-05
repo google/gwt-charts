@@ -32,39 +32,39 @@ public class TreeMap extends ChartWidget<TreeMapOptions> {
 		super();
 	}
 
-	public final HandlerRef addOnMouseOutHandler(OnMouseOutHandler handler) {
+	public HandlerRef addOnMouseOutHandler(OnMouseOutHandler handler) {
 		return addHandler(handler);
 	}
 
-	public final HandlerRef addOnMouseOverHandler(OnMouseOverHandler handler) {
+	public HandlerRef addOnMouseOverHandler(OnMouseOverHandler handler) {
 		return addHandler(handler);
 	}
 
-	public final HandlerRef addReadyHandler(ReadyHandler handler) {
+	public HandlerRef addReadyHandler(ReadyHandler handler) {
 		return addHandler(handler);
 	}
 
-	public final HandlerRef addRollUpHandler(RollUpHandler handler) {
+	public HandlerRef addRollUpHandler(RollUpHandler handler) {
 		return addHandler(handler);
 	}
 
-	public final HandlerRef addSelectHandler(SelectHandler handler) {
+	public HandlerRef addSelectHandler(SelectHandler handler) {
 		return addHandler(handler);
 	}
 
-	public final void getMaxPossibleDepth() {
+	public void getMaxPossibleDepth() {
 		chartObject.getMaxPossibleDepth();
 	}
 
-	public final JsArray<Selection> getSelection() {
+	public JsArray<Selection> getSelection() {
 		return chartObject.getSelection();
 	}
 
-	public final void goUpAndDraw() {
+	public void goUpAndDraw() {
 		chartObject.goUpAndDraw();
 	}
 
-	public final void setSelection(JsArray<Selection> selection) {
+	public void setSelection(JsArray<Selection> selection) {
 		chartObject.setSelection(selection);
 	}
 
