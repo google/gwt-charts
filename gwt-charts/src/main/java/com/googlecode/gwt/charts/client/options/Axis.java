@@ -78,9 +78,9 @@ public abstract class Axis extends JavaScriptObject {
 		this.viewWindow = viewWindow;
 	}-*/;
 
-	public final native void setViewWindowMode(String mode) /*-{
-		this.viewWindowMode = mode;
-	}-*/;
+	public final void setViewWindowMode(ViewWindowMode mode) {
+		setViewWindowMode(mode.getName());
+	}
 
 	private final native void setDirection(int direction) /*-{
 		this.direction = direction;
@@ -89,5 +89,10 @@ public abstract class Axis extends JavaScriptObject {
 	private final native void setTextPosition(String position) /*-{
 		this.textPosition = position;
 	}-*/;
+	
+	private final native void setViewWindowMode(String mode) /*-{
+		this.viewWindowMode = mode;
+	}-*/;
+
 
 }

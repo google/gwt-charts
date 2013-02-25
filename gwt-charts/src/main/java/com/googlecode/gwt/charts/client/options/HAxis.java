@@ -12,6 +12,12 @@
  */
 package com.googlecode.gwt.charts.client.options;
 
+import com.google.gwt.core.client.JsDate;
+
+import com.googlecode.gwt.charts.client.util.DateHelper;
+
+import java.util.Date;
+
 public class HAxis extends Axis {
 	public static HAxis create() {
 		return createObject().cast();
@@ -30,6 +36,14 @@ public class HAxis extends Axis {
 		this.maxAlternation = levels;
 	}-*/;
 
+	public final void setMaxValue(Date maxValue) {
+		setMaxValueDate(DateHelper.getJsDate(maxValue));
+	}
+
+	public final void setMinValue(Date minValue) {
+		setMinValueDate(DateHelper.getJsDate(minValue));
+	}
+
 	public final native void setShowTextEvery(int interval) /*-{
 		this.showTextEvery = interval;
 	}-*/;
@@ -40,6 +54,14 @@ public class HAxis extends Axis {
 
 	public final native void setSlantedTextAngle(int angle) /*-{
 		this.slantedTextAngle = angle;
+	}-*/;
+
+	private final native void setMaxValueDate(JsDate maxValue) /*-{
+		this.maxValue = maxValue;
+	}-*/;
+
+	private final native void setMinValueDate(JsDate minValue) /*-{
+		this.minValue = minValue;
 	}-*/;
 
 }
