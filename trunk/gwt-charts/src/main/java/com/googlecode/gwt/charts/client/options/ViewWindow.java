@@ -13,11 +13,33 @@
 package com.googlecode.gwt.charts.client.options;
 
 import com.google.gwt.core.client.JavaScriptObject;
+import com.google.gwt.core.client.JsDate;
+
+import com.googlecode.gwt.charts.client.util.DateHelper;
+
+import java.util.Date;
 
 /**
  */
 
 public class ViewWindow extends JavaScriptObject {
+	public static ViewWindow create() {
+		return createObject().cast();
+	}
+
+	public static ViewWindow create(double min, double max) {
+		ViewWindow viewWindow = createObject().cast();
+		viewWindow.setMax(max);
+		viewWindow.setMin(min);
+		return viewWindow;
+	}
+
+	public static ViewWindow create(Date min, Date max) {
+		ViewWindow viewWindow = createObject().cast();
+		viewWindow.setMax(max);
+		viewWindow.setMin(min);
+		return viewWindow;
+	}
 
 	protected ViewWindow() {
 	}
@@ -38,4 +60,19 @@ public class ViewWindow extends JavaScriptObject {
 		this.min = min;
 	}-*/;
 
+	public final void setMax(Date max) {
+		setMaxDate(DateHelper.getJsDate(max));
+	}
+
+	public final void setMin(Date min) {
+		setMinDate(DateHelper.getJsDate(min));
+	}
+
+	private final native void setMaxDate(JsDate max) /*-{
+		this.max = max;
+	}-*/;
+
+	private final native void setMinDate(JsDate min) /*-{
+		this.min = min;
+	}-*/;
 }
