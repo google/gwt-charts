@@ -139,7 +139,7 @@ public class DataColumn extends JavaScriptObject {
 	}-*/;
 
 	private final native void setType(String type) /*-{
-		this.type = type.@com.googlecode.gwt.charts.client.ColumnType::getName();
+		this.type = type;
 	}-*/;
 
 }
