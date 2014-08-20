@@ -26,7 +26,6 @@ import com.googlecode.gwt.charts.client.event.RollUpHandler;
 import com.googlecode.gwt.charts.client.event.SelectHandler;
 
 public class TreeMap extends ChartWidget<TreeMapOptions> {
-	protected ChartObject chartObject;
 
 	public TreeMap() {
 		super();

@@ -25,7 +25,6 @@ import com.googlecode.gwt.charts.client.event.SelectHandler;
 import com.googlecode.gwt.charts.client.event.SortHandler;
 
 public class Table extends ChartWidget<TableOptions> {
-	protected ChartObject chartObject;
 
 	public Table() {
 		super();
