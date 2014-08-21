@@ -18,6 +18,7 @@ import com.googlecode.gwt.charts.client.options.Bar;
 import com.googlecode.gwt.charts.client.options.CoreOptions;
 import com.googlecode.gwt.charts.client.options.FocusTarget;
 import com.googlecode.gwt.charts.client.options.HAxis;
+import com.googlecode.gwt.charts.client.options.Trendline;
 import com.googlecode.gwt.charts.client.util.ArrayHelper;
 
 /**
@@ -143,6 +144,19 @@ public class BarChartOptions extends CoreOptions {
 			this.series = {};
 		}
 		this.series[index] = series;
+	}-*/;
+
+	/**
+	 * Sets a trendline by index
+	 * 
+	 * @param index the data index
+	 * @param trendline an object definining the trendline format
+	 */
+	public final native void setTrendline(int index, Trendline trendline) /*-{
+		if (!this.trendlines) {
+			this.trendlines = {};
+		}
+		this.trendlines[index] = trendline;
 	}-*/;
 
 	private final native void setFocusTarget(String focusTarget) /*-{
