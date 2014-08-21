@@ -23,7 +23,7 @@ import com.googlecode.gwt.charts.client.ajaxloader.AjaxLoader.AjaxLoaderOptions;
  */
 public class ChartLoader {
 	private static final String API_NAME = "visualization";
-	private static final String API_VERSION = "1.0";
+	private static final String API_VERSION = "1.1";
 
 	private ChartPackage[] packages;
 	private String language;
