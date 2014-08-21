@@ -80,7 +80,7 @@ public class AjaxLoader {
 	// Set to true if the init(key) method has been called.
 	static boolean initialized = false;
 
-	// True if the JavaScript __gwt_AjaxLoader_onLoad callback has already run.
+	// True if the JavaScript __gwt_charts_AjaxLoader_onLoad callback has already run.
 	// This function is registered on the window in nativeCreateCallback()
 	static boolean loaded = false;
 
@@ -224,7 +224,7 @@ public class AjaxLoader {
 		String key = (apiKey == null) ? "" : ("key=" + apiKey + "&");
 		hostname = (hostname == null) ? "www.google.com" : hostname;
 		String src = getProtocol() + "//" + hostname + "/jsapi?" + key
-				+ "callback=__gwt_AjaxLoader_onLoad";
+				+ "callback=__gwt_charts_AjaxLoader_onLoad";
 		ScriptElement script = doc.createScriptElement();
 		script.setSrc(src);
 		script.setType("text/javascript");
@@ -240,7 +240,7 @@ public class AjaxLoader {
 			// The API has already been loaded.
 			return true;
 		}
-		$wnd.__gwt_AjaxLoader_onLoad = function() {
+		$wnd.__gwt_charts_AjaxLoader_onLoad = function() {
 			@com.googlecode.gwt.charts.client.ajaxloader.AjaxLoader::onLoadCallback()();
 		}
 		// The application must wait for a callback.
