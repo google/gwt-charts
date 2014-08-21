@@ -17,6 +17,14 @@ package com.googlecode.gwt.charts.client;
  */
 public enum ChartPackage {
 	/**
+	 * Exclusive use for annotation charts
+	 */
+	ANNOTATIONCHART("annotationchart"),
+	/**
+	 * Exclusive use for calendar charts
+	 */
+	CALENDAR("calendar"),
+	/**
 	 * Use for area, bar, bubble, candlestick, column, combo, line, pie, scatter and stepped area charts
 	 */
 	CORECHART("corechart"),
@@ -28,6 +36,10 @@ public enum ChartPackage {
 	 * Exclusive use for geochart charts
 	 */
 	GEOCHART("geochart"),
+	/**
+	 * Exclusive use for sankey diagrams
+	 */
+	SANKEY("sankey"),
 	/**
 	 * Exclusive use for tables
 	 */
