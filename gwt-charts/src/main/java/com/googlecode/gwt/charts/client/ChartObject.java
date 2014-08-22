@@ -13,6 +13,8 @@
 package com.googlecode.gwt.charts.client;
 
 import com.google.gwt.core.client.JsArray;
+import com.google.gwt.core.client.JsArrayInteger;
+import com.google.gwt.core.client.JsDate;
 
 import com.googlecode.gwt.charts.client.options.Options;
 
@@ -38,7 +40,8 @@ public class ChartObject extends HasListeners {
 	 * options change. The object should be drawn inside the DOM element passed into the constructor.
 	 * 
 	 * @param data tipically a {@link DataTable} or {@link DataView} holding the data to use to draw the chart.
-	 * @see <a href="http://developers.google.com/chart/interactive/docs/reference.html#visdraw">draw() API reference</a>
+	 * @see <a href="http://developers.google.com/chart/interactive/docs/reference.html#visdraw">draw() API
+	 *      reference</a>
 	 */
 	public final native void draw(DataSource data) /*-{
 		this.draw(data);
@@ -58,6 +61,16 @@ public class ChartObject extends HasListeners {
 	}-*/;
 
 	/**
+	 * Returns an object containing information about the onscreen placement of the chart and its elements.<br>
+	 * Call this <strong>after</strong> the chart is drawn.
+	 * 
+	 * @return a ChartLayoutInterface
+	 */
+	public final native ChartLayoutInterface getChartLayoutInterface() /*-{
+		return this.getChartLayoutInterface();
+	}-*/;
+
+	/**
 	 * Currently only applies to {@link com.googlecode.gwt.charts.client.treemap.TreeMap}.<br>
 	 * Returns the maximum possible depth for the current view.
 	 * 
@@ -65,6 +78,18 @@ public class ChartObject extends HasListeners {
 	 */
 	public final native int getMaxPossibleDepth() /*-{
 		this.getMaxPossibleDepth();
+	}-*/;
+
+	/**
+	 * Returns the chart serialized as an image URI.<br>
+	 * 
+	 * Call this <strong>after</strong> the chart is drawn.
+	 * 
+	 * @return a serialized image URI
+	 * @see <a href="https://developers.google.com/chart/interactive/docs/printing">Printing PNG Charts</a>
+	 */
+	public final native String getImageURI() /*-{
+		return this.getImageURI();
 	}-*/;
 
 	/**
@@ -78,11 +103,22 @@ public class ChartObject extends HasListeners {
 	 * selected item. The retrieved array can be passed into {@link #setSelection(JsArray)}.
 	 * 
 	 * @return an array of selected objects
-	 * @see <a href="http://developers.google.com/chart/interactive/docs/reference.html#visgetselection">getSelection API
-	 *      reference</a>
+	 * @see <a href="http://developers.google.com/chart/interactive/docs/reference.html#visgetselection">getSelection
+	 *      API reference</a>
 	 */
 	public final native JsArray<Selection> getSelection() /*-{
 		return this.getSelection();
+	}-*/;
+
+	/**
+	 * Currently only applies to {@link com.googlecode.gwt.charts.client.annotationchart.AnnotationChart}.<br>
+	 * Returns an object with start and end properties, which each one of them is a Date object, representing the
+	 * current time selection.
+	 * 
+	 * @return an object with start and end
+	 */
+	public final native DateRange getVisibleChartRange() /*-{
+		return this.getVisibleChartRange();
 	}-*/;
 
 	/**
@@ -92,6 +128,17 @@ public class ChartObject extends HasListeners {
 	 */
 	public final native void goUpAndDraw() /*-{
 		this.goUpAndDraw();
+	}-*/;
+
+	/**
+	 * Currently only applies to {@link com.googlecode.gwt.charts.client.annotationchart.AnnotationChart}.<br>
+	 * Hides the specified data series from the chart. Accepts one parameter which can be a number or an array of
+	 * numbers, in which 0 refers to the first data series, and so on.
+	 * 
+	 * @param columnIndexes
+	 */
+	public final native void hideDataColumns(JsArrayInteger columnIndexes) /*-{
+		this.hideDataColumns(columnIndexes);
 	}-*/;
 
 	/**
@@ -107,11 +154,34 @@ public class ChartObject extends HasListeners {
 	 * setSelection(null), or setSelection([]).
 	 * 
 	 * @param selection an array of objects, each with a numeric row and/or column property
-	 * @see <a href="http://developers.google.com/chart/interactive/docs/reference.html#vissetselection">setSelection API
-	 *      reference</a>
+	 * @see <a href="http://developers.google.com/chart/interactive/docs/reference.html#vissetselection">setSelection
+	 *      API reference</a>
 	 */
 	public final native void setSelection(JsArray<Selection> selection) /*-{
 		this.setSelection(selection);
+	}-*/;
+
+	/**
+	 * Currently only applies to {@link com.googlecode.gwt.charts.client.annotationchart.AnnotationChart}.<br>
+	 * Sets the visible range (zoom) to the specified range. Accepts two parameters of type Date that represent the
+	 * first and last times of the wanted selected visible range.
+	 * 
+	 * @param start set to null to include everything from the earliest date to end
+	 * @param end set to null to include everything from start to the last date
+	 */
+	public final native void setVisibleChartRange(JsDate start, JsDate end) /*-{
+		this.setVisibleChartRange(start, end);
+	}-*/;
+
+	/**
+	 * Currently only applies to {@link com.googlecode.gwt.charts.client.annotationchart.AnnotationChart}.<br>
+	 * Shows the specified data series from the chart, after they were hidden using hideDataColumns method. Accepts one
+	 * parameter which can be a number or an array of numbers, in which 0 refers to the first data series, and so on.
+	 * 
+	 * @param columnIndexes
+	 */
+	public final native void showDataColumns(JsArrayInteger columnIndexes) /*-{
+		this.showDataColumns(columnIndexes);
 	}-*/;
 
 }
