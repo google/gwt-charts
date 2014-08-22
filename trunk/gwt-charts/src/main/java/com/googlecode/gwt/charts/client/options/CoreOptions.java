@@ -44,6 +44,10 @@ public abstract class CoreOptions extends Options {
 		this.chartArea = chartArea;
 	}-*/;
 
+	/**
+	 * The colors to use for the chart lines and labels.
+	 * @param colors an array where each element is a string in a valid HTML color format.
+	 */
 	public final void setColors(String... colors) {
 		setColors(ArrayHelper.createArray(colors));
 	}

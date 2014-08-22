@@ -28,6 +28,11 @@ public class DateFormatOptions extends JavaScriptObject {
 		setFormatType(formatType.getName());
 	}
 
+	/**
+	 * The format used to display the date
+	 * @see <a href="http://icu-project.org/apiref/icu4j/com/ibm/icu/text/SimpleDateFormat.html">java SimpleDateFormat class</a> 
+	 * @param pattern
+	 */
 	public final native void setPattern(String pattern) /*-{
 		this.pattern = pattern;
 	}-*/;

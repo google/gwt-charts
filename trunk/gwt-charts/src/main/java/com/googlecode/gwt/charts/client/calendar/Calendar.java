@@ -10,49 +10,33 @@
  * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
  * specific language governing permissions and limitations under the License.
  */
-package com.googlecode.gwt.charts.client.corechart;
+package com.googlecode.gwt.charts.client.calendar;
 
 import com.google.gwt.core.client.JsArray;
-import com.google.gwt.user.client.ui.RequiresResize;
+import com.google.gwt.dom.client.Element;
 
 import com.googlecode.gwt.charts.client.ChartLayoutInterface;
+import com.googlecode.gwt.charts.client.ChartObject;
 import com.googlecode.gwt.charts.client.ChartWidget;
 import com.googlecode.gwt.charts.client.Selection;
-import com.googlecode.gwt.charts.client.event.AnimationFinishHandler;
 import com.googlecode.gwt.charts.client.event.ErrorHandler;
 import com.googlecode.gwt.charts.client.event.HandlerRef;
 import com.googlecode.gwt.charts.client.event.OnMouseOutHandler;
 import com.googlecode.gwt.charts.client.event.OnMouseOverHandler;
 import com.googlecode.gwt.charts.client.event.ReadyHandler;
 import com.googlecode.gwt.charts.client.event.SelectHandler;
-import com.googlecode.gwt.charts.client.options.Options;
 
 /**
- * This class is used as a widget wrapper for core chart types.
- * Supports automatically resizing via {@link RequiresResize}, which means that all parents
- * must implement {@link com.google.gwt.user.client.ui.ProvidesResize} for this to work.
- * It also supports attach/detach funcionality.
- * 
- * @param <T> the chart options type
+ * Annotation charts are interactive time series line charts that support annotations.
  */
-public abstract class CoreChartWidget<T extends Options> extends ChartWidget<T> {
+public class Calendar extends ChartWidget<CalendarOptions> {
 	private JsArray<Selection> selection;
 
 	/**
-	 * Creates a new CoreChartWidget.
+	 * Creates a new chart widget.
 	 */
-	public CoreChartWidget() {
+	public Calendar() {
 		super();
-	}
-
-	/**
-	 * Adds an handler that listens for animation events
-	 * 
-	 * @param handler the class to call when the event is fired
-	 * @return the handler reference
-	 */
-	public HandlerRef addAnimationFinishHandler(AnimationFinishHandler handler) {
-		return addHandler(handler);
 	}
 
 	/**
@@ -150,11 +134,15 @@ public abstract class CoreChartWidget<T extends Options> extends ChartWidget<T> 
 	}
 
 	@Override
+	protected native ChartObject createChartObject(Element container) /*-{
+		return new $wnd.google.visualization.Calendar(container);
+	}-*/;
+
+	@Override
 	protected void recreate() {
 		super.recreate();
 		if (selection != null) {
 			chartObject.setSelection(selection);
 		}
 	}
-
 }

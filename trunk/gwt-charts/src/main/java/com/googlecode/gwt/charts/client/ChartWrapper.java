@@ -16,6 +16,7 @@ import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.JsArray;
 import com.google.gwt.core.client.JsArrayMixed;
 import com.google.gwt.core.client.JsArrayString;
+import com.google.gwt.dom.client.Document;
 import com.google.gwt.user.client.DOM;
 import com.google.gwt.user.client.ui.RequiresResize;
 import com.google.gwt.user.client.ui.Widget;
@@ -59,7 +60,7 @@ public class ChartWrapper<T extends Options> extends Widget implements RequiresR
 	 */
 	public ChartWrapper() {
 		super();
-		setElement(DOM.createDiv());
+		setElement(Document.get().createDivElement());
 		chartWrapperObject = ChartWrapperObject.create();
 		setContainerId(DOM.createUniqueId());
 	}
@@ -71,7 +72,7 @@ public class ChartWrapper<T extends Options> extends Widget implements RequiresR
 	 */
 	public ChartWrapper(ChartWrapperSpec<T> chartWrapperSpec) {
 		super();
-		setElement(DOM.createDiv());
+		setElement(Document.get().createDivElement());
 		chartWrapperObject = ChartWrapperObject.create(chartWrapperSpec);
 	}
 

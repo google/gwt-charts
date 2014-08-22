@@ -17,6 +17,10 @@ package com.googlecode.gwt.charts.client;
  */
 public enum ChartType {
 	/**
+	 * Annotation chart
+	 */
+	ANNOTATION("Calendar"),
+	/**
 	 * Area chart
 	 */
 	AREA("AreaChart"),
@@ -28,6 +32,10 @@ public enum ChartType {
 	 * Bubble chart
 	 */
 	BUBBLE("BubbleChart"),
+	/**
+	 * Annotation chart
+	 */
+	CALENDAR("Calendar"),
 	/**
 	 * Candlestick chart
 	 */
@@ -48,6 +56,10 @@ public enum ChartType {
 	 * Pie chart
 	 */
 	PIE("PieChart"),
+	/**
+	 * Sankey chart
+	 */
+	SANKEY("Sankey"),
 	/**
 	 * Scatter chart
 	 */

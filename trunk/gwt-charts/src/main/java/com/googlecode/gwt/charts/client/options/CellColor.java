@@ -14,35 +14,47 @@ package com.googlecode.gwt.charts.client.options;
 
 import com.google.gwt.core.client.JavaScriptObject;
 
-public abstract class Options extends JavaScriptObject {
+/**
+ * A set of border color options
+ */
+public class CellColor extends JavaScriptObject {
 	/**
 	 * Default constructor
 	 * 
 	 * @return a new object instance
 	 */
-	public static Options create() {
+	public static CellColor create() {
 		return createObject().cast();
 	}
 
-	protected Options() {
+	protected CellColor() {
 	}
 
 	/**
-	 * Sets the height
+	 * Sets the border color
 	 * 
-	 * @param height value in pixels
+	 * @param stroke an HTML color string
 	 */
-	public final native void setHeight(int height) /*-{
-		this.height = height;
+	public final native void setStroke(String stroke) /*-{
+		this.stroke = stroke;
 	}-*/;
 
 	/**
-	 * Sets the width
+	 * Sets the border transparency
 	 * 
-	 * @param width value in pixels
+	 * @param strokeOpacity from 0.0 (transparent) to 1.0 (opaque)
 	 */
-	public final native void setWidth(int width) /*-{
-		this.width = width;
+	public final native void setStrokeOpacity(double strokeOpacity) /*-{
+		this.strokeOpacity = strokeOpacity;
+	}-*/;
+
+	/**
+	 * Sets the border thickness
+	 * 
+	 * @param strokeWidth thickness in pixels
+	 */
+	public final native void setStrokeWidth(int strokeWidth) /*-{
+		this.strokeWidth = strokeWidth;
 	}-*/;
 
 }
