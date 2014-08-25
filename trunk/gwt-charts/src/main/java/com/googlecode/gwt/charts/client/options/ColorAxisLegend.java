@@ -12,15 +12,27 @@
  */
 package com.googlecode.gwt.charts.client.options;
 
-/**
- */
+import com.google.gwt.core.client.JavaScriptObject;
 
-public class ColorAxisLegend extends Legend {
+/**
+ * An object with members to configure various aspects of the legend.
+ */
+public class ColorAxisLegend extends JavaScriptObject {
+	/**
+	 * Default constructor
+	 * 
+	 * @return a new object
+	 */
+	public static ColorAxisLegend create() {
+		return createObject().cast();
+	}
 
 	protected ColorAxisLegend() {
 	}
 
 	/**
+	 * A format string for numeric labels. This is a subset of the ICU pattern set. For instance, {numberFormat:'.##'}
+	 * will display values "10.66", "10.6", and "10.0" for values 10.666, 10.6, and 10.
 	 * 
 	 * @param numberFormat
 	 */
@@ -28,4 +40,25 @@ public class ColorAxisLegend extends Legend {
 		this.numberFormat = numberFormat;
 	}-*/;
 
+	/**
+	 * Sets the position of the legend.
+	 * 
+	 * @param position default is RIGHT
+	 */
+	public final void setPosition(LegendPosition position) {
+		setPosition(position.getName());
+	}
+
+	/**
+	 * Specifies the legend text style
+	 * 
+	 * @param textStyle
+	 */
+	public final native void setTextStyle(TextStyle textStyle) /*-{
+		this.textStyle = textStyle;
+	}-*/;
+
+	private final native void setPosition(String position) /*-{
+		this.position = position;
+	}-*/;
 }

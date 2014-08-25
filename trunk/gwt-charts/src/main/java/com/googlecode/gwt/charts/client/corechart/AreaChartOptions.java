@@ -14,13 +14,23 @@ package com.googlecode.gwt.charts.client.corechart;
 
 import com.google.gwt.core.client.JsArray;
 
+import com.googlecode.gwt.charts.client.options.AggregationTarget;
+import com.googlecode.gwt.charts.client.options.Annotations;
 import com.googlecode.gwt.charts.client.options.CoreOptions;
+import com.googlecode.gwt.charts.client.options.Crosshair;
+import com.googlecode.gwt.charts.client.options.Explorer;
 import com.googlecode.gwt.charts.client.options.FocusTarget;
+import com.googlecode.gwt.charts.client.options.Orientation;
+import com.googlecode.gwt.charts.client.options.PointShape;
+import com.googlecode.gwt.charts.client.options.PointShapeType;
 import com.googlecode.gwt.charts.client.options.VAxis;
 import com.googlecode.gwt.charts.client.util.ArrayHelper;
 
 /**
  * Configuration options for {@link AreaChart}.
+ * 
+ * @see <a href="https://developers.google.com/chart/interactive/docs/gallery/areachart#Configuration_Options">Area
+ *      Chart Configuration Options</a>
  */
 public class AreaChartOptions extends CoreOptions {
 	/**
@@ -36,6 +46,43 @@ public class AreaChartOptions extends CoreOptions {
 	}
 
 	/**
+	 * How multiple data selections are rolled up into tooltips:
+	 * <ul>
+	 * <li>'category': Group selected data by x-value.</li>
+	 * <li>'series': Group selected data by series.</li>
+	 * <li>'auto': Group selected data by x-value if all selections have the same x-value, and by series otherwise.</li>
+	 * <li>'none': Show only one tooltip per selection.</li>
+	 * </ul>
+	 * aggregationTarget will often be used in tandem with selectionMode and tooltip.trigger, e.g.:
+	 * 
+	 * <pre>
+	 * // Allow multiple simultaneous selections.
+	 * options.setSelectionMode(SelectionMode.MULTIPLE);
+	 * // Trigger tooltips on selections.
+	 * Tooltip tooltip = Tooltip.create();
+	 * tooltip.setTrigger(TooltipTrigger.SELECTION);
+	 * options.setTooltip(tooltip);
+	 * // Group selections by x-value.
+	 * options.setAggregationTarget(AggregationTarget.CATEGORY);
+	 * 
+	 * </pre>
+	 * 
+	 * @param aggregationTarget
+	 */
+	public final native void setAggregationTarget(AggregationTarget aggregationTarget) /*-{
+		this.aggregationTarget = aggregationTarget;
+	}-*/;
+
+	/**
+	 * Sets annotation display settings.
+	 * 
+	 * @param annotations
+	 */
+	public final native void setAnnotations(Annotations annotations) /*-{
+		this.annotations = annotations;
+	}-*/;
+
+	/**
 	 * Sets the default opacity of the colored area under an area chart series. To specify opacity for an individual
 	 * series, set the areaOpacity with {@link #setSeries(int, AreaChartSeries)}.
 	 * 
@@ -43,6 +90,36 @@ public class AreaChartOptions extends CoreOptions {
 	 */
 	public final native void setAreaOpacity(double opacity) /*-{
 		this.areaOpacity = opacity;
+	}-*/;
+
+	/**
+	 * Sets the crosshair properties for the chart.
+	 * 
+	 * @param crosshair
+	 */
+	public final native void setCrosshair(Crosshair crosshair) /*-{
+		this.crosshair = crosshair;
+	}-*/;
+
+	/**
+	 * Sets the transparency of data points, with 1.0 being completely opaque and 0.0 fully transparent. In scatter,
+	 * histogram, bar, and column charts, this refers to the visible data: dots in the scatter chart and rectangles in
+	 * the others. In charts where selecting data creates a dot, such as the line and area charts, this refers to the
+	 * circles that appear upon hover or selection. The combo chart exhibits both behaviors.
+	 * 
+	 * @param dataOpacity a value from 0.0 (fully transparent) to 1.0 (fully opaque)
+	 */
+	public final native void setDataOpacity(double dataOpacity) /*-{
+		this.dataOpacity = dataOpacity;
+	}-*/;
+
+	/**
+	 * Sets the explorer properties for the chart.
+	 * 
+	 * @param explorer
+	 */
+	public final native void setExplorer(Explorer explorer) /*-{
+		this.explorer = explorer;
 	}-*/;
 
 	/**
@@ -79,6 +156,34 @@ public class AreaChartOptions extends CoreOptions {
 	 */
 	public final native void setLineWidth(int width) /*-{
 		this.lineWidth = width;
+	}-*/;
+
+	/**
+	 * The orientation of the chart. When set to 'vertical', rotates the axes of the chart so that (for instance) a
+	 * column chart becomes a bar chart, and an area chart grows rightward instead of up.
+	 * 
+	 * @param orientation
+	 */
+	public final native void setOrientation(Orientation orientation) /*-{
+		this.orientation = orientation;
+	}-*/;
+
+	/**
+	 * Sets the shape of individual data elements.
+	 * 
+	 * @param pointShape
+	 */
+	public final native void setPointShape(PointShape pointShape) /*-{
+		this.pointShape = pointShape;
+	}-*/;
+
+	/**
+	 * Sets the shape of individual data elements.
+	 * 
+	 * @param pointShape
+	 */
+	public final native void setPointShape(PointShapeType pointShape) /*-{
+		this.pointShape = pointShape;
 	}-*/;
 
 	/**
@@ -127,6 +232,20 @@ public class AreaChartOptions extends CoreOptions {
 	}-*/;
 
 	/**
+	 * Specifies properties for individual vertical axes, if the chart has multiple vertical axes. Each child object is
+	 * a vAxis object, and can contain all the properties supported by vAxis. These property values override any global
+	 * settings for the same property.
+	 * 
+	 * To specify a chart with multiple vertical axes, first define a new axis using series.targetAxisIndex, then
+	 * configure the axis using vAxes.
+	 * 
+	 * @param vAxes an array of VAxis values
+	 */
+	public final void setVAxes(VAxis... vAxes) {
+		setVAxes(ArrayHelper.createArray(vAxes));
+	}
+
+	/**
 	 * Specifies properties for individual vertical axes, if the chart has multiple vertical axes. These property values
 	 * override any global settings for the same property.
 	 * 
@@ -142,20 +261,6 @@ public class AreaChartOptions extends CoreOptions {
 		}
 		this.vAxes[index] = vAxis;
 	}-*/;
-
-	/**
-	 * Specifies properties for individual vertical axes, if the chart has multiple vertical axes. Each child object is
-	 * a vAxis object, and can contain all the properties supported by vAxis. These property values override any global
-	 * settings for the same property.
-	 * 
-	 * To specify a chart with multiple vertical axes, first define a new axis using series.targetAxisIndex, then
-	 * configure the axis using vAxes.
-	 * 
-	 * @param vAxes an array of VAxis values
-	 */
-	public final void setVAxes(VAxis... vAxes) {
-		setVAxes(ArrayHelper.createArray(vAxes));
-	}
 
 	private final native void setFocusTarget(String focusTarget) /*-{
 		this.focusTarget = focusTarget;

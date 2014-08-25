@@ -17,8 +17,14 @@ import com.google.gwt.dom.client.Element;
 import com.googlecode.gwt.charts.client.ChartObject;
 import com.googlecode.gwt.charts.client.ChartWidget;
 
+/**
+ * A gauge with a dial, rendered within the browser using SVG or VML.
+ */
 public class Gauge extends ChartWidget<GaugeOptions> {
 
+	/**
+	 * Creates a new gauge widget.
+	 */
 	public Gauge() {
 		super();
 	}

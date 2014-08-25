@@ -13,8 +13,8 @@
 package com.googlecode.gwt.charts.client.calendar;
 
 import com.googlecode.gwt.charts.client.options.CellColor;
-import com.googlecode.gwt.charts.client.options.LabelStyle;
 import com.googlecode.gwt.charts.client.options.Options;
+import com.googlecode.gwt.charts.client.options.TextStyle;
 
 /**
  * Configuration options for {@link Calendar}.
@@ -22,12 +22,12 @@ import com.googlecode.gwt.charts.client.options.Options;
 public class CalendarOptions extends Options {
 	public static CalendarOptions create() {
 		CalendarOptions calendarOptions = (CalendarOptions) createObject().cast();
-		calendarOptions.initCalendar();
+		calendarOptions.initialize();
 		return calendarOptions;
 	}
 
 	protected CalendarOptions() {
-		initCalendar();
+		initialize();
 	}
 
 	/**
@@ -51,10 +51,10 @@ public class CalendarOptions extends Options {
 	/**
 	 * Controls the font style of the week labels at the top of the chart.
 	 * 
-	 * @param dayOfWeekLabel
+	 * @param textStyle an object that specifies the text style.
 	 */
-	public final native void setDayOfWeekLabel(LabelStyle dayOfWeekLabel) /*-{
-		this.calendar.dayOfWeekLabel = dayOfWeekLabel;
+	public final native void setDayOfWeekLabel(TextStyle textStyle) /*-{
+		this.calendar.dayOfWeekLabel = textStyle;
 	}-*/;
 
 	/**
@@ -85,12 +85,22 @@ public class CalendarOptions extends Options {
 	}-*/;
 
 	/**
+	 * Draws the chart inside an inline frame. (Note that on IE8, this option is ignored; all IE8 charts are drawn in
+	 * i-frames.)
+	 * 
+	 * @param forceIFrame true for drawing inside an inline frame
+	 */
+	public final native void setForceIFrame(boolean forceIFrame) /*-{
+		this.forceIFrame = forceIFrame;
+	}-*/;
+
+	/**
 	 * Sets the style for style for the month labels
 	 * 
-	 * @param monthLabel
+	 * @param textStyle an object that specifies the text style.
 	 */
-	public final native void setMonthLabel(LabelStyle monthLabel) /*-{
-		this.calendar.monthLabel = monthLabel;
+	public final native void setMonthLabel(TextStyle textStyle) /*-{
+		this.calendar.monthLabel = textStyle;
 	}-*/;
 
 	/**
@@ -100,6 +110,18 @@ public class CalendarOptions extends Options {
 	 */
 	public final native void setMonthOutlineColor(CellColor monthOutlineColor) /*-{
 		this.calendar.monthOutlineColor = monthOutlineColor;
+	}-*/;
+
+	/**
+	 * Calendar charts use a striped diagonal pattern to indicate that there is no data for a particular day.
+	 * 
+	 * @param backgroundColor
+	 * @param color
+	 */
+	public final native void setNoDataPattern(String backgroundColor, String color) /*-{
+		this.noDataPattern = {};
+		this.noDataPattern.backgroundColor = backgroundColor;
+		this.noDataPattern.color = color;
 	}-*/;
 
 	/**
@@ -129,29 +151,7 @@ public class CalendarOptions extends Options {
 		this.calendar.unusedMonthOutlineColor = unusedMonthOutlineColor;
 	}-*/;
 
-	/**
-	 * Draws the chart inside an inline frame. (Note that on IE8, this option is ignored; all IE8 charts are drawn in
-	 * i-frames.)
-	 * 
-	 * @param forceIFrame true for drawing inside an inline frame
-	 */
-	public final native void setForceIFrame(boolean forceIFrame) /*-{
-		this.forceIFrame = forceIFrame;
-	}-*/;
-
-	/**
-	 * Calendar charts use a striped diagonal pattern to indicate that there is no data for a particular day.
-	 * 
-	 * @param backgroundColor
-	 * @param color
-	 */
-	public final native void setNoDataPattern(String backgroundColor, String color) /*-{
-		this.noDataPattern = {};
-		this.noDataPattern.backgroundColor = backgroundColor;
-		this.noDataPattern.color = color;
-	}-*/;
-
-	private final native void initCalendar() /*-{
+	private final native void initialize() /*-{
 		this.calendar = {};
 	}-*/;
 }

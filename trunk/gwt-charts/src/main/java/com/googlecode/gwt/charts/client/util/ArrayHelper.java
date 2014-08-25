@@ -5,7 +5,9 @@ import com.google.gwt.core.client.JsArray;
 import com.google.gwt.core.client.JsArrayInteger;
 import com.google.gwt.core.client.JsArrayNumber;
 import com.google.gwt.core.client.JsArrayString;
+import com.google.gwt.core.client.JsDate;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -28,6 +30,20 @@ public class ArrayHelper {
 	}
 
 	/**
+	 * Converts a java date array into a javascript array (JsArray).
+	 * 
+	 * @param array the array containing values
+	 * @return a corresponding JsArray
+	 */
+	public static JsArray<JsDate> createArray(Date... array) {
+		JsArray<JsDate> jsArray = JsArray.createArray().cast();
+		for (int i = 0; i < array.length; i++) {
+			jsArray.set(i, DateHelper.getJsDate(array[i]));
+		}
+		return jsArray;
+	}
+
+	/**
 	 * Converts a java object array into a javascript array (JsArray).
 	 * 
 	 * @param <E> the type of array
@@ -43,7 +59,7 @@ public class ArrayHelper {
 	}
 
 	/**
-	 * Converts a java double array into a javascript array (JsArray).
+	 * Converts a java int array into a javascript array (JsArray).
 	 * 
 	 * @param array the array containing values
 	 * @return a corresponding JsArrayNumber

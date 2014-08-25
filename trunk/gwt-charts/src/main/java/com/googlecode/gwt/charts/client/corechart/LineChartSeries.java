@@ -14,8 +14,14 @@ package com.googlecode.gwt.charts.client.corechart;
 
 import com.google.gwt.core.client.JavaScriptObject;
 
+import com.googlecode.gwt.charts.client.options.Annotations;
 import com.googlecode.gwt.charts.client.options.CurveType;
+import com.googlecode.gwt.charts.client.options.PointShape;
+import com.googlecode.gwt.charts.client.options.PointShapeType;
 
+/**
+ * Describes the format of a series in the chart
+ */
 public class LineChartSeries extends JavaScriptObject {
 	/**
 	 * Default constructor
@@ -28,6 +34,15 @@ public class LineChartSeries extends JavaScriptObject {
 
 	protected LineChartSeries() {
 	}
+
+	/**
+	 * Sets annotation display settings.
+	 * 
+	 * @param annotations
+	 */
+	public final native void setAnnotations(Annotations annotations) /*-{
+		this.annotations = annotations;
+	}-*/;
 
 	/**
 	 * The color to use for this series.
@@ -54,6 +69,24 @@ public class LineChartSeries extends JavaScriptObject {
 	 */
 	public final native void setLineWidth(int width) /*-{
 		this.lineWidth = width;
+	}-*/;
+
+	/**
+	 * Sets the shape of individual data elements.
+	 * 
+	 * @param pointShape
+	 */
+	public final native void setPointShape(PointShape pointShape) /*-{
+		this.pointShape = pointShape;
+	}-*/;
+
+	/**
+	 * Sets the shape of individual data elements.
+	 * 
+	 * @param pointShape
+	 */
+	public final native void setPointShape(PointShapeType pointShape) /*-{
+		this.pointShape = pointShape;
 	}-*/;
 
 	/**

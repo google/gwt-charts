@@ -19,6 +19,11 @@ import com.google.gwt.core.client.JavaScriptObject;
  * This option is only supported for a continuous axis.
  */
 public class Gridlines extends JavaScriptObject {
+	/**
+	 * Default constructor
+	 * 
+	 * @return a new object instance
+	 */
 	public static Gridlines create() {
 		return createObject().cast();
 	}
@@ -27,16 +32,16 @@ public class Gridlines extends JavaScriptObject {
 	}
 
 	/**
-	 * 
-	 * @param color The color of the horizontal gridlines inside the chart area. Specify a valid HTML color string.
+	 * Sets the color of the horizontal gridlines inside the chart area. 
+	 * @param color specify a valid HTML color string.
 	 */
 	public final native void setColor(String color) /*-{
 		this.color = color;
 	}-*/;
 
 	/**
-	 * 
-	 * @param count The number of horizontal gridlines inside the chart area. Minimum value is 2.
+	 * Sets the number of horizontal gridlines inside the chart area. 
+	 * @param count minimum value is 2.
 	 */
 	public final native void setCount(int count) /*-{
 		this.count = count;

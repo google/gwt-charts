@@ -14,6 +14,9 @@ package com.googlecode.gwt.charts.client.corechart;
 
 import com.google.gwt.core.client.JavaScriptObject;
 
+/**
+ * Describes the format of a series in the chart
+ */
 public class ScatterChartSeries extends JavaScriptObject {
 	/**
 	 * Default constructor

@@ -14,10 +14,12 @@ package com.googlecode.gwt.charts.client.corechart;
 
 import com.google.gwt.core.client.JsArray;
 
+import com.googlecode.gwt.charts.client.options.Annotations;
 import com.googlecode.gwt.charts.client.options.Bar;
 import com.googlecode.gwt.charts.client.options.CoreOptions;
 import com.googlecode.gwt.charts.client.options.FocusTarget;
 import com.googlecode.gwt.charts.client.options.HAxis;
+import com.googlecode.gwt.charts.client.options.Orientation;
 import com.googlecode.gwt.charts.client.options.Trendline;
 import com.googlecode.gwt.charts.client.util.ArrayHelper;
 
@@ -41,12 +43,42 @@ public class BarChartOptions extends CoreOptions {
 	}
 
 	/**
+	 * Sets annotation display settings.
+	 * 
+	 * @param annotations
+	 */
+	public final native void setAnnotations(Annotations annotations) /*-{
+		this.annotations = annotations;
+	}-*/;
+
+	/**
 	 * Sets the bar options, currently only width
 	 * 
 	 * @param bar an object defining bar options
 	 */
 	public final native void setBar(Bar bar) /*-{
 		this.bar = bar;
+	}-*/;
+
+	/**
+	 * Sets the transparency of data points, with 1.0 being completely opaque and 0.0 fully transparent. In scatter,
+	 * histogram, bar, and column charts, this refers to the visible data: dots in the scatter chart and rectangles in
+	 * the others. In charts where selecting data creates a dot, such as the line and area charts, this refers to the
+	 * circles that appear upon hover or selection. The combo chart exhibits both behaviors.
+	 * 
+	 * @param dataOpacity a value from 0.0 (fully transparent) to 1.0 (fully opaque)
+	 */
+	public final native void setDataOpacity(double dataOpacity) /*-{
+		this.dataOpacity = dataOpacity;
+	}-*/;
+
+	/**
+	 * Sets diff chart options
+	 * 
+	 * @param diff
+	 */
+	public final native void setDiff(BarChartDiff diff) /*-{
+		this.diff = diff;
 	}-*/;
 
 	/**
@@ -112,6 +144,16 @@ public class BarChartOptions extends CoreOptions {
 	}-*/;
 
 	/**
+	 * The orientation of the chart. When set to 'vertical', rotates the axes of the chart so that (for instance) a
+	 * column chart becomes a bar chart, and an area chart grows rightward instead of up.
+	 * 
+	 * @param orientation
+	 */
+	public final native void setOrientation(Orientation orientation) /*-{
+		this.orientation = orientation;
+	}-*/;
+
+	/**
 	 * If set to true, will draw series from right to left. The default is to draw left-to-right. This option is only
 	 * supported for a discrete major axis.
 	 * 
@@ -163,12 +205,12 @@ public class BarChartOptions extends CoreOptions {
 		this.focusTarget = focusTarget;
 	}-*/;
 
-	private final native void setSeries(JsArray<BarChartSeries> series) /*-{
-		this.series = series;
-	}-*/;
-
 	private final native void setHAxes(JsArray<HAxis> hAxes) /*-{
 		this.hAxes = hAxes;
+	}-*/;
+
+	private final native void setSeries(JsArray<BarChartSeries> series) /*-{
+		this.series = series;
 	}-*/;
 
 }

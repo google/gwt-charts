@@ -23,7 +23,11 @@ public enum TooltipTrigger {
 	/**
 	 * The tooltip will not be displayed.
 	 */
-	NONE("none");
+	NONE("none"),
+	/**
+	 * The tooltip will be displayed when the user selects the element.
+	 */
+	SELECTION("selection");
 	
 	/**
 	 * Get a TooltipTrigger by providing its name.

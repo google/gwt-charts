@@ -45,6 +45,15 @@ public class ScatterChartOptions extends CoreOptions {
 	}
 
 	/**
+	 * Sets diff chart options
+	 * 
+	 * @param diff
+	 */
+	public final native void setDiff(ScatterChartDiff diff) /*-{
+		this.diff = diff;
+	}-*/;
+
+	/**
 	 * Defines data line width in pixels. Use zero to hide all lines and show only the points. You can override values
 	 * for individual series using {@link #setSeries(int, ScatterChartSeries)}.
 	 * 
@@ -65,16 +74,6 @@ public class ScatterChartOptions extends CoreOptions {
 	}-*/;
 
 	/**
-	 * Sets series options with an array of objects, each describing the format of the corresponding series in the
-	 * chart.
-	 * 
-	 * @param series an array of the corresponding series objects
-	 */
-	public final void setSeries(ScatterChartSeries... series) {
-		setSeries(ArrayHelper.createArray(series));
-	}
-
-	/**
 	 * Sets series options by index for describing the format of the corresponding series in the chart
 	 * 
 	 * @param index the series index
@@ -86,6 +85,16 @@ public class ScatterChartOptions extends CoreOptions {
 		}
 		this.series[index] = series;
 	}-*/;
+
+	/**
+	 * Sets series options with an array of objects, each describing the format of the corresponding series in the
+	 * chart.
+	 * 
+	 * @param series an array of the corresponding series objects
+	 */
+	public final void setSeries(ScatterChartSeries... series) {
+		setSeries(ArrayHelper.createArray(series));
+	}
 
 	/**
 	 * Sets a trendline by index

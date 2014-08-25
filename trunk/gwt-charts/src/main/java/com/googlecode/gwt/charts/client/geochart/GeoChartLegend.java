@@ -17,14 +17,16 @@ import com.google.gwt.core.client.JavaScriptObject;
 import com.googlecode.gwt.charts.client.options.TextStyle;
 
 /**
+ * An object with members to configure various aspects of the legend.
  */
-
 public class GeoChartLegend extends JavaScriptObject {
 
 	protected GeoChartLegend() {
 	}
 
 	/**
+	 * A format string for numeric labels. This is a subset of the ICU pattern set. For instance, {numberFormat:'.##'}
+	 * will display values "10.66", "10.6", and "10.0" for values 10.666, 10.6, and 10.
 	 * 
 	 * @param numberFormat
 	 */
@@ -33,6 +35,7 @@ public class GeoChartLegend extends JavaScriptObject {
 	}-*/;
 
 	/**
+	 * Specifies the legend text style
 	 * 
 	 * @param textStyle
 	 */

@@ -15,13 +15,23 @@ package com.googlecode.gwt.charts.client.options;
 import com.google.gwt.core.client.JavaScriptObject;
 
 /**
+ * An object with members to configure various aspects of the legend.
  */
-
 public class Legend extends JavaScriptObject {
+	/**
+	 * Default constructor
+	 * 
+	 * @return a new object
+	 */
 	public static Legend create() {
 		return createObject().cast();
 	}
 
+	/**
+	 * Construct with position
+	 * @param position
+	 * @return a new object
+	 */
 	public static Legend create(LegendPosition position) {
 		Legend legend = createObject().cast();
 		legend.setPosition(position);
@@ -31,15 +41,40 @@ public class Legend extends JavaScriptObject {
 	protected Legend() {
 	}
 
+	/**
+	 * Sets alignment of the legend.<br>
+	 * The default value depends on the legend's position. For BOTTOM legends, the default is CENTER; other legends
+	 * default to START.
+	 * 
+	 * @param alignment
+	 */
 	public final void setAligment(LegendAlignment alignment) {
 		setAlignment(alignment.getName());
 	}
 
+	/**
+	 * Maximum number of lines in the legend. Set this to a number greater than one to add lines to your legend. Note:
+	 * The exact logic used to determine the actual number of lines rendered is still in flux.<br>
+	 * 
+	 * This option currently works only when position is TOP.
+	 * 
+	 * @param maxLines default is 1
+	 */
+	public final native void setMaxLines(int maxLines) /*-{
+		this.maxLines = maxLines;
+	}-*/;
+
+	/**
+	 * Sets the position of the legend.
+	 * 
+	 * @param position default is RIGHT
+	 */
 	public final void setPosition(LegendPosition position) {
 		setPosition(position.getName());
 	}
 
 	/**
+	 * Specifies the legend text style
 	 * 
 	 * @param textStyle
 	 */
@@ -47,11 +82,11 @@ public class Legend extends JavaScriptObject {
 		this.textStyle = textStyle;
 	}-*/;
 
-	protected final native void setAlignment(String alignment) /*-{
+	private final native void setAlignment(String alignment) /*-{
 		this.alignment = alignment;
 	}-*/;
 
-	protected final native void setPosition(String position) /*-{
+	private final native void setPosition(String position) /*-{
 		this.position = position;
 	}-*/;
 

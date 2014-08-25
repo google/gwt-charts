@@ -14,6 +14,11 @@ package com.googlecode.gwt.charts.client.corechart;
 
 import com.google.gwt.core.client.JavaScriptObject;
 
+import com.googlecode.gwt.charts.client.options.BackgroundColor;
+
+/**
+ * Describes the format of a series in the chart
+ */
 public class CandlestickChartSeries extends JavaScriptObject {
 	/**
 	 * Default constructor
@@ -34,6 +39,24 @@ public class CandlestickChartSeries extends JavaScriptObject {
 	 */
 	public final native void setColor(String color) /*-{
 		this.color = color;
+	}-*/;
+
+	/**
+	 * Sets the colors applied to falling candles
+	 * 
+	 * @param fallingColor falling candles color settings
+	 */
+	public final native void setFallingColor(BackgroundColor fallingColor) /*-{
+		this.fallingColor = fallingColor;
+	}-*/;
+
+	/**
+	 * Sets the colors applied to rising candles
+	 * 
+	 * @param risingColor rising candles color settings
+	 */
+	public final native void setRisingColor(BackgroundColor risingColor) /*-{
+		this.risingColor = risingColor;
 	}-*/;
 
 	/**

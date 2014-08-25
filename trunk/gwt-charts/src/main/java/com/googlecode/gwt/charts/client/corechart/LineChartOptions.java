@@ -14,9 +14,16 @@ package com.googlecode.gwt.charts.client.corechart;
 
 import com.google.gwt.core.client.JsArray;
 
+import com.googlecode.gwt.charts.client.options.AggregationTarget;
+import com.googlecode.gwt.charts.client.options.Annotations;
 import com.googlecode.gwt.charts.client.options.CoreOptions;
+import com.googlecode.gwt.charts.client.options.Crosshair;
 import com.googlecode.gwt.charts.client.options.CurveType;
+import com.googlecode.gwt.charts.client.options.Explorer;
 import com.googlecode.gwt.charts.client.options.FocusTarget;
+import com.googlecode.gwt.charts.client.options.Orientation;
+import com.googlecode.gwt.charts.client.options.PointShape;
+import com.googlecode.gwt.charts.client.options.PointShapeType;
 import com.googlecode.gwt.charts.client.options.Trendline;
 import com.googlecode.gwt.charts.client.options.VAxis;
 import com.googlecode.gwt.charts.client.util.ArrayHelper;
@@ -38,6 +45,52 @@ public class LineChartOptions extends CoreOptions {
 	}
 
 	/**
+	 * How multiple data selections are rolled up into tooltips:
+	 * <ul>
+	 * <li>'category': Group selected data by x-value.</li>
+	 * <li>'series': Group selected data by series.</li>
+	 * <li>'auto': Group selected data by x-value if all selections have the same x-value, and by series otherwise.</li>
+	 * <li>'none': Show only one tooltip per selection.</li>
+	 * </ul>
+	 * aggregationTarget will often be used in tandem with selectionMode and tooltip.trigger, e.g.:
+	 * 
+	 * <pre>
+	 * // Allow multiple simultaneous selections.
+	 * options.setSelectionMode(SelectionMode.MULTIPLE);
+	 * // Trigger tooltips on selections.
+	 * Tooltip tooltip = Tooltip.create();
+	 * tooltip.setTrigger(TooltipTrigger.SELECTION);
+	 * options.setTooltip(tooltip);
+	 * // Group selections by x-value.
+	 * options.setAggregationTarget(AggregationTarget.CATEGORY);
+	 * 
+	 * </pre>
+	 * 
+	 * @param aggregationTarget
+	 */
+	public final native void setAggregationTarget(AggregationTarget aggregationTarget) /*-{
+		this.aggregationTarget = aggregationTarget;
+	}-*/;
+
+	/**
+	 * Sets annotation display settings.
+	 * 
+	 * @param annotations
+	 */
+	public final native void setAnnotations(Annotations annotations) /*-{
+		this.annotations = annotations;
+	}-*/;
+
+	/**
+	 * Sets the crosshair properties for the chart.
+	 * 
+	 * @param crosshair
+	 */
+	public final native void setCrosshair(Crosshair crosshair) /*-{
+		this.crosshair = crosshair;
+	}-*/;
+
+	/**
 	 * Controls the curve of the lines when the line width is not zero.
 	 * 
 	 * @param curveType the line curve type
@@ -45,6 +98,27 @@ public class LineChartOptions extends CoreOptions {
 	public final void setCurveType(CurveType curveType) {
 		setCurveType(curveType.getName());
 	}
+
+	/**
+	 * Sets the transparency of data points, with 1.0 being completely opaque and 0.0 fully transparent. In scatter,
+	 * histogram, bar, and column charts, this refers to the visible data: dots in the scatter chart and rectangles in
+	 * the others. In charts where selecting data creates a dot, such as the line and area charts, this refers to the
+	 * circles that appear upon hover or selection. The combo chart exhibits both behaviors.
+	 * 
+	 * @param dataOpacity a value from 0.0 (fully transparent) to 1.0 (fully opaque)
+	 */
+	public final native void setDataOpacity(double dataOpacity) /*-{
+		this.dataOpacity = dataOpacity;
+	}-*/;
+
+	/**
+	 * Sets the explorer properties for the chart.
+	 * 
+	 * @param explorer
+	 */
+	public final native void setExplorer(Explorer explorer) /*-{
+		this.explorer = explorer;
+	}-*/;
 
 	/**
 	 * Defines the type of the entity that receives focus on mouse hover. Also affects which entity is selected by mouse
@@ -84,6 +158,34 @@ public class LineChartOptions extends CoreOptions {
 	}-*/;
 
 	/**
+	 * The orientation of the chart. When set to 'vertical', rotates the axes of the chart so that (for instance) a
+	 * column chart becomes a bar chart, and an area chart grows rightward instead of up.
+	 * 
+	 * @param orientation
+	 */
+	public final native void setOrientation(Orientation orientation) /*-{
+		this.orientation = orientation;
+	}-*/;
+
+	/**
+	 * Sets the shape of individual data elements.
+	 * 
+	 * @param pointShape
+	 */
+	public final native void setPointShape(PointShape pointShape) /*-{
+		this.pointShape = pointShape;
+	}-*/;
+
+	/**
+	 * Sets the shape of individual data elements.
+	 * 
+	 * @param pointShape
+	 */
+	public final native void setPointShape(PointShapeType pointShape) /*-{
+		this.pointShape = pointShape;
+	}-*/;
+
+	/**
 	 * Sets diameter of displayed points in pixels. Use zero to hide all points. You can override values for individual
 	 * series using {@link #setSeries(int, LineChartSeries)}.
 	 * 
@@ -103,6 +205,19 @@ public class LineChartOptions extends CoreOptions {
 	 */
 	public final native void setReverseCategories(boolean reverseCategories) /*-{
 		this.reverseCategories = reverseCategories;
+	}-*/;
+
+	/**
+	 * Sets series options by index for describing the format of the corresponding series in the chart
+	 * 
+	 * @param index the series index
+	 * @param series an object definining the series format
+	 */
+	public final native void setSeries(int index, LineChartSeries series) /*-{
+		if (!this.series) {
+			this.series = {};
+		}
+		this.series[index] = series;
 	}-*/;
 
 	/**
@@ -129,17 +244,18 @@ public class LineChartOptions extends CoreOptions {
 	}-*/;
 
 	/**
-	 * Sets series options by index for describing the format of the corresponding series in the chart
+	 * Specifies properties for individual vertical axes, if the chart has multiple vertical axes. Each child object is
+	 * a vAxis object, and can contain all the properties supported by vAxis. These property values override any global
+	 * settings for the same property.
 	 * 
-	 * @param index the series index
-	 * @param series an object definining the series format
+	 * To specify a chart with multiple vertical axes, first define a new axis using series.targetAxisIndex, then
+	 * configure the axis using vAxes.
+	 * 
+	 * @param vAxes an array of VAxis values
 	 */
-	public final native void setSeries(int index, LineChartSeries series) /*-{
-		if (!this.series) {
-			this.series = {};
-		}
-		this.series[index] = series;
-	}-*/;
+	public final void setVAxes(VAxis... vAxes) {
+		setVAxes(ArrayHelper.createArray(vAxes));
+	}
 
 	/**
 	 * Specifies properties for individual vertical axes, if the chart has multiple vertical axes. These property values
@@ -157,20 +273,6 @@ public class LineChartOptions extends CoreOptions {
 		}
 		this.vAxes[index] = vAxis;
 	}-*/;
-
-	/**
-	 * Specifies properties for individual vertical axes, if the chart has multiple vertical axes. Each child object is
-	 * a vAxis object, and can contain all the properties supported by vAxis. These property values override any global
-	 * settings for the same property.
-	 * 
-	 * To specify a chart with multiple vertical axes, first define a new axis using series.targetAxisIndex, then
-	 * configure the axis using vAxes.
-	 * 
-	 * @param vAxes an array of VAxis values
-	 */
-	public final void setVAxes(VAxis... vAxes) {
-		setVAxes(ArrayHelper.createArray(vAxes));
-	}
 
 	private final native void setCurveType(String curveType) /*-{
 		this.curveType = curveType;
