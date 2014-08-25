@@ -17,7 +17,15 @@ import com.google.gwt.core.client.JavaScriptObject;
 import com.googlecode.gwt.charts.client.options.TextStyle;
 import com.googlecode.gwt.charts.client.options.TooltipTrigger;
 
+/**
+ * An object that specifies the tooltip style and behaviour.
+ */
 public class GeoChartTooltip extends JavaScriptObject {
+	/**
+	 * Default constructor
+	 * 
+	 * @return a new object instance
+	 */
 	public static GeoChartTooltip create() {
 		return createObject().cast();
 	}
@@ -25,10 +33,20 @@ public class GeoChartTooltip extends JavaScriptObject {
 	protected GeoChartTooltip() {
 	}
 
+	/**
+	 * An object that specifies the tooltip text style.
+	 * 
+	 * @param textStyle
+	 */
 	public final native void setTextStyle(TextStyle textStyle) /*-{
 		this.textStyle = textStyle;
 	}-*/;
 
+	/**
+	 * Sets the user interaction that causes the tooltip to be displayed
+	 * 
+	 * @param trigger default is {@link TooltipTrigger#FOCUS}
+	 */
 	public final void setTrigger(TooltipTrigger trigger) {
 		setTrigger(trigger.getName());
 	}

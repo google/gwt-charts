@@ -35,6 +35,17 @@ public class ChartObject extends HasListeners {
 	}-*/;
 
 	/**
+	 * Create a diff chart with two datasets to generate a third dataset representing the diff.
+	 * 
+	 * @param oldData a first dataset
+	 * @param newData a second dataset
+	 * @return a third dataset representing the diff
+	 */
+	public final native DataSource computeDiff(DataSource oldData, DataSource newData) /*-{
+		return this.computeDiff(oldData, newData);
+	}-*/;
+
+	/**
 	 * Draws the visualization on the page. Behind the scenes this can be fetching a graphic from a server or creating
 	 * the graphic on the page using the linked visualization code. You should call this method every time the data or
 	 * options change. The object should be drawn inside the DOM element passed into the constructor.

@@ -14,7 +14,15 @@ package com.googlecode.gwt.charts.client.geochart;
 
 import com.google.gwt.core.client.JavaScriptObject;
 
+/**
+ * An object with members to configure various aspects of the magnifying glass.
+ */
 public class MagnifyingGlass extends JavaScriptObject {
+	/**
+	 * Default constructor
+	 * 
+	 * @return a new object
+	 */
 	public static MagnifyingGlass create() {
 		return createObject().cast();
 	}
@@ -22,10 +30,23 @@ public class MagnifyingGlass extends JavaScriptObject {
 	protected MagnifyingGlass() {
 	}
 
+	/**
+	 * If true, when the user lingers over a cluttered marker, a magnifiying glass will be opened.<br>
+	 * 
+	 * Note: this feature is not supported in browsers that do not support SVG, i.e. Internet Explorer version 8 or
+	 * earlier.
+	 * 
+	 * @param enable
+	 */
 	public final native void setEnable(boolean enable) /*-{
 		this.enable = enable;
 	}-*/;
 
+	/**
+	 * The zoom factor of the magnifying glass. Can be any number greater than 0.
+	 * 
+	 * @param zoomFactor
+	 */
 	public final native void setZoomFactor(double zoomFactor) /*-{
 		this.zoomFactor = zoomFactor;
 	}-*/;

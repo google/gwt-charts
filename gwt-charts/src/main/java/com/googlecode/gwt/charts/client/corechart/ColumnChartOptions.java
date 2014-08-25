@@ -14,9 +14,11 @@ package com.googlecode.gwt.charts.client.corechart;
 
 import com.google.gwt.core.client.JsArray;
 
+import com.googlecode.gwt.charts.client.options.Annotations;
 import com.googlecode.gwt.charts.client.options.Bar;
 import com.googlecode.gwt.charts.client.options.CoreOptions;
 import com.googlecode.gwt.charts.client.options.FocusTarget;
+import com.googlecode.gwt.charts.client.options.Orientation;
 import com.googlecode.gwt.charts.client.options.Trendline;
 import com.googlecode.gwt.charts.client.options.VAxis;
 import com.googlecode.gwt.charts.client.util.ArrayHelper;
@@ -38,12 +40,42 @@ public class ColumnChartOptions extends CoreOptions {
 	}
 
 	/**
+	 * Sets annotation display settings.
+	 * 
+	 * @param annotations
+	 */
+	public final native void setAnnotations(Annotations annotations) /*-{
+		this.annotations = annotations;
+	}-*/;
+
+	/**
 	 * Sets the bar options, currently only width
 	 * 
 	 * @param bar an object defining bar options
 	 */
 	public final native void setBar(Bar bar) /*-{
 		this.bar = bar;
+	}-*/;
+
+	/**
+	 * Sets the transparency of data points, with 1.0 being completely opaque and 0.0 fully transparent. In scatter,
+	 * histogram, bar, and column charts, this refers to the visible data: dots in the scatter chart and rectangles in
+	 * the others. In charts where selecting data creates a dot, such as the line and area charts, this refers to the
+	 * circles that appear upon hover or selection. The combo chart exhibits both behaviors.
+	 * 
+	 * @param dataOpacity a value from 0.0 (fully transparent) to 1.0 (fully opaque)
+	 */
+	public final native void setDataOpacity(double dataOpacity) /*-{
+		this.dataOpacity = dataOpacity;
+	}-*/;
+
+	/**
+	 * Sets diff chart options
+	 * 
+	 * @param diff
+	 */
+	public final native void setDiff(ColumnChartDiff diff) /*-{
+		this.diff = diff;
 	}-*/;
 
 	/**
@@ -70,6 +102,16 @@ public class ColumnChartOptions extends CoreOptions {
 	 */
 	public final native void setIsStacked(boolean isStacked) /*-{
 		this.isStacked = isStacked;
+	}-*/;
+
+	/**
+	 * The orientation of the chart. When set to 'vertical', rotates the axes of the chart so that (for instance) a
+	 * column chart becomes a bar chart, and an area chart grows rightward instead of up.
+	 * 
+	 * @param orientation
+	 */
+	public final native void setOrientation(Orientation orientation) /*-{
+		this.orientation = orientation;
 	}-*/;
 
 	/**
@@ -121,6 +163,20 @@ public class ColumnChartOptions extends CoreOptions {
 	}-*/;
 
 	/**
+	 * Specifies properties for individual vertical axes, if the chart has multiple vertical axes. Each child object is
+	 * a vAxis object, and can contain all the properties supported by vAxis. These property values override any global
+	 * settings for the same property.
+	 * 
+	 * To specify a chart with multiple vertical axes, first define a new axis using series.targetAxisIndex, then
+	 * configure the axis using vAxes.
+	 * 
+	 * @param vAxes an array of VAxis values
+	 */
+	public final void setVAxes(VAxis... vAxes) {
+		setVAxes(ArrayHelper.createArray(vAxes));
+	}
+
+	/**
 	 * Specifies properties for individual vertical axes, if the chart has multiple vertical axes. These property values
 	 * override any global settings for the same property.
 	 * 
@@ -136,20 +192,6 @@ public class ColumnChartOptions extends CoreOptions {
 		}
 		this.vAxes[index] = vAxis;
 	}-*/;
-
-	/**
-	 * Specifies properties for individual vertical axes, if the chart has multiple vertical axes. Each child object is
-	 * a vAxis object, and can contain all the properties supported by vAxis. These property values override any global
-	 * settings for the same property.
-	 * 
-	 * To specify a chart with multiple vertical axes, first define a new axis using series.targetAxisIndex, then
-	 * configure the axis using vAxes.
-	 * 
-	 * @param vAxes an array of VAxis values
-	 */
-	public final void setVAxes(VAxis... vAxes) {
-		setVAxes(ArrayHelper.createArray(vAxes));
-	}
 
 	private final native void setFocusTarget(String focusTarget) /*-{
 		this.focusTarget = focusTarget;

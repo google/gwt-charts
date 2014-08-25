@@ -56,6 +56,15 @@ public class PieChartOptions extends Options {
 		setColors(ArrayHelper.createArray(colors));
 	}
 
+	/**
+	 * Sets diff chart options
+	 * 
+	 * @param diff
+	 */
+	public final native void setDiff(PieChartDiff diff) /*-{
+		this.diff = diff;
+	}-*/;
+
 	public final native void setFontName(String name) /*-{
 		this.fontName = name;
 	}-*/;

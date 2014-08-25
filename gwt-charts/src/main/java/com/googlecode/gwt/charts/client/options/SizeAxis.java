@@ -18,6 +18,11 @@ import com.google.gwt.core.client.JavaScriptObject;
  * An object with members to configure how values are associated with bubble size.
  */
 public class SizeAxis extends JavaScriptObject {
+	/**
+	 * Default constructor
+	 * 
+	 * @return a new object
+	 */
 	public static SizeAxis create() {
 		return createObject().cast();
 	}

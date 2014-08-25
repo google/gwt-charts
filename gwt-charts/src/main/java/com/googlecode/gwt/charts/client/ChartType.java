@@ -19,7 +19,7 @@ public enum ChartType {
 	/**
 	 * Annotation chart
 	 */
-	ANNOTATION("Calendar"),
+	ANNOTATION("Annotation"),
 	/**
 	 * Area chart
 	 */
@@ -49,6 +49,18 @@ public enum ChartType {
 	 */
 	COMBO("ComboChart"),
 	/**
+	 * Gauge chart
+	 */
+	GAUGE("Gauge"),
+	/**
+	 * Geo chart
+	 */
+	GEO_CHART("GeoChart"),
+	/**
+	 * Histogram
+	 */
+	HISTOGRAM("Histogram"),
+	/**
 	 * Line chart
 	 */
 	LINE("LineChart"),
@@ -68,14 +80,6 @@ public enum ChartType {
 	 * Stepped area chart
 	 */
 	STEPPED_AREA("SteppedAreaChart"),
-	/**
-	 * Gauge chart
-	 */
-	GAUGE("Gauge"),
-	/**
-	 * Geo chart
-	 */
-	GEO_CHART("GeoChart"),
 	/**
 	 * Table
 	 */

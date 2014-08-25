@@ -94,16 +94,6 @@ public class SteppedAreaChartOptions extends CoreOptions {
 	}-*/;
 
 	/**
-	 * Sets series options with an array of objects, each describing the format of the corresponding series in the
-	 * chart.
-	 * 
-	 * @param series an array of the corresponding series objects
-	 */
-	public final void setSeries(SteppedAreaChartSeries... series) {
-		setSeries(ArrayHelper.createArray(series));
-	}
-
-	/**
 	 * Sets series options by index for describing the format of the corresponding series in the chart
 	 * 
 	 * @param index the series index
@@ -115,6 +105,30 @@ public class SteppedAreaChartOptions extends CoreOptions {
 		}
 		this.series[index] = series;
 	}-*/;
+
+	/**
+	 * Sets series options with an array of objects, each describing the format of the corresponding series in the
+	 * chart.
+	 * 
+	 * @param series an array of the corresponding series objects
+	 */
+	public final void setSeries(SteppedAreaChartSeries... series) {
+		setSeries(ArrayHelper.createArray(series));
+	}
+
+	/**
+	 * Specifies properties for individual vertical axes, if the chart has multiple vertical axes. Each child object is
+	 * a vAxis object, and can contain all the properties supported by vAxis. These property values override any global
+	 * settings for the same property.
+	 * 
+	 * To specify a chart with multiple vertical axes, first define a new axis using series.targetAxisIndex, then
+	 * configure the axis using vAxes.
+	 * 
+	 * @param vAxes an array of VAxis values
+	 */
+	public final void setVAxes(VAxis... vAxes) {
+		setVAxes(ArrayHelper.createArray(vAxes));
+	}
 
 	/**
 	 * Specifies properties for individual vertical axes, if the chart has multiple vertical axes. These property values
@@ -132,20 +146,6 @@ public class SteppedAreaChartOptions extends CoreOptions {
 		}
 		this.vAxes[index] = vAxis;
 	}-*/;
-
-	/**
-	 * Specifies properties for individual vertical axes, if the chart has multiple vertical axes. Each child object is
-	 * a vAxis object, and can contain all the properties supported by vAxis. These property values override any global
-	 * settings for the same property.
-	 * 
-	 * To specify a chart with multiple vertical axes, first define a new axis using series.targetAxisIndex, then
-	 * configure the axis using vAxes.
-	 * 
-	 * @param vAxes an array of VAxis values
-	 */
-	public final void setVAxes(VAxis... vAxes) {
-		setVAxes(ArrayHelper.createArray(vAxes));
-	}
 
 	private final native void setFocusTarget(String focusTarget) /*-{
 		this.focusTarget = focusTarget;

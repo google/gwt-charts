@@ -17,6 +17,7 @@ import com.google.gwt.core.client.JsArray;
 import com.googlecode.gwt.charts.client.options.Bubble;
 import com.googlecode.gwt.charts.client.options.ColorAxis;
 import com.googlecode.gwt.charts.client.options.CoreOptions;
+import com.googlecode.gwt.charts.client.options.Explorer;
 import com.googlecode.gwt.charts.client.options.SizeAxis;
 import com.googlecode.gwt.charts.client.util.ArrayHelper;
 
@@ -55,6 +56,15 @@ public class BubbleChartOptions extends CoreOptions {
 	}-*/;
 
 	/**
+	 * Sets the explorer properties for the chart.
+	 * 
+	 * @param explorer
+	 */
+	public final native void setExplorer(Explorer explorer) /*-{
+		this.explorer = explorer;
+	}-*/;
+
+	/**
 	 * Sets series options with an array of objects, each describing the format of the corresponding series in the
 	 * chart.
 	 * 
@@ -88,7 +98,8 @@ public class BubbleChartOptions extends CoreOptions {
 
 	/**
 	 * Defines sorting methid for the bubbles.
-	 * Sorts the bubbles by size so the smaller bubbles appear above the larger bubbles or according to their order in the DataTable.
+	 * Sorts the bubbles by size so the smaller bubbles appear above the larger bubbles or according to their order in
+	 * the DataTable.
 	 * 
 	 * @param sortBubblesBySize true to sort by size
 	 */

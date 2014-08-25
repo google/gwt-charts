@@ -14,6 +14,9 @@ package com.googlecode.gwt.charts.client.options;
 
 import com.google.gwt.core.client.JavaScriptObject;
 
+/**
+ * Common options for all charts
+ */
 public abstract class Options extends JavaScriptObject {
 	/**
 	 * Default constructor

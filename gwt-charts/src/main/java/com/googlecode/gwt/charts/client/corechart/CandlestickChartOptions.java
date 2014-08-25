@@ -14,17 +14,23 @@ package com.googlecode.gwt.charts.client.corechart;
 
 import com.google.gwt.core.client.JsArray;
 
+import com.googlecode.gwt.charts.client.options.AggregationTarget;
 import com.googlecode.gwt.charts.client.options.BackgroundColor;
 import com.googlecode.gwt.charts.client.options.Bar;
+import com.googlecode.gwt.charts.client.options.Candlestick;
 import com.googlecode.gwt.charts.client.options.CoreOptions;
 import com.googlecode.gwt.charts.client.options.FocusTarget;
+import com.googlecode.gwt.charts.client.options.Orientation;
 import com.googlecode.gwt.charts.client.options.VAxis;
 import com.googlecode.gwt.charts.client.util.ArrayHelper;
 
 /**
  * Configuration options for {@link CandlestickChart}.
+ * 
+ * @see <a
+ *      href="https://developers.google.com/chart/interactive/docs/gallery/candlestickchart#Configuration_Options">Candlestick
+ *      Chart Configuration Options</a>
  */
-
 public class CandlestickChartOptions extends CoreOptions {
 	/**
 	 * Default constructor
@@ -32,11 +38,42 @@ public class CandlestickChartOptions extends CoreOptions {
 	 * @return a new object instance
 	 */
 	public static CandlestickChartOptions create() {
-		return createObject().cast();
+		CandlestickChartOptions candlestickChartOptions = createObject().cast();
+		candlestickChartOptions.initialize();
+		return candlestickChartOptions;
 	}
 
 	protected CandlestickChartOptions() {
+		initialize();
 	}
+
+	/**
+	 * How multiple data selections are rolled up into tooltips:
+	 * <ul>
+	 * <li>'category': Group selected data by x-value.</li>
+	 * <li>'series': Group selected data by series.</li>
+	 * <li>'auto': Group selected data by x-value if all selections have the same x-value, and by series otherwise.</li>
+	 * <li>'none': Show only one tooltip per selection.</li>
+	 * </ul>
+	 * aggregationTarget will often be used in tandem with selectionMode and tooltip.trigger, e.g.:
+	 * 
+	 * <pre>
+	 * // Allow multiple simultaneous selections.
+	 * options.setSelectionMode(SelectionMode.MULTIPLE);
+	 * // Trigger tooltips on selections.
+	 * Tooltip tooltip = Tooltip.create();
+	 * tooltip.setTrigger(TooltipTrigger.SELECTION);
+	 * options.setTooltip(tooltip);
+	 * // Group selections by x-value.
+	 * options.setAggregationTarget(AggregationTarget.CATEGORY);
+	 * 
+	 * </pre>
+	 * 
+	 * @param aggregationTarget
+	 */
+	public final native void setAggregationTarget(AggregationTarget aggregationTarget) /*-{
+		this.aggregationTarget = aggregationTarget;
+	}-*/;
 
 	/**
 	 * Sets the bar options, currently only width
@@ -48,11 +85,21 @@ public class CandlestickChartOptions extends CoreOptions {
 	}-*/;
 
 	/**
+	 * Sets the candlestick options
+	 * 
+	 * @param candlestick an object with options
+	 */
+	public final native void setCandlestick(Candlestick candlestick) /*-{
+		this.candlestick = candlestick;
+	}-*/;
+
+	/**
 	 * Sets the colors applied to falling candles
+	 * 
 	 * @param fallingColor falling candles color settings
 	 */
 	public final native void setFallingColor(BackgroundColor fallingColor) /*-{
-		this.fallingColor = fallingColor;
+		this.candlestick.fallingColor = fallingColor;
 	}-*/;
 
 	/**
@@ -71,15 +118,26 @@ public class CandlestickChartOptions extends CoreOptions {
 	public final void setFocusTarget(FocusTarget focusTarget) {
 		setFocusTarget(focusTarget);
 	}
-	
+
 	/**
 	 * If true, rising candles will appear hollow and falling candles will appear solid, otherwise, the opposite.
+	 * 
 	 * @param hollowIsRising
 	 */
 	public final native void setHollowIsRising(boolean hollowIsRising) /*-{
-		this.hollowIsRising = hollowIsRising;
+		this.candlestick.hollowIsRising = hollowIsRising;
 	}-*/;
-	
+
+	/**
+	 * The orientation of the chart. When set to 'vertical', rotates the axes of the chart so that (for instance) a
+	 * column chart becomes a bar chart, and an area chart grows rightward instead of up.
+	 * 
+	 * @param orientation
+	 */
+	public final native void setOrientation(Orientation orientation) /*-{
+		this.orientation = orientation;
+	}-*/;
+
 	/**
 	 * If set to true, will draw series from right to left. The default is to draw left-to-right. This option is only
 	 * supported for a discrete major axis.
@@ -94,10 +152,11 @@ public class CandlestickChartOptions extends CoreOptions {
 
 	/**
 	 * Sets the colors applied to rising candles
+	 * 
 	 * @param risingColor rising candles color settings
 	 */
 	public final native void setRisingColor(BackgroundColor risingColor) /*-{
-		this.risingColor = risingColor;
+		this.candlestick.risingColor = risingColor;
 	}-*/;
 
 	/**
@@ -124,6 +183,20 @@ public class CandlestickChartOptions extends CoreOptions {
 	}-*/;
 
 	/**
+	 * Specifies properties for individual vertical axes, if the chart has multiple vertical axes. Each child object is
+	 * a vAxis object, and can contain all the properties supported by vAxis. These property values override any global
+	 * settings for the same property.
+	 * 
+	 * To specify a chart with multiple vertical axes, first define a new axis using series.targetAxisIndex, then
+	 * configure the axis using vAxes.
+	 * 
+	 * @param vAxes an array of VAxis values
+	 */
+	public final void setVAxes(VAxis... vAxes) {
+		setVAxes(ArrayHelper.createArray(vAxes));
+	}
+
+	/**
 	 * Specifies properties for individual vertical axes, if the chart has multiple vertical axes. These property values
 	 * override any global settings for the same property.
 	 * 
@@ -140,19 +213,9 @@ public class CandlestickChartOptions extends CoreOptions {
 		this.vAxes[index] = vAxis;
 	}-*/;
 
-	/**
-	 * Specifies properties for individual vertical axes, if the chart has multiple vertical axes. Each child object is
-	 * a vAxis object, and can contain all the properties supported by vAxis. These property values override any global
-	 * settings for the same property.
-	 * 
-	 * To specify a chart with multiple vertical axes, first define a new axis using series.targetAxisIndex, then
-	 * configure the axis using vAxes.
-	 * 
-	 * @param vAxes an array of VAxis values
-	 */
-	public final void setVAxes(VAxis... vAxes) {
-		setVAxes(ArrayHelper.createArray(vAxes));
-	}
+	private final native void initialize() /*-{
+		this.candlestick = {};
+	}-*/;
 
 	private final native void setFocusTarget(String focusTarget) /*-{
 		this.focusTarget = focusTarget;

@@ -14,6 +14,11 @@ package com.googlecode.gwt.charts.client.corechart;
 
 import com.google.gwt.core.client.JavaScriptObject;
 
+import com.googlecode.gwt.charts.client.options.Annotations;
+
+/**
+ * Describes the format of a series in the chart
+ */
 public class ColumnChartSeries extends JavaScriptObject {
 	/**
 	 * Default constructor
@@ -26,6 +31,15 @@ public class ColumnChartSeries extends JavaScriptObject {
 
 	protected ColumnChartSeries() {
 	}
+
+	/**
+	 * Sets annotation display settings.
+	 * 
+	 * @param annotations
+	 */
+	public final native void setAnnotations(Annotations annotations) /*-{
+		this.annotations = annotations;
+	}-*/;
 
 	/**
 	 * The color to use for this series.

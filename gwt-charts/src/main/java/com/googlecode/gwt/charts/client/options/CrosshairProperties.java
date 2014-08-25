@@ -15,32 +15,23 @@ package com.googlecode.gwt.charts.client.options;
 import com.google.gwt.core.client.JavaScriptObject;
 
 /**
- * A set of label options
+ * An object containing the crosshair properties for the chart.
  */
-public class LabelStyle extends JavaScriptObject {
+public class CrosshairProperties extends JavaScriptObject {
 	/**
 	 * Default constructor
 	 * 
 	 * @return a new object instance
 	 */
-	public static LabelStyle create() {
+	public static CrosshairProperties create() {
 		return createObject().cast();
 	}
 
-	protected LabelStyle() {
+	protected CrosshairProperties() {
 	}
 
 	/**
-	 * Sets boldness on/off
-	 * 
-	 * @param bold true for bold, false for regular
-	 */
-	public final native void setBold(boolean bold) /*-{
-		this.bold = bold;
-	}-*/;
-
-	/**
-	 * Sets the border color
+	 * Sets the color
 	 * 
 	 * @param color an HTML color string
 	 */
@@ -49,30 +40,11 @@ public class LabelStyle extends JavaScriptObject {
 	}-*/;
 
 	/**
-	 * Sets the font name
+	 * Sets the text opacity
 	 * 
-	 * @param fontName a valid font name
+	 * @param opacity a value from 0.0 (fully transparent) to 1.0 (fully opaque)
 	 */
-	public final native void setFontName(String fontName) /*-{
-		this.fontName = fontName;
+	public final native void setOpacity(double opacity) /*-{
+		this.opacity = opacity;
 	}-*/;
-
-	/**
-	 * Sets the font size
-	 * 
-	 * @param fontSize value in pixels
-	 */
-	public final native void setFontSize(int fontSize) /*-{
-		this.fontSize = fontSize;
-	}-*/;
-
-	/**
-	 * Sets italic
-	 * 
-	 * @param italic true for italic, false for regular
-	 */
-	public final native void setItalic(boolean italic) /*-{
-		this.italic = italic;
-	}-*/;
-
 }
