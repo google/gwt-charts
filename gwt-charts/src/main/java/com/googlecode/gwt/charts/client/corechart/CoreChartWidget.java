@@ -26,6 +26,7 @@ import com.googlecode.gwt.charts.client.event.OnMouseOverHandler;
 import com.googlecode.gwt.charts.client.event.ReadyHandler;
 import com.googlecode.gwt.charts.client.event.SelectHandler;
 import com.googlecode.gwt.charts.client.options.Options;
+import com.googlecode.gwt.charts.client.util.ArrayHelper;
 
 /**
  * This class is used as a widget wrapper for core chart types.
@@ -144,9 +145,9 @@ public abstract class CoreChartWidget<T extends Options> extends ChartWidget<T> 
 	 * 
 	 * @param selection
 	 */
-	public void setSelection(JsArray<Selection> selection) {
-		this.selection = selection;
-		chartObject.setSelection(selection);
+	public void setSelection(Selection... selection) {
+		this.selection = ArrayHelper.createArray(selection);
+		chartObject.setSelection(this.selection);
 	}
 
 	@Override

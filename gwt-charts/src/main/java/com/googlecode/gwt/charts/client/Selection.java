@@ -38,8 +38,16 @@ public class Selection extends JavaScriptObject {
 	 */
 	public static Selection create(Integer row, Integer column) {
 		Selection selection = createObject().cast();
-		selection.setRow(row);
-		selection.setColumn(column);
+		if (row == null) {
+			selection.clearRow();
+		} else {
+			selection.setRow(row);
+		}
+		if (column == null) {
+			selection.clearColumn();
+		} else {
+			selection.setColumn(column);
+		}
 		return selection;
 	}
 
@@ -69,11 +77,8 @@ public class Selection extends JavaScriptObject {
 	 * 
 	 * @param column the column index
 	 */
-	public final native void setColumn(Integer column) /*-{
-		if (column == null) {
-			delete this.column;
-		}
-		this.column = column.@java.lang.Integer::intValue();
+	public final native void setColumn(int column) /*-{
+		this.column = column;
 	}-*/;
 
 	/**
@@ -81,10 +86,21 @@ public class Selection extends JavaScriptObject {
 	 * 
 	 * @param row the column index
 	 */
-	public final native void setRow(Integer row) /*-{
-		if (row == null) {
-			delete this.row;
-		}
-		this.row = row.@java.lang.Integer::intValue();
+	public final native void setRow(int row) /*-{
+		this.row = row;
+	}-*/;
+
+	/**
+	 * Clears the column index for this selection
+	 */
+	public final native void clearColumn() /*-{
+		this.column = null;
+	}-*/;
+
+	/**
+	 * Clears the row index for this selection
+	 */
+	public final native void clearRow() /*-{
+		this.row = null;
 	}-*/;
 }

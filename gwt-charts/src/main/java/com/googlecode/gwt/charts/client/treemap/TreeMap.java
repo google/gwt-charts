@@ -24,6 +24,7 @@ import com.googlecode.gwt.charts.client.event.OnMouseOverHandler;
 import com.googlecode.gwt.charts.client.event.ReadyHandler;
 import com.googlecode.gwt.charts.client.event.RollUpHandler;
 import com.googlecode.gwt.charts.client.event.SelectHandler;
+import com.googlecode.gwt.charts.client.util.ArrayHelper;
 
 /**
  * A visual representation of a data tree, where each node can have zero or more children, and one parent (except for
@@ -140,9 +141,9 @@ public class TreeMap extends ChartWidget<TreeMapOptions> {
 	 * 
 	 * @param selection
 	 */
-	public void setSelection(JsArray<Selection> selection) {
-		this.selection = selection;
-		chartObject.setSelection(selection);
+	public void setSelection(Selection... selection) {
+		this.selection = ArrayHelper.createArray(selection);
+		chartObject.setSelection(this.selection);
 	}
 
 	@Override

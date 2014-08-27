@@ -23,6 +23,7 @@ import com.googlecode.gwt.charts.client.event.PageHandler;
 import com.googlecode.gwt.charts.client.event.ReadyHandler;
 import com.googlecode.gwt.charts.client.event.SelectHandler;
 import com.googlecode.gwt.charts.client.event.SortHandler;
+import com.googlecode.gwt.charts.client.util.ArrayHelper;
 
 /**
  * A table that can be sorted and paged. Table cells can be formatted using format strings, or by directly inserting
@@ -123,9 +124,9 @@ public class Table extends ChartWidget<TableOptions> {
 	 * 
 	 * @param selection
 	 */
-	public void setSelection(JsArray<Selection> selection) {
-		this.selection = selection;
-		chartObject.setSelection(selection);
+	public void setSelection(Selection... selection) {
+		this.selection = ArrayHelper.createArray(selection);
+		chartObject.setSelection(this.selection);
 	}
 
 	@Override

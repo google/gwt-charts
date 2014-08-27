@@ -22,6 +22,7 @@ import com.googlecode.gwt.charts.client.event.ErrorHandler;
 import com.googlecode.gwt.charts.client.event.HandlerRef;
 import com.googlecode.gwt.charts.client.event.SelectHandler;
 import com.googlecode.gwt.charts.client.geochart.GeoChart;
+import com.googlecode.gwt.charts.client.util.ArrayHelper;
 
 /**
  * The Google Map Chart displays a map using the Google Maps API. Data values are displayed as markers on the map. Data
@@ -89,9 +90,9 @@ public class Map extends ChartWidget<MapOptions> {
 	 * 
 	 * @param selection
 	 */
-	public void setSelection(JsArray<Selection> selection) {
-		this.selection = selection;
-		chartObject.setSelection(selection);
+	public void setSelection(Selection... selection) {
+		this.selection = ArrayHelper.createArray(selection);
+		chartObject.setSelection(this.selection);
 	}
 
 	@Override
