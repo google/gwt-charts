@@ -14,14 +14,18 @@ package com.googlecode.gwt.charts.client.event;
 
 import com.googlecode.gwt.charts.client.Properties;
 
-public class ReadyEvent extends Event {
-	/**
-	 * The event name
-	 */
-	public static String NAME = "ready";
-	
-	public ReadyEvent(Properties properties) {
-		super(NAME, properties);
+public abstract class CollapseHandler implements EventHandler {
+
+	@Override
+	public void dispatch(Properties properties) {
+		onCollapse(new CollapseEvent(properties));
 	}
+
+	@Override
+	public String getEventName() {
+		return ErrorEvent.NAME;
+	}
+
+	public abstract void onCollapse(CollapseEvent event);
 
 }

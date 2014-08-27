@@ -10,32 +10,33 @@
  * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
  * specific language governing permissions and limitations under the License.
  */
-package com.googlecode.gwt.charts.client.calendar;
+package com.googlecode.gwt.charts.client.map;
 
 import com.google.gwt.core.client.JsArray;
 import com.google.gwt.dom.client.Element;
 
-import com.googlecode.gwt.charts.client.ChartLayoutInterface;
 import com.googlecode.gwt.charts.client.ChartObject;
 import com.googlecode.gwt.charts.client.ChartWidget;
 import com.googlecode.gwt.charts.client.Selection;
 import com.googlecode.gwt.charts.client.event.ErrorHandler;
 import com.googlecode.gwt.charts.client.event.HandlerRef;
-import com.googlecode.gwt.charts.client.event.OnMouseOutHandler;
-import com.googlecode.gwt.charts.client.event.OnMouseOverHandler;
-import com.googlecode.gwt.charts.client.event.ReadyHandler;
 import com.googlecode.gwt.charts.client.event.SelectHandler;
+import com.googlecode.gwt.charts.client.geochart.GeoChart;
 
 /**
- * Annotation charts are interactive time series line charts that support annotations.
+ * The Google Map Chart displays a map using the Google Maps API. Data values are displayed as markers on the map. Data
+ * values can be coordinates (lat-long pairs) or addresses. The map will be scaled so that it includes all the
+ * identified points.<br>
+ * 
+ * If you want your maps to be line drawings rather than satellite imagery, use a {@link GeoChart} instead.
  */
-public class Calendar extends ChartWidget<CalendarOptions> {
+public class Map extends ChartWidget<MapOptions> {
 	private JsArray<Selection> selection;
 
 	/**
 	 * Creates a new chart widget.
 	 */
-	public Calendar() {
+	public Map() {
 		super();
 	}
 
@@ -50,36 +51,6 @@ public class Calendar extends ChartWidget<CalendarOptions> {
 	}
 
 	/**
-	 * Adds an handler that listens for mouse out events
-	 * 
-	 * @param handler the class to call when the event is fired
-	 * @return the handler reference
-	 */
-	public HandlerRef addOnMouseOutHandler(OnMouseOutHandler handler) {
-		return addHandler(handler);
-	}
-
-	/**
-	 * Adds an handler that listens for mouse over events
-	 * 
-	 * @param handler the class to call when the event is fired
-	 * @return the handler reference
-	 */
-	public HandlerRef addOnMouseOverHandler(OnMouseOverHandler handler) {
-		return addHandler(handler);
-	}
-
-	/**
-	 * Adds an handler that listens for ready events
-	 * 
-	 * @param handler the class to call when the event is fired
-	 * @return the handler reference
-	 */
-	public HandlerRef addReadyHandler(ReadyHandler handler) {
-		return addHandler(handler);
-	}
-
-	/**
 	 * Adds an handler that listens for select events
 	 * 
 	 * @param handler the class to call when the event is fired
@@ -87,16 +58,6 @@ public class Calendar extends ChartWidget<CalendarOptions> {
 	 */
 	public HandlerRef addSelectHandler(SelectHandler handler) {
 		return addHandler(handler);
-	}
-
-	/**
-	 * Returns an object containing information about the onscreen placement of the chart and its elements.<br>
-	 * Call this <strong>after</strong> the chart is drawn.
-	 * 
-	 * @return a ChartLayoutInterface
-	 */
-	public ChartLayoutInterface getChartLayoutInterface() {
-		return chartObject.getChartLayoutInterface();
 	}
 
 	/**
@@ -135,7 +96,7 @@ public class Calendar extends ChartWidget<CalendarOptions> {
 
 	@Override
 	protected native ChartObject createChartObject(Element container) /*-{
-		return new $wnd.google.visualization.Calendar(container);
+		return new $wnd.google.visualization.Map(container);
 	}-*/;
 
 	@Override

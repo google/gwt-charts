@@ -16,7 +16,15 @@ import com.google.gwt.core.client.JavaScriptObject;
 
 import com.googlecode.gwt.charts.client.options.BarFormatColor;
 
+/**
+ * Configuration options for {@link BarFormat}.
+ */
 public class BarFormatOptions extends JavaScriptObject {
+	/**
+	 * Default constructor
+	 * 
+	 * @return a new object instance
+	 */
 	public static BarFormatOptions create() {
 		return createObject().cast();
 	}

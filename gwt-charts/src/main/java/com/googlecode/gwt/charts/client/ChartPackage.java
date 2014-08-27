@@ -25,6 +25,15 @@ public enum ChartPackage {
 	 */
 	CALENDAR("calendar"),
 	/**
+	 * Used for chart editor. No need to load the packages for the chart type that you render in the editor; the
+	 * chart editor will load that package for you.
+	 */
+	CHARTEDITOR("charteditor"),
+	/**
+	 * Used for controls and dashboards
+	 */
+	CONTROLS("controls"),
+	/**
 	 * Use for area, bar, bubble, candlestick, column, combo, line, pie, scatter and stepped area charts
 	 */
 	CORECHART("corechart"),
@@ -37,6 +46,14 @@ public enum ChartPackage {
 	 */
 	GEOCHART("geochart"),
 	/**
+	 * Exclusive use for map charts
+	 */
+	MAP("map"),
+	/**
+	 * Exclusive use for orgchart charts
+	 */
+	ORGCHART("orgchart"),
+	/**
 	 * Exclusive use for sankey diagrams
 	 */
 	SANKEY("sankey"),
@@ -45,18 +62,13 @@ public enum ChartPackage {
 	 */
 	TABLE("table"),
 	/**
+	 * Exclusive use for timelines
+	 */
+	TIMELINE("timeline"),
+	/**
 	 * Exclusive use for treemap charts
 	 */
-	TREEMAP("treemap"),
-	/**
-	 * Used for controls and dashboards
-	 */
-	CONTROLS("controls"),
-	/**
-	 * Used for chart editor. No need to load the packages for the chart type that you render in the editor; the
-	 * chart editor will load that package for you.
-	 */
-	CHARTEDITOR("charteditor");
+	TREEMAP("treemap");
 
 	/**
 	 * Get a ChartPackage by providing its name.

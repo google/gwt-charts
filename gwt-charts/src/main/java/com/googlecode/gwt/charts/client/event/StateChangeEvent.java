@@ -15,8 +15,11 @@ package com.googlecode.gwt.charts.client.event;
 import com.googlecode.gwt.charts.client.Properties;
 
 public class StateChangeEvent extends Event {
+	/**
+	 * The event name
+	 */
 	public static String NAME = "statechange";
-	
+
 	public StateChangeEvent(Properties properties) {
 		super(NAME, properties);
 	}

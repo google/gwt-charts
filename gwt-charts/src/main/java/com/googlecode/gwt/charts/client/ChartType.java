@@ -65,6 +65,14 @@ public enum ChartType {
 	 */
 	LINE("LineChart"),
 	/**
+	 * Map
+	 */
+	MAP("Map"),
+	/**
+	 * Org chart
+	 */
+	ORGCHART("OrgChart"),
+	/**
 	 * Pie chart
 	 */
 	PIE("PieChart"),

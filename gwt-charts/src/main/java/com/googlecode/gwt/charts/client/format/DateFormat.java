@@ -20,7 +20,16 @@ import com.googlecode.gwt.charts.client.util.DateHelper;
 
 import java.util.Date;
 
+/**
+ * Formats a Date value in a variety of ways, including "January 1, 2009," "1/1/09" and "Jan 1, 2009.
+ */
 public class DateFormat extends JavaScriptObject {
+	/**
+	 * Default constructor
+	 * 
+	 * @param options formatter options
+	 * @return a new object instance
+	 */
 	public static native DateFormat create(DateFormatOptions options) /*-{
 		return new $wnd.google.visualization.DateFormat(options);
 	}-*/;
@@ -28,10 +37,21 @@ public class DateFormat extends JavaScriptObject {
 	protected DateFormat() {
 	}
 
+	/**
+	 * Apply formatter to given column index.
+	 * 
+	 * @param data the data source
+	 * @param colIndex column index
+	 */
 	public final native void format(DataTable data, int colIndex) /*-{
 		this.format(data, colIndex);
 	}-*/;
 
+	/**
+	 * Returns the formatted value of a given value. This method does not require a DateTable.
+	 * @param value a given date
+	 * @return formatted value of a given value
+	 */
 	public final String formatValue(Date value) {
 		return formatValue(DateHelper.getJsDate(value));
 	}

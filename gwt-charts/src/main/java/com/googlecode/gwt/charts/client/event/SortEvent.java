@@ -17,6 +17,9 @@ import com.google.gwt.core.client.JsArrayInteger;
 import com.googlecode.gwt.charts.client.Properties;
 
 public class SortEvent extends Event {
+	/**
+	 * The event name
+	 */
 	public static String NAME = "sort";
 
 	public SortEvent(Properties properties) {

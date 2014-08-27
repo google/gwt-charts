@@ -14,13 +14,29 @@ package com.googlecode.gwt.charts.client.event;
 
 import com.googlecode.gwt.charts.client.Properties;
 
+/**
+ * Fired when the user mouses over a visual entity.
+ */
 public class OnMouseOverEvent extends Event {
+	/**
+	 * The event name
+	 */
 	public static String NAME = "onmouseover";
-	
+
+	/**
+	 * Creates a new event
+	 * 
+	 * @param properties
+	 */
 	public OnMouseOverEvent(Properties properties) {
 		super(NAME, properties);
 	}
 
+	/**
+	 * Gets target data column index
+	 * 
+	 * @return data column index
+	 */
 	public Integer getColumn() {
 		if (properties.containsKey("column")) {
 			return (int) properties.getNumber("column");
@@ -28,6 +44,11 @@ public class OnMouseOverEvent extends Event {
 		return null;
 	}
 
+	/**
+	 * Gets target row column index
+	 * 
+	 * @return row column index
+	 */
 	public Integer getRow() {
 		if (properties.containsKey("row")) {
 			return (int) properties.getNumber("row");

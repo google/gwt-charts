@@ -27,7 +27,6 @@ public class CalendarOptions extends Options {
 	}
 
 	protected CalendarOptions() {
-		initialize();
 	}
 
 	/**
@@ -122,6 +121,15 @@ public class CalendarOptions extends Options {
 		this.noDataPattern = {};
 		this.noDataPattern.backgroundColor = backgroundColor;
 		this.noDataPattern.color = color;
+	}-*/;
+
+	/**
+	 * Text to display above the chart.
+	 * 
+	 * @param title
+	 */
+	public final native void setTitle(String title) /*-{
+		this.title = title;
 	}-*/;
 
 	/**

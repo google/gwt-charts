@@ -17,6 +17,7 @@ import com.google.gwt.core.client.JsArrayInteger;
 import com.google.gwt.core.client.JsDate;
 
 import com.googlecode.gwt.charts.client.options.Options;
+import com.googlecode.gwt.charts.client.table.TableSortInfo;
 
 /**
  * Represents a generic chart javascript object with all common methods.
@@ -32,6 +33,16 @@ public class ChartObject extends HasListeners {
 	 */
 	public final native void clearChart() /*-{
 		this.clearChart();
+	}-*/;
+
+	/**
+	 * Collapses or expands the node on an OrgChart
+	 * 
+	 * @param row index of the row to expand or collapse.
+	 * @param collapsed whether to collapse or expand the row, where true means collapse.
+	 */
+	public final native void collapse(int row, boolean collapsed) /*-{
+		this.collapse(row, collapsed);
 	}-*/;
 
 	/**
@@ -82,13 +93,22 @@ public class ChartObject extends HasListeners {
 	}-*/;
 
 	/**
-	 * Currently only applies to {@link com.googlecode.gwt.charts.client.treemap.TreeMap}.<br>
-	 * Returns the maximum possible depth for the current view.
+	 * Returns an array with the indexes of the children of the given node.
 	 * 
-	 * @return the maximum possible depth
+	 * @param row the given node
+	 * @return an array of indexes
 	 */
-	public final native int getMaxPossibleDepth() /*-{
-		this.getMaxPossibleDepth();
+	public final native JsArrayInteger getChildrenIndexes(int row) /*-{
+		return this.getChildrenIndexes(row);
+	}-*/;
+
+	/**
+	 * Returns an array with the list of the collapsed node's indexes.
+	 * 
+	 * @return an array of indexes
+	 */
+	public final native JsArrayInteger getCollapsedNodes() /*-{
+		return this.getCollapsedNodes();
 	}-*/;
 
 	/**
@@ -101,6 +121,16 @@ public class ChartObject extends HasListeners {
 	 */
 	public final native String getImageURI() /*-{
 		return this.getImageURI();
+	}-*/;
+
+	/**
+	 * Currently only applies to {@link com.googlecode.gwt.charts.client.treemap.TreeMap}.<br>
+	 * Returns the maximum possible depth for the current view.
+	 * 
+	 * @return the maximum possible depth
+	 */
+	public final native int getMaxPossibleDepth() /*-{
+		this.getMaxPossibleDepth();
 	}-*/;
 
 	/**
@@ -119,6 +149,20 @@ public class ChartObject extends HasListeners {
 	 */
 	public final native JsArray<Selection> getSelection() /*-{
 		return this.getSelection();
+	}-*/;
+
+	/**
+	 * Call this method to retrieve information about the current sort state of a table that has been sorted (typically
+	 * by the user, who has clicked on a column heading to sort the rows by a specific column). If you have disabled
+	 * sorting, this method will not work.
+	 * 
+	 * If you have not sorted data in code, or the user has not sorted data by selecting code, the default sort values
+	 * will be returned.
+	 * 
+	 * @return information about the current sort state
+	 */
+	public final native TableSortInfo getSortInfo() /*-{
+		return this.getSortInfo();
 	}-*/;
 
 	/**

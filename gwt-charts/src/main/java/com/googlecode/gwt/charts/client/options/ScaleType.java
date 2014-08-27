@@ -42,7 +42,7 @@ public enum ScaleType {
 	ALLMAXIMIZED("allmaximized"),
 	/**
 	 * Same as FIXED, but used when multiple scales are displayed. This setting adjusts each scale to the series to
-	 * which it applies (use this in conjunction with {@link SankeyOptions#setScaleColumns(int...) }).
+	 * which it applies (use this in conjunction with {@link AnnotationChartOptions#setScaleColumns(int...) }).
 	 */
 	ALLFIXED("allfixed");
 

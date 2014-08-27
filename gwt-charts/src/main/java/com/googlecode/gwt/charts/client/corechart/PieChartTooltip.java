@@ -12,10 +12,16 @@
  */
 package com.googlecode.gwt.charts.client.corechart;
 
-import com.googlecode.gwt.charts.client.options.Tooltip;
-import com.googlecode.gwt.charts.client.options.TooltipText;
+import com.google.gwt.core.client.JavaScriptObject;
 
-public class PieChartTooltip extends Tooltip {
+import com.googlecode.gwt.charts.client.options.TextStyle;
+import com.googlecode.gwt.charts.client.options.TooltipText;
+import com.googlecode.gwt.charts.client.options.TooltipTrigger;
+
+/**
+ * An object that specifies the tooltip style and behaviour.
+ */
+public class PieChartTooltip extends JavaScriptObject {
 	/**
 	 * Default constructor
 	 * 
@@ -28,12 +34,49 @@ public class PieChartTooltip extends Tooltip {
 	protected PieChartTooltip() {
 	}
 
-	public final native void setText(String text) /*-{
-		this.text = text;
+	/**
+	 * If true, show colored squares next to the series information in the tooltip. The default is true when focusTarget
+	 * is set to 'category', otherwise the default is false.
+	 * 
+	 * @param showColorCode
+	 */
+	public final native void setShowColorCode(boolean showColorCode) /*-{
+		this.showColorCode = showColorCode;
 	}-*/;
 
+	/**
+	 * What information to display when the user hovers over a pie slice.
+	 * 
+	 * @param text
+	 */
 	public final void setText(TooltipText text) {
 		setText(text.getName());
 	}
+
+	/**
+	 * An object that specifies the tooltip text style.
+	 * 
+	 * @param textStyle
+	 */
+	public final native void setTextStyle(TextStyle textStyle) /*-{
+		this.textStyle = textStyle;
+	}-*/;
+
+	/**
+	 * Sets the user interaction that causes the tooltip to be displayed
+	 * 
+	 * @param trigger default is {@link TooltipTrigger#FOCUS}
+	 */
+	public final void setTrigger(TooltipTrigger trigger) {
+		setTrigger(trigger.getName());
+	}
+
+	private final native void setText(String text) /*-{
+		this.text = text;
+	}-*/;
+
+	private final native void setTrigger(String trigger) /*-{
+		this.trigger = trigger;
+	}-*/;
 
 }

@@ -12,7 +12,6 @@
  */
 package com.googlecode.gwt.charts.client.sankey;
 
-import com.googlecode.gwt.charts.client.options.CellColor;
 import com.googlecode.gwt.charts.client.options.Options;
 
 /**
@@ -26,17 +25,7 @@ public class SankeyOptions extends Options {
 	}
 
 	protected SankeyOptions() {
-		initialize();
 	}
-
-	/**
-	 * This option lets you customize the border of the sankey day squares.
-	 * 
-	 * @param cellColor
-	 */
-	public final native void setCellColor(CellColor cellColor) /*-{
-		this.sankey.cellColor = cellColor;
-	}-*/;
 
 	/**
 	 * With multilevel sankeys, it's sometimes nonobvious where nodes should be placed for optimal readability. The D3

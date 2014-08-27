@@ -139,8 +139,8 @@ public class Sankey extends ChartWidget<SankeyOptions> {
 	}-*/;
 
 	@Override
-	protected void recreate() {
-		super.recreate();
+	protected void redrawNow() {
+		super.redrawNow();
 		if (selection != null) {
 			chartObject.setSelection(selection);
 		}

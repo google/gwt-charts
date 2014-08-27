@@ -14,6 +14,7 @@ package com.googlecode.gwt.charts.client.corechart;
 
 import com.google.gwt.core.client.JsArray;
 
+import com.googlecode.gwt.charts.client.options.AggregationTarget;
 import com.googlecode.gwt.charts.client.options.CoreOptions;
 import com.googlecode.gwt.charts.client.options.FocusTarget;
 import com.googlecode.gwt.charts.client.options.VAxis;
@@ -34,6 +35,34 @@ public class SteppedAreaChartOptions extends CoreOptions {
 
 	protected SteppedAreaChartOptions() {
 	}
+
+	/**
+	 * How multiple data selections are rolled up into tooltips:
+	 * <ul>
+	 * <li>'category': Group selected data by x-value.</li>
+	 * <li>'series': Group selected data by series.</li>
+	 * <li>'auto': Group selected data by x-value if all selections have the same x-value, and by series otherwise.</li>
+	 * <li>'none': Show only one tooltip per selection.</li>
+	 * </ul>
+	 * aggregationTarget will often be used in tandem with selectionMode and tooltip.trigger, e.g.:
+	 * 
+	 * <pre>
+	 * // Allow multiple simultaneous selections.
+	 * options.setSelectionMode(SelectionMode.MULTIPLE);
+	 * // Trigger tooltips on selections.
+	 * Tooltip tooltip = Tooltip.create();
+	 * tooltip.setTrigger(TooltipTrigger.SELECTION);
+	 * options.setTooltip(tooltip);
+	 * // Group selections by x-value.
+	 * options.setAggregationTarget(AggregationTarget.CATEGORY);
+	 * 
+	 * </pre>
+	 * 
+	 * @param aggregationTarget
+	 */
+	public final native void setAggregationTarget(AggregationTarget aggregationTarget) /*-{
+		this.aggregationTarget = aggregationTarget;
+	}-*/;
 
 	/**
 	 * Sets the default opacity of the colored area under an area chart series. To specify opacity for an individual

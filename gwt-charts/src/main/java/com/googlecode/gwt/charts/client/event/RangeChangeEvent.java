@@ -15,6 +15,9 @@ package com.googlecode.gwt.charts.client.event;
 import com.googlecode.gwt.charts.client.Properties;
 
 public class RangeChangeEvent extends Event {
+	/**
+	 * The event name
+	 */
 	public static String NAME = "rangechange";
 	
 	public RangeChangeEvent(Properties properties) {

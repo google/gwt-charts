@@ -20,6 +20,11 @@ import com.googlecode.gwt.charts.client.util.ArrayHelper;
  * Common options for core charts
  */
 public abstract class CoreOptions extends Options {
+	/**
+	 * Default constructor
+	 * 
+	 * @return a new object instance
+	 */
 	public static CoreOptions create() {
 		return createObject().cast();
 	}

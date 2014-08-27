@@ -15,6 +15,9 @@ package com.googlecode.gwt.charts.client.event;
 import com.googlecode.gwt.charts.client.Properties;
 
 public class RollUpEvent extends Event {
+	/**
+	 * The event name
+	 */
 	public static String NAME = "rollup";
 
 	public RollUpEvent(Properties properties) {

@@ -16,8 +16,18 @@ import com.google.gwt.core.client.JavaScriptObject;
 
 import com.googlecode.gwt.charts.client.DataTable;
 
+/**
+ * Adds an up or down arrow to a numeric cell, depending on whether the value is above or below a specified base value.
+ * If equal to the base value, no arrow is shown.
+ */
 public class ArrowFormat extends JavaScriptObject {
 
+	/**
+	 * Default constructor
+	 * 
+	 * @param options formatter options
+	 * @return a new object instance
+	 */
 	public static native ArrowFormat create(ArrowFormatOptions options) /*-{
 		return new $wnd.google.visualization.ArrowFormat(options);
 	}-*/;
@@ -25,6 +35,11 @@ public class ArrowFormat extends JavaScriptObject {
 	protected ArrowFormat() {
 	}
 
+	/**
+	 * Apply formatter to given column index.
+	 * @param data the data source
+	 * @param colIndex column index
+	 */
 	public final native void format(DataTable data, int colIndex) /*-{
 		this.format(data, colIndex);
 	}-*/;
