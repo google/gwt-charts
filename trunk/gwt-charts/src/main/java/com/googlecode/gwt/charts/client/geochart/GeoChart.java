@@ -23,6 +23,7 @@ import com.googlecode.gwt.charts.client.event.HandlerRef;
 import com.googlecode.gwt.charts.client.event.ReadyHandler;
 import com.googlecode.gwt.charts.client.event.RegionClickHandler;
 import com.googlecode.gwt.charts.client.event.SelectHandler;
+import com.googlecode.gwt.charts.client.util.ArrayHelper;
 
 /**
  * A geochart is a map of a country, a continent, or a region with areas identified in one of three ways:
@@ -33,6 +34,7 @@ import com.googlecode.gwt.charts.client.event.SelectHandler;
  * </ul>
  */
 public class GeoChart extends ChartWidget<GeoChartOptions> {
+	private JsArray<Selection> selection;
 
 	/**
 	 * Creates a new chart widget.
@@ -110,8 +112,9 @@ public class GeoChart extends ChartWidget<GeoChartOptions> {
 	 * 
 	 * @param selection
 	 */
-	public void setSelection(JsArray<Selection> selection) {
-		chartObject.setSelection(selection);
+	public void setSelection(Selection... selection) {
+		this.selection = ArrayHelper.createArray(selection);
+		chartObject.setSelection(this.selection);
 	}
 
 	/**
@@ -121,6 +124,14 @@ public class GeoChart extends ChartWidget<GeoChartOptions> {
 	public void redraw() {
 		super.clearChart();
 		super.redraw();
+	}
+
+	@Override
+	protected void redrawNow() {
+		super.redrawNow();
+		if (selection != null) {
+			chartObject.setSelection(selection);
+		}
 	}
 
 	@Override

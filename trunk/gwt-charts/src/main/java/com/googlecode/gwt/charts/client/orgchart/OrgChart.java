@@ -25,6 +25,7 @@ import com.googlecode.gwt.charts.client.event.OnMouseOutHandler;
 import com.googlecode.gwt.charts.client.event.OnMouseOverHandler;
 import com.googlecode.gwt.charts.client.event.ReadyHandler;
 import com.googlecode.gwt.charts.client.event.SelectHandler;
+import com.googlecode.gwt.charts.client.util.ArrayHelper;
 
 /**
  * Org charts are diagrams of a hierarchy of nodes, commonly used to portray superior/subordinate relationships in an
@@ -148,9 +149,9 @@ public class OrgChart extends ChartWidget<OrgChartOptions> {
 	 * 
 	 * @param selection
 	 */
-	public void setSelection(JsArray<Selection> selection) {
-		this.selection = selection;
-		chartObject.setSelection(selection);
+	public void setSelection(Selection... selection) {
+		this.selection = ArrayHelper.createArray(selection);
+		chartObject.setSelection(this.selection);
 	}
 
 	@Override
