@@ -137,7 +137,7 @@ public class AreaChartOptions extends CoreOptions {
 	 * @param focusTarget the type of the entity that receives focus on mouse hover
 	 */
 	public final void setFocusTarget(FocusTarget focusTarget) {
-		setFocusTarget(focusTarget);
+		setFocusTarget(focusTarget.getName());
 	}
 
 	/**
