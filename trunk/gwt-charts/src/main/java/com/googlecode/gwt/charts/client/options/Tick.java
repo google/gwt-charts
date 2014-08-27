@@ -105,7 +105,7 @@ public class Tick extends JavaScriptObject {
 	 * 
 	 * @param value
 	 */
-	public void setV(Date value) {
+	public final void setV(Date value) {
 		setV(DateHelper.getJsDate(value));
 	}
 
@@ -132,7 +132,7 @@ public class Tick extends JavaScriptObject {
 	 * 
 	 * @param value
 	 */
-	public void setV(TimeOfDay value) {
+	public final void setV(TimeOfDay value) {
 		setV(value);
 	}
 

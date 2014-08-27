@@ -16,7 +16,15 @@ import com.google.gwt.core.client.JavaScriptObject;
 
 import com.googlecode.gwt.charts.client.options.FormatType;
 
+/**
+ * Configuration options for {@link DateFormat}.
+ */
 public class DateFormatOptions extends JavaScriptObject {
+	/**
+	 * Default constructor
+	 * 
+	 * @return a new object instance
+	 */
 	public static DateFormatOptions create() {
 		return createObject().cast();
 	}
@@ -24,19 +32,31 @@ public class DateFormatOptions extends JavaScriptObject {
 	protected DateFormatOptions() {
 	}
 
+	/**
+	 * A quick formatting option for the date.
+	 * 
+	 * @param formatType
+	 */
 	public final void setFormatType(FormatType formatType) {
 		setFormatType(formatType.getName());
 	}
 
 	/**
 	 * The format used to display the date
-	 * @see <a href="http://icu-project.org/apiref/icu4j/com/ibm/icu/text/SimpleDateFormat.html">java SimpleDateFormat class</a> 
+	 * 
+	 * @see <a href="http://icu-project.org/apiref/icu4j/com/ibm/icu/text/SimpleDateFormat.html">java SimpleDateFormat
+	 *      class</a>
 	 * @param pattern
 	 */
 	public final native void setPattern(String pattern) /*-{
 		this.pattern = pattern;
 	}-*/;
 
+	/**
+	 * A custom format pattern to apply to the value, similar to the ICU date and time format.
+	 * 
+	 * @param timeZone
+	 */
 	public final native void setTimeZone(int timeZone) /*-{
 		this.timeZone = timeZone;
 	}-*/;

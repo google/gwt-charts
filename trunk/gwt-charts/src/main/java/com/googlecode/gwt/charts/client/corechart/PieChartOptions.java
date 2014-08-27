@@ -40,18 +40,38 @@ public class PieChartOptions extends Options {
 	protected PieChartOptions() {
 	}
 
+	/**
+	 * The background color for the main area of the chart.
+	 * 
+	 * @param backgroundColor
+	 */
 	public final native void setBackgroundColor(BackgroundColor backgroundColor) /*-{
 		this.backgroundColor = backgroundColor;
 	}-*/;
 
-	public final native void setBackgroundColor(String color) /*-{
-		this.backgroundColor = color;
+	/**
+	 * The background color for the main area of the chart.
+	 * 
+	 * @param backgroundColor an HTML color string
+	 */
+	public final native void setBackgroundColor(String backgroundColor) /*-{
+		this.backgroundColor = backgroundColor;
 	}-*/;
 
+	/**
+	 * Configure the placement and size of the chart area (where the chart itself is drawn, excluding axis and legends).
+	 * 
+	 * @param chartArea
+	 */
 	public final native void setChartArea(ChartArea chartArea) /*-{
 		this.chartArea = chartArea;
 	}-*/;
 
+	/**
+	 * The colors to use for the chart lines and labels.
+	 * 
+	 * @param colors an array where each element is a string in a valid HTML color format.
+	 */
 	public final void setColors(String... colors) {
 		setColors(ArrayHelper.createArray(colors));
 	}
@@ -65,40 +85,128 @@ public class PieChartOptions extends Options {
 		this.diff = diff;
 	}-*/;
 
-	public final native void setFontName(String name) /*-{
-		this.fontName = name;
+	/**
+	 * Whether the chart throws user-based events or reacts to user interaction. If false, the chart will not throw
+	 * 'select' or other interaction-based events (but will throw ready or error events), and will not display hovertext
+	 * or otherwise change depending on user input.
+	 * 
+	 * @param enableInteractivity
+	 */
+	public final native void setEnableInteractivity(boolean enableInteractivity) /*-{
+		this.enableInteractivity = enableInteractivity;
 	}-*/;
 
-	public final native void setFontSize(double size) /*-{
-		this.fontSize = size;
+	/**
+	 * The default font face for all text in the chart. You can override this using properties for specific chart
+	 * elements.
+	 * 
+	 * @param fontName
+	 */
+	public final native void setFontName(String fontName) /*-{
+		this.fontName = fontName;
 	}-*/;
 
+	/**
+	 * The default font size, in pixels, of all text in the chart. You can override this using properties for specific
+	 * chart elements.
+	 * 
+	 * @param fontSize
+	 */
+	public final native void setFontSize(double fontSize) /*-{
+		this.fontSize = fontSize;
+	}-*/;
+
+	/**
+	 * Draws the chart inside an inline frame. (Note that on IE8, this option is ignored; all IE8 charts are drawn in
+	 * i-frames.)
+	 * 
+	 * @param forceIFrame true for drawing inside an inline frame
+	 */
+	public final native void setForceIFrame(boolean forceIFrame) /*-{
+		this.forceIFrame = forceIFrame;
+	}-*/;
+
+	/**
+	 * If true, displays a three-dimensional chart.
+	 * 
+	 * @param is3D
+	 */
 	public final native void setIs3D(boolean is3D) /*-{
 		this.is3D = is3D;
 	}-*/;
 
+	/**
+	 * Configure various aspects of the legend.
+	 * 
+	 * @param legend
+	 */
 	public final native void setLegend(Legend legend) /*-{
 		this.legend = legend;
 	}-*/;
 
+	/**
+	 * If between 0 and 1, displays a donut chart. The hole with have a radius equal to number times the radius of the
+	 * chart.
+	 * 
+	 * @param pieHole
+	 */
+	public final native void setPieHole(double pieHole) /*-{
+		this.pieHole = pieHole;
+	}-*/;
+
+	/**
+	 * Color for the combination slice that holds all slices below sliceVisibilityThreshold.
+	 * 
+	 * @param pieResidueSliceColor
+	 */
 	public final native void setPieResidueSliceColor(String pieResidueSliceColor) /*-{
 		this.pieResidueSliceColor = pieResidueSliceColor;
 	}-*/;
 
+	/**
+	 * A label for the combination slice that holds all slices below sliceVisibilityThreshold.
+	 * 
+	 * @param pieResidueSliceLabel
+	 */
 	public final native void setPieResidueSliceLabel(String pieResidueSliceLabel) /*-{
 		this.pieResidueSliceLabel = pieResidueSliceLabel;
 	}-*/;
 
+	/**
+	 * The color of the slice borders. Only applicable when the chart is two-dimensional.
+	 * 
+	 * @param pieSliceBorderColor
+	 */
 	public final native void setPieSliceBorderColor(String pieSliceBorderColor) /*-{
 		this.pieSliceBorderColor = pieSliceBorderColor;
 	}-*/;
 
+	/**
+	 * The content of the text displayed on the slice.
+	 * 
+	 * @param pieSliceText
+	 */
 	public final void setPieSliceText(PieSliceText pieSliceText) {
 		setPieSliceText(pieSliceText.getName());
 	}
 
+	/**
+	 * An object that specifies the slice text style.
+	 * 
+	 * @param pieSliceTextStyle
+	 */
 	public final native void setPieSliceTextStyle(TextStyle pieSliceTextStyle) /*-{
 		this.pieSliceTextStyle = pieSliceTextStyle;
+	}-*/;
+
+	/**
+	 * The angle, in degrees, to rotate the chart by. The default of 0 will orient the leftmost edge of the first slice
+	 * directly up.
+	 * 
+	 * @param pieStartAngle
+	 */
+	public final native void setPieStartAngle(int pieStartAngle) /*-{
+		this.pieStartAngle = pieStartAngle;
 	}-*/;
 
 	/**
@@ -113,22 +221,51 @@ public class PieChartOptions extends Options {
 		this.reverseCategories = reverseCategories;
 	}-*/;
 
-	public final native void setSlices(JsArray<Slice> slices) /*-{
-		this.slices = slices;
-	}-*/;
+	/**
+	 * An array of objects, each describing the format of the corresponding slice in the pie. To use default values for
+	 * a slice, specify an empty object (i.e., {}). If a slice or a value is not specified, the global value will be
+	 * used.
+	 * 
+	 * @param slices
+	 */
+	public final void setSlices(Slice... slices) {
+		setSlices(ArrayHelper.createArray(slices));
+	}
 
+	/**
+	 * The slice relative part, below which a slice will not show individually. All slices that have not passed this
+	 * threshold will be combined to a single slice, whose size is the sum of all their sizes. Default is not to show
+	 * individually any slice which is smaller than half a degree.
+	 * 
+	 * @param sliceVisibilityThreshold default is 1/720
+	 */
 	public final native void setSliceVisibilityThreshold(double sliceVisibilityThreshold) /*-{
 		this.sliceVisibilityThreshold = sliceVisibilityThreshold;
 	}-*/;
 
+	/**
+	 * Text to display above the chart.
+	 * 
+	 * @param title
+	 */
 	public final native void setTitle(String title) /*-{
 		this.title = title;
 	}-*/;
 
-	public final native void setTitleTextStyle(TextStyle textStyle) /*-{
-		this.titleTextStyle = textStyle;
+	/**
+	 * An object that specifies the title text style.
+	 * 
+	 * @param titleTextStyle
+	 */
+	public final native void setTitleTextStyle(TextStyle titleTextStyle) /*-{
+		this.titleTextStyle = titleTextStyle;
 	}-*/;
 
+	/**
+	 * An object with members to configure various tooltip elements.
+	 * 
+	 * @param tooltip
+	 */
 	public final native void setTooltip(PieChartTooltip tooltip) /*-{
 		this.tooltip = tooltip;
 	}-*/;
@@ -139,6 +276,10 @@ public class PieChartOptions extends Options {
 
 	private final native void setPieSliceText(String pieSliceText) /*-{
 		this.pieSliceText = pieSliceText;
+	}-*/;
+
+	private final native void setSlices(JsArray<Slice> slices) /*-{
+		this.slices = slices;
 	}-*/;
 
 }

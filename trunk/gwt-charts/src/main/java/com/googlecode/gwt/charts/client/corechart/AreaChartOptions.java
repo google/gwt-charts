@@ -13,6 +13,7 @@
 package com.googlecode.gwt.charts.client.corechart;
 
 import com.google.gwt.core.client.JsArray;
+import com.google.gwt.core.client.JsArrayInteger;
 
 import com.googlecode.gwt.charts.client.options.AggregationTarget;
 import com.googlecode.gwt.charts.client.options.Annotations;
@@ -149,6 +150,17 @@ public class AreaChartOptions extends CoreOptions {
 	}-*/;
 
 	/**
+	 * Sets the style of dashed lines.<br>
+	 * The first number indicates the length of a dash, and the second indicates the gap after it. If there is a third
+	 * number, that's the length of the next dash, and a fourth number, if present, is the length of the next gap.
+	 * 
+	 * @param lineDashStyle
+	 */
+	public final void setLineDashStyle(int... lineDashStyle) {
+		setLineDashStyle(ArrayHelper.createArray(lineDashStyle));
+	}
+
+	/**
 	 * Defines data line width in pixels. Use zero to hide all lines and show only the points. You can override values
 	 * for individual series using {@link #setSeries(int, AreaChartSeries)}.
 	 * 
@@ -264,6 +276,10 @@ public class AreaChartOptions extends CoreOptions {
 
 	private final native void setFocusTarget(String focusTarget) /*-{
 		this.focusTarget = focusTarget;
+	}-*/;
+
+	private final native void setLineDashStyle(JsArrayInteger lineDashStyle) /*-{
+		this.lineDashStyle = lineDashStyle;
 	}-*/;
 
 	private final native void setSeries(JsArray<AreaChartSeries> series) /*-{

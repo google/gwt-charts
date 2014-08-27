@@ -14,9 +14,19 @@ package com.googlecode.gwt.charts.client.event;
 
 import com.googlecode.gwt.charts.client.Properties;
 
+/**
+ * Fired when transition animation is complete.
+ */
 public class AnimationFinishEvent extends Event {
+	/**
+	 * The event name
+	 */
 	public static String NAME = "animationfinish";
 	
+	/**
+	 * Creates a new event
+	 * @param properties currently should be null
+	 */
 	public AnimationFinishEvent(Properties properties) {
 		super(NAME, properties);
 	}

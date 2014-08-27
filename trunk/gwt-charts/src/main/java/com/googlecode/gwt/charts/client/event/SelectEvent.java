@@ -15,6 +15,9 @@ package com.googlecode.gwt.charts.client.event;
 import com.googlecode.gwt.charts.client.Properties;
 
 public class SelectEvent extends Event {
+	/**
+	 * The event name
+	 */
 	public static String NAME = "select";
 	
 	public SelectEvent(Properties properties) {

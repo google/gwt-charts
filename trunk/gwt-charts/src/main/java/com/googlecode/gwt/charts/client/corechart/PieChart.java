@@ -15,6 +15,7 @@ package com.googlecode.gwt.charts.client.corechart;
 import com.google.gwt.dom.client.Element;
 
 import com.googlecode.gwt.charts.client.ChartObject;
+import com.googlecode.gwt.charts.client.DataSource;
 
 /**
  * A pie chart that is rendered within the browser using SVG or VML. Displays tooltips when hovering over slices.
@@ -26,6 +27,17 @@ public class PieChart extends CoreChartWidget<PieChartOptions> {
 	 */
 	public PieChart() {
 		super();
+	}
+
+	/**
+	 * Create a diff chart with two datasets to generate a third dataset representing the diff.
+	 * 
+	 * @param oldData a first dataset
+	 * @param newData a second dataset
+	 * @return a third dataset representing the diff
+	 */
+	public DataSource computeDiff(DataSource oldData, DataSource newData) {
+		return chartObject.computeDiff(oldData, newData);
 	}
 
 	@Override

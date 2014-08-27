@@ -13,11 +13,13 @@
 package com.googlecode.gwt.charts.client.corechart;
 
 import com.google.gwt.core.client.JavaScriptObject;
+import com.google.gwt.core.client.JsArrayInteger;
 
 import com.googlecode.gwt.charts.client.options.Annotations;
 import com.googlecode.gwt.charts.client.options.CurveType;
 import com.googlecode.gwt.charts.client.options.PointShape;
 import com.googlecode.gwt.charts.client.options.PointShapeType;
+import com.googlecode.gwt.charts.client.util.ArrayHelper;
 
 /**
  * Describes the format of a series in the chart
@@ -60,6 +62,17 @@ public class LineChartSeries extends JavaScriptObject {
 	 */
 	public final void setCurveType(CurveType curveType) {
 		setCurveType(curveType.getName());
+	}
+
+	/**
+	 * Sets the style of dashed lines.<br>
+	 * The first number indicates the length of a dash, and the second indicates the gap after it. If there is a third
+	 * number, that's the length of the next dash, and a fourth number, if present, is the length of the next gap.
+	 * 
+	 * @param lineDashStyle
+	 */
+	public final void setLineDashStyle(int... lineDashStyle) {
+		setLineDashStyle(ArrayHelper.createArray(lineDashStyle));
 	}
 
 	/**
@@ -120,5 +133,9 @@ public class LineChartSeries extends JavaScriptObject {
 
 	private final native void setCurveType(String curveType) /*-{
 		this.curveType = curveType;
+	}-*/;
+
+	private final native void setLineDashStyle(JsArrayInteger lineDashStyle) /*-{
+		this.lineDashStyle = lineDashStyle;
 	}-*/;
 }

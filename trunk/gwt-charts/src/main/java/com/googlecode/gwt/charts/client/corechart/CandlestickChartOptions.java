@@ -44,7 +44,6 @@ public class CandlestickChartOptions extends CoreOptions {
 	}
 
 	protected CandlestickChartOptions() {
-		initialize();
 	}
 
 	/**

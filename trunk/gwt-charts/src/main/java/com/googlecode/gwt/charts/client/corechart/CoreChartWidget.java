@@ -150,8 +150,8 @@ public abstract class CoreChartWidget<T extends Options> extends ChartWidget<T> 
 	}
 
 	@Override
-	protected void recreate() {
-		super.recreate();
+	protected void redrawNow() {
+		super.redrawNow();
 		if (selection != null) {
 			chartObject.setSelection(selection);
 		}

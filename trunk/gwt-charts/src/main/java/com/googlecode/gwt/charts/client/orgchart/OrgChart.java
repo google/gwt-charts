@@ -10,16 +10,16 @@
  * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
  * specific language governing permissions and limitations under the License.
  */
-package com.googlecode.gwt.charts.client.calendar;
+package com.googlecode.gwt.charts.client.orgchart;
 
 import com.google.gwt.core.client.JsArray;
+import com.google.gwt.core.client.JsArrayInteger;
 import com.google.gwt.dom.client.Element;
 
-import com.googlecode.gwt.charts.client.ChartLayoutInterface;
 import com.googlecode.gwt.charts.client.ChartObject;
 import com.googlecode.gwt.charts.client.ChartWidget;
 import com.googlecode.gwt.charts.client.Selection;
-import com.googlecode.gwt.charts.client.event.ErrorHandler;
+import com.googlecode.gwt.charts.client.event.CollapseHandler;
 import com.googlecode.gwt.charts.client.event.HandlerRef;
 import com.googlecode.gwt.charts.client.event.OnMouseOutHandler;
 import com.googlecode.gwt.charts.client.event.OnMouseOverHandler;
@@ -27,25 +27,26 @@ import com.googlecode.gwt.charts.client.event.ReadyHandler;
 import com.googlecode.gwt.charts.client.event.SelectHandler;
 
 /**
- * Annotation charts are interactive time series line charts that support annotations.
+ * Org charts are diagrams of a hierarchy of nodes, commonly used to portray superior/subordinate relationships in an
+ * organization. A family tree is a type of org chart.<br>
  */
-public class Calendar extends ChartWidget<CalendarOptions> {
+public class OrgChart extends ChartWidget<OrgChartOptions> {
 	private JsArray<Selection> selection;
 
 	/**
 	 * Creates a new chart widget.
 	 */
-	public Calendar() {
+	public OrgChart() {
 		super();
 	}
 
 	/**
-	 * Adds an handler that listens for error events
+	 * Adds an handler that listens for collapse/expand events
 	 * 
 	 * @param handler the class to call when the event is fired
 	 * @return the handler reference
 	 */
-	public HandlerRef addErrorHandler(ErrorHandler handler) {
+	public HandlerRef addCollapseHandler(CollapseHandler handler) {
 		return addHandler(handler);
 	}
 
@@ -90,13 +91,32 @@ public class Calendar extends ChartWidget<CalendarOptions> {
 	}
 
 	/**
-	 * Returns an object containing information about the onscreen placement of the chart and its elements.<br>
-	 * Call this <strong>after</strong> the chart is drawn.
+	 * Collapses or expands the node on an OrgChart
 	 * 
-	 * @return a ChartLayoutInterface
+	 * @param row index of the row to expand or collapse.
+	 * @param collapsed whether to collapse or expand the row, where true means collapse.
 	 */
-	public ChartLayoutInterface getChartLayoutInterface() {
-		return chartObject.getChartLayoutInterface();
+	public void collapse(int row, boolean collapsed) {
+		chartObject.collapse(row, collapsed);
+	}
+
+	/**
+	 * Returns an array with the indexes of the children of the given node.
+	 * 
+	 * @param row the given node
+	 * @return an array of indexes
+	 */
+	public JsArrayInteger getChildrenIndexes(int row) {
+		return chartObject.getChildrenIndexes(row);
+	}
+
+	/**
+	 * Returns an array with the list of the collapsed node's indexes.
+	 * 
+	 * @return an array of indexes
+	 */
+	public JsArrayInteger getCollapsedNodes() {
+		return chartObject.getCollapsedNodes();
 	}
 
 	/**
@@ -135,7 +155,7 @@ public class Calendar extends ChartWidget<CalendarOptions> {
 
 	@Override
 	protected native ChartObject createChartObject(Element container) /*-{
-		return new $wnd.google.visualization.Calendar(container);
+		return new $wnd.google.visualization.OrgChart(container);
 	}-*/;
 
 	@Override

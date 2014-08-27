@@ -12,6 +12,7 @@
  */
 package com.googlecode.gwt.charts.client.util;
 
+import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.JsArrayMixed;
 
 import com.googlecode.gwt.charts.client.ChartWrapperSpec;
@@ -24,6 +25,24 @@ import com.googlecode.gwt.charts.client.DataTable;
  *      Methods</a>
  */
 public class ChartHelper {
+	/**
+	 * This method takes in a 2-dimensional array and converts it to a DataTable.
+	 * 
+	 * @param array A two-dimensional array, where each row represents a row in the data table. The first row will be
+	 *        interpreted as header labels. The data types of each column are
+	 *        interpreted automatically from the data given. If a cell has no value, specify a null or empty value as
+	 *        appropriate.
+	 * @param firstRowIsData if false, the first row will be
+	 *        interpreted as header labels.
+	 * @return a new DataTable.
+	 */
+	public static final DataTable arrayToDataTable(Object[][] array, boolean firstRowIsData) {
+		JsArrayMixed jsTopArray = JavaScriptObject.createArray().cast();
+		for (Object[] objects : array) {
+			jsTopArray.push(ArrayHelper.createArray(objects));
+		}
+		return arrayToDataTable(jsTopArray, firstRowIsData);
+	}
 
 	/**
 	 * This method takes in a 2-dimensional array and converts it to a DataTable.
@@ -74,4 +93,5 @@ public class ChartHelper {
 	public static final native void drawChart(String jsonLiteral) /*-{
 		return $wnd.google.visualization.drawChart(jsonLiteral);
 	}-*/;
+
 }

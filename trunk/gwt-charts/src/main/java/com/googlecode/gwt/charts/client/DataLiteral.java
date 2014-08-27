@@ -25,7 +25,15 @@ import com.google.gwt.core.client.JsArray;
  *      Constructor&quot;s JavaScript Literal</a>
  */
 public class DataLiteral extends JavaScriptObject {
-
+	/**
+	 * Default static constructor
+	 * 
+	 * @return a new object
+	 */
+	public static DataLiteral create() {
+		return createObject().cast();
+	}
+	
 	protected DataLiteral() {
 	}
 

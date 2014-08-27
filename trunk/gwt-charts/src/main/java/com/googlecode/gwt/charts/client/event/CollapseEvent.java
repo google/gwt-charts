@@ -15,56 +15,38 @@ package com.googlecode.gwt.charts.client.event;
 import com.googlecode.gwt.charts.client.Properties;
 
 /**
- * Fired when an error occurs when attempting to render the chart.
+ * Fired when allowCollapse is set to true and the user double clicks on a node with children..
  */
-public class ErrorEvent extends Event {
+public class CollapseEvent extends Event {
 	/**
 	 * The event name
 	 */
-	public static String NAME = "error";
+	public static String NAME = "collapse";
 
 	/**
 	 * Creates a new event
 	 * 
 	 * @param properties currently should be null
 	 */
-	public ErrorEvent(Properties properties) {
+	public CollapseEvent(Properties properties) {
 		super(NAME, properties);
 	}
 
 	/**
-	 * Gets error detailed message
+	 * Returns a boolean indicating whether this is a 'collapse' or 'expand' event.
 	 * 
-	 * @return error detailed message
+	 * @return true for collapse, false for expand
 	 */
-	public String getDetailedMessage() {
-		return properties.getString("detailedMessage");
+	public boolean getCollapsed() {
+		return properties.getBoolean("collapsed");
 	}
 
 	/**
-	 * Gets error id
+	 * Returns the zero-based index of the row in the data table, corresponding to the node being clicked.
 	 * 
-	 * @return error id
+	 * @return target row index
 	 */
-	public String getId() {
-		return properties.getString("id");
-	}
-
-	/**
-	 * Gets error message
-	 * 
-	 * @return error message
-	 */
-	public String getMessage() {
-		return properties.getString("message");
-	}
-
-	/**
-	 * Gets error options
-	 * 
-	 * @return error options
-	 */
-	public Properties getOptions() {
-		return properties.getObject("options").cast();
+	public int getRow() {
+		return (int) properties.getNumber("row");
 	}
 }

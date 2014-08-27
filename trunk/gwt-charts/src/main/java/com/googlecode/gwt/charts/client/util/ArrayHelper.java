@@ -3,6 +3,7 @@ package com.googlecode.gwt.charts.client.util;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.JsArray;
 import com.google.gwt.core.client.JsArrayInteger;
+import com.google.gwt.core.client.JsArrayMixed;
 import com.google.gwt.core.client.JsArrayNumber;
 import com.google.gwt.core.client.JsArrayString;
 import com.google.gwt.core.client.JsDate;
@@ -73,6 +74,36 @@ public class ArrayHelper {
 	}
 
 	/**
+	 * Converts a java object array into a mixed javascript array (JsArrayMixed).
+	 * 
+	 * @param array the array containing values
+	 * @return a corresponding JsArrayMixed
+	 */
+
+	public static JsArrayMixed createArray(Object... array) {
+		JsArrayMixed jsArray = JsArray.createArray().cast();
+		for (int i = 0; i < array.length; i++) {
+			Object object = array[i];
+			if (object == null) {
+				jsArray.set(i, (String) null);
+			} else if (object instanceof Integer) {
+				arraySet(jsArray, i, ((Integer) object).intValue());
+			} else if (object instanceof Double) {
+				arraySet(jsArray, i, ((Double) object).doubleValue());
+			} else if (object instanceof Date) {
+				arraySet(jsArray, i, (Date) object);
+			} else if (object instanceof String) {
+				arraySet(jsArray, i, (String) object);
+			} else if (object instanceof JavaScriptObject) {
+				jsArray.set(i, (JavaScriptObject) object);
+			} else {
+				throw new RuntimeException("invalid value type");
+			}
+		}
+		return jsArray;
+	}
+
+	/**
 	 * Converts a list of java objects into a javascript array (JsArray).
 	 * 
 	 * @param <E> the type of array
@@ -100,4 +131,20 @@ public class ArrayHelper {
 		}
 		return jsArray;
 	}
+
+	private static final native void arraySet(JsArrayMixed array, int index, int value) /*-{
+		array[index] = value;
+	}-*/;
+
+	private static final native void arraySet(JsArrayMixed array, int index, double value) /*-{
+		array[index] = value;
+	}-*/;
+
+	private static final void arraySet(JsArrayMixed array, int index, Date value) {
+		array.set(index, DateHelper.getJsDate(value));
+	}
+
+	private static final native void arraySet(JsArrayMixed array, int index, String value) /*-{
+		array[index] = value;
+	}-*/;
 }

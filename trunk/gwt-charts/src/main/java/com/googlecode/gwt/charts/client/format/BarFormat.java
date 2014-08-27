@@ -16,7 +16,16 @@ import com.google.gwt.core.client.JavaScriptObject;
 
 import com.googlecode.gwt.charts.client.DataTable;
 
+/**
+ * Adds a colored bar to a numeric cell indicating whether the cell value is above or below a specified base value.
+ */
 public class BarFormat extends JavaScriptObject {
+	/**
+	 * Default constructor
+	 * 
+	 * @param options formatter options
+	 * @return a new object instance
+	 */
 	public static native BarFormat create(BarFormatOptions options) /*-{
 		return new $wnd.google.visualization.BarFormat(options);
 	}-*/;
@@ -24,6 +33,12 @@ public class BarFormat extends JavaScriptObject {
 	protected BarFormat() {
 	}
 
+	/**
+	 * Apply formatter to given column index.
+	 * 
+	 * @param data the data source
+	 * @param colIndex column index
+	 */
 	public final native void format(DataTable data, int colIndex) /*-{
 		this.format(data, colIndex);
 	}-*/;
