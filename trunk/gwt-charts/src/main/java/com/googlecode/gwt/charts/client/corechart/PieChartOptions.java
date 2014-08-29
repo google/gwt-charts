@@ -29,7 +29,7 @@ import com.googlecode.gwt.charts.client.util.ArrayHelper;
  */
 public class PieChartOptions extends Options {
 	/**
-	 * Default constructor
+	 * Default constructor.
 	 * 
 	 * @return a new object instance
 	 */
@@ -77,7 +77,7 @@ public class PieChartOptions extends Options {
 	}
 
 	/**
-	 * Sets diff chart options
+	 * Sets diff chart options.
 	 * 
 	 * @param diff
 	 */
@@ -222,9 +222,21 @@ public class PieChartOptions extends Options {
 	}-*/;
 
 	/**
-	 * An array of objects, each describing the format of the corresponding slice in the pie. To use default values for
-	 * a slice, specify an empty object (i.e., {}). If a slice or a value is not specified, the global value will be
-	 * used.
+	 * Changes the slice format for a given index.
+	 * 
+	 * @param index slice index
+	 * @param slice the format of the corresponding slice
+	 */
+	public final native void setSlice(int index, Slice slice) /*-{
+		if (!this.slices) {
+			this.slices = {};
+		}
+		this.slices[index] = slice;
+	}-*/;
+
+	/**
+	 * An array of objects, each describing the format of the corresponding slice in the pie.<br>
+	 * If a slice or a value is not specified, the global value will be used.
 	 * 
 	 * @param slices
 	 */

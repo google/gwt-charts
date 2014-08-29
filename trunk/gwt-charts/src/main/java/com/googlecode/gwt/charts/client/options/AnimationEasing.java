@@ -13,23 +13,23 @@
 package com.googlecode.gwt.charts.client.options;
 
 /**
- * The easing function applied to an animation
+ * The easing function applied to an animation.
  */
 public enum AnimationEasing {
 	/**
-	 * Constant speed
+	 * Constant speed.
 	 */
 	LINEAR("linear"),
 	/**
-	 * Ease in - Start slow and speed up
+	 * Ease in - Start slow and speed up.
 	 */
 	IN("in"),
 	/**
-	 * Ease out - Start fast and slow down
+	 * Ease out - Start fast and slow down.
 	 */
 	OUT("out"),
 	/**
-	 * Ease in and out - Start slow, speed up, then slow down
+	 * Ease in and out - Start slow, speed up, then slow down.
 	 */
 	IN_AND_OUT("inAndOut");
 

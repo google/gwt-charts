@@ -25,7 +25,7 @@ import com.googlecode.gwt.charts.client.util.ArrayHelper;
  */
 public class SteppedAreaChartOptions extends CoreOptions {
 	/**
-	 * Default constructor
+	 * Default constructor.
 	 * 
 	 * @return a new object instance
 	 */
@@ -123,7 +123,7 @@ public class SteppedAreaChartOptions extends CoreOptions {
 	}-*/;
 
 	/**
-	 * Sets series options by index for describing the format of the corresponding series in the chart
+	 * Sets series options by index for describing the format of the corresponding series in the chart.
 	 * 
 	 * @param index the series index
 	 * @param series an object definining the series format

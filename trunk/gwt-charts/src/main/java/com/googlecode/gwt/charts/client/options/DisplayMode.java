@@ -13,15 +13,15 @@
 package com.googlecode.gwt.charts.client.options;
 
 /**
- * Defines types of maps for GeoChart. The DataTable format must match the value specified. 
+ * Defines types of maps for GeoChart. The DataTable format must match the value specified.
  */
 public enum DisplayMode {
 	/**
-	 * Choose based on the format of the DataTable. 
+	 * Choose based on the format of the DataTable.
 	 */
 	AUTO("auto"),
 	/**
-	 * This is a region map 
+	 * This is a region map.
 	 */
 	REGIONS("regions"),
 	/**

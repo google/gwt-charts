@@ -19,12 +19,13 @@ import com.googlecode.gwt.charts.client.Properties;
  */
 public class CancelEvent extends Event {
 	/**
-	 * The event name
+	 * The event name.
 	 */
 	public static String NAME = "cancel";
 
 	/**
-	 * Creates a new event
+	 * Creates a new event.
+	 * 
 	 * @param properties currently should be null
 	 */
 	public CancelEvent(Properties properties) {

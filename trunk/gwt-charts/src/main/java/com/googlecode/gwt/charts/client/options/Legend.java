@@ -19,7 +19,7 @@ import com.google.gwt.core.client.JavaScriptObject;
  */
 public class Legend extends JavaScriptObject {
 	/**
-	 * Default constructor
+	 * Default constructor.
 	 * 
 	 * @return a new object
 	 */
@@ -28,7 +28,8 @@ public class Legend extends JavaScriptObject {
 	}
 
 	/**
-	 * Construct with position
+	 * Construct with position.
+	 * 
 	 * @param position
 	 * @return a new object
 	 */
@@ -74,7 +75,7 @@ public class Legend extends JavaScriptObject {
 	}
 
 	/**
-	 * Specifies the legend text style
+	 * Specifies the legend text style.
 	 * 
 	 * @param textStyle
 	 */

@@ -19,12 +19,12 @@ import com.googlecode.gwt.charts.client.Properties;
  */
 public class OnMouseOverEvent extends Event {
 	/**
-	 * The event name
+	 * The event name.
 	 */
 	public static String NAME = "onmouseover";
 
 	/**
-	 * Creates a new event
+	 * Creates a new event.
 	 * 
 	 * @param properties
 	 */
@@ -33,7 +33,7 @@ public class OnMouseOverEvent extends Event {
 	}
 
 	/**
-	 * Gets target data column index
+	 * Gets target data column index.
 	 * 
 	 * @return data column index
 	 */
@@ -45,7 +45,7 @@ public class OnMouseOverEvent extends Event {
 	}
 
 	/**
-	 * Gets target row column index
+	 * Gets target row column index.
 	 * 
 	 * @return row column index
 	 */

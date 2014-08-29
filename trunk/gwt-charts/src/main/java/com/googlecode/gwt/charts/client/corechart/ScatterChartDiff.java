@@ -15,11 +15,11 @@ package com.googlecode.gwt.charts.client.corechart;
 import com.google.gwt.core.client.JavaScriptObject;
 
 /**
- * Options for Scatter Diff charts
+ * Options for Scatter Diff charts.
  */
 public abstract class ScatterChartDiff extends JavaScriptObject {
 	/**
-	 * Default constructor
+	 * Default constructor.
 	 * 
 	 * @return a new object instance
 	 */
@@ -31,7 +31,7 @@ public abstract class ScatterChartDiff extends JavaScriptObject {
 	}
 
 	/**
-	 * Change the opacity of the new points
+	 * Change the opacity of the new points.
 	 * 
 	 * @param opacity a value from 0.0 (fully transparent) to 1.0 (fully opaque)
 	 */
@@ -43,7 +43,7 @@ public abstract class ScatterChartDiff extends JavaScriptObject {
 	}-*/;
 
 	/**
-	 * Change the opacity of the tails
+	 * Change the opacity of the tails.
 	 * 
 	 * @param opacity a value from 0.0 (fully transparent) to 1.0 (fully opaque)
 	 */

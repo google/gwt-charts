@@ -17,19 +17,19 @@ package com.googlecode.gwt.charts.client.options;
  */
 public enum MapType {
 	/**
-	 * Normal map
+	 * Normal map.
 	 */
 	NORMAL("normal"),
 	/**
-	 * Terrain (elevation) map
+	 * Terrain (elevation) map.
 	 */
 	TERRAIN("terrain"),
 	/**
-	 * Satellite imagery
+	 * Satellite imagery.
 	 */
 	SATELLITE("satellite"),
 	/**
-	 * A mix of normal and satellite imagery
+	 * A mix of normal and satellite imagery.
 	 */
 	HYBRID("hybrid");
 

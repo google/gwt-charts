@@ -27,7 +27,7 @@ import com.googlecode.gwt.charts.client.util.ChartHelper;
 public class DashboardObject extends HasListeners {
 
 	/**
-	 * Creates a new DashboardObject
+	 * Creates a new DashboardObject.
 	 * 
 	 * @param container A reference to a valid container element on the page that will hold the dashboard contents.
 	 * @return a new DashboardObject

@@ -22,7 +22,7 @@ import com.googlecode.gwt.charts.client.options.TooltipTrigger;
  */
 public class GeoChartTooltip extends JavaScriptObject {
 	/**
-	 * Default constructor
+	 * Default constructor.
 	 * 
 	 * @return a new object instance
 	 */
@@ -43,7 +43,7 @@ public class GeoChartTooltip extends JavaScriptObject {
 	}-*/;
 
 	/**
-	 * Sets the user interaction that causes the tooltip to be displayed
+	 * Sets the user interaction that causes the tooltip to be displayed.
 	 * 
 	 * @param trigger default is {@link TooltipTrigger#FOCUS}
 	 */

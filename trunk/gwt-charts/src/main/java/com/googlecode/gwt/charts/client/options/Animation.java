@@ -22,7 +22,7 @@ import com.google.gwt.core.client.JavaScriptObject;
 
 public class Animation extends JavaScriptObject {
 	/**
-	 * Default constructor
+	 * Default constructor.
 	 * 
 	 * @return a new object instance
 	 */
@@ -34,16 +34,18 @@ public class Animation extends JavaScriptObject {
 	}
 
 	/**
+	 * Sets the duration of the animation, in milliseconds.
 	 * 
-	 * @param duration The duration of the animation, in milliseconds
+	 * @param duration milliseconds
 	 */
 	public final native void setDuration(int duration) /*-{
 		this.duration = duration;
 	}-*/;
 
 	/**
+	 * Sets the easing function applied to the animation.
 	 * 
-	 * @param easing The easing function applied to the animation (default: linear).
+	 * @param easing default is {@link AnimationEasing#LINEAR}
 	 */
 	public final void setEasing(AnimationEasing easing) {
 		setEasing(easing.getName());

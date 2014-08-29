@@ -26,7 +26,7 @@ import com.googlecode.gwt.charts.client.util.ArrayHelper;
  */
 public class BubbleChartOptions extends CoreOptions {
 	/**
-	 * Default constructor
+	 * Default constructor.
 	 * 
 	 * @return a new object instance
 	 */
@@ -38,7 +38,7 @@ public class BubbleChartOptions extends CoreOptions {
 	}
 
 	/**
-	 * Sets visual bubble properties
+	 * Sets visual bubble properties.
 	 * 
 	 * @param bubble an object with members to configure the visual properties of the bubbles
 	 */
@@ -75,7 +75,7 @@ public class BubbleChartOptions extends CoreOptions {
 	}
 
 	/**
-	 * Sets series options by index for describing the format of the corresponding series in the chart
+	 * Sets series options by index for describing the format of the corresponding series in the chart.
 	 * 
 	 * @param index the series index
 	 * @param series an object definining the series format

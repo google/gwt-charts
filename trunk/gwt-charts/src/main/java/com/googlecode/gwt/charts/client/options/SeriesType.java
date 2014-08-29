@@ -17,23 +17,23 @@ package com.googlecode.gwt.charts.client.options;
  */
 public enum SeriesType {
 	/**
-	 * Lines like in LineChart 
+	 * Lines like in LineChart.
 	 */
 	LINE("line"),
 	/**
-	 * Bars are actually vertical bars (columns)
+	 * Bars are actually vertical bars (columns).
 	 */
 	BARS("bars"),
 	/**
-	 * Area like in AreaChart
+	 * Area like in AreaChart.
 	 */
 	AREA("area"),
 	/**
-	 * Area like in SteppedAreaChart
+	 * Area like in SteppedAreaChart.
 	 */
 	STEPPED_AREA("steppedArea"),
 	/**
-	 * Candlesticks like in CandlestickChart
+	 * Candlesticks like in CandlestickChart.
 	 */
 	CANDLESTICK("candlesticks");
 

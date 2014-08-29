@@ -14,17 +14,20 @@ package com.googlecode.gwt.charts.client.controls.filter;
 
 import com.googlecode.gwt.charts.client.controls.ControlOptions;
 
-public class ChartRangeFilterOptions extends ControlOptions {
+/**
+ * Configuration options for {@link ChartRangeFilter}.
+ */
+public class ChartRangeFilterOptions extends ControlOptions<ChartRangeFilterUi> {
+	/**
+	 * Default constructor.
+	 * 
+	 * @return a new object instance
+	 */
 	public static ChartRangeFilterOptions create() {
 		return createObject().cast();
 	}
 
 	protected ChartRangeFilterOptions() {
-		// Default constructor
+		// Default constructor.
 	}
-
-	public final native void setUi(ChartRangeFilterUi ui) /*-{
-		this.ui = ui;
-	}-*/;
-
 }

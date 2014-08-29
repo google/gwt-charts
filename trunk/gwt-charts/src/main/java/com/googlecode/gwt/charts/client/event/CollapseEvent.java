@@ -19,12 +19,12 @@ import com.googlecode.gwt.charts.client.Properties;
  */
 public class CollapseEvent extends Event {
 	/**
-	 * The event name
+	 * The event name.
 	 */
 	public static String NAME = "collapse";
 
 	/**
-	 * Creates a new event
+	 * Creates a new event.
 	 * 
 	 * @param properties currently should be null
 	 */

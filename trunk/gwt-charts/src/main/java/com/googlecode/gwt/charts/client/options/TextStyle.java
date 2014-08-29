@@ -15,11 +15,11 @@ package com.googlecode.gwt.charts.client.options;
 import com.google.gwt.core.client.JavaScriptObject;
 
 /**
- * Defines a text style
+ * Defines a text style.
  */
 public class TextStyle extends JavaScriptObject {
 	/**
-	 * Default constructor
+	 * Default constructor.
 	 * 
 	 * @return a new object
 	 */
@@ -31,7 +31,7 @@ public class TextStyle extends JavaScriptObject {
 	}
 
 	/**
-	 * Sets boldness on/off
+	 * Sets boldness on/off.
 	 * 
 	 * @param bold true for bold, false for regular
 	 */
@@ -40,7 +40,7 @@ public class TextStyle extends JavaScriptObject {
 	}-*/;
 
 	/**
-	 * Sets the text color
+	 * Sets the text color.
 	 * 
 	 * @param color an HTML color string
 	 */
@@ -49,7 +49,7 @@ public class TextStyle extends JavaScriptObject {
 	}-*/;
 
 	/**
-	 * Sets the text font family name
+	 * Sets the text font family name.
 	 * 
 	 * @param fontName a font family name
 	 */
@@ -58,7 +58,7 @@ public class TextStyle extends JavaScriptObject {
 	}-*/;
 
 	/**
-	 * Sets the text font size
+	 * Sets the text font size.
 	 * 
 	 * @param fontSize
 	 */
@@ -67,7 +67,7 @@ public class TextStyle extends JavaScriptObject {
 	}-*/;
 
 	/**
-	 * Sets italic
+	 * Sets italic.
 	 * 
 	 * @param italic true for italic, false for regular
 	 */

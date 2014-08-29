@@ -19,7 +19,7 @@ import com.google.gwt.core.client.JavaScriptObject;
  */
 public class Candlestick extends JavaScriptObject {
 	/**
-	 * Default constructor
+	 * Default constructor.
 	 * 
 	 * @return a new object
 	 */
@@ -31,7 +31,7 @@ public class Candlestick extends JavaScriptObject {
 	}
 
 	/**
-	 * Sets the colors applied to falling candles
+	 * Sets the colors applied to falling candles.
 	 * 
 	 * @param fallingColor falling candles color settings
 	 */
@@ -49,7 +49,7 @@ public class Candlestick extends JavaScriptObject {
 	}-*/;
 
 	/**
-	 * Sets the colors applied to rising candles
+	 * Sets the colors applied to rising candles.
 	 * 
 	 * @param risingColor rising candles color settings
 	 */

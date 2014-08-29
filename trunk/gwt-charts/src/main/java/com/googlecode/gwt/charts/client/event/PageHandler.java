@@ -14,6 +14,9 @@ package com.googlecode.gwt.charts.client.event;
 
 import com.googlecode.gwt.charts.client.Properties;
 
+/**
+ * An event handler for {@link PageEvent}.
+ */
 public abstract class PageHandler implements EventHandler {
 
 	@Override
@@ -26,6 +29,10 @@ public abstract class PageHandler implements EventHandler {
 		return PageEvent.NAME;
 	}
 
+	/**
+	 * On event fired.
+	 * 
+	 * @param event
+	 */
 	public abstract void onPage(PageEvent event);
-
 }

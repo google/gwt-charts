@@ -27,7 +27,7 @@ import com.googlecode.gwt.charts.client.ChartObject;
 public class CandlestickChart extends CoreChartWidget<CandlestickChartOptions> {
 
 	/**
-	 * Creates a new chart widget
+	 * Creates a new chart widget.
 	 */
 	public CandlestickChart() {
 		super();

@@ -23,7 +23,7 @@ import com.googlecode.gwt.charts.client.util.ArrayHelper;
  */
 public class GeoChartColorAxis extends JavaScriptObject {
 	/**
-	 * Default constructor
+	 * Default constructor.
 	 * 
 	 * @return a new object
 	 */

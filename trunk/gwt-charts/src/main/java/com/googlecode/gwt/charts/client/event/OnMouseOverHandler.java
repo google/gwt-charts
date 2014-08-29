@@ -14,6 +14,9 @@ package com.googlecode.gwt.charts.client.event;
 
 import com.googlecode.gwt.charts.client.Properties;
 
+/**
+ * An event handler for {@link OnMouseOverEvent}.
+ */
 public abstract class OnMouseOverHandler implements EventHandler {
 
 	@Override
@@ -26,6 +29,10 @@ public abstract class OnMouseOverHandler implements EventHandler {
 		return OnMouseOverEvent.NAME;
 	}
 
+	/**
+	 * On event fired.
+	 * 
+	 * @param event
+	 */
 	public abstract void onMouseOver(OnMouseOverEvent event);
-
 }

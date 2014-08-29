@@ -14,10 +14,22 @@ package com.googlecode.gwt.charts.client.event;
 
 import com.googlecode.gwt.charts.client.Properties;
 
+/**
+ * Interface for all event handlers.
+ */
 public interface EventHandler {
 
+	/**
+	 * Dispatches a event depending on its properties.
+	 * 
+	 * @param properties event properties
+	 */
 	void dispatch(Properties properties);
 
+	/**
+	 * Returns the event name.
+	 * 
+	 * @return the event name
+	 */
 	String getEventName();
-
 }

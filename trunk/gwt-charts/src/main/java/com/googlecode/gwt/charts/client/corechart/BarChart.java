@@ -24,7 +24,7 @@ import com.googlecode.gwt.charts.client.DataSource;
 public class BarChart extends CoreChartWidget<BarChartOptions> {
 
 	/**
-	 * Creates a new chart widget
+	 * Creates a new chart widget.
 	 */
 	public BarChart() {
 		super();

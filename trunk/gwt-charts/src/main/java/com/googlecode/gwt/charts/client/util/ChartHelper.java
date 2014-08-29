@@ -28,29 +28,10 @@ public class ChartHelper {
 	/**
 	 * This method takes in a 2-dimensional array and converts it to a DataTable.
 	 * 
-	 * @param array A two-dimensional array, where each row represents a row in the data table. The first row will be
-	 *        interpreted as header labels. The data types of each column are
-	 *        interpreted automatically from the data given. If a cell has no value, specify a null or empty value as
-	 *        appropriate.
-	 * @param firstRowIsData if false, the first row will be
-	 *        interpreted as header labels.
-	 * @return a new DataTable.
-	 */
-	public static final DataTable arrayToDataTable(Object[][] array, boolean firstRowIsData) {
-		JsArrayMixed jsTopArray = JavaScriptObject.createArray().cast();
-		for (Object[] objects : array) {
-			jsTopArray.push(ArrayHelper.createArray(objects));
-		}
-		return arrayToDataTable(jsTopArray, firstRowIsData);
-	}
-
-	/**
-	 * This method takes in a 2-dimensional array and converts it to a DataTable.
-	 * 
-	 * @param array A two-dimensional array, where each row represents a row in the data table. The first row will be
-	 *        interpreted as header labels. The data types of each column are
-	 *        interpreted automatically from the data given. If a cell has no value, specify a null or empty value as
-	 *        appropriate.
+	 * @param array A two-dimensional array, where each row represents a row in the data table.<br>
+	 *        The first row will be interpreted as header labels.<br>
+	 *        The data types of each column are interpreted automatically from the data given.<br>
+	 *        If a cell has no value, specify a null or empty value as appropriate.
 	 * @return a new DataTable.
 	 */
 	public static final native DataTable arrayToDataTable(JsArrayMixed array) /*-{
@@ -60,17 +41,45 @@ public class ChartHelper {
 	/**
 	 * This method takes in a 2-dimensional array and converts it to a DataTable.
 	 * 
-	 * @param array A two-dimensional array, where each row represents a row in the data table. The data types of each
-	 *        column are
-	 *        interpreted automatically from the data given. If a cell has no value, specify a null or empty value as
-	 *        appropriate.
-	 * @param firstRowIsData if false, the first row will be
-	 *        interpreted as header labels.
+	 * @param array A two-dimensional array, where each row represents a row in the data table.<br>
+	 *        The data types of each column are interpreted automatically from the data given.<br>
+	 *        If a cell has no value, specify a null or empty value as appropriate.
+	 * @param firstRowIsData if true, all rows are assumed to be data.
 	 * @return a new DataTable.
 	 */
 	public static final native DataTable arrayToDataTable(JsArrayMixed array, boolean firstRowIsData) /*-{
 		return $wnd.google.visualization.arrayToDataTable(array, firstRowIsData);
 	}-*/;
+
+	/**
+	 * This method takes in a 2-dimensional array and converts it to a DataTable.
+	 * 
+	 * @param array A two-dimensional array, where each row represents a row in the data table.<br>
+	 *        The first row will be interpreted as header labels.<br>
+	 *        The data types of each column are interpreted automatically from the data given.<br>
+	 *        If a cell has no value, specify a null or empty value as appropriate.
+	 * @return a new DataTable.
+	 */
+	public static final DataTable arrayToDataTable(Object[][] array) {
+		return arrayToDataTable(array, false);
+	}
+
+	/**
+	 * This method takes in a 2-dimensional array and converts it to a DataTable.
+	 * 
+	 * @param array A two-dimensional array, where each row represents a row in the data table.<br>
+	 *        The data types of each column are interpreted automatically from the data given.<br>
+	 *        If a cell has no value, specify a null or empty value as appropriate.
+	 * @param firstRowIsData if true, all rows are assumed to be data.
+	 * @return a new DataTable.
+	 */
+	public static final DataTable arrayToDataTable(Object[][] array, boolean firstRowIsData) {
+		JsArrayMixed jsTopArray = JavaScriptObject.createArray().cast();
+		for (Object[] objects : array) {
+			jsTopArray.push(ArrayHelper.createArray(objects));
+		}
+		return arrayToDataTable(jsTopArray, firstRowIsData);
+	}
 
 	/**
 	 * This method creates a chart in a single call. The advantage of using this method is that it requires slightly

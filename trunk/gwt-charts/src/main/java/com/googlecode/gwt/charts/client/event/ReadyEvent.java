@@ -14,12 +14,22 @@ package com.googlecode.gwt.charts.client.event;
 
 import com.googlecode.gwt.charts.client.Properties;
 
+/**
+ * Indicates that the chart is ready for external method calls. If you want to interact with the chart, and call methods after you draw
+ * it, you should set up a listener for this event before you call the draw method, and call them only after the event
+ * was fired.
+ */
 public class ReadyEvent extends Event {
 	/**
-	 * The event name
+	 * The event name.
 	 */
 	public static String NAME = "ready";
-	
+
+	/**
+	 * Creates a new event.
+	 * 
+	 * @param properties
+	 */
 	public ReadyEvent(Properties properties) {
 		super(NAME, properties);
 	}

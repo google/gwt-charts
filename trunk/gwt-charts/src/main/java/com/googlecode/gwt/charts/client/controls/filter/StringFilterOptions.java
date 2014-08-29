@@ -15,27 +15,47 @@ package com.googlecode.gwt.charts.client.controls.filter;
 import com.googlecode.gwt.charts.client.controls.ControlOptions;
 import com.googlecode.gwt.charts.client.options.MatchType;
 
-public class StringFilterOptions extends ControlOptions {
+/**
+ * Configuration options for {@link StringFilter}.
+ */
+public class StringFilterOptions extends ControlOptions<StringFilterUi> {
+	/**
+	 * Default constructor.
+	 * 
+	 * @return a new object instance
+	 */
 	public static StringFilterOptions create() {
 		return createObject().cast();
 	}
 
 	protected StringFilterOptions() {
-		// Default constructor
+		// Default constructor.
 	}
 
+	/**
+	 * Whether matching should be case sensitive or not.
+	 * 
+	 * @param caseSensitive
+	 */
 	public final native void setCaseSensitive(boolean caseSensitive) /*-{
 		this.caseSensitive = caseSensitive;
 	}-*/;
 
+	/**
+	 * Whether the control should match exact values only ('exact'), prefixes starting from the beginning of the value
+	 * ('prefix') or any substring ('any').
+	 * 
+	 * @param matchType default is {@link MatchType#PREFIX}
+	 */
 	public final void setMatchType(MatchType matchType) {
 		setMatchType(matchType.getName());
 	}
 
-	public final native void setUi(StringFilterUi ui) /*-{
-		this.ui = ui;
-	}-*/;
-
+	/**
+	 * Whether the control should match against cell formatted values or againt actual values.
+	 * 
+	 * @param useFormattedValue
+	 */
 	public final native void setUseFormattedValue(boolean useFormattedValue) /*-{
 		this.useFormattedValue = useFormattedValue;
 	}-*/;

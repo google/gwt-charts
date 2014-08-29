@@ -26,7 +26,7 @@ import com.googlecode.gwt.charts.client.options.SizeAxis;
  */
 public class GeoChartOptions extends Options {
 	/**
-	 * Default constructor
+	 * Default constructor.
 	 * 
 	 * @return a new object instance
 	 */
@@ -38,7 +38,7 @@ public class GeoChartOptions extends Options {
 	}
 
 	/**
-	 * Hides the legend
+	 * Hides the legend.
 	 */
 	public final native void hideLegend() /*-{
 		this.legend = "none";
@@ -115,7 +115,7 @@ public class GeoChartOptions extends Options {
 	}-*/;
 
 	/**
-	 * An object with members to configure various aspects of the legend, or 'none', if no legend should appear
+	 * An object with members to configure various aspects of the legend, or 'none', if no legend should appear.
 	 * 
 	 * @param legend
 	 */
@@ -161,17 +161,13 @@ public class GeoChartOptions extends Options {
 	}-*/;
 
 	/**
-	 * Sets the resolution of the geochart borders
+	 * Sets the resolution of the geochart borders.
 	 * 
 	 * @param resolution
 	 */
 	public final void setResolution(Resolution resolution) {
 		setResolution(resolution.getName());
 	}
-
-	private final native void setResolution(String resolution) /*-{
-		this.resolution = resolution;
-	}-*/;
 
 	/**
 	 * An object with members to configure how values are associated with bubble size.
@@ -193,6 +189,10 @@ public class GeoChartOptions extends Options {
 
 	private final native void setDisplayMode(String displayMode) /*-{
 		this.displayMode = displayMode;
+	}-*/;
+
+	private final native void setResolution(String resolution) /*-{
+		this.resolution = resolution;
 	}-*/;
 
 }

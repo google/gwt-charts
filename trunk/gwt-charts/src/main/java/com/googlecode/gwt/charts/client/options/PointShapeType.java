@@ -13,31 +13,31 @@
 package com.googlecode.gwt.charts.client.options;
 
 /**
- * The shape of individual data elements
+ * The shape of individual data elements.
  */
 public enum PointShapeType {
 	/**
-	 * Circle
+	 * Circle.
 	 */
 	CIRCLE("circle"),
 	/**
-	 * Triangle
+	 * Triangle.
 	 */
 	TRIANGLE("triangle"),
 	/**
-	 * Square
+	 * Square.
 	 */
 	SQUARE("square"),
 	/**
-	 * Diamond
+	 * Diamond.
 	 */
 	DIAMOND("diamond"),
 	/**
-	 * Star
+	 * Star.
 	 */
 	STAR("star"),
 	/**
-	 * Polygon
+	 * Polygon.
 	 */
 	POLYGON("polygon");
 

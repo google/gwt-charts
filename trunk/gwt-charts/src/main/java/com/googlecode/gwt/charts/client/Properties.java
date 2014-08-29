@@ -20,11 +20,11 @@ import com.googlecode.gwt.charts.client.util.DateHelper;
 import java.util.Date;
 
 /**
- * A common name/value map, tipically applied to tables, rows, columns or cells
+ * A common name/value map, tipically applied to tables, rows, columns or cells.
  */
 public class Properties extends JavaScriptObject {
 	/**
-	 * Default constructor
+	 * Default constructor.
 	 * 
 	 * @return a new object
 	 */
@@ -33,11 +33,11 @@ public class Properties extends JavaScriptObject {
 	}
 
 	protected Properties() {
-		// Default constructor
+		// Default constructor.
 	}
 
 	/**
-	 * Checks if a property exists
+	 * Checks if a property exists.
 	 * 
 	 * @param key the property's key
 	 * @return true if exists, false otherwise
@@ -107,7 +107,7 @@ public class Properties extends JavaScriptObject {
 	}-*/;
 
 	/**
-	 * Set a property
+	 * Set a property.
 	 * 
 	 * @param key the name of the property
 	 * @param value the value of the property
@@ -117,17 +117,17 @@ public class Properties extends JavaScriptObject {
 	}-*/;
 
 	/**
-	 * Set a property
+	 * Set a property.
 	 * 
 	 * @param key the name of the property
 	 * @param value the value of the property
 	 */
-	public final native void set(String key, Date value)/*-{
-		this[key] = @com.googlecode.gwt.charts.client.util.DateHelper::getJsDate(Ljava/util/Date;) (value);
-	}-*/;
+	public final void set(String key, Date value) {
+		set(key, DateHelper.getJsDate(value));
+	}
 
 	/**
-	 * Set a property
+	 * Set a property.
 	 * 
 	 * @param key the name of the property
 	 * @param value the value of the property
@@ -137,7 +137,7 @@ public class Properties extends JavaScriptObject {
 	}-*/;
 
 	/**
-	 * Set a property
+	 * Set a property.
 	 * 
 	 * @param key the name of the property
 	 * @param value the value of the property
@@ -147,7 +147,7 @@ public class Properties extends JavaScriptObject {
 	}-*/;
 
 	/**
-	 * Set a property
+	 * Set a property.
 	 * 
 	 * @param key the name of the property
 	 * @param value the value of the property

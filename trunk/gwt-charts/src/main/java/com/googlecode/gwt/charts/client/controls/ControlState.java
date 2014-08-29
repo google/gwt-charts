@@ -14,10 +14,13 @@ package com.googlecode.gwt.charts.client.controls;
 
 import com.google.gwt.core.client.JavaScriptObject;
 
+/**
+ * Common state methods for {@link ControlWrapper}.
+ */
 public class ControlState extends JavaScriptObject {
 
 	protected ControlState() {
-		// Default constructor
+		// Default constructor.
 	}
 
 }

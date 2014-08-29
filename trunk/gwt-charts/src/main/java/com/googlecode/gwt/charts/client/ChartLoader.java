@@ -12,11 +12,10 @@
  */
 package com.googlecode.gwt.charts.client;
 
-import com.google.gwt.core.client.JsArrayString;
 import com.google.gwt.i18n.client.LocaleInfo;
 
-import com.googlecode.gwt.charts.client.ajaxloader.AjaxLoader;
-import com.googlecode.gwt.charts.client.ajaxloader.AjaxLoader.AjaxLoaderOptions;
+import com.googlecode.gwt.charts.client.apiloader.ApiLoader;
+import com.googlecode.gwt.charts.client.apiloader.ApiLoaderOptions;
 
 /**
  * Utility class for loading the Chart Tools API using the Google Ajax Loader.
@@ -41,7 +40,7 @@ public class ChartLoader {
 	}
 
 	/**
-	 * Returns the current language
+	 * Returns the current language.
 	 * 
 	 * @return the language
 	 */
@@ -50,7 +49,7 @@ public class ChartLoader {
 	}
 
 	/**
-	 * Returns the current packages
+	 * Returns the current packages.
 	 * 
 	 * @return the packages
 	 */
@@ -59,7 +58,7 @@ public class ChartLoader {
 	}
 
 	/**
-	 * Returns the current version
+	 * Returns the current version.
 	 * 
 	 * @return the version
 	 */
@@ -73,16 +72,16 @@ public class ChartLoader {
 	 * @param callback the handler to be called
 	 */
 	public void loadApi(Runnable callback) {
-		AjaxLoaderOptions options = AjaxLoaderOptions.newInstance();
-		JsArrayString packagesArray = JsArrayString.createArray().cast();
+		String[] packagesArray = new String[packages.length];
 		for (int i = 0; i < packages.length; i++) {
-			packagesArray.push(packages[i].getName());
+			packagesArray[i] = packages[i].getName();
 		}
+		ApiLoaderOptions options = ApiLoaderOptions.create();
 		options.setPackages(packagesArray);
 		if (language != null) {
 			options.setLanguage(language);
 		}
-		AjaxLoader.loadApi(API_NAME, version, callback, options);
+		ApiLoader.loadApi(API_NAME, version, callback, options);
 	}
 
 	/**

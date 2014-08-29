@@ -21,10 +21,23 @@ import com.google.gwt.core.client.JavaScriptObject;
  */
 public class Query extends JavaScriptObject {
 
+	/**
+	 * Constructor with data source.
+	 * 
+	 * @param dataSourceUrl URL to send the query to.
+	 * @return a new query opbject
+	 */
 	public static final native Query create(String dataSourceUrl) /*-{
 		return new $wnd.google.visualization.Query(dataSourceUrl);
 	}-*/;
 
+	/**
+	 * Constructor with data source and options.
+	 * 
+	 * @param dataSourceUrl URL to send the query to.
+	 * @param options A map of options for the request.
+	 * @return a new query opbject
+	 */
 	public static final native Query create(String dataSourceUrl, QueryOptions options) /*-{
 		return new $wnd.google.visualization.Query(dataSourceUrl, options);
 	}-*/;
@@ -32,10 +45,20 @@ public class Query extends JavaScriptObject {
 	protected Query() {
 	}
 
+	/**
+	 * Stops the automated query sending that was started with setRefreshInterval().
+	 */
 	public final native void abort() /*-{
 		this.abort();
 	}-*/;
 
+	/**
+	 * Sends the query to the data source. callback should be a function that will be called when the data source
+	 * responds.<br>
+	 * The callback function will receive a single parameter of type google.visualization.QueryResponse.
+	 * 
+	 * @param queryCallback
+	 */
 	public final native void send(QueryCallback queryCallback) /*-{
 		this
 				.send(function(response) {
@@ -43,14 +66,36 @@ public class Query extends JavaScriptObject {
 				});
 	}-*/;
 
+	/**
+	 * Sets the query string. The value of the string parameter should be a valid query.
+	 * This method, if used, should be called before calling the send method.<br>
+	 * Learn more about the <a href="https://developers.google.com/chart/interactive/docs/querylanguage">Query
+	 * language</a>.
+	 * 
+	 * @param query
+	 */
 	public final native void setQuery(String query) /*-{
 		this.setQuery(query);
 	}-*/;
 
+	/**
+	 * Sets the query to automatically call the send method every specified duration (number of seconds), starting from
+	 * the first explicit call to send. seconds is a number greater than or equal to zero.
+	 * 
+	 * Cancel this method either by calling it again with zero (the default), or by calling abort().
+	 * 
+	 * @param refreshInterval
+	 */
 	public final native void setRefreshInterval(int refreshInterval) /*-{
 		this.setRefreshInterval(refreshInterval);
 	}-*/;
 
+	/**
+	 * Sets the number of seconds to wait for the data source to respond before raising a timeout error. seconds is a
+	 * number greater than zero.
+	 * 
+	 * @param timeout the default timeout is 30 seconds.
+	 */
 	public final native void setTimeout(int timeout) /*-{
 		this.setTimeout(timeout);
 	}-*/;

@@ -24,7 +24,7 @@ import java.util.Date;
  */
 public class Tick extends JavaScriptObject {
 	/**
-	 * Default constructor
+	 * Default constructor.
 	 * 
 	 * @return a new object instance
 	 */
@@ -33,7 +33,7 @@ public class Tick extends JavaScriptObject {
 	}
 
 	/**
-	 * Constructor with value and label
+	 * Constructor with value and label.
 	 * 
 	 * @param value
 	 * @param label
@@ -47,7 +47,7 @@ public class Tick extends JavaScriptObject {
 	}
 
 	/**
-	 * Constructor with value and label
+	 * Constructor with value and label.
 	 * 
 	 * @param value
 	 * @param label
@@ -61,7 +61,7 @@ public class Tick extends JavaScriptObject {
 	}
 
 	/**
-	 * Constructor with value and label
+	 * Constructor with value and label.
 	 * 
 	 * @param value
 	 * @param label
@@ -75,7 +75,7 @@ public class Tick extends JavaScriptObject {
 	}
 
 	/**
-	 * Constructor with value and label
+	 * Constructor with value and label.
 	 * 
 	 * @param value
 	 * @param label
@@ -101,7 +101,7 @@ public class Tick extends JavaScriptObject {
 	}-*/;
 
 	/**
-	 * Sets the tick value
+	 * Sets the tick value.
 	 * 
 	 * @param value
 	 */
@@ -110,7 +110,7 @@ public class Tick extends JavaScriptObject {
 	}
 
 	/**
-	 * Sets the tick value
+	 * Sets the tick value.
 	 * 
 	 * @param value
 	 */
@@ -119,7 +119,7 @@ public class Tick extends JavaScriptObject {
 	}-*/;
 
 	/**
-	 * Sets the tick value
+	 * Sets the tick value.
 	 * 
 	 * @param value
 	 */
@@ -128,7 +128,7 @@ public class Tick extends JavaScriptObject {
 	}-*/;
 
 	/**
-	 * Sets the tick value
+	 * Sets the tick value.
 	 * 
 	 * @param value
 	 */

@@ -20,12 +20,13 @@ import com.googlecode.gwt.charts.client.Properties;
  */
 public class OkEvent extends Event {
 	/**
-	 * The event name
+	 * The event name.
 	 */
 	public static String NAME = "ok";
 
 	/**
-	 * Creates a new event
+	 * Creates a new event.
+	 * 
 	 * @param properties currently should be null
 	 */
 	public OkEvent(Properties properties) {

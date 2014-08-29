@@ -36,7 +36,7 @@ public class Timeline extends ChartWidget<TimelineOptions> {
 	}
 
 	/**
-	 * Adds an handler that listens for error events
+	 * Adds an handler that listens for error events.
 	 * 
 	 * @param handler the class to call when the event is fired
 	 * @return the handler reference
@@ -46,7 +46,7 @@ public class Timeline extends ChartWidget<TimelineOptions> {
 	}
 
 	/**
-	 * Adds an handler that listens for mouse out events
+	 * Adds an handler that listens for mouse out events.
 	 * 
 	 * @param handler the class to call when the event is fired
 	 * @return the handler reference
@@ -56,7 +56,7 @@ public class Timeline extends ChartWidget<TimelineOptions> {
 	}
 
 	/**
-	 * Adds an handler that listens for mouse over events
+	 * Adds an handler that listens for mouse over events.
 	 * 
 	 * @param handler the class to call when the event is fired
 	 * @return the handler reference
@@ -66,7 +66,7 @@ public class Timeline extends ChartWidget<TimelineOptions> {
 	}
 
 	/**
-	 * Adds an handler that listens for ready events
+	 * Adds an handler that listens for ready events.
 	 * 
 	 * @param handler the class to call when the event is fired
 	 * @return the handler reference

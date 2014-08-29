@@ -19,7 +19,7 @@ import com.google.gwt.core.client.JavaScriptObject;
  */
 public class Crosshair extends JavaScriptObject {
 	/**
-	 * Default constructor
+	 * Default constructor.
 	 * 
 	 * @return a new object instance
 	 */
@@ -31,7 +31,7 @@ public class Crosshair extends JavaScriptObject {
 	}
 
 	/**
-	 * Sets the color
+	 * Sets the color.
 	 * 
 	 * @param color an HTML color string
 	 */
@@ -49,7 +49,7 @@ public class Crosshair extends JavaScriptObject {
 	}-*/;
 
 	/**
-	 * Sets the opacity
+	 * Sets the opacity.
 	 * 
 	 * @param opacity a value from 0.0 (fully transparent) to 1.0 (fully opaque)
 	 */
@@ -58,7 +58,7 @@ public class Crosshair extends JavaScriptObject {
 	}-*/;
 
 	/**
-	 * Sets the crosshair orientation
+	 * Sets the crosshair orientation.
 	 * 
 	 * @param orientation
 	 */
@@ -76,7 +76,7 @@ public class Crosshair extends JavaScriptObject {
 	}-*/;
 
 	/**
-	 * Determins when to display crosshairs
+	 * Determins when to display crosshairs.
 	 * 
 	 * @param trigger
 	 */

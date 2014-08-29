@@ -33,7 +33,7 @@ public class GaugeOptions extends Options {
 	}
 
 	/**
-	 * Sets animation attributes such as duration and easing
+	 * Sets animation attributes such as duration and easing.
 	 * 
 	 * @param animation
 	 */
@@ -77,10 +77,6 @@ public class GaugeOptions extends Options {
 	public final void setMajorTicks(String... majorTicks) {
 		setMajorTicks(ArrayHelper.createArray(majorTicks));
 	}
-
-	private final native void setMajorTicks(JsArrayString majorTicks) /*-{
-		this.majorTicks = majorTicks;
-	}-*/;
 
 	/**
 	 * Sets the maximal value of a gauge.
@@ -161,6 +157,10 @@ public class GaugeOptions extends Options {
 	 */
 	public final native void setYellowTo(double yellowTo) /*-{
 		this.yellowTo = yellowTo;
+	}-*/;
+
+	private final native void setMajorTicks(JsArrayString majorTicks) /*-{
+		this.majorTicks = majorTicks;
 	}-*/;
 
 }

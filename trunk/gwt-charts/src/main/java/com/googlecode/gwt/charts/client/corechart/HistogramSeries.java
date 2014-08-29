@@ -15,11 +15,11 @@ package com.googlecode.gwt.charts.client.corechart;
 import com.google.gwt.core.client.JavaScriptObject;
 
 /**
- * Describes the format of a series in the chart
+ * Describes the format of a series in the chart.
  */
 public class HistogramSeries extends JavaScriptObject {
 	/**
-	 * Default constructor
+	 * Default constructor.
 	 * 
 	 * @return a new object instance
 	 */

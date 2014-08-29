@@ -44,7 +44,7 @@ public class GeoChart extends ChartWidget<GeoChartOptions> {
 	}
 
 	/**
-	 * Adds an handler that listens for error events
+	 * Adds an handler that listens for error events.
 	 * 
 	 * @param handler the class to call when the event is fired
 	 * @return the handler reference
@@ -54,7 +54,7 @@ public class GeoChart extends ChartWidget<GeoChartOptions> {
 	}
 
 	/**
-	 * Adds an handler that listens for ready events
+	 * Adds an handler that listens for ready events.
 	 * 
 	 * @param handler the class to call when the event is fired
 	 * @return the handler reference
@@ -64,7 +64,7 @@ public class GeoChart extends ChartWidget<GeoChartOptions> {
 	}
 
 	/**
-	 * Adds an handler that listens for region events
+	 * Adds an handler that listens for region events.
 	 * 
 	 * @param handler the class to call when the event is fired
 	 * @return the handler reference
@@ -74,7 +74,7 @@ public class GeoChart extends ChartWidget<GeoChartOptions> {
 	}
 
 	/**
-	 * Adds an handler that listens for select events
+	 * Adds an handler that listens for select events.
 	 * 
 	 * @param handler the class to call when the event is fired
 	 * @return the handler reference
@@ -99,6 +99,15 @@ public class GeoChart extends ChartWidget<GeoChartOptions> {
 	}
 
 	/**
+	 * Redraws the chart with last used data and options.
+	 */
+	@Override
+	public void redraw() {
+		super.clearChart();
+		super.redraw();
+	}
+
+	/**
 	 * Selects a data entry in the visualization—for example, a point in an area chart, or a bar in a bar chart. When
 	 * this method is called, the visualization should visually indicate what the new selection is. The implementation
 	 * of setSelection() should not fire a "select" event. Visualizations may ignore part of the selection. For example,
@@ -117,14 +126,10 @@ public class GeoChart extends ChartWidget<GeoChartOptions> {
 		chartObject.setSelection(this.selection);
 	}
 
-	/**
-	 * Redraws the chart with last used data and options.
-	 */
 	@Override
-	public void redraw() {
-		super.clearChart();
-		super.redraw();
-	}
+	protected native ChartObject createChartObject(Element container) /*-{
+		return new $wnd.google.visualization.GeoChart(container);
+	}-*/;
 
 	@Override
 	protected void redrawNow() {
@@ -133,10 +138,5 @@ public class GeoChart extends ChartWidget<GeoChartOptions> {
 			chartObject.setSelection(selection);
 		}
 	}
-
-	@Override
-	protected native ChartObject createChartObject(Element container) /*-{
-		return new $wnd.google.visualization.GeoChart(container);
-	}-*/;
 
 }

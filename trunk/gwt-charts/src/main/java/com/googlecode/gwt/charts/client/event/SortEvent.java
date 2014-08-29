@@ -16,24 +16,48 @@ import com.google.gwt.core.client.JsArrayInteger;
 
 import com.googlecode.gwt.charts.client.Properties;
 
+/**
+ * Triggered when users click on a column header, and the sort option is not 'disable'.
+ */
 public class SortEvent extends Event {
 	/**
-	 * The event name
+	 * The event name.
 	 */
 	public static String NAME = "sort";
 
+	/**
+	 * Creates a new event.
+	 * 
+	 * @param properties
+	 */
 	public SortEvent(Properties properties) {
 		super(NAME, properties);
 	}
 
+	/**
+	 * Returns true if the sort is ascending, false if descending.
+	 * 
+	 * @return true if the sort is ascending, false if descending.
+	 */
 	public boolean getAscending() {
 		return properties.getBoolean("ascending");
 	}
 
+	/**
+	 * Returns index of the column by which the table is sorted.
+	 * 
+	 * @return index of the column by which the table is sorted.
+	 */
 	public int getColumn() {
 		return (int) properties.getNumber("column");
 	}
 
+	/**
+	 * Returns an array of numbers, where the index in the array is the row number as sorted (in the visible table), and
+	 * the value is the index of that row in the underlying (unsorted) data table.
+	 * 
+	 * @return an array of numbers
+	 */
 	public JsArrayInteger getSortedIndexes() {
 		return properties.getObject("sortedIndexes").cast();
 	}

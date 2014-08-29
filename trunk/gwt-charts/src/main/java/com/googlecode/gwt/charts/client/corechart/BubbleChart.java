@@ -25,7 +25,7 @@ import com.googlecode.gwt.charts.client.ChartObject;
 public class BubbleChart extends CoreChartWidget<BubbleChartOptions> {
 
 	/**
-	 * Creates a new chart widget
+	 * Creates a new chart widget.
 	 */
 	public BubbleChart() {
 		super();

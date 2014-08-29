@@ -20,7 +20,7 @@ import com.google.gwt.core.client.JavaScriptObject;
  */
 public class Gridlines extends JavaScriptObject {
 	/**
-	 * Default constructor
+	 * Default constructor.
 	 * 
 	 * @return a new object instance
 	 */

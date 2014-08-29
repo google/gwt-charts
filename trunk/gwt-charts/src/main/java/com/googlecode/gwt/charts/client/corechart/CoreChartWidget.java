@@ -47,7 +47,7 @@ public abstract class CoreChartWidget<T extends Options> extends ChartWidget<T> 
 	}
 
 	/**
-	 * Adds an handler that listens for animation events
+	 * Adds an handler that listens for animation events.
 	 * 
 	 * @param handler the class to call when the event is fired
 	 * @return the handler reference
@@ -57,7 +57,7 @@ public abstract class CoreChartWidget<T extends Options> extends ChartWidget<T> 
 	}
 
 	/**
-	 * Adds an handler that listens for error events
+	 * Adds an handler that listens for error events.
 	 * 
 	 * @param handler the class to call when the event is fired
 	 * @return the handler reference
@@ -67,7 +67,7 @@ public abstract class CoreChartWidget<T extends Options> extends ChartWidget<T> 
 	}
 
 	/**
-	 * Adds an handler that listens for mouse out events
+	 * Adds an handler that listens for mouse out events.
 	 * 
 	 * @param handler the class to call when the event is fired
 	 * @return the handler reference
@@ -77,7 +77,7 @@ public abstract class CoreChartWidget<T extends Options> extends ChartWidget<T> 
 	}
 
 	/**
-	 * Adds an handler that listens for mouse over events
+	 * Adds an handler that listens for mouse over events.
 	 * 
 	 * @param handler the class to call when the event is fired
 	 * @return the handler reference
@@ -87,7 +87,7 @@ public abstract class CoreChartWidget<T extends Options> extends ChartWidget<T> 
 	}
 
 	/**
-	 * Adds an handler that listens for ready events
+	 * Adds an handler that listens for ready events.
 	 * 
 	 * @param handler the class to call when the event is fired
 	 * @return the handler reference
@@ -97,7 +97,7 @@ public abstract class CoreChartWidget<T extends Options> extends ChartWidget<T> 
 	}
 
 	/**
-	 * Adds an handler that listens for select events
+	 * Adds an handler that listens for select events.
 	 * 
 	 * @param handler the class to call when the event is fired
 	 * @return the handler reference

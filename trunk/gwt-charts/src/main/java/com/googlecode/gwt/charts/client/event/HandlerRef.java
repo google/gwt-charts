@@ -14,6 +14,10 @@ package com.googlecode.gwt.charts.client.event;
 
 import com.google.gwt.core.client.JavaScriptObject;
 
+/**
+ * Represents an event handler reference.<br>
+ * Only useful for removing the handler.
+ */
 public class HandlerRef extends JavaScriptObject {
 
 	protected HandlerRef() {

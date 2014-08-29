@@ -28,6 +28,16 @@ public class SankeyOptions extends Options {
 	}
 
 	/**
+	 * Draws the chart inside an inline frame. (Note that on IE8, this option is ignored; all IE8 charts are drawn in
+	 * i-frames.)
+	 * 
+	 * @param forceIFrame true for drawing inside an inline frame
+	 */
+	public final native void setForceIFrame(boolean forceIFrame) /*-{
+		this.forceIFrame = forceIFrame;
+	}-*/;
+
+	/**
 	 * With multilevel sankeys, it's sometimes nonobvious where nodes should be placed for optimal readability. The D3
 	 * layout engine experiments with different node layouts, stopping when sankey.iterations attempts have been made.
 	 * The larger this number, the more pleasing the layout of complex sankeys, but it comes with a cost: the sankeys
@@ -40,15 +50,6 @@ public class SankeyOptions extends Options {
 	}-*/;
 
 	/**
-	 * Controls attributes of the nodes (the vertical bars between links):
-	 * 
-	 * @param sankeyNode
-	 */
-	public final native void setNode(SankeyNode sankeyNode) /*-{
-		this.sankey.node = sankeyNode;
-	}-*/;
-
-	/**
 	 * Controls attributes of the connections between nodes.
 	 * 
 	 * @param sankeyLink
@@ -58,13 +59,12 @@ public class SankeyOptions extends Options {
 	}-*/;
 
 	/**
-	 * Draws the chart inside an inline frame. (Note that on IE8, this option is ignored; all IE8 charts are drawn in
-	 * i-frames.)
+	 * Controls attributes of the nodes (the vertical bars between links).
 	 * 
-	 * @param forceIFrame true for drawing inside an inline frame
+	 * @param sankeyNode
 	 */
-	public final native void setForceIFrame(boolean forceIFrame) /*-{
-		this.forceIFrame = forceIFrame;
+	public final native void setNode(SankeyNode sankeyNode) /*-{
+		this.sankey.node = sankeyNode;
 	}-*/;
 
 	private final native void initialize() /*-{

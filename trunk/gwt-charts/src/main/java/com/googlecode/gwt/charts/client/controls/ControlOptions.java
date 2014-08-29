@@ -14,18 +14,42 @@ package com.googlecode.gwt.charts.client.controls;
 
 import com.google.gwt.core.client.JavaScriptObject;
 
-public abstract class ControlOptions extends JavaScriptObject {
-
+/**
+ * Common configuration options for {@link ControlWrapper}.
+ * 
+ * @param <U> An object with members to configure various aspects of the control's UI.
+ */
+public abstract class ControlOptions<U extends ControlOptionsUi> extends JavaScriptObject {
 	protected ControlOptions() {
-		// Default constructor
+		// Default constructor.
 	}
 
+	/**
+	 * The column of the datatable the filter should operate upon. It is mandatory to provide either this option or
+	 * filterColumnLabel. If both present, this option takes precedence.
+	 * 
+	 * @param filterColumnIndex
+	 */
 	public final native void setFilterColumnIndex(int filterColumnIndex) /*-{
 		this.filterColumnIndex = filterColumnIndex;
 	}-*/;
 
+	/**
+	 * The label of the column the filter should operate upon. It is mandatory to provide either this option or
+	 * filterColumnIndex. If both present, filterColumnIndex takes precedence.
+	 * 
+	 * @param filterColumnLabel
+	 */
 	public final native void setFilterColumnLabel(String filterColumnLabel) /*-{
 		this.filterColumnLabel = filterColumnLabel;
 	}-*/;
-	
+
+	/**
+	 * An object with members to configure various aspects of the control's UI.
+	 * 
+	 * @param ui
+	 */
+	public final native void setUi(U ui) /*-{
+		this.ui = ui;
+	}-*/;
 }

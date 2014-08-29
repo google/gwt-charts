@@ -17,7 +17,6 @@ import com.google.gwt.core.client.JsArray;
 import com.googlecode.gwt.charts.client.options.AggregationTarget;
 import com.googlecode.gwt.charts.client.options.BackgroundColor;
 import com.googlecode.gwt.charts.client.options.Bar;
-import com.googlecode.gwt.charts.client.options.Candlestick;
 import com.googlecode.gwt.charts.client.options.CoreOptions;
 import com.googlecode.gwt.charts.client.options.FocusTarget;
 import com.googlecode.gwt.charts.client.options.Orientation;
@@ -33,7 +32,7 @@ import com.googlecode.gwt.charts.client.util.ArrayHelper;
  */
 public class CandlestickChartOptions extends CoreOptions {
 	/**
-	 * Default constructor
+	 * Default constructor.
 	 * 
 	 * @return a new object instance
 	 */
@@ -75,7 +74,7 @@ public class CandlestickChartOptions extends CoreOptions {
 	}-*/;
 
 	/**
-	 * Sets the bar options, currently only width
+	 * Sets the bar options, currently only width.
 	 * 
 	 * @param bar an object defining bar options
 	 */
@@ -84,16 +83,7 @@ public class CandlestickChartOptions extends CoreOptions {
 	}-*/;
 
 	/**
-	 * Sets the candlestick options
-	 * 
-	 * @param candlestick an object with options
-	 */
-	public final native void setCandlestick(Candlestick candlestick) /*-{
-		this.candlestick = candlestick;
-	}-*/;
-
-	/**
-	 * Sets the colors applied to falling candles
+	 * Sets the colors applied to falling candles.
 	 * 
 	 * @param fallingColor falling candles color settings
 	 */
@@ -150,7 +140,7 @@ public class CandlestickChartOptions extends CoreOptions {
 	}-*/;
 
 	/**
-	 * Sets the colors applied to rising candles
+	 * Sets the colors applied to rising candles.
 	 * 
 	 * @param risingColor rising candles color settings
 	 */
@@ -169,7 +159,7 @@ public class CandlestickChartOptions extends CoreOptions {
 	}
 
 	/**
-	 * Sets series options by index for describing the format of the corresponding series in the chart
+	 * Sets series options by index for describing the format of the corresponding series in the chart.
 	 * 
 	 * @param index the series index
 	 * @param series an object definining the series format

@@ -20,7 +20,8 @@ import com.google.gwt.core.client.JavaScriptObject;
 public class TimeOfDay extends JavaScriptObject {
 
 	/**
-	 * Creates an new object
+	 * Creates an new object.
+	 * 
 	 * @param hours
 	 * @param minutes
 	 * @param seconds
@@ -41,6 +42,7 @@ public class TimeOfDay extends JavaScriptObject {
 
 	/**
 	 * Gets the hours part.
+	 * 
 	 * @return the hours
 	 */
 	public final native int getHour() /*-{
@@ -49,6 +51,7 @@ public class TimeOfDay extends JavaScriptObject {
 
 	/**
 	 * Gets the milliseconds part.
+	 * 
 	 * @return the milliseconds
 	 */
 	public final native int getMillisecond() /*-{
@@ -57,6 +60,7 @@ public class TimeOfDay extends JavaScriptObject {
 
 	/**
 	 * Gets the minutes part.
+	 * 
 	 * @return the minutes
 	 */
 	public final native int getMinute() /*-{
@@ -65,6 +69,7 @@ public class TimeOfDay extends JavaScriptObject {
 
 	/**
 	 * Gets the seconds part.
+	 * 
 	 * @return the seconds
 	 */
 	public final native int getSecond() /*-{
@@ -73,6 +78,7 @@ public class TimeOfDay extends JavaScriptObject {
 
 	/**
 	 * Sets the hours part.
+	 * 
 	 * @param hours
 	 */
 	public final native void setHour(int hours) /*-{
@@ -81,6 +87,7 @@ public class TimeOfDay extends JavaScriptObject {
 
 	/**
 	 * Sets the milliseconds part.
+	 * 
 	 * @param milliseconds
 	 */
 	public final native void setMillisecond(int milliseconds) /*-{
@@ -89,6 +96,7 @@ public class TimeOfDay extends JavaScriptObject {
 
 	/**
 	 * Sets the minutes part.
+	 * 
 	 * @param minutes
 	 */
 	public final native void setMinute(int minutes) /*-{
@@ -97,6 +105,7 @@ public class TimeOfDay extends JavaScriptObject {
 
 	/**
 	 * Sets the seconds part.
+	 * 
 	 * @param seconds
 	 */
 	public final native void setSecond(int seconds) /*-{

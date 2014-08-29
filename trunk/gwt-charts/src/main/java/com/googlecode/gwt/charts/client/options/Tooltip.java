@@ -19,7 +19,7 @@ import com.google.gwt.core.client.JavaScriptObject;
  */
 public class Tooltip extends JavaScriptObject {
 	/**
-	 * Default constructor
+	 * Default constructor.
 	 * 
 	 * @return a new object instance
 	 */
@@ -59,7 +59,7 @@ public class Tooltip extends JavaScriptObject {
 	}-*/;
 
 	/**
-	 * Sets the user interaction that causes the tooltip to be displayed
+	 * Sets the user interaction that causes the tooltip to be displayed.
 	 * 
 	 * @param trigger default is {@link TooltipTrigger#FOCUS}
 	 */

@@ -14,6 +14,9 @@ package com.googlecode.gwt.charts.client.event;
 
 import com.googlecode.gwt.charts.client.Properties;
 
+/**
+ * An event handler for {@link SortEvent}.
+ */
 public abstract class SortHandler implements EventHandler {
 
 	@Override
@@ -26,6 +29,11 @@ public abstract class SortHandler implements EventHandler {
 		return SortEvent.NAME;
 	}
 
+	/**
+	 * On event fired.
+	 * 
+	 * @param event
+	 */
 	public abstract void onSort(SortEvent event);
 
 }

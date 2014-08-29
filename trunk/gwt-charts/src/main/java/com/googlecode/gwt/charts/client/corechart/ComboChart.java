@@ -27,7 +27,7 @@ import com.googlecode.gwt.charts.client.ChartObject;
 public class ComboChart extends CoreChartWidget<ComboChartOptions> {
 
 	/**
-	 * Creates a new chart widget
+	 * Creates a new chart widget.
 	 */
 	public ComboChart() {
 		super();

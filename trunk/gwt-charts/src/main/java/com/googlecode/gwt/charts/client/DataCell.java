@@ -26,7 +26,7 @@ import java.util.Date;
 public class DataCell extends JavaScriptObject {
 
 	/**
-	 * Default static constructor
+	 * Default static constructor.
 	 * 
 	 * @return a new object
 	 */
@@ -77,19 +77,19 @@ public class DataCell extends JavaScriptObject {
 	}
 
 	/**
+	 * Clears the cell value. The whole object should be empty and have neither v nor f properties.
+	 */
+	public final native void setVNull() /*-{
+		delete this.v;
+	}-*/;
+
+	/**
 	 * Sets the cell value. The data type should match the column data type.
 	 * 
 	 * @param v the cell value
 	 */
 	public final native void setVNumber(double v) /*-{
 		this.v = v;
-	}-*/;
-
-	/**
-	 * Clears the cell value. The whole object should be empty and have neither v nor f properties.
-	 */
-	public final native void setVNull() /*-{
-		delete this.v;
 	}-*/;
 
 	/**

@@ -48,7 +48,7 @@ public class ChartEditor extends HasListeners {
 
 	// TODO implement chart editor options: dataSourceInput
 	protected ChartEditor() {
-		// Default constructor
+		// Default constructor.
 	}
 	
 	/**
@@ -73,21 +73,6 @@ public class ChartEditor extends HasListeners {
 	}
 
 	/**
-	 * Opens the chart editor as an embedded dialog box on the page. The function returns immediately; it does not wait
-	 * for the dialog to be closed. If you do not lose scope of the instance, you can call openDialog() again to reopen
-	 * the dialog, although you must pass in a ChartWrapperObject object again.
-	 * 
-	 * @param chartWrapperObject A ChartWrapperObject object defining the initial chart to render in the window. The chart
-	 *        must either have a populated DataTable, or be connected to a valid data source. This wrapper is copied
-	 *        internally to the chart editor, so any later changes that you make to your ChartWrapperObject handle will not be
-	 *        reflected in
-	 *        the chart editor's copy.
-	 */
-	public final native void openDialog(ChartWrapper<?> chartWrapperObject)/*-{
-		this.openDialog(chartWrapperObject);
-	}-*/;
-
-	/**
 	 * Closes the chart editor dialog box.
 	 */
 	public final native void closeDialog()/*-{
@@ -101,6 +86,21 @@ public class ChartEditor extends HasListeners {
 	 */
 	public final native ChartWrapper<?> getChartWrapper()/*-{
 		return this.getChartWrapper();
+	}-*/;
+
+	/**
+	 * Opens the chart editor as an embedded dialog box on the page. The function returns immediately; it does not wait
+	 * for the dialog to be closed. If you do not lose scope of the instance, you can call openDialog() again to reopen
+	 * the dialog, although you must pass in a ChartWrapperObject object again.
+	 * 
+	 * @param chartWrapperObject A ChartWrapperObject object defining the initial chart to render in the window. The chart
+	 *        must either have a populated DataTable, or be connected to a valid data source. This wrapper is copied
+	 *        internally to the chart editor, so any later changes that you make to your ChartWrapperObject handle will not be
+	 *        reflected in
+	 *        the chart editor's copy.
+	 */
+	public final native void openDialog(ChartWrapper<?> chartWrapperObject)/*-{
+		this.openDialog(chartWrapperObject);
 	}-*/;
 
 	/**

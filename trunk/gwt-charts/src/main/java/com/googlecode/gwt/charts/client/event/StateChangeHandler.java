@@ -14,6 +14,9 @@ package com.googlecode.gwt.charts.client.event;
 
 import com.googlecode.gwt.charts.client.Properties;
 
+/**
+ * An event handler for {@link StateChangeEvent}.
+ */
 public abstract class StateChangeHandler implements EventHandler {
 
 	@Override
@@ -26,6 +29,10 @@ public abstract class StateChangeHandler implements EventHandler {
 		return StateChangeEvent.NAME;
 	}
 
+	/**
+	 * On event fired.
+	 * 
+	 * @param event
+	 */
 	public abstract void onStateChange(StateChangeEvent event);
-
 }

@@ -13,7 +13,7 @@
 package com.googlecode.gwt.charts.client.table;
 
 /**
- * Determines the size of an orgchart
+ * Defines table paging.
  */
 public enum TablePage {
 	/**

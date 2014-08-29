@@ -15,39 +15,57 @@ package com.googlecode.gwt.charts.client.options;
 import com.google.gwt.core.client.JavaScriptObject;
 
 /**
- * A set of background color options
+ * A set of background color options.
  */
 public class BackgroundColor extends JavaScriptObject {
 	/**
-	 * Default constructor
+	 * Default constructor.
+	 * 
 	 * @return a new object instance
 	 */
 	public static BackgroundColor create() {
 		return createObject().cast();
 	}
-	
+
+	/**
+	 * Default constructor.
+	 * 
+	 * @param fill chart fill color, as an HTML color string
+	 * @param stroke color of the chart border, as an HTML color string.
+	 * @param strokeWidth border width, in pixels (default is 2).
+	 * @return a new object instance
+	 */
+	public static BackgroundColor create(String fill, String stroke, int strokeWidth) {
+		BackgroundColor backgroundColor = createObject().cast();
+		backgroundColor.setStroke(stroke);
+		return backgroundColor;
+	}
+
 	protected BackgroundColor() {
 	}
 
 	/**
+	 * Sets the chart fill color.
 	 * 
-	 * @param fill The chart fill color, as an HTML color string
+	 * @param fill an HTML color string
 	 */
 	public final native void setFill(String fill) /*-{
 		this.fill = fill;
 	}-*/;
 
 	/**
+	 * Sets the color of the chart border.
 	 * 
-	 * @param stroke The color of the chart border, as an HTML color string.
+	 * @param stroke an HTML color string.
 	 */
 	public final native void setStroke(String stroke) /*-{
 		this.stroke = stroke;
 	}-*/;
-	
+
 	/**
+	 * Sets the border width.
 	 * 
-	 * @param strokeWidth The border width, in pixels
+	 * @param strokeWidth value in pixels (default is 2)
 	 */
 	public final native void setStrokeWidth(int strokeWidth) /*-{
 		this.strokeWidth = strokeWidth;

@@ -13,31 +13,31 @@
 package com.googlecode.gwt.charts.client;
 
 /**
- * Data type of the values of a DataTable column
+ * Data type of the values of a DataTable column.
  */
 public enum ColumnType {
 	/**
-	 * Text column
+	 * Text column.
 	 */
 	STRING("string"),
 	/**
-	 * Integer or decimal column
+	 * Integer or decimal column.
 	 */
 	NUMBER("number"),
 	/**
-	 * Boolean column
+	 * Boolean column.
 	 */
 	BOOLEAN("boolean"),
 	/**
-	 * Date column (without time)
+	 * Date column (without time).
 	 */
 	DATE("date"),
 	/**
-	 * Date and time column
+	 * Date and time column.
 	 */
 	DATETIME("datetime"),
 	/**
-	 * A time of day column
+	 * A time of day column.
 	 */
 	TIMEOFDAY("timeofday");
 

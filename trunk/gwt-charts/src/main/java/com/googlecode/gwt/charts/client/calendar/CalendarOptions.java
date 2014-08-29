@@ -20,8 +20,13 @@ import com.googlecode.gwt.charts.client.options.TextStyle;
  * Configuration options for {@link Calendar}.
  */
 public class CalendarOptions extends Options {
+	/**
+	 * Default constructor.
+	 * 
+	 * @return a new object instance
+	 */
 	public static CalendarOptions create() {
-		CalendarOptions calendarOptions = (CalendarOptions) createObject().cast();
+		CalendarOptions calendarOptions = createObject().cast();
 		calendarOptions.initialize();
 		return calendarOptions;
 	}
@@ -94,7 +99,7 @@ public class CalendarOptions extends Options {
 	}-*/;
 
 	/**
-	 * Sets the style for style for the month labels
+	 * Sets the style for style for the month labels.
 	 * 
 	 * @param textStyle an object that specifies the text style.
 	 */

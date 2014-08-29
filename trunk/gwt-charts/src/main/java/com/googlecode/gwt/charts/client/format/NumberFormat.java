@@ -22,7 +22,7 @@ import com.googlecode.gwt.charts.client.DataTable;
  */
 public class NumberFormat extends JavaScriptObject {
 	/**
-	 * Default constructor
+	 * Default constructor.
 	 * 
 	 * @param options formatter options
 	 * @return a new object instance

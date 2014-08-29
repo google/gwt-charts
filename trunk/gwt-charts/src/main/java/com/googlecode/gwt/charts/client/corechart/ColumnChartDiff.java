@@ -15,11 +15,11 @@ package com.googlecode.gwt.charts.client.corechart;
 import com.google.gwt.core.client.JavaScriptObject;
 
 /**
- * Options for Column Diff charts
+ * Options for Column Diff charts.
  */
 public abstract class ColumnChartDiff extends JavaScriptObject {
 	/**
-	 * Default constructor
+	 * Default constructor.
 	 * 
 	 * @return a new object instance
 	 */
@@ -31,7 +31,7 @@ public abstract class ColumnChartDiff extends JavaScriptObject {
 	}
 
 	/**
-	 * Change the size of inner column
+	 * Change the size of inner column.
 	 * 
 	 * @param widthFactor a value from 0.0 to 1.0
 	 */

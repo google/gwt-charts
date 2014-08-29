@@ -14,14 +14,41 @@ package com.googlecode.gwt.charts.client.event;
 
 import com.googlecode.gwt.charts.client.Properties;
 
+import java.util.Date;
+
+/**
+ * Fired when the user changes the range slider.
+ */
 public class RangeChangeEvent extends Event {
 	/**
-	 * The event name
+	 * The event name.
 	 */
 	public static String NAME = "rangechange";
-	
+
+	/**
+	 * Creates a new event.
+	 * 
+	 * @param properties
+	 */
 	public RangeChangeEvent(Properties properties) {
 		super(NAME, properties);
 	}
 
+	/**
+	 * Range end endpoint.
+	 * 
+	 * @return index of page
+	 */
+	public Date getEnd() {
+		return properties.getDate("end");
+	}
+
+	/**
+	 * Range start endpoint.
+	 * 
+	 * @return index of page
+	 */
+	public Date getStart() {
+		return properties.getDate("start");
+	}
 }

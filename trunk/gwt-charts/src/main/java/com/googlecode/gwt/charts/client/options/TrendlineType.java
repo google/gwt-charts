@@ -17,15 +17,15 @@ package com.googlecode.gwt.charts.client.options;
  */
 public enum TrendlineType {
 	/**
-	 * A linear trendline
+	 * A linear trendline.
 	 */
 	LINEAR("linear"),
 	/**
-	 * An exponential trendline
+	 * An exponential trendline.
 	 */
 	EXPONENTIAL("exponential"),
 	/**
-	 * A polynomial trendline
+	 * A polynomial trendline.
 	 */
 	POLYNOMIAL("polynomial");
 

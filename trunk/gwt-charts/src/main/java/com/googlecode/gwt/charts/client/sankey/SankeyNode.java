@@ -17,11 +17,11 @@ import com.google.gwt.core.client.JavaScriptObject;
 import com.googlecode.gwt.charts.client.options.TextStyle;
 
 /**
- * Sankey node configuration options
+ * Sankey node configuration options.
  */
 public class SankeyNode extends JavaScriptObject {
 	/**
-	 * Default constructor
+	 * Default constructor.
 	 * 
 	 * @return a new object instance
 	 */
@@ -51,7 +51,7 @@ public class SankeyNode extends JavaScriptObject {
 	}-*/;
 
 	/**
-	 * Sets the vertical distance between nodes
+	 * Sets the vertical distance between nodes.
 	 * 
 	 * @param nodePadding value in pixels
 	 */

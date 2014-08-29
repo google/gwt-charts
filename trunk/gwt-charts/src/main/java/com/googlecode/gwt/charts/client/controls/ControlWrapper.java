@@ -12,6 +12,7 @@
  */
 package com.googlecode.gwt.charts.client.controls;
 
+import com.google.gwt.dom.client.Document;
 import com.google.gwt.user.client.DOM;
 import com.google.gwt.user.client.ui.RequiresResize;
 import com.google.gwt.user.client.ui.Widget;
@@ -30,18 +31,29 @@ import com.googlecode.gwt.charts.client.event.StateChangeHandler;
  * @param <O> the control options type
  * @param <S> the control state type
  */
-public class ControlWrapper<O extends ControlOptions, S extends ControlState> extends Widget implements RequiresResize {
-
-	private ControlWrapperObject<O,S> controlWrapperObject;
+public class ControlWrapper<O extends ControlOptions<?>, S extends ControlState> extends Widget implements RequiresResize {
+	private ControlWrapperObject<O, S> controlWrapperObject;
 
 	/**
 	 * Creates a new ControlWrapper.
 	 */
 	public ControlWrapper() {
 		super();
-		setElement(DOM.createDiv());
+		setElement(Document.get().createDivElement());
 		controlWrapperObject = ControlWrapperObject.create();
 		setContainerId(DOM.createUniqueId());
+	}
+
+	/**
+	 * Creates a new ControlWrapper.
+	 * 
+	 * @param controlWrapperSpec
+	 */
+	public ControlWrapper(ControlWrapperSpec<O, S> controlWrapperSpec) {
+		super();
+		setElement(Document.get().createDivElement());
+		controlWrapperObject = ControlWrapperObject.create(controlWrapperSpec);
+		getElement().setId(controlWrapperSpec.getContainerId());
 	}
 
 	/**
@@ -84,7 +96,7 @@ public class ControlWrapper<O extends ControlOptions, S extends ControlState> ex
 	 * 
 	 * @return a deep copy of the control wrapper
 	 */
-	public ControlWrapperObject<O,S> cloneObject() {
+	public ControlWrapperObject<O, S> cloneObject() {
 		return controlWrapperObject.cloneObject();
 	}
 
@@ -94,6 +106,15 @@ public class ControlWrapper<O extends ControlOptions, S extends ControlState> ex
 	 */
 	public void draw() {
 		controlWrapperObject.draw();
+	}
+
+	/**
+	 * Fires an event to all listeners.
+	 * 
+	 * @param event the event object to fire
+	 */
+	public void fireEvent(Event event) {
+		controlWrapperObject.trigger(event.getEventName(), event.getProperties());
 	}
 
 	/**
@@ -135,6 +156,15 @@ public class ControlWrapper<O extends ControlOptions, S extends ControlState> ex
 	 */
 	public String getControlType() {
 		return controlWrapperObject.getControlType();
+	}
+
+	/**
+	 * Returns the underlying control wrapper object.
+	 * 
+	 * @return the underlying control wrapper object
+	 */
+	public ControlWrapperObject<O, S> getObject() {
+		return controlWrapperObject;
 	}
 
 	/**
@@ -269,23 +299,5 @@ public class ControlWrapper<O extends ControlOptions, S extends ControlState> ex
 	 */
 	public String toJSON() {
 		return controlWrapperObject.toJSON();
-	}
-
-	/**
-	 * Fires an event to all listeners.
-	 * 
-	 * @param event the event object to fire
-	 */
-	public void fireEvent(Event event) {
-		controlWrapperObject.trigger(event.getEventName(), event.getProperties());
-	}
-
-	/**
-	 * Returns the underlying control wrapper object.
-	 * 
-	 * @return the underlying control wrapper object
-	 */
-	public ControlWrapperObject<O,S> getObject() {
-		return controlWrapperObject;
 	}
 }

@@ -35,7 +35,7 @@ import com.googlecode.gwt.charts.client.util.ArrayHelper;
  */
 public class ComboChartOptions extends CoreOptions {
 	/**
-	 * Default constructor
+	 * Default constructor.
 	 * 
 	 * @return a new object instance
 	 */
@@ -94,7 +94,7 @@ public class ComboChartOptions extends CoreOptions {
 	}-*/;
 
 	/**
-	 * Sets the bar options, currently only width
+	 * Sets the bar options, currently only width.
 	 * 
 	 * @param bar an object defining bar options
 	 */
@@ -103,7 +103,7 @@ public class ComboChartOptions extends CoreOptions {
 	}-*/;
 
 	/**
-	 * Sets the candlestick options
+	 * Sets the candlestick options.
 	 * 
 	 * @param candlestick an object with options
 	 */
@@ -259,7 +259,7 @@ public class ComboChartOptions extends CoreOptions {
 	}
 
 	/**
-	 * Sets series options by index for describing the format of the corresponding series in the chart
+	 * Sets series options by index for describing the format of the corresponding series in the chart.
 	 * 
 	 * @param index the series index
 	 * @param series an object definining the series format

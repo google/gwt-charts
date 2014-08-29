@@ -14,16 +14,29 @@ package com.googlecode.gwt.charts.client.event;
 
 import com.googlecode.gwt.charts.client.Properties;
 
+/**
+ * Triggered when users click on a page navigation button.
+ */
 public class PageEvent extends Event {
 	/**
-	 * The event name
+	 * The event name.
 	 */
 	public static String NAME = "page";
-	
+
+	/**
+	 * Creates a new event.
+	 * 
+	 * @param properties
+	 */
 	public PageEvent(Properties properties) {
 		super(NAME, properties);
 	}
 
+	/**
+	 * The index of page to navigate to.
+	 * 
+	 * @return index of page
+	 */
 	public int getPage() {
 		return (int) properties.getNumber("page");
 	}

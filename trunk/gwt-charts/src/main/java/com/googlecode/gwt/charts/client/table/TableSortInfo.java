@@ -21,7 +21,7 @@ import com.googlecode.gwt.charts.client.options.Options;
  */
 public class TableSortInfo extends Options {
 	/**
-	 * Default constructor
+	 * Default constructor.
 	 * 
 	 * @return a new object instance
 	 */
@@ -33,21 +33,21 @@ public class TableSortInfo extends Options {
 	}
 
 	/**
-	 * Index of the column by which the table is sorted.
-	 * 
-	 * @return index of the column by which the table is sorted.
-	 */
-	public final native int getColumn() /*-{
-		return this.column;
-	}-*/;
-
-	/**
 	 * True if the sort is ascending, false if descending.
 	 * 
 	 * @return true if the sort is ascending, false if descending.
 	 */
 	public final native boolean getAscending() /*-{
 		return this.ascending;
+	}-*/;
+
+	/**
+	 * Index of the column by which the table is sorted.
+	 * 
+	 * @return index of the column by which the table is sorted.
+	 */
+	public final native int getColumn() /*-{
+		return this.column;
 	}-*/;
 
 	/**

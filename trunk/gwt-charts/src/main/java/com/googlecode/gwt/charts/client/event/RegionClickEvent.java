@@ -14,16 +14,30 @@ package com.googlecode.gwt.charts.client.event;
 
 import com.googlecode.gwt.charts.client.Properties;
 
+/**
+ * Called when a region is clicked. This will not be thrown for the specific country assigned in the 'region' option (if
+ * a specific country was listed).
+ */
 public class RegionClickEvent extends Event {
 	/**
-	 * The event name
+	 * The event name.
 	 */
 	public static String NAME = "regionclick";
-	
+
+	/**
+	 * Creates a new event.
+	 * 
+	 * @param properties
+	 */
 	public RegionClickEvent(Properties properties) {
 		super(NAME, properties);
 	}
 
+	/**
+	 * Returns a string in ISO-3166 format describing the region clicked.
+	 * 
+	 * @return a string in ISO-3166
+	 */
 	public String getRegion() {
 		return properties.getString("region");
 	}

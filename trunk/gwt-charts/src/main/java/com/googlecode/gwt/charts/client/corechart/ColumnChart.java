@@ -24,7 +24,7 @@ import com.googlecode.gwt.charts.client.DataSource;
 public class ColumnChart extends CoreChartWidget<ColumnChartOptions> {
 
 	/**
-	 * Creates a new chart widget
+	 * Creates a new chart widget.
 	 */
 	public ColumnChart() {
 		super();

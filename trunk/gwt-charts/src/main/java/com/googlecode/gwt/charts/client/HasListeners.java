@@ -26,26 +26,8 @@ import com.googlecode.gwt.charts.client.event.HandlerRef;
 public class HasListeners extends JavaScriptObject {
 
 	protected HasListeners() {
-		// Default constructor
+		// Default constructor.
 	}
-
-	/**
-	 * Call this method to register to receive events fired by a visualization hosted on your page. Note that this will
-	 * not work for visualizations embedded in a gadget. You should document what event arguments, if any, will be
-	 * passed to the handling function.
-	 * 
-	 * @param chartObject 
-	 * @param eventName The string name of the event to listen for.
-	 * @param handler The event handler to call when this visualization fires the eventName event
-	 * @return A listener handler for the new listener. Can be used for removing by calling
-	 *         {@link #removeListener(HandlerRef)}.
-	 */
-	protected final native HandlerRef addListener(ChartObject chartObject, String eventName, EventHandler handler) /*-{
-		var callback = function(properties) {
-			handler.@com.googlecode.gwt.charts.client.event.EventHandler::dispatch(Lcom/googlecode/gwt/charts/client/Properties;)(properties);
-		};
-		return $wnd.google.visualization.events.addListener(chartObject, eventName, callback);
-	}-*/;
 
 	/**
 	 * Call this method to register to receive events fired by a visualization hosted on your page. Note that this will
@@ -89,6 +71,24 @@ public class HasListeners extends JavaScriptObject {
 	 */
 	public final native void trigger(String eventName, Properties properties) /*-{
 		$wnd.google.visualization.events.trigger(this, eventName, properties);
+	}-*/;
+
+	/**
+	 * Call this method to register to receive events fired by a visualization hosted on your page. Note that this will
+	 * not work for visualizations embedded in a gadget. You should document what event arguments, if any, will be
+	 * passed to the handling function.
+	 * 
+	 * @param chartObject 
+	 * @param eventName The string name of the event to listen for.
+	 * @param handler The event handler to call when this visualization fires the eventName event
+	 * @return A listener handler for the new listener. Can be used for removing by calling
+	 *         {@link #removeListener(HandlerRef)}.
+	 */
+	protected final native HandlerRef addListener(ChartObject chartObject, String eventName, EventHandler handler) /*-{
+		var callback = function(properties) {
+			handler.@com.googlecode.gwt.charts.client.event.EventHandler::dispatch(Lcom/googlecode/gwt/charts/client/Properties;)(properties);
+		};
+		return $wnd.google.visualization.events.addListener(chartObject, eventName, callback);
 	}-*/;
 
 }

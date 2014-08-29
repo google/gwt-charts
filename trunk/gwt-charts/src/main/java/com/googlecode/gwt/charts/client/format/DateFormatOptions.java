@@ -21,12 +21,25 @@ import com.googlecode.gwt.charts.client.options.FormatType;
  */
 public class DateFormatOptions extends JavaScriptObject {
 	/**
-	 * Default constructor
+	 * Default constructor.
 	 * 
 	 * @return a new object instance
 	 */
 	public static DateFormatOptions create() {
 		return createObject().cast();
+	}
+
+	/**
+	 * Default constructor.
+	 * 
+	 * @param pattern the format used to display the date.
+	 * 
+	 * @return a new object instance
+	 */
+	public static DateFormatOptions create(String pattern) {
+		DateFormatOptions dateFormatOptions = createObject().cast();
+		dateFormatOptions.setPattern(pattern);
+		return dateFormatOptions;
 	}
 
 	protected DateFormatOptions() {
@@ -42,7 +55,7 @@ public class DateFormatOptions extends JavaScriptObject {
 	}
 
 	/**
-	 * The format used to display the date
+	 * The format used to display the date.
 	 * 
 	 * @see <a href="http://icu-project.org/apiref/icu4j/com/ibm/icu/text/SimpleDateFormat.html">java SimpleDateFormat
 	 *      class</a>

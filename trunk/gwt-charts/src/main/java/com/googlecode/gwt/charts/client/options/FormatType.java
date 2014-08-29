@@ -17,15 +17,15 @@ package com.googlecode.gwt.charts.client.options;
  */
 public enum FormatType {
 	/**
-	 * Short format: e.g., "2/28/08"
+	 * Short format: e.g., "2/28/08".
 	 */
 	SHORT("short"),
 	/**
-	 * Medium format: e.g., "Feb 28, 2008"
+	 * Medium format: e.g., "Feb 28, 2008".
 	 */
 	MEDIUM("medium"),
 	/**
-	 * Long format: e.g., "February 28, 2008"
+	 * Long format: e.g., "February 28, 2008".
 	 */
 	LONG("long");
 

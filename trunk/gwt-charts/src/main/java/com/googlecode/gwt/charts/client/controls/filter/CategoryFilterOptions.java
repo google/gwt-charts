@@ -20,23 +20,22 @@ import com.google.gwt.core.client.JsArrayString;
 
 import com.googlecode.gwt.charts.client.controls.ControlOptions;
 
-public class CategoryFilterOptions extends ControlOptions {
+/**
+ * Configuration options for {@link CategoryFilter}.
+ */
+public class CategoryFilterOptions extends ControlOptions<CategoryFilterUi> {
+	/**
+	 * Default constructor.
+	 * 
+	 * @return a new object instance
+	 */
 	public static CategoryFilterOptions create() {
 		return createObject().cast();
 	}
 
 	protected CategoryFilterOptions() {
-		// Default constructor
+		// Default constructor.
 	}
-
-	/**
-	 * An object with members to configure various aspects of the control's UI.
-	 * 
-	 * @param ui
-	 */
-	public final native void setUi(CategoryFilterUi ui) /*-{
-		this.ui = ui;
-	}-*/;
 
 	/**
 	 * When populating the list of selectable values automatically from the DataTable column this filter operates on,
@@ -46,6 +45,14 @@ public class CategoryFilterOptions extends ControlOptions {
 	 */
 	public final native void setUseFormattedValue(boolean useFormattedValue) /*-{
 		this.useFormattedValue = useFormattedValue;
+	}-*/;
+
+	/**
+	 * The list of values will be automatically computed
+	 * from the values present in the DataTable column this control operates on.
+	 */
+	public final native void setValues() /*-{
+		this.values = null;
 	}-*/;
 
 	/**
@@ -83,13 +90,5 @@ public class CategoryFilterOptions extends ControlOptions {
 	 */
 	public final native void setValues(JsArrayString values) /*-{
 		this.values = values;
-	}-*/;
-
-	/**
-	 * The list of values will be automatically computed
-	 * from the values present in the DataTable column this control operates on.
-	 */
-	public final native void setValues() /*-{
-		this.values = null;
 	}-*/;
 }

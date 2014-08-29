@@ -20,7 +20,15 @@ import com.googlecode.gwt.charts.client.util.DateHelper;
 
 import java.util.Date;
 
+/**
+ * An object representing a selected range.
+ */
 public class ChartRangeFilterStateRange extends JavaScriptObject {
+	/**
+	 * Default constructor.
+	 * 
+	 * @return a new object instance
+	 */
 	public static ChartRangeFilterStateRange create() {
 		return createObject().cast();
 	}
@@ -28,52 +36,112 @@ public class ChartRangeFilterStateRange extends JavaScriptObject {
 	protected ChartRangeFilterStateRange() {
 	}
 
-	public final native void setEnd(Date end) /*-{
-		this.end = @com.googlecode.gwt.charts.client.util.DateHelper::getJsDate(Ljava/util/Date;) (end);
-	}-*/;
-
-	public final native void setEnd(double end) /*-{
-		this.end = end;
-	}-*/;
-
-	public final native void setEnd(TimeOfDay end) /*-{
-		this.end = end;
-	}-*/;
-
-	public final native void setStart(Date start) /*-{
-		this.start = @com.googlecode.gwt.charts.client.util.DateHelper::getJsDate(Ljava/util/Date;) (start);
-	}-*/;
-
-	public final native void setStart(double start) /*-{
-		this.start = start;
-	}-*/;
-
-	public final native void setStart(TimeOfDay start) /*-{
-		this.start = start;
-	}-*/;
-
+	/**
+	 * Returns selected range end in date format.
+	 * 
+	 * @return range end in date format
+	 */
 	public final Date getEndDate() {
 		return DateHelper.getDate(getEndJsDate());
 	}
 
+	/**
+	 * Returns selected range end in number format.
+	 * 
+	 * @return range end in number format
+	 */
 	public final native double getEndNumber() /*-{
 		this.end = end;
 	}-*/;
 
+	/**
+	 * Returns selected range end in timeofday format.
+	 * 
+	 * @return range end in timeofday format
+	 */
 	public final native TimeOfDay getEndTimeOfDay() /*-{
 		this.end = end;
 	}-*/;
 
+	/**
+	 * Returns selected range start in date format.
+	 * 
+	 * @return range start in date format
+	 */
 	public final Date getStartDate() {
 		return DateHelper.getDate(getStartJsDate());
 	}
 
+	/**
+	 * Returns selected range start in number format.
+	 * 
+	 * @return range start in number format
+	 */
 	public final native double getStartNumber() /*-{
 		return this.start;
 	}-*/;
 
+	/**
+	 * Returns selected range start in timeofday format.
+	 * 
+	 * @return range start in timeofday format
+	 */
 	public final native TimeOfDay getStartTimeOfDay() /*-{
 		return this.start;
+	}-*/;
+
+	/**
+	 * Sets the selected range end.
+	 * 
+	 * @param end
+	 */
+	public final void setEnd(Date end) {
+		setEnd(DateHelper.getJsDate(end));
+	}
+
+	/**
+	 * Sets the selected range end.
+	 * 
+	 * @param end
+	 */
+	public final native void setEnd(double end) /*-{
+		this.end = end;
+	}-*/;
+
+	/**
+	 * Sets the selected range end.
+	 * 
+	 * @param end
+	 */
+	public final native void setEnd(TimeOfDay end) /*-{
+		this.end = end;
+	}-*/;
+
+	/**
+	 * Sets the selected range start.
+	 * 
+	 * @param start
+	 */
+	public final void setStart(Date start) {
+		setStart(DateHelper.getJsDate(start));
+	}
+
+	/**
+	 * Sets the selected range start.
+	 * 
+	 * @param start
+	 */
+	public final native void setStart(double start) /*-{
+		this.start = start;
+	}-*/;
+
+	/**
+	 * Sets the selected range start.
+	 * 
+	 * @param start
+	 */
+	public final native void setStart(TimeOfDay start) /*-{
+		this.start = start;
 	}-*/;
 
 	private final native JsDate getEndJsDate() /*-{
@@ -82,5 +150,13 @@ public class ChartRangeFilterStateRange extends JavaScriptObject {
 
 	private final native JsDate getStartJsDate() /*-{
 		return this.start;
+	}-*/;
+
+	private final native JsDate setEnd(JavaScriptObject end) /*-{
+		this.end = end;
+	}-*/;
+
+	private final native JsDate setStart(JavaScriptObject start) /*-{
+		this.start = start;
 	}-*/;
 }

@@ -25,7 +25,7 @@ import com.googlecode.gwt.charts.client.util.ArrayHelper;
  */
 public class Explorer extends JavaScriptObject {
 	/**
-	 * Default constructor
+	 * Default constructor.
 	 * 
 	 * @return a new object instance
 	 */
@@ -38,7 +38,8 @@ public class Explorer extends JavaScriptObject {
 
 	/**
 	 * Sets available actions.<br>
-	 * We recommend using {@link ExplorerAction#RIGHTCLICKTORESET} whenever {@link ExplorerAction#DRAGTOZOOM} is used.<br>
+	 * We recommend using {@link ExplorerAction#RIGHT_CLICK_TO_RESET} whenever {@link ExplorerAction#DRAG_TO_ZOOM} is
+	 * used.<br>
 	 * See {@link #setMaxZoomIn(double)}, {@link #setMaxZoomOut(double)}, {@link #setZoomDelta(double)}, for zoom
 	 * customizations.
 	 * 
