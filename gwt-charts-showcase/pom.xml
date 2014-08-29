@@ -57,6 +57,10 @@
 				<targetPath>source</targetPath>
 			</resource>
 			<resource>
+				<directory>src/main/java/com/googlecode/gwt/charts/showcase/client/diffchart</directory>
+				<targetPath>source</targetPath>
+			</resource>
+			<resource>
 				<directory>src/main/java/com/googlecode/gwt/charts/showcase/client/others</directory>
 				<targetPath>source</targetPath>
 			</resource>

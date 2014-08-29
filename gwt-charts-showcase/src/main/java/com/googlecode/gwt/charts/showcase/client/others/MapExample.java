@@ -39,7 +39,7 @@ public class MapExample extends DockLayoutPanel {
 				{ "Pakistan", "Pakistan: 186,134,000" }, { "Nigeria", "Nigeria: 173,615,000" },
 				{ "Bangladesh", "Bangladesh: 152,518,015" }, { "Russia", "Russia: 146,019,512" },
 				{ "Japan", "Japan: 127,120,000" } };
-		DataTable dataTable = ChartHelper.arrayToDataTable(data, false);
+		DataTable dataTable = ChartHelper.arrayToDataTable(data);
 
 		// Set options
 		MapOptions options = MapOptions.create();

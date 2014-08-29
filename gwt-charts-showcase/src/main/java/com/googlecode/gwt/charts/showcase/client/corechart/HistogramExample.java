@@ -50,7 +50,7 @@ public class HistogramExample extends DockLayoutPanel {
 				{ "Spinosaurus (spiny lizard)", 12.2 }, { "Supersaurus (super lizard)", 30.5 },
 				{ "Tyrannosaurus (tyrant lizard)", 15.2 }, { "Ultrasaurus (ultra lizard)", 30.5 },
 				{ "Velociraptor (swift robber)", 1.8 } };
-		DataTable dataTable = ChartHelper.arrayToDataTable(data, false);
+		DataTable dataTable = ChartHelper.arrayToDataTable(data);
 
 		// Set options
 		HistogramOptions options = HistogramOptions.create();

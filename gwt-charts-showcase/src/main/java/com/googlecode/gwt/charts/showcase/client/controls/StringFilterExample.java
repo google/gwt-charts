@@ -10,17 +10,17 @@ import com.googlecode.gwt.charts.client.ChartType;
 import com.googlecode.gwt.charts.client.ChartWrapper;
 import com.googlecode.gwt.charts.client.DataTable;
 import com.googlecode.gwt.charts.client.controls.Dashboard;
-import com.googlecode.gwt.charts.client.controls.filter.NumberRangeFilter;
-import com.googlecode.gwt.charts.client.controls.filter.NumberRangeFilterOptions;
-import com.googlecode.gwt.charts.client.corechart.BarChartOptions;
+import com.googlecode.gwt.charts.client.controls.filter.StringFilter;
+import com.googlecode.gwt.charts.client.controls.filter.StringFilterOptions;
+import com.googlecode.gwt.charts.client.table.TableOptions;
 import com.googlecode.gwt.charts.client.util.ChartHelper;
 
-public class NumberRangeFilterExample extends DockLayoutPanel {
+public class StringFilterExample extends DockLayoutPanel {
 	private Dashboard dashboard;
-	private ChartWrapper<BarChartOptions> barChartWrapper;
-	private NumberRangeFilter numberRangeFilter;
+	private ChartWrapper<TableOptions> tableWrapper;
+	private StringFilter stringFilter;
 
-	public NumberRangeFilterExample() {
+	public StringFilterExample() {
 		super(Unit.PX);
 		initialize();
 	}
@@ -32,8 +32,8 @@ public class NumberRangeFilterExample extends DockLayoutPanel {
 			@Override
 			public void run() {
 				addNorth(getDashboardWidget(), 0);
-				addNorth(getNumberRangeFilter(), 100);
-				add(getBarChartWrapper());
+				addNorth(getStringFilter(), 30);
+				add(getTableWrapper());
 				draw();
 			}
 		});
@@ -46,32 +46,26 @@ public class NumberRangeFilterExample extends DockLayoutPanel {
 		return dashboard;
 	}
 
-	private ChartWrapper<BarChartOptions> getBarChartWrapper() {
-		if (barChartWrapper == null) {
-			barChartWrapper = new ChartWrapper<BarChartOptions>();
-			barChartWrapper.setChartType(ChartType.BAR);
+	private ChartWrapper<TableOptions> getTableWrapper() {
+		if (tableWrapper == null) {
+			tableWrapper = new ChartWrapper<TableOptions>();
+			tableWrapper.setChartType(ChartType.TABLE);
 		}
-		return barChartWrapper;
+		return tableWrapper;
 	}
 
-	private NumberRangeFilter getNumberRangeFilter() {
-		if (numberRangeFilter == null) {
-			numberRangeFilter = new NumberRangeFilter();
+	private StringFilter getStringFilter() {
+		if (stringFilter == null) {
+			stringFilter = new StringFilter();
 		}
-		return numberRangeFilter;
+		return stringFilter;
 	}
 
 	private void draw() {
 		// Set control options
-		NumberRangeFilterOptions numberRangeFilterOptions = NumberRangeFilterOptions.create();
-		numberRangeFilterOptions.setFilterColumnLabel("Age");
-		numberRangeFilterOptions.setMinValue(0);
-		numberRangeFilterOptions.setMaxValue(60);
-		numberRangeFilter.setOptions(numberRangeFilterOptions);
-
-		// Set chart options
-		BarChartOptions barChartOptions = BarChartOptions.create();
-		barChartWrapper.setOptions(barChartOptions);
+		StringFilterOptions stringFilterOptions = StringFilterOptions.create();
+		stringFilterOptions.setFilterColumnIndex(0);
+		stringFilter.setOptions(stringFilterOptions);
 
 		// Generate data
 		JsArrayMixed dataArray = JsonUtils
@@ -81,7 +75,7 @@ public class NumberRangeFilterExample extends DockLayoutPanel {
 		DataTable dataTable = ChartHelper.arrayToDataTable(dataArray);
 
 		// Draw the chart
-		dashboard.bind(numberRangeFilter, barChartWrapper);
+		dashboard.bind(stringFilter, tableWrapper);
 		dashboard.draw(dataTable);
 	}
 }

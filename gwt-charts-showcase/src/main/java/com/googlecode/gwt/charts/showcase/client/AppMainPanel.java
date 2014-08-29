@@ -3,6 +3,9 @@ package com.googlecode.gwt.charts.showcase.client;
 import com.google.gwt.dom.client.Style.Unit;
 import com.google.gwt.event.logical.shared.SelectionEvent;
 import com.google.gwt.event.logical.shared.SelectionHandler;
+import com.google.gwt.event.logical.shared.ValueChangeEvent;
+import com.google.gwt.event.logical.shared.ValueChangeHandler;
+import com.google.gwt.user.client.History;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.DockLayoutPanel;
 import com.google.gwt.user.client.ui.Image;
@@ -10,8 +13,11 @@ import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.RequiresResize;
 import com.google.gwt.user.client.ui.SplitLayoutPanel;
 import com.google.gwt.user.client.ui.Widget;
+import com.googlecode.gwt.charts.showcase.client.controls.CategoryFilterExample;
 import com.googlecode.gwt.charts.showcase.client.controls.ChartRangeFilterExample;
+import com.googlecode.gwt.charts.showcase.client.controls.DateRangeFilterExample;
 import com.googlecode.gwt.charts.showcase.client.controls.NumberRangeFilterExample;
+import com.googlecode.gwt.charts.showcase.client.controls.StringFilterExample;
 import com.googlecode.gwt.charts.showcase.client.corechart.AreaChartExample;
 import com.googlecode.gwt.charts.showcase.client.corechart.BarChartExample;
 import com.googlecode.gwt.charts.showcase.client.corechart.BubbleChartExample;
@@ -23,6 +29,10 @@ import com.googlecode.gwt.charts.showcase.client.corechart.LineChartExample;
 import com.googlecode.gwt.charts.showcase.client.corechart.PieChartExample;
 import com.googlecode.gwt.charts.showcase.client.corechart.ScatterChartExample;
 import com.googlecode.gwt.charts.showcase.client.corechart.SteppedAreaChartExample;
+import com.googlecode.gwt.charts.showcase.client.diffchart.DiffBarChartExample;
+import com.googlecode.gwt.charts.showcase.client.diffchart.DiffColumnChartExample;
+import com.googlecode.gwt.charts.showcase.client.diffchart.DiffPieChartExample;
+import com.googlecode.gwt.charts.showcase.client.diffchart.DiffScatterChartExample;
 import com.googlecode.gwt.charts.showcase.client.others.AnnotationChartExample;
 import com.googlecode.gwt.charts.showcase.client.others.CalendarExample;
 import com.googlecode.gwt.charts.showcase.client.others.GaugeExample;
@@ -34,11 +44,11 @@ import com.googlecode.gwt.charts.showcase.client.others.TableExample;
 import com.googlecode.gwt.charts.showcase.client.others.TimelineExample;
 import com.googlecode.gwt.charts.showcase.client.others.TreeMapExample;
 
-public class AppMainPanel extends Composite implements RequiresResize {
+public class AppMainPanel extends Composite implements ValueChangeHandler<String>, RequiresResize {
 	private SplitLayoutPanel splitLayoutPanel;
 	private DockLayoutPanel dockLayoutPanel;
 	private DockLayoutPanel headerPanel;
-	private SideMenu stackLayoutPanel;
+	private SideMenu sideMenu;
 	private ExampleWidget simpleLayoutPanel;
 
 	public AppMainPanel() {
@@ -48,14 +58,12 @@ public class AppMainPanel extends Composite implements RequiresResize {
 
 	private void initialize() {
 		initWidget(getDockLayoutPanel());
-		fireSelectionChanged(101);
 	}
 
 	private DockLayoutPanel getDockLayoutPanel() {
 		if (dockLayoutPanel == null) {
 			dockLayoutPanel = new DockLayoutPanel(Unit.PX);
 			dockLayoutPanel.addNorth(getHeaderPanel(), 70);
-			//dockLayoutPanel.addWest(getStackLayoutPanel(), 150);
 			dockLayoutPanel.add(getSplitLayoutPanel());
 		}
 		return dockLayoutPanel;
@@ -64,8 +72,7 @@ public class AppMainPanel extends Composite implements RequiresResize {
 	private SplitLayoutPanel getSplitLayoutPanel() {
 		if (splitLayoutPanel == null) {
 			splitLayoutPanel = new SplitLayoutPanel(6);
-			splitLayoutPanel.addWest(getStackLayoutPanel(), 150);
-			//splitLayoutPanel.getWidgetContainerElement(getCampaignMenu()).setClassName(Resources.INSTANCE.css().menu());
+			splitLayoutPanel.addWest(getSideMenu(), 150);
 			splitLayoutPanel.add(getSimpleLayoutPanel());
 		}
 		return splitLayoutPanel;
@@ -89,126 +96,129 @@ public class AppMainPanel extends Composite implements RequiresResize {
 		return simpleLayoutPanel;
 	}
 
-	private SideMenu getStackLayoutPanel() {
-		if (stackLayoutPanel == null) {
-			stackLayoutPanel = new SideMenu();
-			stackLayoutPanel.add("Core Charts");
-			stackLayoutPanel.add(101, "Area");
-			stackLayoutPanel.add(102, "Bar");
-			stackLayoutPanel.add(103, "Bubble");
-			stackLayoutPanel.add(104, "Candlestick");
-			stackLayoutPanel.add(105, "Column");
-			stackLayoutPanel.add(106, "Combo");
-			stackLayoutPanel.add(107, "Histogram");
-			stackLayoutPanel.add(108, "Line");
-			stackLayoutPanel.add(109, "Pie");
-			stackLayoutPanel.add(110, "Scatter");
-			stackLayoutPanel.add(111, "Stepped Area");
-			stackLayoutPanel.add("Other Charts");
-			stackLayoutPanel.add(201, "Annotation");
-			stackLayoutPanel.add(202, "Calendar");
-			stackLayoutPanel.add(203, "Gauge");
-			stackLayoutPanel.add(204, "Geo Chart");
-			stackLayoutPanel.add(205, "Map");
-			stackLayoutPanel.add(206, "Org Chart");
-			stackLayoutPanel.add(207, "Sankey Diagram");
-			stackLayoutPanel.add(208, "Table");
-			stackLayoutPanel.add(209, "Timeline");
-			stackLayoutPanel.add(210, "Tree Map");
-			stackLayoutPanel.add("Controls");
-			stackLayoutPanel.add(301, "Chart Range Filter");
-			stackLayoutPanel.add(302, "Number Range Filter");
-			stackLayoutPanel.addSelectionHandler(new SelectionHandler<Integer>() {
+	private SideMenu getSideMenu() {
+		if (sideMenu == null) {
+			sideMenu = new SideMenu();
+			sideMenu.add("Core Charts");
+			sideMenu.add("Area", "area");
+			sideMenu.add("Bar", "bar");
+			sideMenu.add("Bubble", "bubble");
+			sideMenu.add("Candlestick", "candlestick");
+			sideMenu.add("Column", "column");
+			sideMenu.add("Combo", "combo");
+			sideMenu.add("Histogram", "histogram");
+			sideMenu.add("Line", "line");
+			sideMenu.add("Pie", "pie");
+			sideMenu.add("Scatter", "scatter");
+			sideMenu.add("Stepped Area", "steppedarea");
+			sideMenu.add("Diff Charts");
+			sideMenu.add("Bar", "diffbar");
+			sideMenu.add("Column", "diffcolumn");
+			sideMenu.add("Pie", "diffpie");
+			sideMenu.add("Scatter", "diffscatter");
+			sideMenu.add("Other Charts");
+			sideMenu.add("Annotation", "annotation");
+			sideMenu.add("Calendar", "calendar");
+			sideMenu.add("Gauge", "gauge");
+			sideMenu.add("Geo Chart", "geochart");
+			sideMenu.add("Map", "map");
+			sideMenu.add("Org Chart", "orgchart");
+			sideMenu.add("Sankey Diagram", "sankey");
+			sideMenu.add("Table", "table");
+			sideMenu.add("Timeline", "timeline");
+			sideMenu.add("Tree Map", "treemap");
+			sideMenu.add("Controls");
+			sideMenu.add("Category Filter", "categoryfilter");
+			sideMenu.add("Chart Range Filter", "chartrangefilter");
+			sideMenu.add("Date Range Filter", "daterangefilter");
+			sideMenu.add("Number Range Filter", "numberrangefilter");
+			sideMenu.add("String Filter", "stringfilter");
+			sideMenu.addSelectionHandler(new SelectionHandler<String>() {
 
 				@Override
-				public void onSelection(SelectionEvent<Integer> event) {
-					fireSelectionChanged(event.getSelectedItem());
+				public void onSelection(SelectionEvent<String> event) {
+					History.newItem(event.getSelectedItem(), true);
 				}
 			});
 		}
-		return stackLayoutPanel;
+		return sideMenu;
 	}
 
-	private void fireSelectionChanged(Integer index) {
+	private void fireSelectionChanged(String key) {
 		Widget widget = null;
-		switch (index) {
-			case 101:
-				widget = new AreaChartExample();
-				break;
-			case 102:
-				widget = new BarChartExample();
-				break;
-			case 103:
-				widget = new BubbleChartExample();
-				break;
-			case 104:
-				widget = new CandlestickChartExample();
-				break;
-			case 105:
-				widget = new ColumnChartExample();
-				break;
-			case 106:
-				widget = new ComboChartExample();
-				break;
-			case 107:
-				widget = new HistogramExample();
-				break;
-			case 108:
-				widget = new LineChartExample();
-				break;
-			case 109:
-				widget = new PieChartExample();
-				break;
-			case 110:
-				widget = new ScatterChartExample();
-				break;
-			case 111:
-				widget = new SteppedAreaChartExample();
-				break;
-			case 201:
-				widget = new AnnotationChartExample();
-				break;
-			case 202:
-				widget = new CalendarExample();
-				break;
-			case 203:
-				widget = new GaugeExample();
-				break;
-			case 204:
-				widget = new GeoChartExample();
-				break;
-			case 205:
-				widget = new MapExample();
-				break;
-			case 206:
-				widget = new OrgChartExample();
-				break;
-			case 207:
-				widget = new SankeyExample();
-				break;
-			case 208:
-				widget = new TableExample();
-				break;
-			case 209:
-				widget = new TimelineExample();
-				break;
-			case 210:
-				widget = new TreeMapExample();
-				break;
-			case 301:
-				widget = new ChartRangeFilterExample();
-				break;
-			case 302:
-				widget = new NumberRangeFilterExample();
-				break;
-			default:
-				break;
+		if (key.equals("area")) {
+			widget = new AreaChartExample();
+		} else if (key.equals("bar")) {
+			widget = new BarChartExample();
+		} else if (key.equals("bubble")) {
+			widget = new BubbleChartExample();
+		} else if (key.equals("candlestick")) {
+			widget = new CandlestickChartExample();
+		} else if (key.equals("column")) {
+			widget = new ColumnChartExample();
+		} else if (key.equals("combo")) {
+			widget = new ComboChartExample();
+		} else if (key.equals("histogram")) {
+			widget = new HistogramExample();
+		} else if (key.equals("line")) {
+			widget = new LineChartExample();
+		} else if (key.equals("pie")) {
+			widget = new PieChartExample();
+		} else if (key.equals("scatter")) {
+			widget = new ScatterChartExample();
+		} else if (key.equals("steppedarea")) {
+			widget = new SteppedAreaChartExample();
+		} else if (key.equals("diffbar")) {
+			widget = new DiffBarChartExample();
+		} else if (key.equals("diffcolumn")) {
+			widget = new DiffColumnChartExample();
+		} else if (key.equals("diffpie")) {
+			widget = new DiffPieChartExample();
+		} else if (key.equals("diffscatter")) {
+			widget = new DiffScatterChartExample();
+		} else if (key.equals("annotation")) {
+			widget = new AnnotationChartExample();
+		} else if (key.equals("calendar")) {
+			widget = new CalendarExample();
+		} else if (key.equals("gauge")) {
+			widget = new GaugeExample();
+		} else if (key.equals("geochart")) {
+			widget = new GeoChartExample();
+		} else if (key.equals("map")) {
+			widget = new MapExample();
+		} else if (key.equals("orgchart")) {
+			widget = new OrgChartExample();
+		} else if (key.equals("sankey")) {
+			widget = new SankeyExample();
+		} else if (key.equals("table")) {
+			widget = new TableExample();
+		} else if (key.equals("timeline")) {
+			widget = new TimelineExample();
+		} else if (key.equals("treemap")) {
+			widget = new TreeMapExample();
+		} else if (key.equals("categoryfilter")) {
+			widget = new CategoryFilterExample();
+		} else if (key.equals("chartrangefilter")) {
+			widget = new ChartRangeFilterExample();
+		} else if (key.equals("daterangefilter")) {
+			widget = new DateRangeFilterExample();
+		} else if (key.equals("numberrangefilter")) {
+			widget = new NumberRangeFilterExample();
+		} else if (key.equals("stringfilter")) {
+			widget = new StringFilterExample();
 		}
+
 		simpleLayoutPanel.setSampleWidget(widget);
 	}
 
 	@Override
 	public void onResize() {
 		dockLayoutPanel.onResize();
+	}
+
+	@Override
+	public void onValueChange(ValueChangeEvent<String> event) {
+		sideMenu.setSelection(event.getValue(), false);
+		fireSelectionChanged(event.getValue());
 	}
 }
