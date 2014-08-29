@@ -23,7 +23,7 @@ import com.googlecode.gwt.charts.client.options.TooltipTrigger;
  */
 public class PieChartTooltip extends JavaScriptObject {
 	/**
-	 * Default constructor
+	 * Default constructor.
 	 * 
 	 * @return a new object instance
 	 */
@@ -63,7 +63,7 @@ public class PieChartTooltip extends JavaScriptObject {
 	}-*/;
 
 	/**
-	 * Sets the user interaction that causes the tooltip to be displayed
+	 * Sets the user interaction that causes the tooltip to be displayed.
 	 * 
 	 * @param trigger default is {@link TooltipTrigger#FOCUS}
 	 */

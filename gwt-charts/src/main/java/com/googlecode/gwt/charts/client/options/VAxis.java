@@ -12,11 +12,26 @@
  */
 package com.googlecode.gwt.charts.client.options;
 
+/**
+ * An object with members to configure various vertical axis elements.
+ */
 public class VAxis extends Axis {
+	/**
+	 * Default constructor.
+	 * 
+	 * @return a new object instance
+	 */
 	public static VAxis create() {
 		return createObject().cast();
 	}
 
+	/**
+	 * Constructor with title.
+	 * 
+	 * @param title axis title
+	 * 
+	 * @return a new object instance
+	 */
 	public static VAxis create(String title) {
 		VAxis vAxis = createObject().cast();
 		vAxis.setTitle(title);

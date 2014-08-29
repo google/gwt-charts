@@ -13,7 +13,7 @@
 package com.googlecode.gwt.charts.client;
 
 /**
- * An interface for providing a calculated function to a DataViewColumn 
+ * An interface for providing a calculated function to a DataViewColumn.
  */
 public interface ColumnFunction {
 	/**

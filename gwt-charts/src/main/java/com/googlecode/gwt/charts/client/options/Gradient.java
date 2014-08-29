@@ -15,11 +15,11 @@ package com.googlecode.gwt.charts.client.options;
 import com.google.gwt.core.client.JavaScriptObject;
 
 /**
- * Represents a gradient for use inside a {@link BoxStyle}
+ * Represents a gradient for use inside a {@link BoxStyle}.
  */
 public class Gradient extends JavaScriptObject {
 	/**
-	 * Default constructor
+	 * Default constructor.
 	 * 
 	 * @return a new object
 	 */

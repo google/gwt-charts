@@ -14,6 +14,9 @@ package com.googlecode.gwt.charts.client.event;
 
 import com.googlecode.gwt.charts.client.Properties;
 
+/**
+ * An event handler for {@link SelectEvent}.
+ */
 public abstract class SelectHandler implements EventHandler {
 
 	@Override
@@ -26,6 +29,10 @@ public abstract class SelectHandler implements EventHandler {
 		return SelectEvent.NAME;
 	}
 
+	/**
+	 * On event fired.
+	 * 
+	 * @param event
+	 */
 	public abstract void onSelect(SelectEvent event);
-
 }

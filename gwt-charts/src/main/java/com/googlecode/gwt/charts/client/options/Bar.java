@@ -15,11 +15,11 @@ package com.googlecode.gwt.charts.client.options;
 import com.google.gwt.core.client.JavaScriptObject;
 
 /**
- * Represents a bar in column/bar or candlestick chart
+ * Represents a bar in column/bar or candlestick chart.
  */
 public class Bar extends JavaScriptObject {
 	/**
-	 * Default constructor
+	 * Default constructor.
 	 * 
 	 * @return a new object
 	 */

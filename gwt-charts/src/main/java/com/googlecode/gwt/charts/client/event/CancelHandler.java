@@ -29,6 +29,10 @@ public abstract class CancelHandler implements EventHandler {
 		return CancelEvent.NAME;
 	}
 
+	/**
+	 * On event fired.
+	 * 
+	 * @param event
+	 */
 	public abstract void onCancel(CancelEvent event);
-
 }

@@ -173,7 +173,7 @@ public class AnnotationChartOptions extends Options {
 	}-*/;
 
 	/**
-	 * Defines where to put the colored legend
+	 * Defines where to put the colored legend.
 	 * 
 	 * @param legendPosition
 	 */
@@ -206,18 +206,6 @@ public class AnnotationChartOptions extends Options {
 	}-*/;
 
 	/**
-	 * Specifies the number format pattern to be used to format the values at the top of the graph.<br>
-	 * If this option is specified, the displayExactValues option is ignored.
-	 * 
-	 * @see <a href="http://icu-project.org/apiref/icu4j/com/ibm/icu/text/DecimalFormat.html">java DecimalFormat
-	 *      class</a>
-	 * @param numberFormat
-	 */
-	public final native void setNumberFormat(String numberFormat) /*-{
-		this.numberFormats = numberFormat;
-	}-*/;
-
-	/**
 	 * Specifies the number format patterns to be used to format the values at the top of the graph.
 	 * The keys are (zero-based) indexes of series, and the values are the patterns to be used to format the specified
 	 * series.<br>
@@ -235,6 +223,18 @@ public class AnnotationChartOptions extends Options {
 			this.numberFormats = {};
 		}
 		this.numberFormats[index] = numberFormat;
+	}-*/;
+
+	/**
+	 * Specifies the number format pattern to be used to format the values at the top of the graph.<br>
+	 * If this option is specified, the displayExactValues option is ignored.
+	 * 
+	 * @see <a href="http://icu-project.org/apiref/icu4j/com/ibm/icu/text/DecimalFormat.html">java DecimalFormat
+	 *      class</a>
+	 * @param numberFormat
+	 */
+	public final native void setNumberFormat(String numberFormat) /*-{
+		this.numberFormats = numberFormat;
 	}-*/;
 
 	/**

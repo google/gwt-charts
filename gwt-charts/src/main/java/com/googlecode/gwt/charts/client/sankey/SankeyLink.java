@@ -22,7 +22,7 @@ import com.googlecode.gwt.charts.client.options.Color;
  */
 public class SankeyLink extends JavaScriptObject {
 	/**
-	 * Default constructor
+	 * Default constructor.
 	 * 
 	 * @return a new object instance
 	 */
@@ -34,7 +34,7 @@ public class SankeyLink extends JavaScriptObject {
 	}
 
 	/**
-	 * Sets the color attributes
+	 * Sets the color attributes.
 	 * 
 	 * @param color an object that specifies the color attributes.
 	 */

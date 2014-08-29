@@ -23,7 +23,7 @@ import com.googlecode.gwt.charts.client.options.TextStyle;
  */
 public class TreeMapOptions extends Options {
 	/**
-	 * Default constructor
+	 * Default constructor.
 	 * 
 	 * @return a new object instance
 	 */
@@ -252,7 +252,7 @@ public class TreeMapOptions extends Options {
 	}-*/;
 
 	/**
-	 * Specifies the text style, for certain charts that have text in the content area such as the treemap
+	 * Specifies the text style, for certain charts that have text in the content area such as the treemap.
 	 * 
 	 * @param textStyle
 	 */

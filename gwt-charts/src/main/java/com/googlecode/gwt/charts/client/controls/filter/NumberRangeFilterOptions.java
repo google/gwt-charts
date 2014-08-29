@@ -14,25 +14,40 @@ package com.googlecode.gwt.charts.client.controls.filter;
 
 import com.googlecode.gwt.charts.client.controls.ControlOptions;
 
-public class NumberRangeFilterOptions extends ControlOptions {
+/**
+ * Configuration options for {@link NumberRangeFilter}.
+ */
+public class NumberRangeFilterOptions extends ControlOptions<NumberRangeFilterUi> {
+	/**
+	 * Default constructor.
+	 * 
+	 * @return a new object instance
+	 */
 	public static NumberRangeFilterOptions create() {
 		return createObject().cast();
 	}
 
 	protected NumberRangeFilterOptions() {
-		// Default constructor
+		// Default constructor.
 	}
 
+	/**
+	 * Maximum allowed value for the range higher extent. If undefined, the value will be inferred from the contents of
+	 * the DataTable managed by the control.
+	 * 
+	 * @param maxValue
+	 */
 	public final native void setMaxValue(double maxValue) /*-{
 		this.maxValue = maxValue;
 	}-*/;
 
+	/**
+	 * Minimum allowed value for the range lower extent. If undefined, the value will be inferred from the contents of
+	 * the DataTable managed by the control.
+	 * 
+	 * @param minValue
+	 */
 	public final native void setMinValue(double minValue) /*-{
 		this.minValue = minValue;
 	}-*/;
-
-	public final native void setUi(NumberRangeFilterUi ui) /*-{
-		this.ui = ui;
-	}-*/;
-
 }

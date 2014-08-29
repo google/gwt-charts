@@ -42,7 +42,7 @@ public class OrgChart extends ChartWidget<OrgChartOptions> {
 	}
 
 	/**
-	 * Adds an handler that listens for collapse/expand events
+	 * Adds an handler that listens for collapse/expand events.
 	 * 
 	 * @param handler the class to call when the event is fired
 	 * @return the handler reference
@@ -52,7 +52,7 @@ public class OrgChart extends ChartWidget<OrgChartOptions> {
 	}
 
 	/**
-	 * Adds an handler that listens for mouse out events
+	 * Adds an handler that listens for mouse out events.
 	 * 
 	 * @param handler the class to call when the event is fired
 	 * @return the handler reference
@@ -62,7 +62,7 @@ public class OrgChart extends ChartWidget<OrgChartOptions> {
 	}
 
 	/**
-	 * Adds an handler that listens for mouse over events
+	 * Adds an handler that listens for mouse over events.
 	 * 
 	 * @param handler the class to call when the event is fired
 	 * @return the handler reference
@@ -72,7 +72,7 @@ public class OrgChart extends ChartWidget<OrgChartOptions> {
 	}
 
 	/**
-	 * Adds an handler that listens for ready events
+	 * Adds an handler that listens for ready events.
 	 * 
 	 * @param handler the class to call when the event is fired
 	 * @return the handler reference
@@ -82,7 +82,7 @@ public class OrgChart extends ChartWidget<OrgChartOptions> {
 	}
 
 	/**
-	 * Adds an handler that listens for select events
+	 * Adds an handler that listens for select events.
 	 * 
 	 * @param handler the class to call when the event is fired
 	 * @return the handler reference
@@ -92,7 +92,7 @@ public class OrgChart extends ChartWidget<OrgChartOptions> {
 	}
 
 	/**
-	 * Collapses or expands the node on an OrgChart
+	 * Collapses or expands the node on an OrgChart.
 	 * 
 	 * @param row index of the row to expand or collapse.
 	 * @param collapsed whether to collapse or expand the row, where true means collapse.

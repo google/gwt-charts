@@ -20,7 +20,7 @@ import com.google.gwt.core.client.JavaScriptObject;
 public class DataViewColumn extends JavaScriptObject {
 
 	/**
-	 * Default static constructor
+	 * Default constructor.
 	 * 
 	 * @param columnFunction a function for calculating each row value
 	 * @param type data type of the data in the column.
@@ -135,6 +135,6 @@ public class DataViewColumn extends JavaScriptObject {
 	}-*/;
 
 	private final native void setType(String type) /*-{
-		this.type = type.@com.googlecode.gwt.charts.client.ColumnType::getName();
+		this.type = type;
 	}-*/;
 }

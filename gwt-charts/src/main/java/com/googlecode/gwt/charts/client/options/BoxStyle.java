@@ -15,11 +15,11 @@ package com.googlecode.gwt.charts.client.options;
 import com.google.gwt.core.client.JavaScriptObject;
 
 /**
- * Controls the appearance of the boxes surrounding annotations
+ * Controls the appearance of the boxes surrounding annotations.
  */
 public class BoxStyle extends JavaScriptObject {
 	/**
-	 * Default constructor
+	 * Default constructor.
 	 * 
 	 * @return a new object
 	 */

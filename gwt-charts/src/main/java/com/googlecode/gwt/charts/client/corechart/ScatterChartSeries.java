@@ -20,11 +20,11 @@ import com.googlecode.gwt.charts.client.options.PointShapeType;
 import com.googlecode.gwt.charts.client.util.ArrayHelper;
 
 /**
- * Describes the format of a series in the chart
+ * Describes the format of a series in the chart.
  */
 public class ScatterChartSeries extends JavaScriptObject {
 	/**
-	 * Default constructor
+	 * Default constructor.
 	 * 
 	 * @return a new object instance
 	 */

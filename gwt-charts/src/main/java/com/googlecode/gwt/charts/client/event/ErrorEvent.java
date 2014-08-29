@@ -19,12 +19,12 @@ import com.googlecode.gwt.charts.client.Properties;
  */
 public class ErrorEvent extends Event {
 	/**
-	 * The event name
+	 * The event name.
 	 */
 	public static String NAME = "error";
 
 	/**
-	 * Creates a new event
+	 * Creates a new event.
 	 * 
 	 * @param properties currently should be null
 	 */
@@ -33,7 +33,7 @@ public class ErrorEvent extends Event {
 	}
 
 	/**
-	 * Gets error detailed message
+	 * Gets error detailed message.
 	 * 
 	 * @return error detailed message
 	 */
@@ -42,7 +42,7 @@ public class ErrorEvent extends Event {
 	}
 
 	/**
-	 * Gets error id
+	 * Gets error id.
 	 * 
 	 * @return error id
 	 */
@@ -51,7 +51,7 @@ public class ErrorEvent extends Event {
 	}
 
 	/**
-	 * Gets error message
+	 * Gets error message.
 	 * 
 	 * @return error message
 	 */
@@ -60,7 +60,7 @@ public class ErrorEvent extends Event {
 	}
 
 	/**
-	 * Gets error options
+	 * Gets error options.
 	 * 
 	 * @return error options
 	 */

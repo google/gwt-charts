@@ -22,7 +22,7 @@ import com.googlecode.gwt.charts.client.ChartObject;
 public class SteppedAreaChart extends CoreChartWidget<SteppedAreaChartOptions> {
 
 	/**
-	 * Creates a new chart widget
+	 * Creates a new chart widget.
 	 */
 	public SteppedAreaChart() {
 		super();

@@ -19,7 +19,7 @@ import com.google.gwt.core.client.JavaScriptObject;
  */
 public class ColorAxisLegend extends JavaScriptObject {
 	/**
-	 * Default constructor
+	 * Default constructor.
 	 * 
 	 * @return a new object
 	 */
@@ -50,7 +50,7 @@ public class ColorAxisLegend extends JavaScriptObject {
 	}
 
 	/**
-	 * Specifies the legend text style
+	 * Specifies the legend text style.
 	 * 
 	 * @param textStyle
 	 */

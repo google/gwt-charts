@@ -22,7 +22,7 @@ import com.googlecode.gwt.charts.client.options.Options;
  */
 public class OrgChartOptions extends Options {
 	/**
-	 * Default constructor
+	 * Default constructor.
 	 * 
 	 * @return a new object instance
 	 */
@@ -72,7 +72,7 @@ public class OrgChartOptions extends Options {
 	}-*/;
 
 	/**
-	 * The size of the chart
+	 * The size of the chart.
 	 * 
 	 * @param size
 	 */

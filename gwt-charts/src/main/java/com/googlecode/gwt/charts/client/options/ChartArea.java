@@ -14,7 +14,17 @@ package com.googlecode.gwt.charts.client.options;
 
 import com.google.gwt.core.client.JavaScriptObject;
 
+/**
+ * An object with members to configure the placement and size of the chart area (where the chart itself is drawn,
+ * excluding axis and legends). Two formats are supported: a number, or a number followed by %. A simple number is a
+ * value in pixels; a number followed by % is a percentage.
+ */
 public class ChartArea extends JavaScriptObject {
+	/**
+	 * Default constructor.
+	 * 
+	 * @return a new object instance
+	 */
 	public static ChartArea create() {
 		return createObject().cast();
 	}
@@ -22,34 +32,92 @@ public class ChartArea extends JavaScriptObject {
 	protected ChartArea() {
 	}
 
-	public final native void setHeight(double height) /*-{
+	/**
+	 * The background color for the main area of the chart.
+	 * 
+	 * @param backgroundColor
+	 */
+	public final native void setBackgroundColor(BackgroundColor backgroundColor) /*-{
+		this.backgroundColor = backgroundColor;
+	}-*/;
+
+	/**
+	 * The background color for the main area of the chart.
+	 * 
+	 * @param backgroundColor an HTML color string
+	 */
+	public final native void setBackgroundColor(String backgroundColor) /*-{
+		this.backgroundColor = backgroundColor;
+	}-*/;
+
+	/**
+	 * Sets chart area height.
+	 * 
+	 * @param height a value in pixels
+	 */
+	public final native void setHeight(int height) /*-{
 		this.height = height;
 	}-*/;
 
+	/**
+	 * Sets chart area height.
+	 * 
+	 * @param height a value in percentage
+	 */
 	public final native void setHeight(String height) /*-{
 		this.height = height;
 	}-*/;
 
-	public final native void setLeft(double left) /*-{
+	/**
+	 * How far to draw the chart from the left border.
+	 * 
+	 * @param left a value in pixels
+	 */
+	public final native void setLeft(int left) /*-{
 		this.left = left;
 	}-*/;
 
+	/**
+	 * How far to draw the chart from the left border.
+	 * 
+	 * @param left a value in percentage
+	 */
 	public final native void setLeft(String left) /*-{
 		this.left = left;
 	}-*/;
 
-	public final native void setTop(double top) /*-{
+	/**
+	 * How far to draw the chart from the top border.
+	 * 
+	 * @param top a value in pixels
+	 */
+	public final native void setTop(int top) /*-{
 		this.top = top;
 	}-*/;
 
+	/**
+	 * How far to draw the chart from the top border.
+	 * 
+	 * @param top a value in percentage
+	 */
 	public final native void setTop(String top) /*-{
 		this.top = top;
 	}-*/;
 
-	public final native void setWidth(double width) /*-{
+	/**
+	 * Sets chart area width.
+	 * 
+	 * @param width a value in pixels
+	 */
+	public final native void setWidth(int width) /*-{
 		this.width = width;
 	}-*/;
 
+	/**
+	 * Sets chart area width.
+	 * 
+	 * @param width a value in percentage
+	 */
 	public final native void setWidth(String width) /*-{
 		this.width = width;
 	}-*/;

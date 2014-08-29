@@ -25,11 +25,11 @@ import java.util.Date;
 public class ColumnRange extends JavaScriptObject {
 
 	protected ColumnRange() {
-		// Default constructor
+		// Default constructor.
 	}
 
 	/**
-	 * Returns the maximum existing value
+	 * Returns the maximum existing value.
 	 * 
 	 * @return the maximum existing value
 	 */
@@ -38,7 +38,7 @@ public class ColumnRange extends JavaScriptObject {
 	}-*/;
 
 	/**
-	 * Returns the maximum existing value
+	 * Returns the maximum existing value.
 	 * 
 	 * @return the maximum existing value
 	 */
@@ -48,7 +48,7 @@ public class ColumnRange extends JavaScriptObject {
 	}
 
 	/**
-	 * Returns the maximum existing value
+	 * Returns the maximum existing value.
 	 * 
 	 * @return the maximum existing value
 	 */
@@ -57,7 +57,7 @@ public class ColumnRange extends JavaScriptObject {
 	}-*/;
 
 	/**
-	 * Returns the maximum existing value
+	 * Returns the maximum existing value.
 	 * 
 	 * @return the maximum existing value
 	 */
@@ -66,7 +66,7 @@ public class ColumnRange extends JavaScriptObject {
 	}-*/;
 
 	/**
-	 * Returns the maximum existing value
+	 * Returns the maximum existing value.
 	 * 
 	 * @return the maximum existing value
 	 */
@@ -75,7 +75,7 @@ public class ColumnRange extends JavaScriptObject {
 	}-*/;
 
 	/**
-	 * Returns the maximum existing value
+	 * Returns the maximum existing value.
 	 * 
 	 * @return the maximum existing value
 	 */
@@ -84,16 +84,7 @@ public class ColumnRange extends JavaScriptObject {
 	}-*/;
 
 	/**
-	 * Checks if max is null
-	 * 
-	 * @return true if null, false otherwise
-	 */
-	public final native boolean isMaxNull() /*-{
-		return this.max == null;
-	}-*/;
-
-	/**
-	 * Returns the minimum existing value
+	 * Returns the minimum existing value.
 	 * 
 	 * @return the minimum existing value
 	 */
@@ -102,7 +93,7 @@ public class ColumnRange extends JavaScriptObject {
 	}-*/;
 
 	/**
-	 * Returns the minimum existing value
+	 * Returns the minimum existing value.
 	 * 
 	 * @return the minimum existing value
 	 */
@@ -112,7 +103,7 @@ public class ColumnRange extends JavaScriptObject {
 	}
 
 	/**
-	 * Returns the minimum existing value
+	 * Returns the minimum existing value.
 	 * 
 	 * @return the minimum existing value
 	 */
@@ -121,7 +112,7 @@ public class ColumnRange extends JavaScriptObject {
 	}-*/;
 
 	/**
-	 * Returns the minimum existing value
+	 * Returns the minimum existing value.
 	 * 
 	 * @return the minimum existing value
 	 */
@@ -130,7 +121,7 @@ public class ColumnRange extends JavaScriptObject {
 	}-*/;
 
 	/**
-	 * Returns the minimum existing value
+	 * Returns the minimum existing value.
 	 * 
 	 * @return the minimum existing value
 	 */
@@ -139,7 +130,7 @@ public class ColumnRange extends JavaScriptObject {
 	}-*/;
 
 	/**
-	 * Returns the minimum existing value
+	 * Returns the minimum existing value.
 	 * 
 	 * @return the minimum existing value
 	 */
@@ -148,7 +139,16 @@ public class ColumnRange extends JavaScriptObject {
 	}-*/;
 
 	/**
-	 * Checks if min is null
+	 * Checks if max is null.
+	 * 
+	 * @return true if null, false otherwise
+	 */
+	public final native boolean isMaxNull() /*-{
+		return this.max == null;
+	}-*/;
+
+	/**
+	 * Checks if min is null.
 	 * 
 	 * @return true if null, false otherwise
 	 */

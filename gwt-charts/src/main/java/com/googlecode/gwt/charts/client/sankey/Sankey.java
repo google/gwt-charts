@@ -41,7 +41,7 @@ public class Sankey extends ChartWidget<SankeyOptions> {
 	}
 
 	/**
-	 * Adds an handler that listens for error events
+	 * Adds an handler that listens for error events.
 	 * 
 	 * @param handler the class to call when the event is fired
 	 * @return the handler reference
@@ -51,7 +51,7 @@ public class Sankey extends ChartWidget<SankeyOptions> {
 	}
 
 	/**
-	 * Adds an handler that listens for mouse out events
+	 * Adds an handler that listens for mouse out events.
 	 * 
 	 * @param handler the class to call when the event is fired
 	 * @return the handler reference
@@ -61,7 +61,7 @@ public class Sankey extends ChartWidget<SankeyOptions> {
 	}
 
 	/**
-	 * Adds an handler that listens for mouse over events
+	 * Adds an handler that listens for mouse over events.
 	 * 
 	 * @param handler the class to call when the event is fired
 	 * @return the handler reference
@@ -71,7 +71,7 @@ public class Sankey extends ChartWidget<SankeyOptions> {
 	}
 
 	/**
-	 * Adds an handler that listens for ready events
+	 * Adds an handler that listens for ready events.
 	 * 
 	 * @param handler the class to call when the event is fired
 	 * @return the handler reference
@@ -81,7 +81,7 @@ public class Sankey extends ChartWidget<SankeyOptions> {
 	}
 
 	/**
-	 * Adds an handler that listens for select events
+	 * Adds an handler that listens for select events.
 	 * 
 	 * @param handler the class to call when the event is fired
 	 * @return the handler reference

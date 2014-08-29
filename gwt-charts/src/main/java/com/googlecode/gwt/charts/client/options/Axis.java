@@ -28,7 +28,7 @@ import java.util.Date;
  */
 public abstract class Axis extends JavaScriptObject {
 	/**
-	 * Default constructor
+	 * Default constructor.
 	 * 
 	 * @return a new object instance
 	 */

@@ -14,6 +14,9 @@ package com.googlecode.gwt.charts.client;
 
 import com.google.gwt.core.client.JavaScriptObject;
 
+/**
+ * Represents an object containing information about the onscreen placement of the chart and its elements.
+ */
 public class ChartLayoutInterface extends JavaScriptObject {
 
 	protected ChartLayoutInterface() {
@@ -53,35 +56,95 @@ public class ChartLayoutInterface extends JavaScriptObject {
 		return this.getChartAreaBoundingBox();
 	}-*/;
 
-	public final native int getHAxisValue(int position)/*-{
+	/**
+	 * Returns the logical horizontal value at position, which is an offset from the chart container's left edge.<br>
+	 * Can be negative. Call this after the chart is drawn.
+	 * 
+	 * @param position offset from the chart container's left edge
+	 * @return logical horizontal value in pixels
+	 */
+	public final native int getHAxisValue(int position) /*-{
 		return this.getHAxisValue(position);
 	}-*/;
 
-	public final native int getHAxisValue(int position, int axisIndex)/*-{
+	/**
+	 * Returns the logical horizontal value at position, which is an offset from the chart container's left edge.<br>
+	 * Can be negative. Call this after the chart is drawn.
+	 * 
+	 * @param position offset from the chart container's left edge
+	 * @param axisIndex axis index
+	 * @return logical horizontal value in pixels
+	 */
+	public final native int getHAxisValue(int position, int axisIndex) /*-{
 		return this.getHAxisValue(position, axisIndex);
 	}-*/;
 
-	public final native int getVAxisValue(int position)/*-{
+	/**
+	 * Returns the logical horizontal value at position, which is an offset from the chart container's top edge.<br>
+	 * Can be negative. Call this after the chart is drawn.
+	 * 
+	 * @param position offset from the chart container's top edge
+	 * @return logical horizontal value in pixels
+	 */
+	public final native int getVAxisValue(int position) /*-{
 		return this.getVAxisValue(position);
 	}-*/;
 
-	public final native int getVAxisValue(int position, int axisIndex)/*-{
+	/**
+	 * Returns the logical vertical value at position, which is an offset from the chart container's top edge.<br>
+	 * Can be negative. Call this after the chart is drawn.
+	 * 
+	 * @param position offset from the chart container's top edge
+	 * @param axisIndex axis index
+	 * @return logical vertical value in pixels
+	 */
+	public final native int getVAxisValue(int position, int axisIndex) /*-{
 		return this.getVAxisValue(position, axisIndex);
 	}-*/;
 
+	/**
+	 * Returns the screen x-coordinate of position relative to the chart's container.<br>
+	 * Call this after the chart is drawn.
+	 * 
+	 * @param position offset
+	 * @return screen x-coordinate of position
+	 */
 	public final native int getXLocation(int position)/*-{
 		return this.getXLocation(position);
 	}-*/;
 
-	public final native int getXLocation(int position, int axisIndex)/*-{
+	/**
+	 * Returns the screen x-coordinate of position relative to the chart's container.<br>
+	 * Call this after the chart is drawn.
+	 * 
+	 * @param position offset
+	 * @param axisIndex axis index
+	 * @return screen x-coordinate of position
+	 */
+	public final native int getXLocation(int position, int axisIndex) /*-{
 		return this.getXLocation(position, axisIndex);
 	}-*/;
 
-	public final native int getYLocation(int position)/*-{
+	/**
+	 * Returns the screen y-coordinate of position relative to the chart's container.<br>
+	 * Call this after the chart is drawn.
+	 * 
+	 * @param position horizontal offset
+	 * @return screen y-coordinate of position
+	 */
+	public final native int getYLocation(int position) /*-{
 		return this.getYLocation(position);
 	}-*/;
 
-	public final native int getYLocation(int position, int axisIndex)/*-{
+	/**
+	 * Returns the screen y-coordinate of position relative to the chart's container.<br>
+	 * Call this after the chart is drawn.
+	 * 
+	 * @param position vertical offset
+	 * @param axisIndex axis index
+	 * @return screen y-coordinate of position
+	 */
+	public final native int getYLocation(int position, int axisIndex) /*-{
 		return this.getYLocation(position, axisIndex);
 	}-*/;
 }

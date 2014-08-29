@@ -13,15 +13,15 @@
 package com.googlecode.gwt.charts.client;
 
 /**
- * A definition of available packages
+ * A definition of available packages.
  */
 public enum ChartPackage {
 	/**
-	 * Exclusive use for annotation charts
+	 * Exclusive use for annotation charts.
 	 */
 	ANNOTATIONCHART("annotationchart"),
 	/**
-	 * Exclusive use for calendar charts
+	 * Exclusive use for calendar charts.
 	 */
 	CALENDAR("calendar"),
 	/**
@@ -30,43 +30,43 @@ public enum ChartPackage {
 	 */
 	CHARTEDITOR("charteditor"),
 	/**
-	 * Used for controls and dashboards
+	 * Used for controls and dashboards.
 	 */
 	CONTROLS("controls"),
 	/**
-	 * Use for area, bar, bubble, candlestick, column, combo, line, pie, scatter and stepped area charts
+	 * Use for area, bar, bubble, candlestick, column, combo, line, pie, scatter and stepped area charts.
 	 */
 	CORECHART("corechart"),
 	/**
-	 * Exclusive use for gauge charts
+	 * Exclusive use for gauge charts.
 	 */
 	GAUGE("gauge"),
 	/**
-	 * Exclusive use for geochart charts
+	 * Exclusive use for geochart charts.
 	 */
 	GEOCHART("geochart"),
 	/**
-	 * Exclusive use for map charts
+	 * Exclusive use for map charts.
 	 */
 	MAP("map"),
 	/**
-	 * Exclusive use for orgchart charts
+	 * Exclusive use for orgchart charts.
 	 */
 	ORGCHART("orgchart"),
 	/**
-	 * Exclusive use for sankey diagrams
+	 * Exclusive use for sankey diagrams.
 	 */
 	SANKEY("sankey"),
 	/**
-	 * Exclusive use for tables
+	 * Exclusive use for tables.
 	 */
 	TABLE("table"),
 	/**
-	 * Exclusive use for timelines
+	 * Exclusive use for timelines.
 	 */
 	TIMELINE("timeline"),
 	/**
-	 * Exclusive use for treemap charts
+	 * Exclusive use for treemap charts.
 	 */
 	TREEMAP("treemap");
 

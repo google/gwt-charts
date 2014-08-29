@@ -17,15 +17,15 @@ package com.googlecode.gwt.charts.client.options;
  */
 public enum MatchType {
 	/**
-	 * Match exact values only
+	 * Match exact values only.
 	 */
 	EXACT("exact"),
 	/**
-	 * Match prefixes starting from the beginning of the value
+	 * Match prefixes starting from the beginning of the value.
 	 */
 	PREFIX("prefix"),
 	/**
-	 * Match any substring
+	 * Match any substring.
 	 */
 	ANY("any");
 

@@ -20,6 +20,7 @@ import com.googlecode.gwt.charts.client.DataTable;
 /**
  * Represents a response of a query execution as received from the data source. An instance of this class is passed as
  * an argument to the callback function that was set when Query.send was called.
+ * 
  * @see Query
  */
 public class QueryResponse extends JavaScriptObject {

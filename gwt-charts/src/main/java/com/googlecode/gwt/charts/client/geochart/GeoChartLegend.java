@@ -35,7 +35,7 @@ public class GeoChartLegend extends JavaScriptObject {
 	}-*/;
 
 	/**
-	 * Specifies the legend text style
+	 * Specifies the legend text style.
 	 * 
 	 * @param textStyle
 	 */

@@ -13,7 +13,7 @@
 package com.googlecode.gwt.charts.client.controls;
 
 /**
- * A definition of currently available control types
+ * A definition of currently available control types.
  */
 public enum ControlType {
 	/**
@@ -25,6 +25,10 @@ public enum ControlType {
 	 * chart.
 	 */
 	CHART_RANGE_FILTER("ChartRangeFilter"),
+	/**
+	 * A dual-valued slider for selecting ranges of dates.
+	 */
+	DATE_RANGE_FILTER("DateRangeFilter"),
 	/**
 	 * A slider with two thumbs to select ranges of numeric values.
 	 */

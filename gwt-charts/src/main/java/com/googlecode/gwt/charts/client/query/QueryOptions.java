@@ -16,6 +16,10 @@ import com.google.gwt.core.client.JavaScriptObject;
 
 import com.googlecode.gwt.charts.client.Properties;
 
+/**
+ * A map of options for the request.<br>
+ * Note: If you are accessing a restricted data source, you should not use this parameter.
+ */
 public class QueryOptions extends Properties {
 	public static QueryOptions create() {
 		return JavaScriptObject.createObject().cast();
@@ -24,10 +28,20 @@ public class QueryOptions extends Properties {
 	protected QueryOptions() {
 	}
 
+	/**
+	 * A map of parameters for a makeRequest() query. Used and required only if sendMethod is 'makeRequest'.
+	 * 
+	 * @param params
+	 */
 	public final native void setMakeRequestParams(JavaScriptObject params) /*-{
 		this.makeRequestParams = params;
 	}-*/;
 
+	/**
+	 * Specifies the method to use to send the query.
+	 * 
+	 * @param sendMethod
+	 */
 	public final void setSendMethod(SendMethod sendMethod) {
 		setSendMethod(sendMethod.getName());
 	}

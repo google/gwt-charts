@@ -77,9 +77,9 @@ public class ChartWrapperSpec<T extends Options> extends JavaScriptObject {
 	 * Sets the data table used to populate the visualization.
 	 * You must specify either this property or the dataSourceUrl property.
 	 * 
-	 * @param dataTable a DataTable reference
+	 * @param dataTable a DataLiteral object
 	 */
-	public final native void setDataTable(DataTable dataTable) /*-{
+	public final native void setDataTable(DataLiteral dataTable) /*-{
 		this.dataTable = dataTable;
 	}-*/;
 
@@ -87,9 +87,9 @@ public class ChartWrapperSpec<T extends Options> extends JavaScriptObject {
 	 * Sets the data table used to populate the visualization.
 	 * You must specify either this property or the dataSourceUrl property.
 	 * 
-	 * @param dataTable a DataLiteral object
+	 * @param dataTable a DataTable reference
 	 */
-	public final native void setDataTable(DataLiteral dataTable) /*-{
+	public final native void setDataTable(DataTable dataTable) /*-{
 		this.dataTable = dataTable;
 	}-*/;
 

@@ -29,7 +29,7 @@ import java.util.Date;
  */
 public class ColorFormat extends JavaScriptObject {
 	/**
-	 * Default constructor
+	 * Default constructor.
 	 * 
 	 * @return a new object instance
 	 */

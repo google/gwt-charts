@@ -14,6 +14,9 @@ package com.googlecode.gwt.charts.client.event;
 
 import com.googlecode.gwt.charts.client.Properties;
 
+/**
+ * An event handler for {@link RangeChangeEvent}.
+ */
 public abstract class RangeChangeHandler implements EventHandler {
 
 	@Override
@@ -26,6 +29,10 @@ public abstract class RangeChangeHandler implements EventHandler {
 		return RangeChangeEvent.NAME;
 	}
 
+	/**
+	 * On event fired.
+	 * 
+	 * @param event
+	 */
 	public abstract void onRangeChange(RangeChangeEvent event);
-
 }

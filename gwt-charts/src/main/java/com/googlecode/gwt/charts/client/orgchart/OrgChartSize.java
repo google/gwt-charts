@@ -13,19 +13,19 @@
 package com.googlecode.gwt.charts.client.orgchart;
 
 /**
- * Determines the size of an orgchart
+ * Determines the size of an orgchart.
  */
 public enum OrgChartSize {
 	/**
-	 * Small size
+	 * Small size.
 	 */
 	SMALL("small"),
 	/**
-	 * Medium size
+	 * Medium size.
 	 */
 	MEDIUM("medium"),
 	/**
-	 * Large size
+	 * Large size.
 	 */
 	LARGE("large");
 

@@ -32,7 +32,7 @@ import com.googlecode.gwt.charts.client.event.StateChangeHandler;
  * @param <O> the options type for this control
  * @param <S> the state type for this control
  */
-public class ControlWrapperObject<O extends ControlOptions, S extends ControlState> extends HasListeners {
+public class ControlWrapperObject<O extends ControlOptions<?>, S extends ControlState> extends HasListeners {
 	/**
 	 * Creates an empty control wrapper.
 	 * You must set all the appropriate properties using the set... methods.
@@ -41,7 +41,7 @@ public class ControlWrapperObject<O extends ControlOptions, S extends ControlSta
 	 * @param <S> the state type for this control
 	 * @return an empty control wrapper
 	 */
-	public static native <O extends ControlOptions, S extends ControlState> ControlWrapperObject<O, S> create() /*-{
+	public static native <O extends ControlOptions<?>, S extends ControlState> ControlWrapperObject<O, S> create() /*-{
 		return new $wnd.google.visualization.ControlWrapper();
 	}-*/;
 
@@ -53,13 +53,13 @@ public class ControlWrapperObject<O extends ControlOptions, S extends ControlSta
 	 * @param spec a property set for defining this wrapper
 	 * @return a control wrapper
 	 */
-	public static native <O extends ControlOptions, S extends ControlState> ControlWrapperObject<O, S> create(
-			ControlWrapperSpec<?> spec) /*-{
+	public static native <O extends ControlOptions<?>, S extends ControlState> ControlWrapperObject<O, S> create(
+			ControlWrapperSpec<O, S> spec) /*-{
 		return new $wnd.google.visualization.ControlWrapper(spec);
 	}-*/;
 
 	protected ControlWrapperObject() {
-		// Default constructor
+		// Default constructor.
 	}
 
 	/**

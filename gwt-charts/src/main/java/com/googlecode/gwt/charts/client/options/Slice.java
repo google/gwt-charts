@@ -14,7 +14,15 @@ package com.googlecode.gwt.charts.client.options;
 
 import com.google.gwt.core.client.JavaScriptObject;
 
+/**
+ * An object describing the format of a slice in a pie.
+ */
 public class Slice extends JavaScriptObject {
+	/**
+	 * Default constructor.
+	 * 
+	 * @return a new object instance
+	 */
 	public static Slice create() {
 		return createObject().cast();
 	}
@@ -22,4 +30,30 @@ public class Slice extends JavaScriptObject {
 	protected Slice() {
 	}
 
+	/**
+	 * The color to use for this slice.
+	 * 
+	 * @param color a valid HTML color string.
+	 */
+	public final native void setColor(String color) /*-{
+		this.color = color;
+	}-*/;
+
+	/**
+	 * How far to separate the slice from the rest of the pie.
+	 * 
+	 * @param offset from 0.0 (not at all) to 1.0 (the pie's radius)
+	 */
+	public final native void setOffset(double offset) /*-{
+		this.offset = offset;
+	}-*/;
+
+	/**
+	 * An object that specifies the slice text style.
+	 * 
+	 * @param textStyle
+	 */
+	public final native void setTextStyle(TextStyle textStyle) /*-{
+		this.textStyle = textStyle;
+	}-*/;
 }

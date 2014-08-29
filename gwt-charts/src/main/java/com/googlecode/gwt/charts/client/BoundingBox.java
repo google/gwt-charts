@@ -15,7 +15,7 @@ package com.googlecode.gwt.charts.client;
 import com.google.gwt.core.client.JavaScriptObject;
 
 /**
- * Represents the boundaries of a box, defined by left, top, width and height
+ * Represents the boundaries of a box, defined by left, top, width and height.
  */
 public class BoundingBox extends JavaScriptObject {
 
@@ -23,7 +23,16 @@ public class BoundingBox extends JavaScriptObject {
 	}
 
 	/**
-	 * Returns the left coordinate of this box
+	 * Returns the height of this box.
+	 * 
+	 * @return value in pixels
+	 */
+	public final native int getHeight()/*-{
+		return this.height;
+	}-*/;
+
+	/**
+	 * Returns the left coordinate of this box.
 	 * 
 	 * @return value in pixels
 	 */
@@ -32,16 +41,7 @@ public class BoundingBox extends JavaScriptObject {
 	}-*/;
 
 	/**
-	 * Returns the width of this box
-	 * 
-	 * @return value in pixels
-	 */
-	public final native int getWidth()/*-{
-		return this.width;
-	}-*/;
-
-	/**
-	 * Returns the top coordinate of this box
+	 * Returns the top coordinate of this box.
 	 * 
 	 * @return value in pixels
 	 */
@@ -50,11 +50,11 @@ public class BoundingBox extends JavaScriptObject {
 	}-*/;
 
 	/**
-	 * Returns the height of this box
+	 * Returns the width of this box.
 	 * 
 	 * @return value in pixels
 	 */
-	public final native int getHeight()/*-{
-		return this.height;
+	public final native int getWidth()/*-{
+		return this.width;
 	}-*/;
 }

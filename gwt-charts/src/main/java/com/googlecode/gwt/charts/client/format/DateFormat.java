@@ -25,7 +25,7 @@ import java.util.Date;
  */
 public class DateFormat extends JavaScriptObject {
 	/**
-	 * Default constructor
+	 * Default constructor.
 	 * 
 	 * @param options formatter options
 	 * @return a new object instance

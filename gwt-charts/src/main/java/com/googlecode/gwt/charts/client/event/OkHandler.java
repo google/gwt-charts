@@ -29,6 +29,10 @@ public abstract class OkHandler implements EventHandler {
 		return OkEvent.NAME;
 	}
 
+	/**
+	 * On event fired.
+	 * 
+	 * @param event
+	 */
 	public abstract void onOk(OkEvent event);
-
 }

@@ -42,7 +42,7 @@ public class Table extends ChartWidget<TableOptions> {
 	}
 
 	/**
-	 * Adds an handler that listens for page events
+	 * Adds an handler that listens for page events.
 	 * 
 	 * @param handler the class to call when the event is fired
 	 * @return the handler reference
@@ -52,7 +52,7 @@ public class Table extends ChartWidget<TableOptions> {
 	}
 
 	/**
-	 * Adds an handler that listens for ready events
+	 * Adds an handler that listens for ready events.
 	 * 
 	 * @param handler the class to call when the event is fired
 	 * @return the handler reference
@@ -62,7 +62,7 @@ public class Table extends ChartWidget<TableOptions> {
 	}
 
 	/**
-	 * Adds an handler that listens for select events
+	 * Adds an handler that listens for select events.
 	 * 
 	 * @param handler the class to call when the event is fired
 	 * @return the handler reference
@@ -72,7 +72,7 @@ public class Table extends ChartWidget<TableOptions> {
 	}
 
 	/**
-	 * Adds an handler that listens for sort events
+	 * Adds an handler that listens for sort events.
 	 * 
 	 * @param handler the class to call when the event is fired
 	 * @return the handler reference

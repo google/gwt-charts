@@ -22,7 +22,7 @@ import com.googlecode.gwt.charts.client.ChartObject;
 public class LineChart extends CoreChartWidget<LineChartOptions> {
 
 	/**
-	 * Creates a new chart widget
+	 * Creates a new chart widget.
 	 */
 	public LineChart() {
 		super();

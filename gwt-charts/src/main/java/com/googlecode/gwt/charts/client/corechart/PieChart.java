@@ -23,7 +23,7 @@ import com.googlecode.gwt.charts.client.DataSource;
 public class PieChart extends CoreChartWidget<PieChartOptions> {
 
 	/**
-	 * Creates a new chart widget
+	 * Creates a new chart widget.
 	 */
 	public PieChart() {
 		super();

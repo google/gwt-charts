@@ -50,7 +50,7 @@ import com.google.gwt.core.client.JsArrayMixed;
 public class DataView extends DataSource {
 
 	/**
-	 * Creates a new DataView for the given DataSource
+	 * Creates a new DataView for the given DataSource.
 	 * 
 	 * @param dataSource A DataTable or DataView used to initialize the view. By default, the view contains all the
 	 *        columns and rows in the underlying data table or view, in the original order.
@@ -188,6 +188,18 @@ public class DataView extends DataSource {
 
 	/**
 	 * Specifies which columns are visible in this view. Any columns not specified will be hidden. This is an array of
+	 * calculated columns in the underlying table/view. If you don't call this method, the default is
+	 * to show all columns. The array can also contain duplicates, to show the same column multiple times. Columns will
+	 * be shown in the order specified.
+	 * 
+	 * @param columnIndexes an array of calculated columns
+	 */
+	public final native void setColumns(JsArray<DataViewColumn> columnIndexes) /*-{
+		this.setColumns(columnIndexes);
+	}-*/;
+
+	/**
+	 * Specifies which columns are visible in this view. Any columns not specified will be hidden. This is an array of
 	 * column indexes in the underlying table/view. If you don't call this method, the default is
 	 * to show all columns. The array can also contain duplicates, to show the same column multiple times. Columns will
 	 * be shown in the order specified.
@@ -207,18 +219,6 @@ public class DataView extends DataSource {
 	 * @param columnIndexes an array of column indexes in the underlying table/view, or calculated columns like {@link DataViewColumn}
 	 */
 	public final native void setColumns(JsArrayMixed columnIndexes) /*-{
-		this.setColumns(columnIndexes);
-	}-*/;
-
-	/**
-	 * Specifies which columns are visible in this view. Any columns not specified will be hidden. This is an array of
-	 * calculated columns in the underlying table/view. If you don't call this method, the default is
-	 * to show all columns. The array can also contain duplicates, to show the same column multiple times. Columns will
-	 * be shown in the order specified.
-	 * 
-	 * @param columnIndexes an array of calculated columns
-	 */
-	public final native void setColumns(JsArray<DataViewColumn> columnIndexes) /*-{
 		this.setColumns(columnIndexes);
 	}-*/;
 

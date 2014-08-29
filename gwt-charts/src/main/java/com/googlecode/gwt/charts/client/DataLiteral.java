@@ -26,7 +26,7 @@ import com.google.gwt.core.client.JsArray;
  */
 public class DataLiteral extends JavaScriptObject {
 	/**
-	 * Default static constructor
+	 * Default static constructor.
 	 * 
 	 * @return a new object
 	 */

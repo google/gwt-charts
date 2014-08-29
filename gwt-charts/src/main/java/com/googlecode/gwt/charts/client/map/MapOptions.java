@@ -23,7 +23,7 @@ import com.googlecode.gwt.charts.client.options.Options;
  */
 public class MapOptions extends Options {
 	/**
-	 * Default constructor
+	 * Default constructor.
 	 * 
 	 * @return a new object instance
 	 */

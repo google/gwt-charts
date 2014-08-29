@@ -13,15 +13,15 @@
 package com.googlecode.gwt.charts.client.options;
 
 /**
- * Defines the selection mode
+ * Defines the selection mode.
  */
 public enum SelectionMode {
 	/**
-	 * Restricts to single data point selection
+	 * Restricts to single data point selection.
 	 */
 	SINGLE("single"),
 	/**
-	 * Allow multiple data point selections
+	 * Allow multiple data point selections.
 	 */
 	MULTIPLE("multiple");
 

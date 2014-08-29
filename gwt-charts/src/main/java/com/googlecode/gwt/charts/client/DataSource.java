@@ -173,9 +173,9 @@ public class DataSource extends JavaScriptObject {
 	 * @param columnIndex the column position
 	 * @return the role of the specified column
 	 */
-	public final native RoleType getColumnRole(int columnIndex) /*-{
-		return @com.googlecode.gwt.charts.client.RoleType::findByName(Ljava/lang/String;) (this.getColumnRole(columnIndex));
-	}-*/;
+	public final RoleType getColumnRole(int columnIndex) {
+		return RoleType.findByName(getColumnRoleString(columnIndex));
+	}
 
 	/**
 	 * Returns the type of a given column specified by the column index. columnIndex should be a number greater than or
@@ -184,9 +184,9 @@ public class DataSource extends JavaScriptObject {
 	 * @param columnIndex the column position
 	 * @return the type of the specified column
 	 */
-	public final native ColumnType getColumnType(int columnIndex) /*-{
-		return @com.googlecode.gwt.charts.client.ColumnType::findByName(Ljava/lang/String;) (this.getColumnType(columnIndex));
-	}-*/;
+	public final ColumnType getColumnType(int columnIndex) {
+		return ColumnType.findByName(getColumnTypeString(columnIndex));
+	}
 
 	/**
 	 * Returns the unique values in a certain column, in ascending order.
@@ -563,7 +563,7 @@ public class DataSource extends JavaScriptObject {
 	}-*/;
 
 	/**
-	 * Checks if the value of the cell at the given row and column indexes is null
+	 * Checks if the value of the cell at the given row and column indexes is null.
 	 * 
 	 * @param rowIndex should be a number greater than or equal to zero, and less than the number of rows
 	 * @param columnIndex should be a number greater than or equal to zero, and less than the number of columns
@@ -580,5 +580,13 @@ public class DataSource extends JavaScriptObject {
 	 */
 	public final native String toJSON() /*-{
 		return this.toJSON();
+	}-*/;
+
+	private final native String getColumnRoleString(int columnIndex) /*-{
+		return this.getColumnRole(columnIndex);
+	}-*/;
+
+	private final native String getColumnTypeString(int columnIndex) /*-{
+		return this.getColumnType(columnIndex);
 	}-*/;
 }

@@ -17,11 +17,11 @@ import com.google.gwt.core.client.JsArrayString;
 import com.googlecode.gwt.charts.client.util.ArrayHelper;
 
 /**
- * Common options for core charts
+ * Common options for core charts.
  */
 public abstract class CoreOptions extends Options {
 	/**
-	 * Default constructor
+	 * Default constructor.
 	 * 
 	 * @return a new object instance
 	 */
@@ -33,7 +33,7 @@ public abstract class CoreOptions extends Options {
 	}
 
 	/**
-	 * Sets animation attributes such as duration and easing
+	 * Sets animation attributes such as duration and easing.
 	 * 
 	 * @param animation
 	 */

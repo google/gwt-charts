@@ -14,6 +14,9 @@ package com.googlecode.gwt.charts.client.event;
 
 import com.googlecode.gwt.charts.client.Properties;
 
+/**
+ * An event handler for {@link RollUpEvent}.
+ */
 public abstract class RollUpHandler implements EventHandler {
 
 	@Override
@@ -26,6 +29,10 @@ public abstract class RollUpHandler implements EventHandler {
 		return RollUpEvent.NAME;
 	}
 
+	/**
+	 * On event fired.
+	 * 
+	 * @param event
+	 */
 	public abstract void onRollUp(RollUpEvent event);
-
 }

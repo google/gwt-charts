@@ -23,7 +23,7 @@ import java.util.Date;
  */
 public class HAxis extends Axis {
 	/**
-	 * Default constructor
+	 * Default constructor.
 	 * 
 	 * @return a new object instance
 	 */
@@ -32,7 +32,7 @@ public class HAxis extends Axis {
 	}
 
 	/**
-	 * Constructor with title
+	 * Constructor with title.
 	 * 
 	 * @param title axis title
 	 * 

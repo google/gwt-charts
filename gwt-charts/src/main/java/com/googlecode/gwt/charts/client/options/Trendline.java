@@ -21,7 +21,7 @@ import com.google.gwt.core.client.JavaScriptObject;
  */
 public class Trendline extends JavaScriptObject {
 	/**
-	 * Default constructor
+	 * Default constructor.
 	 * 
 	 * @return a new object instance
 	 */
@@ -42,7 +42,8 @@ public class Trendline extends JavaScriptObject {
 	}-*/;
 
 	/**
-	 * Defines the degree for this trendline
+	 * Defines the degree for this trendline.
+	 * 
 	 * @param degree a value
 	 */
 	public final native void setDegree(int degree) /*-{

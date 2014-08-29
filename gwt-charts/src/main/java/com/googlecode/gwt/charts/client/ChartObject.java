@@ -36,7 +36,7 @@ public class ChartObject extends HasListeners {
 	}-*/;
 
 	/**
-	 * Collapses or expands the node on an OrgChart
+	 * Collapses or expands the node on an OrgChart.
 	 * 
 	 * @param row index of the row to expand or collapse.
 	 * @param collapsed whether to collapse or expand the row, where true means collapse.

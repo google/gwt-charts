@@ -14,12 +14,20 @@ package com.googlecode.gwt.charts.client.event;
 
 import com.googlecode.gwt.charts.client.Properties;
 
+/**
+ * Fired when the user clicks a node. To learn which node was selected, call getSelection().
+ */
 public class SelectEvent extends Event {
 	/**
-	 * The event name
+	 * The event name.
 	 */
 	public static String NAME = "select";
-	
+
+	/**
+	 * Creates a new event.
+	 * 
+	 * @param properties
+	 */
 	public SelectEvent(Properties properties) {
 		super(NAME, properties);
 	}

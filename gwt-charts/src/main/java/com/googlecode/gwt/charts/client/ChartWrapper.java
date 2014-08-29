@@ -523,7 +523,7 @@ public class ChartWrapper<T extends Options> extends Widget implements RequiresR
 	}
 
 	/**
-	 * Unsets an option
+	 * Unsets an option.
 	 * 
 	 * @param key the option key
 	 */
@@ -587,7 +587,6 @@ public class ChartWrapper<T extends Options> extends Widget implements RequiresR
 	 * 
 	 * @param view an array of DataView initializer objects, like that returned by dataview.toJSON()
 	 */
-
 	public void setView(JsArrayString view) {
 		chartWrapperObject.setView(view);
 	}

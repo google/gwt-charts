@@ -13,87 +13,91 @@
 package com.googlecode.gwt.charts.client;
 
 /**
- * A definition of currently available chart types
+ * A definition of currently available chart types.
  */
 public enum ChartType {
 	/**
-	 * Annotation chart
+	 * Annotation chart.
 	 */
 	ANNOTATION("Annotation"),
 	/**
-	 * Area chart
+	 * Area chart.
 	 */
 	AREA("AreaChart"),
 	/**
-	 * Bar chart
+	 * Bar chart.
 	 */
 	BAR("BarChart"),
 	/**
-	 * Bubble chart
+	 * Bubble chart.
 	 */
 	BUBBLE("BubbleChart"),
 	/**
-	 * Annotation chart
+	 * Annotation chart.
 	 */
 	CALENDAR("Calendar"),
 	/**
-	 * Candlestick chart
+	 * Candlestick chart.
 	 */
 	CANDLESTICK("CandlestickChart"),
 	/**
-	 * Column chart
+	 * Column chart.
 	 */
 	COLUMN("ColumnChart"),
 	/**
-	 * Combo chart, a mix of lines, bars, and area charts
+	 * Combo chart, a mix of lines, bars, and area charts.
 	 */
 	COMBO("ComboChart"),
 	/**
-	 * Gauge chart
+	 * Gauge chart.
 	 */
 	GAUGE("Gauge"),
 	/**
-	 * Geo chart
+	 * Geo chart.
 	 */
 	GEO_CHART("GeoChart"),
 	/**
-	 * Histogram
+	 * Histogram.
 	 */
 	HISTOGRAM("Histogram"),
 	/**
-	 * Line chart
+	 * Line chart.
 	 */
 	LINE("LineChart"),
 	/**
-	 * Map
+	 * Map.
 	 */
 	MAP("Map"),
 	/**
-	 * Org chart
+	 * Org chart.
 	 */
 	ORGCHART("OrgChart"),
 	/**
-	 * Pie chart
+	 * Pie chart.
 	 */
 	PIE("PieChart"),
 	/**
-	 * Sankey chart
+	 * Sankey chart.
 	 */
 	SANKEY("Sankey"),
 	/**
-	 * Scatter chart
+	 * Scatter chart.
 	 */
 	SCATTER("ScatterChart"),
 	/**
-	 * Stepped area chart
+	 * Stepped area chart.
 	 */
 	STEPPED_AREA("SteppedAreaChart"),
 	/**
-	 * Table
+	 * Table.
 	 */
 	TABLE("Table"),
 	/**
-	 * Tree map
+	 * Timeline.
+	 */
+	TIMELINE("Timeline"),
+	/**
+	 * Tree map.
 	 */
 	TREE_MAP("TreeMap");
 

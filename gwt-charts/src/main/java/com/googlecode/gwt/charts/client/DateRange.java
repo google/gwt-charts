@@ -20,16 +20,16 @@ import com.googlecode.gwt.charts.client.util.DateHelper;
 import java.util.Date;
 
 /**
- * Represents a date range
+ * Represents a date range.
  */
 public class DateRange extends JavaScriptObject {
 
 	protected DateRange() {
-		// Default constructor
+		// Default constructor.
 	}
 
 	/**
-	 * Returns the range end date
+	 * Returns the range end date.
 	 * 
 	 * @return the end date
 	 */
@@ -38,7 +38,7 @@ public class DateRange extends JavaScriptObject {
 	}
 
 	/**
-	 * Returns the range start date
+	 * Returns the range start date.
 	 * 
 	 * @return the start date
 	 */

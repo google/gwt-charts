@@ -17,11 +17,11 @@ import com.google.gwt.core.client.JavaScriptObject;
 import com.googlecode.gwt.charts.client.options.BackgroundColor;
 
 /**
- * Describes the format of a series in the chart
+ * Describes the format of a series in the chart.
  */
 public class CandlestickChartSeries extends JavaScriptObject {
 	/**
-	 * Default constructor
+	 * Default constructor.
 	 * 
 	 * @return a new object instance
 	 */
@@ -42,7 +42,7 @@ public class CandlestickChartSeries extends JavaScriptObject {
 	}-*/;
 
 	/**
-	 * Sets the colors applied to falling candles
+	 * Sets the colors applied to falling candles.
 	 * 
 	 * @param fallingColor falling candles color settings
 	 */
@@ -51,7 +51,7 @@ public class CandlestickChartSeries extends JavaScriptObject {
 	}-*/;
 
 	/**
-	 * Sets the colors applied to rising candles
+	 * Sets the colors applied to rising candles.
 	 * 
 	 * @param risingColor rising candles color settings
 	 */

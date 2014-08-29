@@ -17,11 +17,11 @@ import com.google.gwt.core.client.JavaScriptObject;
 import com.googlecode.gwt.charts.client.options.Annotations;
 
 /**
- * Describes the format of a series in the chart
+ * Describes the format of a series in the chart.
  */
 public class ColumnChartSeries extends JavaScriptObject {
 	/**
-	 * Default constructor
+	 * Default constructor.
 	 * 
 	 * @return a new object instance
 	 */

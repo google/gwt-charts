@@ -20,7 +20,7 @@ import com.google.gwt.core.client.JavaScriptObject;
  */
 public class Annotations extends JavaScriptObject {
 	/**
-	 * Default constructor
+	 * Default constructor.
 	 * 
 	 * @return a new object instance
 	 */
@@ -32,7 +32,7 @@ public class Annotations extends JavaScriptObject {
 	}
 
 	/**
-	 * Controls the appearance of the boxes surrounding annotations
+	 * Controls the appearance of the boxes surrounding annotations.
 	 * 
 	 * @param boxStyle
 	 */

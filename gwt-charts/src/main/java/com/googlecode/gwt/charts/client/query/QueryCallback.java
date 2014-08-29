@@ -12,6 +12,13 @@
  */
 package com.googlecode.gwt.charts.client.query;
 
+/**
+ * Used for receiving a callbakc from a {@link Query}.
+ */
 public interface QueryCallback {
+	/**
+	 * 
+	 * @param queryResponse
+	 */
 	void onResponse(QueryResponse queryResponse);
 }

@@ -79,7 +79,7 @@ public class ChartWrapperObject<T extends Options> extends HasListeners {
 	}-*/;
 
 	protected ChartWrapperObject() {
-		// Default constructor
+		// Default constructor.
 	}
 
 	/**
@@ -93,7 +93,7 @@ public class ChartWrapperObject<T extends Options> extends HasListeners {
 	}
 
 	/**
-	 * Adds an event directly to the chart
+	 * Adds an event directly to the chart.
 	 * 
 	 * @param handler the chart handler
 	 * @return a reference for removing this handler
@@ -503,7 +503,7 @@ public class ChartWrapperObject<T extends Options> extends HasListeners {
 	}-*/;
 
 	/**
-	 * Unsets an option
+	 * Unsets an option.
 	 * 
 	 * @param key the option key
 	 */

@@ -14,12 +14,18 @@ package com.googlecode.gwt.charts.client.controls;
 
 import com.google.gwt.core.client.JavaScriptObject;
 
+/**
+ * An object for controlling the state of a {@link ControlWrapper}.
+ */
 public class Control extends JavaScriptObject {
 
 	protected Control() {
-		// Default constructor
+		// Default constructor.
 	}
-	
+
+	/**
+	 * Resets the control state to the one it was initialized with (like resetting an HTML form element).
+	 */
 	public final native void resetControl() /*-{
 		this.resetControl();
 	}-*/;

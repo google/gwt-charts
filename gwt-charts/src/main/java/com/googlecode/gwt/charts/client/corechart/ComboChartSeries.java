@@ -24,11 +24,11 @@ import com.googlecode.gwt.charts.client.options.SeriesType;
 import com.googlecode.gwt.charts.client.util.ArrayHelper;
 
 /**
- * Describes the format of a series in the chart
+ * Describes the format of a series in the chart.
  */
 public class ComboChartSeries extends JavaScriptObject {
 	/**
-	 * Default constructor
+	 * Default constructor.
 	 * 
 	 * @return a new object instance
 	 */
@@ -76,7 +76,7 @@ public class ComboChartSeries extends JavaScriptObject {
 	}
 
 	/**
-	 * Sets the colors applied to falling candles
+	 * Sets the colors applied to falling candles.
 	 * 
 	 * @param fallingColor falling candles color settings
 	 */
@@ -132,7 +132,7 @@ public class ComboChartSeries extends JavaScriptObject {
 	}-*/;
 
 	/**
-	 * Sets the colors applied to rising candles
+	 * Sets the colors applied to rising candles.
 	 * 
 	 * @param risingColor rising candles color settings
 	 */

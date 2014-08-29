@@ -14,12 +14,22 @@ package com.googlecode.gwt.charts.client.event;
 
 import com.googlecode.gwt.charts.client.Properties;
 
+/**
+ * Fired when the user interacts with the control, affecting its state. For example, a statechange event will fire
+ * whenever you move the thumbs of a range slider control. To retrieve an updated control state after the event fired,
+ * call ControlWrapper.getState().
+ */
 public class StateChangeEvent extends Event {
 	/**
-	 * The event name
+	 * The event name.
 	 */
 	public static String NAME = "statechange";
 
+	/**
+	 * Creates a new event.
+	 * 
+	 * @param properties
+	 */
 	public StateChangeEvent(Properties properties) {
 		super(NAME, properties);
 	}

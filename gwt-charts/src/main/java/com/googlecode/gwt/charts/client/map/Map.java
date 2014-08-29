@@ -42,7 +42,7 @@ public class Map extends ChartWidget<MapOptions> {
 	}
 
 	/**
-	 * Adds an handler that listens for error events
+	 * Adds an handler that listens for error events.
 	 * 
 	 * @param handler the class to call when the event is fired
 	 * @return the handler reference
@@ -52,7 +52,7 @@ public class Map extends ChartWidget<MapOptions> {
 	}
 
 	/**
-	 * Adds an handler that listens for select events
+	 * Adds an handler that listens for select events.
 	 * 
 	 * @param handler the class to call when the event is fired
 	 * @return the handler reference

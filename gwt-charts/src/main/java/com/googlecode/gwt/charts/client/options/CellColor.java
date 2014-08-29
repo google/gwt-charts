@@ -15,11 +15,11 @@ package com.googlecode.gwt.charts.client.options;
 import com.google.gwt.core.client.JavaScriptObject;
 
 /**
- * A set of border color options
+ * A set of border color options.
  */
 public class CellColor extends JavaScriptObject {
 	/**
-	 * Default constructor
+	 * Default constructor.
 	 * 
 	 * @return a new object instance
 	 */
@@ -31,7 +31,7 @@ public class CellColor extends JavaScriptObject {
 	}
 
 	/**
-	 * Sets the border color
+	 * Sets the border color.
 	 * 
 	 * @param stroke an HTML color string
 	 */
@@ -40,7 +40,7 @@ public class CellColor extends JavaScriptObject {
 	}-*/;
 
 	/**
-	 * Sets the border transparency
+	 * Sets the border transparency.
 	 * 
 	 * @param strokeOpacity from 0.0 (transparent) to 1.0 (opaque)
 	 */
@@ -49,7 +49,7 @@ public class CellColor extends JavaScriptObject {
 	}-*/;
 
 	/**
-	 * Sets the border thickness
+	 * Sets the border thickness.
 	 * 
 	 * @param strokeWidth thickness in pixels
 	 */

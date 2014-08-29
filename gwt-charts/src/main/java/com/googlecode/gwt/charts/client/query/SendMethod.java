@@ -12,6 +12,9 @@
  */
 package com.googlecode.gwt.charts.client.query;
 
+/**
+ * Specifies the method to use to send the query.
+ */
 public enum SendMethod {
 	/**
 	 * Send the query using XmlHttpRequest.
@@ -33,12 +36,32 @@ public enum SendMethod {
 	 */
 	AUTO("auto");
 
-	private String name;
+	/**
+	 * Get an SendMethod by providing its name.
+	 * 
+	 * @param name the SendMethod name.
+	 * @return an SendMethod corresponding to the provided name.
+	 */
+	public static SendMethod findByName(String name) {
+		for (SendMethod sendMethod : SendMethod.values()) {
+			if (sendMethod.getName().equals(name)) {
+				return sendMethod;
+			}
+		}
+		return null;
+	}
+
+	private final String name;
 
 	private SendMethod(String name) {
 		this.name = name;
 	}
 
+	/**
+	 * Get the name of the SendMethod.
+	 * 
+	 * @return the name
+	 */
 	public String getName() {
 		return name;
 	}

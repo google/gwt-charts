@@ -14,20 +14,38 @@ package com.googlecode.gwt.charts.client.controls.filter;
 
 import com.googlecode.gwt.charts.client.controls.ControlState;
 
+/**
+ * State configuration options for {@link ChartRangeFilter}.
+ */
 public class ChartRangeFilterState extends ControlState {
+	/**
+	 * Default constructor.
+	 * 
+	 * @return a new object instance
+	 */
 	public static ChartRangeFilterState create() {
 		return createObject().cast();
 	}
 
 	protected ChartRangeFilterState() {
-		// Default constructor
+		// Default constructor.
 	}
 
-	public final native void setRange(ChartRangeFilterStateRange range) /*-{
-		this.range = range;
-	}-*/;
-
+	/**
+	 * Return the selected range.
+	 * 
+	 * @return the selected range
+	 */
 	public final native ChartRangeFilterStateRange getRange() /*-{
 		return this.range;
+	}-*/;
+
+	/**
+	 * Sets the selected range.
+	 * 
+	 * @param range
+	 */
+	public final native void setRange(ChartRangeFilterStateRange range) /*-{
+		this.range = range;
 	}-*/;
 }

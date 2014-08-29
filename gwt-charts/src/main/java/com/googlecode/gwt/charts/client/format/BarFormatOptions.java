@@ -21,7 +21,7 @@ import com.googlecode.gwt.charts.client.options.BarFormatColor;
  */
 public class BarFormatOptions extends JavaScriptObject {
 	/**
-	 * Default constructor
+	 * Default constructor.
 	 * 
 	 * @return a new object instance
 	 */

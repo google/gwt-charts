@@ -13,7 +13,7 @@
 package com.googlecode.gwt.charts.client.options;
 
 /**
- * 
+ * Available actions for {@link Explorer}.
  */
 public enum ExplorerAction {
 	/**
@@ -21,15 +21,15 @@ public enum ExplorerAction {
 	 * To pan only along the horizontal axis, use Explorer.setAxis(Axis.HORIZONTAL).<br>
 	 * Similarly for the vertical axis.
 	 */
-	DRAGTOPAN("dragToPan"),
+	DRAG_TO_PAN("dragToPan"),
 	/**
-	 * This is a region map
+	 * This is a region map.
 	 */
-	DRAGTOZOOM("dragToZoom"),
+	DRAG_TO_ZOOM("dragToZoom"),
 	/**
 	 * This is a marker map.
 	 */
-	RIGHTCLICKTORESET("rightClickToReset");
+	RIGHT_CLICK_TO_RESET("rightClickToReset");
 
 	/**
 	 * Get a ExplorerAction by providing its name.

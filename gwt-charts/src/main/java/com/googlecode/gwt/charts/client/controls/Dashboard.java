@@ -12,6 +12,7 @@
  */
 package com.googlecode.gwt.charts.client.controls;
 
+import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.JsArray;
 import com.google.gwt.core.client.JsArrayMixed;
 import com.google.gwt.core.client.Scheduler;
@@ -40,7 +41,7 @@ public class Dashboard extends Widget {
 	private boolean pending;
 
 	/**
-	 * Creates a Dashboard
+	 * Creates a Dashboard.
 	 */
 	public Dashboard() {
 		super();
@@ -102,11 +103,11 @@ public class Dashboard extends Widget {
 	 * @param chartWrappers
 	 */
 	public void bind(List<ControlWrapper<?, ?>> controlWrappers, List<ChartWrapper<?>> chartWrappers) {
-		JsArray<ControlWrapperObject<?, ?>> controlWrapperArray = JsArray.createArray().cast();
+		JsArray<ControlWrapperObject<?, ?>> controlWrapperArray = JavaScriptObject.createArray().cast();
 		for (ControlWrapper<?, ?> controlWrapper : controlWrappers) {
 			controlWrapperArray.push(controlWrapper.getObject());
 		}
-		JsArray<ChartWrapperObject<?>> chartWrapperArray = JsArray.createArray().cast();
+		JsArray<ChartWrapperObject<?>> chartWrapperArray = JavaScriptObject.createArray().cast();
 		for (ChartWrapper<?> chartWrapper : chartWrappers) {
 			chartWrapperArray.push(chartWrapper.getObject());
 		}
@@ -151,7 +152,7 @@ public class Dashboard extends Widget {
 	public DashboardObject getObject() {
 		return dashboardObject;
 	}
-	
+
 	/**
 	 * Redraws the chart with last used data and options.
 	 */
@@ -175,14 +176,14 @@ public class Dashboard extends Widget {
 			}
 		});
 	}
-	
+
 	protected void redrawNow() {
 		if (data instanceof DataSource) {
-			dashboardObject.draw((DataSource)data);
+			dashboardObject.draw((DataSource) data);
 		} else if (data instanceof JsArrayMixed) {
-			dashboardObject.draw((JsArrayMixed)data);
+			dashboardObject.draw((JsArrayMixed) data);
 		} else if (data instanceof String) {
-			dashboardObject.draw((String)data);
+			dashboardObject.draw((String) data);
 		}
 		pending = false;
 	}

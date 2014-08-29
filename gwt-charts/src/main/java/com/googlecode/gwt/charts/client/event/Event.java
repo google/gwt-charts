@@ -14,20 +14,33 @@ package com.googlecode.gwt.charts.client.event;
 
 import com.googlecode.gwt.charts.client.Properties;
 
+/**
+ * Common event from where all events descend.
+ */
 public abstract class Event {
 	protected String eventName;
 	protected Properties properties;
-	
+
 	protected Event(String eventName, Properties properties) {
 		super();
 		this.eventName = eventName;
 		this.properties = properties;
 	}
 
+	/**
+	 * Returns the event name.
+	 * 
+	 * @return the event name
+	 */
 	public String getEventName() {
 		return eventName;
 	}
 
+	/**
+	 * Returns the event properties.
+	 * 
+	 * @return the event properties
+	 */
 	public Properties getProperties() {
 		return properties;
 	}

@@ -22,7 +22,7 @@ import java.util.Date;
 public class DateHelper {
 
 	/**
-	 * Converts a JsDate into a java Date
+	 * Converts a JsDate into a java Date.
 	 * 
 	 * @param jsDate a JsDate value
 	 * @return a Date value
@@ -35,7 +35,7 @@ public class DateHelper {
 	}
 
 	/**
-	 * Converts a java Date into a JsDate
+	 * Converts a java Date into a JsDate.
 	 * 
 	 * @param date a Date value
 	 * @return a JsDate value

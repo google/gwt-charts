@@ -15,11 +15,11 @@ package com.googlecode.gwt.charts.client.corechart;
 import com.google.gwt.core.client.JavaScriptObject;
 
 /**
- * Options for Pie Diff charts
+ * Options for Pie Diff charts.
  */
 public abstract class PieChartDiff extends JavaScriptObject {
 	/**
-	 * Default constructor
+	 * Default constructor.
 	 * 
 	 * @return a new object instance
 	 */
@@ -31,7 +31,7 @@ public abstract class PieChartDiff extends JavaScriptObject {
 	}
 
 	/**
-	 * Change the border size of inner circle
+	 * Change the border size of inner circle.
 	 * 
 	 * @param borderFactor a value from 0.0 to 1.0
 	 */
@@ -43,7 +43,7 @@ public abstract class PieChartDiff extends JavaScriptObject {
 	}-*/;
 
 	/**
-	 * If true, inverts the behavior so that the oldest data surrounds the newest data
+	 * If true, inverts the behavior so that the oldest data surrounds the newest data.
 	 * 
 	 * @param inCenter
 	 */
@@ -55,7 +55,7 @@ public abstract class PieChartDiff extends JavaScriptObject {
 	}-*/;
 
 	/**
-	 * Change the opacity of the newest data
+	 * Change the opacity of the newest data.
 	 * 
 	 * @param opacity a value from 0.0 (fully transparent) to 1.0 (fully opaque)
 	 */
@@ -67,7 +67,7 @@ public abstract class PieChartDiff extends JavaScriptObject {
 	}-*/;
 
 	/**
-	 * Change the opacity of the oldest data
+	 * Change the opacity of the oldest data.
 	 * 
 	 * @param opacity a value from 0.0 (fully transparent) to 1.0 (fully opaque)
 	 */
@@ -79,7 +79,7 @@ public abstract class PieChartDiff extends JavaScriptObject {
 	}-*/;
 
 	/**
-	 * Change the size of inner circle
+	 * Change the size of inner circle.
 	 * 
 	 * @param radiusFactor a value from 0.0 to 1.0
 	 */

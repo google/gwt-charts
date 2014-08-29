@@ -13,19 +13,19 @@
 package com.googlecode.gwt.charts.client.options;
 
 /**
- * A list of valid colors for BarFormat
+ * A list of valid colors for BarFormat.
  */
 public enum BarFormatColor {
 	/**
-	 * Red color
+	 * Red color.
 	 */
 	RED("red"),
 	/**
-	 * Green color
+	 * Green color.
 	 */
 	GREEN("green"),
 	/**
-	 * Blue color
+	 * Blue color.
 	 */
 	BLUE("blue");
 

@@ -15,22 +15,24 @@ package com.googlecode.gwt.charts.client.options;
 import com.google.gwt.core.client.JavaScriptObject;
 
 /**
- * A set of background color options
+ * A set of background color options.
  */
 public class Color extends JavaScriptObject {
 	/**
-	 * Default constructor
+	 * Default constructor.
+	 * 
 	 * @return a new object instance
 	 */
 	public static Color create() {
 		return createObject().cast();
 	}
-	
+
 	protected Color() {
 	}
 
 	/**
-	 * Sets the fill color
+	 * Sets the fill color.
+	 * 
 	 * @param fill The fill color, as an HTML color string
 	 */
 	public final native void setFill(String fill) /*-{
@@ -38,7 +40,8 @@ public class Color extends JavaScriptObject {
 	}-*/;
 
 	/**
-	 * Sets the fill opacity
+	 * Sets the fill opacity.
+	 * 
 	 * @param fillOpacity a value from 0.0 (fully transparent) to 1.0 (fully opaque)
 	 */
 	public final native void setFillOpacity(double fillOpacity) /*-{
@@ -46,15 +49,17 @@ public class Color extends JavaScriptObject {
 	}-*/;
 
 	/**
-	 * Sets the color of the border
+	 * Sets the color of the border.
+	 * 
 	 * @param stroke The color of the border, as an HTML color string.
 	 */
 	public final native void setStroke(String stroke) /*-{
 		this.stroke = stroke;
 	}-*/;
-	
+
 	/**
-	 * Sets the border width
+	 * Sets the border width.
+	 * 
 	 * @param strokeWidth The border width, in pixels
 	 */
 	public final native void setStrokeWidth(int strokeWidth) /*-{

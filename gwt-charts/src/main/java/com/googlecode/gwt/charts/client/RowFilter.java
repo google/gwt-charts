@@ -36,7 +36,8 @@ import java.util.Date;
  */
 public class RowFilter extends JavaScriptObject {
 	/**
-	 * Creates an empty RowFilter
+	 * Creates an empty RowFilter.
+	 * 
 	 * @return a RowFilter object
 	 */
 	public static RowFilter create() {
@@ -44,11 +45,11 @@ public class RowFilter extends JavaScriptObject {
 	}
 
 	protected RowFilter() {
-		// Default constructor
+		// Default constructor.
 	}
 
 	/**
-	 * Sets the column to filter
+	 * Sets the column to filter.
 	 * 
 	 * @param column the column index
 	 */
@@ -62,9 +63,9 @@ public class RowFilter extends JavaScriptObject {
 	 * 
 	 * @param maxValue
 	 */
-	public final native void setMaxValue(double maxValue) /*-{
-		this.maxValue = maxValue;
-	}-*/;
+	public final void setMaxValue(Date maxValue) {
+		setMaxValue(DateHelper.getJsDate(maxValue));
+	}
 
 	/**
 	 * A maximum value for the cell.<br>
@@ -72,7 +73,7 @@ public class RowFilter extends JavaScriptObject {
 	 * 
 	 * @param maxValue
 	 */
-	public final native void setMaxValue(String maxValue) /*-{
+	public final native void setMaxValue(double maxValue) /*-{
 		this.maxValue = maxValue;
 	}-*/;
 
@@ -92,7 +93,7 @@ public class RowFilter extends JavaScriptObject {
 	 * 
 	 * @param maxValue
 	 */
-	public final native void setMaxValue(TimeOfDay maxValue) /*-{
+	public final native void setMaxValue(String maxValue) /*-{
 		this.maxValue = maxValue;
 	}-*/;
 
@@ -102,18 +103,8 @@ public class RowFilter extends JavaScriptObject {
 	 * 
 	 * @param maxValue
 	 */
-	public final void setMaxValue(Date maxValue) {
-		setMaxValue(DateHelper.getJsDate(maxValue));
-	}
-
-	/**
-	 * A minimum value for the cell.<br>
-	 * The cell value in the specified column must be greater than or equal to this value.
-	 * 
-	 * @param minValue
-	 */
-	public final native void setMinValue(double minValue) /*-{
-		this.minValue = minValue;
+	public final native void setMaxValue(TimeOfDay maxValue) /*-{
+		this.maxValue = maxValue;
 	}-*/;
 
 	/**
@@ -125,6 +116,16 @@ public class RowFilter extends JavaScriptObject {
 	public final void setMinValue(Date minValue) {
 		setMinValue(DateHelper.getJsDate(minValue));
 	}
+
+	/**
+	 * A minimum value for the cell.<br>
+	 * The cell value in the specified column must be greater than or equal to this value.
+	 * 
+	 * @param minValue
+	 */
+	public final native void setMinValue(double minValue) /*-{
+		this.minValue = minValue;
+	}-*/;
 
 	/**
 	 * A minimum value for the cell.<br>
@@ -162,9 +163,9 @@ public class RowFilter extends JavaScriptObject {
 	 * 
 	 * @param value the exact value to match
 	 */
-	public final native void setValue(double value) /*-{
-		this.value = value;
-	}-*/;
+	public final void setValue(Date value) {
+		setValue(DateHelper.getJsDate(value));
+	}
 
 	/**
 	 * A exact value for the cell.<br>
@@ -172,9 +173,9 @@ public class RowFilter extends JavaScriptObject {
 	 * 
 	 * @param value the exact value to match
 	 */
-	public final void setValue(Date value) {
-		setValue(DateHelper.getJsDate(value));
-	}
+	public final native void setValue(double value) /*-{
+		this.value = value;
+	}-*/;
 
 	/**
 	 * A exact value for the cell.<br>

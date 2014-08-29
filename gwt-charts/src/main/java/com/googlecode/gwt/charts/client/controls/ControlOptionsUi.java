@@ -14,10 +14,13 @@ package com.googlecode.gwt.charts.client.controls;
 
 import com.google.gwt.core.client.JavaScriptObject;
 
+/**
+ * Common UI configuration for a {@link ControlWrapper}.
+ */
 public class ControlOptionsUi extends JavaScriptObject {
 
 	protected ControlOptionsUi() {
-		// Default constructor
+		// Default constructor.
 	}
 
 }

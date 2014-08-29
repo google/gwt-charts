@@ -41,7 +41,8 @@ public class AnnotationChart extends ChartWidget<AnnotationChartOptions> {
 	}
 
 	/**
-	 * Adds an handler that listens for range change events
+	 * Adds an handler that listens for range change events.
+	 * 
 	 * @param handler the class to call when the event is fired
 	 * @return the handler reference
 	 */
@@ -50,7 +51,8 @@ public class AnnotationChart extends ChartWidget<AnnotationChartOptions> {
 	}
 
 	/**
-	 * Adds an handler that listens for ready events
+	 * Adds an handler that listens for ready events.
+	 * 
 	 * @param handler the class to call when the event is fired
 	 * @return the handler reference
 	 */
@@ -59,7 +61,8 @@ public class AnnotationChart extends ChartWidget<AnnotationChartOptions> {
 	}
 
 	/**
-	 * Adds an handler that listens for select events
+	 * Adds an handler that listens for select events.
+	 * 
 	 * @param handler the class to call when the event is fired
 	 * @return the handler reference
 	 */

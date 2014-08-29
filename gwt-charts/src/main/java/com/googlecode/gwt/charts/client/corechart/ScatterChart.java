@@ -25,7 +25,7 @@ import com.googlecode.gwt.charts.client.DataSource;
 public class ScatterChart extends CoreChartWidget<ScatterChartOptions> {
 
 	/**
-	 * Creates a new chart widget
+	 * Creates a new chart widget.
 	 */
 	public ScatterChart() {
 		super();

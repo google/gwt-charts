@@ -48,7 +48,7 @@ public class TreeMap extends ChartWidget<TreeMapOptions> {
 	}
 
 	/**
-	 * Adds an handler that listens for mouse out events
+	 * Adds an handler that listens for mouse out events.
 	 * 
 	 * @param handler the class to call when the event is fired
 	 * @return the handler reference
@@ -58,7 +58,7 @@ public class TreeMap extends ChartWidget<TreeMapOptions> {
 	}
 
 	/**
-	 * Adds an handler that listens for mouse over events
+	 * Adds an handler that listens for mouse over events.
 	 * 
 	 * @param handler the class to call when the event is fired
 	 * @return the handler reference
@@ -68,7 +68,7 @@ public class TreeMap extends ChartWidget<TreeMapOptions> {
 	}
 
 	/**
-	 * Adds an handler that listens for ready events
+	 * Adds an handler that listens for ready events.
 	 * 
 	 * @param handler the class to call when the event is fired
 	 * @return the handler reference
@@ -78,7 +78,7 @@ public class TreeMap extends ChartWidget<TreeMapOptions> {
 	}
 
 	/**
-	 * Adds an handler that listens for rollup events
+	 * Adds an handler that listens for rollup events.
 	 * 
 	 * @param handler the class to call when the event is fired
 	 * @return the handler reference
@@ -88,7 +88,7 @@ public class TreeMap extends ChartWidget<TreeMapOptions> {
 	}
 
 	/**
-	 * Adds an handler that listens for select events
+	 * Adds an handler that listens for select events.
 	 * 
 	 * @param handler the class to call when the event is fired
 	 * @return the handler reference

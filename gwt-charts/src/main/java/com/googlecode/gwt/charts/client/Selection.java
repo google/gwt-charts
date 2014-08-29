@@ -20,7 +20,7 @@ import com.google.gwt.core.client.JavaScriptObject;
  */
 public class Selection extends JavaScriptObject {
 	/**
-	 * Creates an empty selection
+	 * Creates an empty selection.
 	 * 
 	 * @return a new Selection
 	 */
@@ -30,7 +30,7 @@ public class Selection extends JavaScriptObject {
 	}
 
 	/**
-	 * Creates a new selection with row and column selection
+	 * Creates a new selection with row and column selection.
 	 * 
 	 * @param row the row index
 	 * @param column the column index
@@ -55,7 +55,21 @@ public class Selection extends JavaScriptObject {
 	}
 
 	/**
-	 * Returns the column index for this selection
+	 * Clears the column index for this selection.
+	 */
+	public final native void clearColumn() /*-{
+		this.column = null;
+	}-*/;
+
+	/**
+	 * Clears the row index for this selection.
+	 */
+	public final native void clearRow() /*-{
+		this.row = null;
+	}-*/;
+
+	/**
+	 * Returns the column index for this selection.
 	 * 
 	 * @return the column index
 	 */
@@ -64,7 +78,7 @@ public class Selection extends JavaScriptObject {
 	}-*/;
 
 	/**
-	 * Returns the row index for this selection
+	 * Returns the row index for this selection.
 	 * 
 	 * @return the row index
 	 */
@@ -73,7 +87,7 @@ public class Selection extends JavaScriptObject {
 	}-*/;
 
 	/**
-	 * Sets the column index for this selection
+	 * Sets the column index for this selection.
 	 * 
 	 * @param column the column index
 	 */
@@ -82,25 +96,11 @@ public class Selection extends JavaScriptObject {
 	}-*/;
 
 	/**
-	 * Sets the row index for this selection
+	 * Sets the row index for this selection.
 	 * 
 	 * @param row the column index
 	 */
 	public final native void setRow(int row) /*-{
 		this.row = row;
-	}-*/;
-
-	/**
-	 * Clears the column index for this selection
-	 */
-	public final native void clearColumn() /*-{
-		this.column = null;
-	}-*/;
-
-	/**
-	 * Clears the row index for this selection
-	 */
-	public final native void clearRow() /*-{
-		this.row = null;
 	}-*/;
 }

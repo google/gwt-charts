@@ -14,6 +14,9 @@ package com.googlecode.gwt.charts.client.event;
 
 import com.googlecode.gwt.charts.client.Properties;
 
+/**
+ * An event handler for {@link CollapseEvent}.
+ */
 public abstract class CollapseHandler implements EventHandler {
 
 	@Override
@@ -26,6 +29,10 @@ public abstract class CollapseHandler implements EventHandler {
 		return ErrorEvent.NAME;
 	}
 
+	/**
+	 * On event fired.
+	 * 
+	 * @param event
+	 */
 	public abstract void onCollapse(CollapseEvent event);
-
 }

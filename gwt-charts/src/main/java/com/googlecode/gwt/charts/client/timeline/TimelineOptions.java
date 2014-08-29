@@ -27,7 +27,7 @@ import com.googlecode.gwt.charts.client.util.ArrayHelper;
  */
 public class TimelineOptions extends Options {
 	/**
-	 * Default constructor
+	 * Default constructor.
 	 * 
 	 * @return a new object instance
 	 */
@@ -69,6 +69,24 @@ public class TimelineOptions extends Options {
 	}-*/;
 
 	/**
+	 * Specifies the bar label text style.
+	 * 
+	 * @param barLabelStyle
+	 */
+	public final native void setBarLabelStyle(TextStyle barLabelStyle) /*-{
+		this.timeline.barLabelStyle = barLabelStyle;
+	}-*/;
+
+	/**
+	 * If set to true, colors every bar on the row the same. The default is to use one color per bar label.
+	 * 
+	 * @param colorByRowLabel default is false
+	 */
+	public final native void setColorByRowLabel(boolean colorByRowLabel) /*-{
+		this.timeline.colorByRowLabel = colorByRowLabel;
+	}-*/;
+
+	/**
 	 * The colors to use for the chart lines and labels.
 	 * 
 	 * @param colors an array where each element is a string in a valid HTML color format.
@@ -99,24 +117,6 @@ public class TimelineOptions extends Options {
 	}-*/;
 
 	/**
-	 * Specifies the bar label text style.
-	 * 
-	 * @param barLabelStyle
-	 */
-	public final native void setBarLabelStyle(TextStyle barLabelStyle) /*-{
-		this.timeline.barLabelStyle = barLabelStyle;
-	}-*/;
-
-	/**
-	 * If set to true, colors every bar on the row the same. The default is to use one color per bar label.
-	 * 
-	 * @param colorByRowLabel default is false
-	 */
-	public final native void setColorByRowLabel(boolean colorByRowLabel) /*-{
-		this.timeline.colorByRowLabel = colorByRowLabel;
-	}-*/;
-
-	/**
 	 * If set to false, creates one row for every dataTable entry. The default is to collect bars with the same row
 	 * label into one row.
 	 * 
@@ -127,7 +127,7 @@ public class TimelineOptions extends Options {
 	}-*/;
 
 	/**
-	 * Specifies the row label text style
+	 * Specifies the row label text style.
 	 * 
 	 * @param rowLabelStyle
 	 */

@@ -31,7 +31,7 @@ import com.googlecode.gwt.charts.client.util.ArrayHelper;
  */
 public class BarChartOptions extends CoreOptions {
 	/**
-	 * Default constructor
+	 * Default constructor.
 	 * 
 	 * @return a new object instance
 	 */
@@ -52,7 +52,7 @@ public class BarChartOptions extends CoreOptions {
 	}-*/;
 
 	/**
-	 * Sets the bar options, currently only width
+	 * Sets the bar options, currently only width.
 	 * 
 	 * @param bar an object defining bar options
 	 */
@@ -73,7 +73,7 @@ public class BarChartOptions extends CoreOptions {
 	}-*/;
 
 	/**
-	 * Sets diff chart options
+	 * Sets diff chart options.
 	 * 
 	 * @param diff
 	 */
@@ -176,7 +176,7 @@ public class BarChartOptions extends CoreOptions {
 	}
 
 	/**
-	 * Sets series options by index for describing the format of the corresponding series in the chart
+	 * Sets series options by index for describing the format of the corresponding series in the chart.
 	 * 
 	 * @param index the series index
 	 * @param series an object definining the series format
@@ -189,7 +189,7 @@ public class BarChartOptions extends CoreOptions {
 	}-*/;
 
 	/**
-	 * Sets a trendline by index
+	 * Sets a trendline by index.
 	 * 
 	 * @param index the data index
 	 * @param trendline an object definining the trendline format

@@ -14,16 +14,29 @@ package com.googlecode.gwt.charts.client.event;
 
 import com.googlecode.gwt.charts.client.Properties;
 
+/**
+ * Fired when the user navigates back up the tree, typically by right-clicking. The row property passed into the event
+ * handler is the row of the node that the user is navigating from, not the row the user is navigating to.
+ */
 public class RollUpEvent extends Event {
 	/**
-	 * The event name
+	 * The event name.
 	 */
 	public static String NAME = "rollup";
 
+	/**
+	 * Creates a new event.
+	 * 
+	 * @param properties
+	 */
 	public RollUpEvent(Properties properties) {
 		super(NAME, properties);
 	}
 
+	/**
+	 * Returns the row of the node that the user is navigating from.
+	 * @return a row index
+	 */
 	public int getRow() {
 		return (int) properties.getNumber("row");
 	}

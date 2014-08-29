@@ -14,6 +14,9 @@ package com.googlecode.gwt.charts.client.event;
 
 import com.googlecode.gwt.charts.client.Properties;
 
+/**
+ * An event handler for {@link RegionClickEvent}.
+ */
 public abstract class RegionClickHandler implements EventHandler {
 
 	@Override
@@ -26,6 +29,10 @@ public abstract class RegionClickHandler implements EventHandler {
 		return RegionClickEvent.NAME;
 	}
 
+	/**
+	 * On event fired.
+	 * 
+	 * @param event
+	 */
 	public abstract void onRegionClick(RegionClickEvent event);
-
 }

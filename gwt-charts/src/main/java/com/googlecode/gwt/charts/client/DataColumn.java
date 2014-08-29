@@ -20,7 +20,7 @@ import com.google.gwt.core.client.JavaScriptObject;
 public class DataColumn extends JavaScriptObject {
 
 	/**
-	 * Default static constructor
+	 * Default static constructor.
 	 * 
 	 * @param type data type of the data in the column.
 	 * 
@@ -33,7 +33,7 @@ public class DataColumn extends JavaScriptObject {
 	}
 
 	/**
-	 * Default static constructor
+	 * Default static constructor.
 	 * 
 	 * @param type data type of the data in the column.
 	 * @param role a role for the column

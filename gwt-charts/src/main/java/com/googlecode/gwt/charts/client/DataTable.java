@@ -17,6 +17,9 @@ import com.google.gwt.core.client.JsArray;
 import com.google.gwt.core.client.JsArrayInteger;
 import com.google.gwt.core.client.JsArrayMixed;
 
+import com.googlecode.gwt.charts.client.util.ArrayHelper;
+import com.googlecode.gwt.charts.client.util.DateHelper;
+
 import java.util.Date;
 
 /**
@@ -156,6 +159,18 @@ public class DataTable extends DataSource {
 	public final native <E extends JsArrayMixed> int addRow(E cellArray) /*-{
 		return this.addRow(cellArray);
 	}-*/;
+
+	/**
+	 * Adds a new row to the data table.
+	 * 
+	 * @param cellArray A row object, specifying the data for the new row. This parameter is an array of cell values: if
+	 *        you only want to specify a value for a cell, just give the cell value (e.g., 55, 'hello');
+	 * @return the index of the new row
+	 * @see DataCell
+	 */
+	public final int addRow(Object... cellArray) {
+		return this.addRow(ArrayHelper.createArray(cellArray));
+	}
 
 	/**
 	 * Adds emptys row to the end of the table.
@@ -408,9 +423,9 @@ public class DataTable extends DataSource {
 	 * @param columnIndex should be a number greater than or equal to zero, and less than the number of columns
 	 * @param value the value assigned to the specified cell
 	 */
-	public final native void setCell(int rowIndex, int columnIndex, Date value) /*-{
-		this.setCell(rowIndex, columnIndex, @com.googlecode.gwt.charts.client.util.DateHelper::getJsDate(Ljava/util/Date;) (value));
-	}-*/;
+	public final void setCell(int rowIndex, int columnIndex, Date value) {
+		this.setCell(rowIndex, columnIndex, DateHelper.getJsDate(value));
+	}
 
 	/**
 	 * Sets the value and formatted value of a cell.
@@ -420,9 +435,9 @@ public class DataTable extends DataSource {
 	 * @param value the value assigned to the specified cell
 	 * @param formattedValue
 	 */
-	public final native void setCell(int rowIndex, int columnIndex, Date value, String formattedValue) /*-{
-		this.setCell(rowIndex, columnIndex, @com.googlecode.gwt.charts.client.util.DateHelper::getJsDate(Ljava/util/Date;) (value), formattedValue);
-	}-*/;
+	public final void setCell(int rowIndex, int columnIndex, Date value, String formattedValue) {
+		this.setCell(rowIndex, columnIndex, DateHelper.getJsDate(value), formattedValue);
+	}
 
 	/**
 	 * Sets the value, formatted value and properties of a cell.
@@ -433,10 +448,9 @@ public class DataTable extends DataSource {
 	 * @param formattedValue is a string with the value formatted as a string
 	 * @param properties is an Object (a name/value map) with additional properties for this cell
 	 */
-	public final native void setCell(int rowIndex, int columnIndex, Date value, String formattedValue,
-			Properties properties) /*-{
-		this.setCell(rowIndex, columnIndex, @com.googlecode.gwt.charts.client.util.DateHelper::getJsDate(Ljava/util/Date;) (value), formattedValue, properties);
-	}-*/;
+	public final void setCell(int rowIndex, int columnIndex, Date value, String formattedValue, Properties properties) {
+		this.setCell(rowIndex, columnIndex, DateHelper.getJsDate(value), formattedValue, properties);
+	}
 
 	/**
 	 * Sets the value of a cell.
@@ -607,10 +621,9 @@ public class DataTable extends DataSource {
 	 * @param name is a string with the property name
 	 * @param value is a value to assign to the specified named property of the specified cell
 	 */
-	public final native void setColumnProperty(int columnIndex, String name, Date value) /*-{
-		this.setColumnProperty(columnIndex, name,
-				@com.googlecode.gwt.charts.client.util.DateHelper::getJsDate(Ljava/util/Date;)(value));
-	}-*/;
+	public final void setColumnProperty(int columnIndex, String name, Date value) {
+		this.setColumnProperty(columnIndex, name, DateHelper.getJsDate(value));
+	}
 
 	/**
 	 * Sets a cell property. Some visualizations support row, column, or cell properties to modify their display or
@@ -699,10 +712,9 @@ public class DataTable extends DataSource {
 	 * @param name is a string with the property name
 	 * @param value is a value to assign to the specified named property of the specified cell
 	 */
-	public final native void setProperty(int rowIndex, int columnIndex, String name, Date value) /*-{
-		this.setProperty(rowIndex, columnIndex, name,
-				@com.googlecode.gwt.charts.client.util.DateHelper::getJsDate(Ljava/util/Date;)(value));
-	}-*/;
+	public final void setProperty(int rowIndex, int columnIndex, String name, Date value) {
+		this.setProperty(rowIndex, columnIndex, name, DateHelper.getJsDate(value));
+	}
 
 	/**
 	 * Sets a cell property. Some visualizations support row, column, or cell properties to modify their display or
@@ -775,10 +787,9 @@ public class DataTable extends DataSource {
 	 * @param name is a string with the property name
 	 * @param value is a value to assign to the specified named property of the specified cell
 	 */
-	public final native void setRowProperty(int rowIndex, String name, Date value) /*-{
-		this.setRowProperty(rowIndex, name,
-				@com.googlecode.gwt.charts.client.util.DateHelper::getJsDate(Ljava/util/Date;)(value));
-	}-*/;
+	public final void setRowProperty(int rowIndex, String name, Date value) {
+		this.setRowProperty(rowIndex, name, DateHelper.getJsDate(value));
+	}
 
 	/**
 	 * Sets a cell property. Some visualizations support row, column, or cell properties to modify their display or
@@ -845,10 +856,9 @@ public class DataTable extends DataSource {
 	 * @param name is a string with the property name
 	 * @param value is a value to assign to the specified named property of the specified table
 	 */
-	public final native void setTableProperty(String name, Date value) /*-{
-		this.setTableProperty(name,
-				@com.googlecode.gwt.charts.client.util.DateHelper::getJsDate(Ljava/util/Date;)(value));
-	}-*/;
+	public final void setTableProperty(String name, Date value) {
+		this.setTableProperty(name, DateHelper.getJsDate(value));
+	}
 
 	/**
 	 * Sets a cell property. Some visualizations support row, column, or cell properties to modify their display or
@@ -919,9 +929,9 @@ public class DataTable extends DataSource {
 	 * @see #setProperty(int, int, String, String)
 	 * @see #setProperties(int, int, Properties)
 	 */
-	public final native void setValue(int rowIndex, int columnIndex, Date value) /*-{
-		this.setValue(rowIndex, columnIndex, @com.googlecode.gwt.charts.client.util.DateHelper::getJsDate(Ljava/util/Date;) (value));
-	}-*/;
+	public final void setValue(int rowIndex, int columnIndex, Date value) {
+		this.setValue(rowIndex, columnIndex, DateHelper.getJsDate(value));
+	}
 
 	/**
 	 * Sets the value of a cell. In addition to overwriting any existing cell value, this method will also clear out any
@@ -1067,6 +1077,23 @@ public class DataTable extends DataSource {
 
 	private final native void insertColumn(int columnIndex, String type, String label, String id) /*-{
 		this.insertColumn(columnIndex, type, label, id);
+	}-*/;
+
+	private final native void setCell(int rowIndex, int columnIndex, JavaScriptObject value) /*-{
+		this.setCell(rowIndex, columnIndex, value);
+	}-*/;
+
+	private final native void setCell(int rowIndex, int columnIndex, JavaScriptObject value, String formattedValue) /*-{
+		this.setCell(rowIndex, columnIndex, value, formattedValue);
+	}-*/;
+
+	private final native void setCell(int rowIndex, int columnIndex, JavaScriptObject value, String formattedValue,
+			Properties properties) /*-{
+		this.setCell(rowIndex, columnIndex, value, formattedValue, properties);
+	}-*/;
+
+	private final native void setValue(int rowIndex, int columnIndex, JavaScriptObject value) /*-{
+		this.setValue(rowIndex, columnIndex, value);
 	}-*/;
 
 }

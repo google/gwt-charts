@@ -14,6 +14,9 @@ package com.googlecode.gwt.charts.client.event;
 
 import com.googlecode.gwt.charts.client.Properties;
 
+/**
+ * An event handler for {@link AnimationFinishEvent}.
+ */
 public abstract class AnimationFinishHandler implements EventHandler {
 
 	@Override
@@ -26,6 +29,10 @@ public abstract class AnimationFinishHandler implements EventHandler {
 		return AnimationFinishEvent.NAME;
 	}
 
+	/**
+	 * On event fired.
+	 * 
+	 * @param event
+	 */
 	public abstract void onAnimationFinish(AnimationFinishEvent event);
-
 }

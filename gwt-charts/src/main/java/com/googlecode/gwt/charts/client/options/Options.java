@@ -15,11 +15,11 @@ package com.googlecode.gwt.charts.client.options;
 import com.google.gwt.core.client.JavaScriptObject;
 
 /**
- * Common options for all charts
+ * Common options for all charts.
  */
 public abstract class Options extends JavaScriptObject {
 	/**
-	 * Default constructor
+	 * Default constructor.
 	 * 
 	 * @return a new object instance
 	 */
@@ -31,7 +31,7 @@ public abstract class Options extends JavaScriptObject {
 	}
 
 	/**
-	 * Sets the height
+	 * Sets the height.
 	 * 
 	 * @param height value in pixels
 	 */
@@ -40,7 +40,7 @@ public abstract class Options extends JavaScriptObject {
 	}-*/;
 
 	/**
-	 * Sets the width
+	 * Sets the width.
 	 * 
 	 * @param width value in pixels
 	 */
