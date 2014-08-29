@@ -1,8 +1,5 @@
 package com.googlecode.gwt.charts.showcase.client.controls;
 
-import java.util.Date;
-
-import com.google.gwt.core.client.JsDate;
 import com.google.gwt.dom.client.Style.Unit;
 import com.google.gwt.user.client.ui.DockLayoutPanel;
 import com.googlecode.gwt.charts.client.ChartLoader;
@@ -21,6 +18,7 @@ import com.googlecode.gwt.charts.client.corechart.LineChartOptions;
 import com.googlecode.gwt.charts.client.options.ChartArea;
 import com.googlecode.gwt.charts.client.options.Legend;
 import com.googlecode.gwt.charts.client.options.LegendPosition;
+import com.googlecode.gwt.charts.showcase.client.util.DateUtils;
 
 public class ChartRangeFilterExample extends DockLayoutPanel {
 	private Dashboard dashboard;
@@ -84,8 +82,8 @@ public class ChartRangeFilterExample extends DockLayoutPanel {
 		chartRangeFilterUi.setMinRangeSize(2 * 24 * 60 * 60 * 1000); // 2 days in milliseconds
 		chartRangeFilterOptions.setUi(chartRangeFilterUi);
 		ChartRangeFilterStateRange stateRange = ChartRangeFilterStateRange.create();
-		stateRange.setStart(new Date((long) JsDate.create(2012, 2, 9).getTime()));
-		stateRange.setEnd(new Date((long) JsDate.create(2012, 3, 20).getTime()));
+		stateRange.setStart(DateUtils.create(2012, 2, 9));
+		stateRange.setEnd(DateUtils.create(2012, 3, 20));
 		ChartRangeFilterState controlState = ChartRangeFilterState.create();
 		controlState.setRange(stateRange);
 		numberRangeFilter.setState(controlState);
@@ -114,8 +112,7 @@ public class ChartRangeFilterExample extends DockLayoutPanel {
 			low = Math.min(open, close) - (Math.cos(day * 1.7) + 1) * 15;
 			low = Math.max(0, low);
 			high = Math.max(open, close) + (Math.cos(day * 1.3) + 1) * 15;
-			Date date = new Date((long) JsDate.create(2012, 1, day).getTime());
-			dataTable.setValue(day, 0, date);
+			dataTable.setValue(day, 0, DateUtils.create(2012, 1, day));
 			dataTable.setValue(day, 1, Math.round(high));
 		}
 
