@@ -165,7 +165,7 @@ public class ApiLoader {
 	 * Called back when the jsapi is finished loaded. It must kick of any API
 	 * loads that have been queued while waiting on jsapi to finish loading.
 	 */
-	private void onLoadCallback() {
+	protected void onLoadCallback() {
 		loaded = true;
 		for (Runnable r : queuedApiLoads) {
 			r.run();

@@ -85,7 +85,7 @@ public class DataColumn extends JavaScriptObject {
 				p.set("role", role);
 			}
 		}
-		setP(p);
+		setProperties(p);
 	}
 
 	/**
