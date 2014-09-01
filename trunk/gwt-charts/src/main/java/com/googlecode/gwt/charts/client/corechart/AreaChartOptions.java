@@ -15,12 +15,14 @@ package com.googlecode.gwt.charts.client.corechart;
 import com.google.gwt.core.client.JsArray;
 import com.google.gwt.core.client.JsArrayInteger;
 
+import com.googlecode.gwt.charts.client.DataColumn;
 import com.googlecode.gwt.charts.client.options.AggregationTarget;
 import com.googlecode.gwt.charts.client.options.Annotations;
 import com.googlecode.gwt.charts.client.options.CoreOptions;
 import com.googlecode.gwt.charts.client.options.Crosshair;
 import com.googlecode.gwt.charts.client.options.Explorer;
 import com.googlecode.gwt.charts.client.options.FocusTarget;
+import com.googlecode.gwt.charts.client.options.Interval;
 import com.googlecode.gwt.charts.client.options.Orientation;
 import com.googlecode.gwt.charts.client.options.PointShape;
 import com.googlecode.gwt.charts.client.options.PointShapeType;
@@ -139,6 +141,28 @@ public class AreaChartOptions extends CoreOptions {
 	public final void setFocusTarget(FocusTarget focusTarget) {
 		setFocusTarget(focusTarget.getName());
 	}
+
+	/**
+	 * Sets interval options for a given column.
+	 * 
+	 * @param id the column identifier as defined in {@link DataColumn}.
+	 * @param interval an object containing interval settings
+	 */
+	public final native void setInterval(String id, Interval interval) /*-{
+		if (!this.interval) {
+			this.interval = {};
+		}
+		this.interval[id] = interval;
+	}-*/;
+
+	/**
+	 * Sets interval options all columns.
+	 * 
+	 * @param interval an object containing interval settings
+	 */
+	public final native void setIntervals(Interval interval) /*-{
+		this.intervals = interval;
+	}-*/;
 
 	/**
 	 * Stacks or unstacks series elements.
