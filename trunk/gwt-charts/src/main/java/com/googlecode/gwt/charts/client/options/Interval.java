@@ -28,6 +28,13 @@ public class Interval extends JavaScriptObject {
 		return createObject().cast();
 	}
 
+	/**
+	 * Constructor with a defined style.
+	 * 
+	 * @param style
+	 * 
+	 * @return a new object
+	 */
 	public static Interval create(IntervalStyle style) {
 		Interval interval = createObject().cast();
 		interval.setStyle(style);
@@ -37,6 +44,11 @@ public class Interval extends JavaScriptObject {
 	protected Interval() {
 	}
 
+	/**
+	 * Sets the interval bar width.
+	 * 
+	 * @param barWidth
+	 */
 	public final native void setBarWidth(double barWidth) /*-{
 		this.barWidth = barWidth;
 	}-*/;
@@ -59,6 +71,11 @@ public class Interval extends JavaScriptObject {
 		setCurveType(curveType.getName());
 	}
 
+	/**
+	 * Sets the interval style.
+	 * 
+	 * @param style
+	 */
 	public final void setStyle(IntervalStyle style) {
 		setStyle(style.getName());
 	}
