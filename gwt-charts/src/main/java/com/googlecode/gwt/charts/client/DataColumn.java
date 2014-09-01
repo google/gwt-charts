@@ -47,6 +47,23 @@ public class DataColumn extends JavaScriptObject {
 		return dataColumn;
 	}
 
+	/**
+	 * Default static constructor.
+	 * 
+	 * @param type data type of the data in the column.
+	 * @param role a role for the column
+	 * @param id an id for the column
+	 * 
+	 * @return a new object
+	 */
+	public static DataColumn create(ColumnType type, RoleType role, String id) {
+		DataColumn dataColumn = createObject().cast();
+		dataColumn.setType(type);
+		dataColumn.setRole(role);
+		dataColumn.setId(id);
+		return dataColumn;
+	}
+
 	protected DataColumn() {
 	}
 
