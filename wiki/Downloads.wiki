@@ -1,0 +1,5 @@
+#summary Downloads
+
+|| *Filename* || *Summary* || *Release Date* || *Size* ||
+|| [http://gwt-charts.googlecode.com/svn/site/download/gwt-charts-0.9.10.jar gwt-charts-0.9.10.jar] || GWT Charts 0.9.10 || September 3, 2014 || 540KB ||
+|| [http://gwt-charts.googlecode.com/svn/site/download/gwt-charts-0.9.9.jar gwt-charts-0.9.9.jar] || GWT Charts 0.9.9 || December 6, 2012 || 376KB ||
