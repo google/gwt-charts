@@ -4,8 +4,8 @@
 = Getting started with GWT Charts =
 
 == Requirements ==
-  * Java 1.6 or above
-  * GWT 2.x (2.4 preferred)
+  * Java 1.7 or above
+  * GWT 2.x (2.6 preferred)
 
 == Getting the code ==
 
@@ -21,7 +21,7 @@ Just add the following dependency to your pom.xml:
 <dependency>
     <groupId>com.googlecode.gwt-charts</groupId>
     <artifactId>gwt-charts</artifactId>
-    <version>0.9.8</version>
+    <version>0.9.10</version>
 </dependency>
 }}}
 
