@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pmd version="4.2.5" timestamp="2014-09-03T11:09:15.338">
+<file name="/home/rgafonso/workspace/gwt-charts-0.9.10/src/main/java/com/googlecode/gwt/charts/client/corechart/AreaChartOptions.java">
+<violation beginline="305" endline="305" begincolumn="35" endcolumn="80" rule="UnusedPrivateMethod" ruleset="Unused Code Rules" package="com.googlecode.gwt.charts.client.corechart" class="AreaChartOptions" method="setLineDashStyle" externalInfoUrl="http://pmd.sourceforge.net/rules/unusedcode.html#UnusedPrivateMethod" priority="3">
+Avoid unused private methods such as 'setLineDashStyle(JsArrayInteger)'.
+</violation>
+</file>
+</pmd>
