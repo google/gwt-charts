@@ -5,4 +5,4 @@
 Currently the best place for documentation is the [https://developers.google.com/chart/interactive/docs/gallery Google Chart Tools Gallery]
 
 You can also browse the Javadoc:
-  * [http://gwt-charts.googlecode.com/svn/site/0.9.8/apidocs/index.html Release 0.9.8]
+  * [http://gwt-charts.googlecode.com/svn/site/0.9.10/apidocs/index.html Release 0.9.10]
