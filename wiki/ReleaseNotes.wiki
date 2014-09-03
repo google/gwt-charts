@@ -8,7 +8,7 @@ Released version 0.9.10.
   * New Features: Trendlines, Intervals, Point Shapes, Stroke Dash, Explorer, Crosshairs
   * Improved Showcase
   * Several bug fixes (see [https://code.google.com/p/gwt-charts/issues/list?can=2&q=milestone=0.9.10 issues])
-
+----
 == December 6, 2012 ==
 Released version 0.9.9.
   * Better support for Data Roles
