@@ -1,6 +1,7 @@
 #summary Table of Contents for the Google Chart Tools Library for GWT
  * [Overview Overview]
  * [GettingStarted Getting Started]
+ * [Downloads Downloads]
  * [Documentation Documentation]
  * [ReleaseNotes Release Notes]
  * [FAQ FAQ]
