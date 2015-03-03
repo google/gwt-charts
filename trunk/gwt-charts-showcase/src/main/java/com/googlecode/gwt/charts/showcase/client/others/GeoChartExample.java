@@ -7,6 +7,7 @@ import com.googlecode.gwt.charts.client.ChartPackage;
 import com.googlecode.gwt.charts.client.ColumnType;
 import com.googlecode.gwt.charts.client.DataTable;
 import com.googlecode.gwt.charts.client.geochart.GeoChart;
+import com.googlecode.gwt.charts.client.geochart.GeoChartColorAxis;
 import com.googlecode.gwt.charts.client.geochart.GeoChartOptions;
 
 public class GeoChartExample extends DockLayoutPanel {
@@ -52,8 +53,10 @@ public class GeoChartExample extends DockLayoutPanel {
 
 		// Set options
 		GeoChartOptions options = GeoChartOptions.create();
-		//GeoChartColorAxis geoChartColorAxis = GeoChartColorAxis.create();
-		options.setDatalessRegionColor("#eeeeaa");
+		GeoChartColorAxis geoChartColorAxis = GeoChartColorAxis.create();
+		geoChartColorAxis.setColors("green", "yellow", "red");
+		options.setColorAxis(geoChartColorAxis);
+		options.setDatalessRegionColor("gray");
 
 		// Draw the chart
 		geoChart.draw(dataTable, options);

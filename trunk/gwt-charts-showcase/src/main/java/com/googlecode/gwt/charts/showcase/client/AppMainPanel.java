@@ -37,6 +37,7 @@ import com.googlecode.gwt.charts.showcase.client.others.AnnotationChartExample;
 import com.googlecode.gwt.charts.showcase.client.others.CalendarExample;
 import com.googlecode.gwt.charts.showcase.client.others.GaugeExample;
 import com.googlecode.gwt.charts.showcase.client.others.GeoChartExample;
+import com.googlecode.gwt.charts.showcase.client.others.IntervalExample;
 import com.googlecode.gwt.charts.showcase.client.others.MapExample;
 import com.googlecode.gwt.charts.showcase.client.others.OrgChartExample;
 import com.googlecode.gwt.charts.showcase.client.others.SankeyExample;
@@ -99,34 +100,35 @@ public class AppMainPanel extends Composite implements ValueChangeHandler<String
 	private SideMenu getSideMenu() {
 		if (sideMenu == null) {
 			sideMenu = new SideMenu();
-			sideMenu.add("Core Charts");
+			sideMenu.add("Charts");
+			sideMenu.add("Annotation", "annotation");
 			sideMenu.add("Area", "area");
 			sideMenu.add("Bar", "bar");
 			sideMenu.add("Bubble", "bubble");
+			sideMenu.add("Calendar", "calendar");
 			sideMenu.add("Candlestick", "candlestick");
 			sideMenu.add("Column", "column");
 			sideMenu.add("Combo", "combo");
+			sideMenu.add("Gauge", "gauge");
+			sideMenu.add("Geo Chart", "geochart");
 			sideMenu.add("Histogram", "histogram");
 			sideMenu.add("Line", "line");
+			sideMenu.add("Map", "map");
+			sideMenu.add("Org Chart", "orgchart");
 			sideMenu.add("Pie", "pie");
+			sideMenu.add("Sankey Diagram", "sankey");
 			sideMenu.add("Scatter", "scatter");
 			sideMenu.add("Stepped Area", "steppedarea");
+			sideMenu.add("Table", "table");
+			sideMenu.add("Timeline", "timeline");
+			sideMenu.add("Tree Map", "treemap");
 			sideMenu.add("Diff Charts");
 			sideMenu.add("Bar", "diffbar");
 			sideMenu.add("Column", "diffcolumn");
 			sideMenu.add("Pie", "diffpie");
 			sideMenu.add("Scatter", "diffscatter");
 			sideMenu.add("Other Charts");
-			sideMenu.add("Annotation", "annotation");
-			sideMenu.add("Calendar", "calendar");
-			sideMenu.add("Gauge", "gauge");
-			sideMenu.add("Geo Chart", "geochart");
-			sideMenu.add("Map", "map");
-			sideMenu.add("Org Chart", "orgchart");
-			sideMenu.add("Sankey Diagram", "sankey");
-			sideMenu.add("Table", "table");
-			sideMenu.add("Timeline", "timeline");
-			sideMenu.add("Tree Map", "treemap");
+			sideMenu.add("Interval", "interval");
 			sideMenu.add("Controls");
 			sideMenu.add("Category Filter", "categoryfilter");
 			sideMenu.add("Chart Range Filter", "chartrangefilter");
@@ -184,6 +186,8 @@ public class AppMainPanel extends Composite implements ValueChangeHandler<String
 			widget = new GaugeExample();
 		} else if (key.equals("geochart")) {
 			widget = new GeoChartExample();
+		} else if (key.equals("interval")) {
+			widget = new IntervalExample();
 		} else if (key.equals("map")) {
 			widget = new MapExample();
 		} else if (key.equals("orgchart")) {
