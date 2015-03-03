@@ -1,4 +1,8 @@
-#Mon Apr 09 16:42:44 BST 2012
 eclipse.preferences.version=1
 encoding//src/main/java=UTF-8
+encoding//src/main/java/com/googlecode/gwt/charts/showcase/client/controls=UTF-8
+encoding//src/main/java/com/googlecode/gwt/charts/showcase/client/corechart=UTF-8
+encoding//src/main/java/com/googlecode/gwt/charts/showcase/client/diffchart=UTF-8
+encoding//src/main/java/com/googlecode/gwt/charts/showcase/client/others=UTF-8
 encoding//src/main/resources=UTF-8
+encoding/<project>=UTF-8
