@@ -254,6 +254,6 @@ public class DataView extends DataSource {
 	 * @return a DataTable representation of this view
 	 */
 	public final native DataTable toDataTable() /*-{
-		this.toDataTable();
+		return this.toDataTable();
 	}-*/;
 }
