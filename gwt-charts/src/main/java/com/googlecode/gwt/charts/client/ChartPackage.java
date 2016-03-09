@@ -68,7 +68,11 @@ public enum ChartPackage {
 	/**
 	 * Exclusive use for treemap charts.
 	 */
-	TREEMAP("treemap");
+	TREEMAP("treemap"),
+	/**
+	 * Exclusive use for motioncharts charts.
+	 */
+	MOTIONCHART("motionchart");
 
 	/**
 	 * Get a ChartPackage by providing its name.

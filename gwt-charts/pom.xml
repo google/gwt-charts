@@ -108,6 +108,10 @@
 						<goals>
 							<goal>jar</goal>
 						</goals>
+						<!-- avoid javdoc error with java 8 -->
+						<configuration>
+							<additionalparam>-Xdoclint:none</additionalparam>
+						</configuration>
 					</execution>
 				</executions>
 			</plugin>

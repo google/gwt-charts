@@ -36,7 +36,7 @@ import java.util.HashMap;
 public abstract class ChartWidget<T extends Options> extends Widget implements RequiresResize {
 	protected ChartObject chartObject;
 	private DataSource data;
-	private Options options;
+	protected T options;
 	private HashMap<HandlerRef, EventHandler> eventMap;
 	private boolean unloaded;
 	private boolean pending;
