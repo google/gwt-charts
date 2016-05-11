@@ -83,7 +83,16 @@ public enum RoleType {
 	 * line and area charts, the segment between two data points is in scope if either endpoint is in scope. Data type:
 	 * boolean, where true means in scope. Default: true
 	 */
-	SCOPE("scope");
+	SCOPE("scope"),
+	/**
+	* Styles certain properties of different aspects of your data.  Those values are: color, opacity, stroke-width,
+	* stroke-color, stroke-opacity, fill-color, and fill-opacity.
+	* 
+	* Data Type: string, where multiple styles can be applied using a 'firstProperty: value; secondProperty: value'
+	* syntax, or set specific styles for bar, line, and point by specifying the type and wrapping the style properties
+	* inside braces (e.g. bar { //properties go here }).
+	*/
+	STYLE("style");
 
 	/**
 	 * Get a RoleType by providing its name.
