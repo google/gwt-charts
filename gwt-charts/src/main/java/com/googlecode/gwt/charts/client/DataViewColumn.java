@@ -58,7 +58,7 @@ public class DataViewColumn extends JavaScriptObject {
 	 */
 	public final native void setCalc(ColumnFunction columnFunction) /*-{
 		this.calc = function(dataTable, row) {
-			columnFunction.@com.googlecode.gwt.charts.client.ColumnFunction::calc(Lcom/googlecode/gwt/charts/client/DataTable;I) (dataTable, row);
+			return columnFunction.@com.googlecode.gwt.charts.client.ColumnFunction::calc(Lcom/googlecode/gwt/charts/client/DataTable;I) (dataTable, row);
 		};
 	}-*/;
 
