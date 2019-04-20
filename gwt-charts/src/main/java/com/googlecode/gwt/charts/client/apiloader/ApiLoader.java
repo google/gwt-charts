@@ -13,163 +13,205 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
+
+/*
+ * Refactored by Satoshi Eguchi on 2019 April 19
+*/
+
 package com.googlecode.gwt.charts.client.apiloader;
 
+import com.google.gwt.core.client.Callback;
 import com.google.gwt.core.client.JavaScriptObject;
-import com.google.gwt.dom.client.Document;
-import com.google.gwt.dom.client.ScriptElement;
+import com.google.gwt.core.client.ScriptInjector;
 import com.google.gwt.user.client.Window;
 
-import java.util.Vector;
+import java.util.Collection;
 
 /**
- * A wrapper for the <a href="https://developers.google.com/loader/">Google Loader/a>.
+ * A wrapper for the <a href="https://developers.google.com/chart/interactive/docs/basic_load_libs">Loader of Google Chart libraries</a>.
  */
-public class ApiLoader {
-	private static String HOSTNAME = "www.google.com";
+public class ApiLoader extends Object {
+	// True if the loader code is already injected.
+	private static boolean alreadyInjected = false;
+
+	private String url = null;
+	private String version = null;
+	private ApiLoaderOptions options = null;
+	private Collection<Runnable> callbacks = null;
+
+	public ApiLoader() {
+		super();
+	}
+
+	/**
+	 * Checks whether the loader code is already injected.
+	 *
+	 * @return true if the code is already injected
+	 */
+	public static boolean isAlreadyInjected() {
+		return alreadyInjected;
+	}
+
+	/**
+	 * Sets the status whether the loader code is already injected.
+	 *
+	 * @param alreadyInjected true if the code is already injected
+	 */
+	protected static void setAlreadyInjected(boolean alreadyInjected) {
+		ApiLoader.alreadyInjected = alreadyInjected;
+	}
+
+	/**
+	 * Gets the URL to the API.
+	 *
+	 * @return the URL to the API
+	 */
+	public String getUrl() {
+		return url;
+	}
+
+	/**
+	 * Sets the URL to the API.
+	 *
+	 * @param url the URL to the API
+	 */
+	public void setUrl(String url) {
+		this.url = url;
+	}
+
+	/**
+	 * Gets the version of the API.
+	 *
+	 * @return the version of the API
+	 */
+	public String getVersion() {
+		return version;
+	}
+
+	/**
+	 * Sets the version of the API.
+	 *
+	 * @param version the version of the API
+	 */
+	public void setVersion(String version) {
+		this.version = version;
+	}
+
+	/**
+	 * Gets the ApiLoaderOptions.
+	 *
+	 * @return the ApiLoaderOptions
+	 */
+	public ApiLoaderOptions getOptions() {
+		return options;
+	}
+
+	/**
+	 * Sets the ApiLoaderOptions.
+	 *
+	 * @param options the ApiLoaderOptions
+	*/
+	public void setOptions(ApiLoaderOptions options) {
+		this.options = options;
+	}
+
+	/**
+	 * Gets the callbacks which are called when a loading process finishes.
+	 *
+	 * @return the callbacks
+	 */
+	public Collection<Runnable> getCallbacks() {
+		return callbacks;
+	}
+
+	/**
+	 * Sets the callbacks which are called when a loading process finished.
+	 *
+	 * @param callbacks the callbacks
+	 */
+	public void setCallbacks(Collection<Runnable> callbacks) {
+		this.callbacks = callbacks;
+	}
+
+	/**
+	 * Wrapper for internal {@link #onLoad()} callback.
+	 *
+	 * @return a native function expression of {@link #onLoad()}
+	 */
+	protected native JavaScriptObject getOnLoadForNative(ApiLoader loader) /*-{
+		return function() {
+					loader.@com.googlecode.gwt.charts.client.apiloader.ApiLoader::onLoad()();
+				};
+	}-*/;
+
+	/**
+	 * Calls native google.charts.load() and google.charts.setOnLoadCallback() functions.
+	 *
+	 * @param version the version of the API to load
+	 * @param options options passed as the 2nd parameter of google.charts.load(), originating from ApiLoaderOptions class
+	 * @param callback the native representation of {@link #onLoad()} method
+	*/
+	protected native void callNativeLoad(String version, JavaScriptObject options, JavaScriptObject callback) /*-{
+		$wnd.google.charts.load(version, options);
+		$wnd.google.charts.setOnLoadCallback(callback);
+	}-*/;
+
+	/**
+	 * The callback invoked when the injection failed.
+	 *
+	 * @param reason the cause of the failure
+	 */
+	protected void onInjectionFailure(Exception reason) {
+		Window.alert("loader code injection failed.");
+	}
+
+	/**
+	 * The callback invoked when the injection of the script element is succeeded.
+	 *
+	 * @param skipped true if the code was already injected and {@link #injectLoaderCode()} method was skipped
+	 */
+	protected void onInjectionSuccess(boolean skipped) {
+		callNativeLoad(version, options, getOnLoadForNative(this));
+	}
+
+	/**
+	 * Injects a script element to the DOM that loads the API Loader main script.
+	 * This method will not be called when the code is already injected.
+	 */
+	protected void injectLoaderCode() {
+		ScriptInjector.fromUrl(getUrl()).setCallback(
+			new Callback<Void, Exception>() {
+				@Override
+				public void onFailure(Exception reason) {
+					onInjectionFailure(reason);
+				}
+
+				@Override
+				public void onSuccess(Void result) {
+					setAlreadyInjected(true);
+					onInjectionSuccess(false);
+				}
+			}
+		).setWindow(ScriptInjector.TOP_WINDOW).inject();
+	}
 
 	/**
 	 * Launches an API load request.
-	 * 
-	 * @param api the name of the API to load
-	 * @param version the API version to load
-	 * @param onLoad a callback that will be invoked when the API is finished
-	 *        loaded. Do not make any calls into the API being loaded until
-	 *        this call returns.
-	 * @param optionalSettings an object containing additional settings.
 	 */
-	public static void loadApi(final String api, final String version, Runnable onLoad,
-			ApiLoaderOptions optionalSettings) {
-		ApiLoader loader = new ApiLoader();
-
-		// Set the onLoad callback into the
-		assert (onLoad != null);
-		ApiLoaderOptions settings = optionalSettings;
-		if (settings == null) {
-			settings = ApiLoaderOptions.create();
-		}
-		settings.setCallback(onLoad);
-		final ApiLoaderOptions copyOfSettings = settings;
-
-		// Define a Runnable that will run the actual load.
-		Runnable apiLoad = new Runnable() {
-
-			@Override
-			public void run() {
-				loadApi(api, version, copyOfSettings);
-			}
-		};
-
-		if (loader.loaded) {
-			// jsapi is finished loading, start the individual API load now.
-			apiLoad.run();
+	public void loadApi() {
+		if (isAlreadyInjected()) {
+			onInjectionSuccess(true);
 		} else {
-			// Defer the load until jsapi is finished.
-			loader.queuedApiLoads.add(apiLoad);
+			injectLoaderCode();
 		}
 	}
 
 	/**
-	 * Wrapper for ApiLoader google.load() native method.
+	 * Called back when the loading process finished.
 	 */
-	private static native void loadApi(String api, String version, JavaScriptObject settings) /*-{
-		$wnd.google.load(api, version, settings);
-	}-*/;
-
-	// NativeCreateCallback already ran, or someone injected the API outside of
-	// this program.
-	private boolean alreadyInjected = false;
-	// Set to true if the init(key) method has been called.
-	private boolean initialized = false;
-
-	// True if the JavaScript __gwt_charts_AjaxLoader_onLoad callback has already run.
-	// This function is registered on the window in createCallback()
-	private boolean loaded = false;
-
-	private Vector<Runnable> queuedApiLoads = new Vector<Runnable>();
-
-	/**
-	 * Initialize the API without specifying a key.
-	 */
-	public ApiLoader() {
-		this(null);
-	}
-
-	/**
-	 * Initialize the API with a supplied key value.<br>
-	 * See https://code.google.com/apis/console
-	 * 
-	 * @param apiKey API key value.
-	 */
-	public ApiLoader(String apiKey) {
-		if (initialized == true) {
-			return;
-		}
-		boolean alreadyLoaded = injectJsApi(apiKey);
-
-		// In IE, the above script can execute immediately if its already in the
-		// cache, so don't touch the loaded variable unless we bypassed loading
-		// the script completely
-		if (alreadyLoaded) {
-			loaded = true;
-		}
-		initialized = true;
-	}
-
-	/**
-	 * Creates a function to be registered for a callback after jsapi loads.
-	 */
-	private native boolean createCallback(ApiLoader loader) /*-{
-		if ($wnd['google'] && $wnd.google['load']) {
-			// The API has already been loaded.
-			return true;
-		}
-		$wnd.__gwt_charts_AjaxLoader_onLoad = function() {
-			loader.@com.googlecode.gwt.charts.client.apiloader.ApiLoader::onLoadCallback()();
-		}
-		// The application must wait for a callback.
-		return false;
-	}-*/;
-
-	/**
-	 * Adds a script element to the DOM that loads the API Loader main script "jsapi".
-	 * 
-	 * @param apiKey
-	 *        Optional API key value (pass null to omit the key). See
-	 *        http://code.google.com/apis/ajaxsearch/signup.html
-	 * @returns <code>true</code> if the API has already been loaded. Otherwise,
-	 *          returns <code>false</code>, meaning that the application should
-	 *          wait for a callback.
-	 */
-	private boolean injectJsApi(String apiKey) {
-		if (alreadyInjected) {
-			return true;
-		}
-		boolean alreadyLoaded = createCallback(this);
-		alreadyInjected = true;
-		if (alreadyLoaded) {
-			return true;
-		}
-		Document doc = Document.get();
-		String key = (apiKey == null) ? "" : ("key=" + apiKey + "&");
-		String protocol = (Window.Location.getProtocol().equals("https:")) ? "https:" : "http:";
-		String src = protocol + "//" + HOSTNAME + "/jsapi?" + key + "callback=__gwt_charts_AjaxLoader_onLoad";
-		ScriptElement script = doc.createScriptElement();
-		script.setSrc(src);
-		script.setType("text/javascript");
-		doc.getBody().appendChild(script);
-		return false;
-	}
-
-	/**
-	 * Called back when the jsapi is finished loaded. It must kick of any API
-	 * loads that have been queued while waiting on jsapi to finish loading.
-	 */
-	protected void onLoadCallback() {
-		loaded = true;
-		for (Runnable r : queuedApiLoads) {
+	protected void onLoad() {
+		for (Runnable r : callbacks) {
 			r.run();
 		}
-		queuedApiLoads.clear();
 	}
 }

@@ -31,18 +31,6 @@ public class ApiLoaderOptions extends JavaScriptObject {
 	}-*/;
 
 	/**
-	 * The function to call once the script has loaded. If using the Auto-loading feature, this must specify a function
-	 * name, not a function reference.
-	 * 
-	 * @param onLoad
-	 */
-	public final native void setCallback(Runnable onLoad) /*-{
-		this.callback = function() {
-			@com.googlecode.gwt.charts.client.apiloader.ExceptionHelper::runProtected(Ljava/lang/Runnable;)(onLoad);
-		}
-	}-*/;
-
-	/**
 	 * The language in which to localize the API's UI controls. This is specified as a ISO639 language code.
 	 * 
 	 * @param language
@@ -59,6 +47,15 @@ public class ApiLoaderOptions extends JavaScriptObject {
 	 */
 	public final native void setNoCss(boolean value) /*-{
 		this.nocss = value;
+	}-*/;
+
+ 	/**
+	 * The mapsApiKey for Geochart and Map Chart.
+	 *
+	 * @param key
+	 */
+	public final native void setMapsApiKey(String key) /*-{
+		this.mapsApiKey = key;
 	}-*/;
 
 	/**
