@@ -51,7 +51,7 @@ public class ChartRangeFilterStateRange extends JavaScriptObject {
 	 * @return range end in number format
 	 */
 	public final native double getEndNumber() /*-{
-		this.end = end;
+		return this.end;
 	}-*/;
 
 	/**
@@ -60,7 +60,7 @@ public class ChartRangeFilterStateRange extends JavaScriptObject {
 	 * @return range end in timeofday format
 	 */
 	public final native TimeOfDay getEndTimeOfDay() /*-{
-		this.end = end;
+		return this.end;
 	}-*/;
 
 	/**
